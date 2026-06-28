@@ -1,32 +1,32 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 const modules = [
-  {
-    id: 1,
-    titre: "Module 1 — Les bases du web",
-    description: "HTML, CSS, JavaScript : tout ce qu'il faut pour démarrer.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600",
-    progression: 100,
-  },
-  {
-    id: 2,
-    titre: "Module 2 — React & Next.js",
-    description: "Crée des applications modernes avec les meilleurs outils.",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600",
-    progression: 0,
-  },
-  {
-    id: 3,
-    titre: "Module 3 — Intelligence Artificielle",
-    description: "Intègre l'IA dans tes projets et automatise tout.",
-    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600",
-    progression: 0,
-  },
+  { id: 1, titre: "Module 1 — Les bases du web", description: "HTML, CSS, JavaScript : tout ce qu'il faut pour démarrer.", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600", progression: 100 },
+  { id: 2, titre: "Module 2 — React & Next.js", description: "Crée des applications modernes avec les meilleurs outils.", image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600", progression: 0 },
+  { id: 3, titre: "Module 3 — Intelligence Artificielle", description: "Intègre l'IA dans tes projets et automatise tout.", image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600", progression: 0 },
 ];
 
 export default function Programme() {
   const [ripples, setRipples] = useState<{ [key: number]: { x: number; y: number; id: number }[] }>({});
+  const [autorise, setAutorise] = useState(false);
+
+  useEffect(() => {
+    const check = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { window.location.href = "/auth"; return; }
+      const { data: profile } = await supabase.from("profiles").select("statut").eq("id", user.id).single();
+      if (!profile || profile.statut !== "accepte") { window.location.href = "/attente"; return; }
+      setAutorise(true);
+    };
+    check();
+  }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>, modId: number) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -38,6 +38,8 @@ export default function Programme() {
       setRipples((prev) => ({ ...prev, [modId]: (prev[modId] || []).filter((r) => r.id !== id) }));
     }, 600);
   };
+
+  if (!autorise) return <main className="min-h-screen bg-white flex items-center justify-center"><p className="text-gray-400">Chargement...</p></main>;
 
   return (
     <main className="min-h-screen bg-white">
