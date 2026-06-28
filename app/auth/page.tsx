@@ -14,6 +14,7 @@ export default function Auth() {
   const [nom, setNom] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -47,7 +48,12 @@ export default function Auth() {
             <input type="text" placeholder="Ton prénom" value={nom} onChange={(e) => setNom(e.target.value)} className="border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-white focus:outline-none focus:border-blue-500" />
           )}
           <input type="email" placeholder="Ton email" value={email} onChange={(e) => setEmail(e.target.value)} className="border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-white focus:outline-none focus:border-blue-500" />
-          <input type="password" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} className="border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-white focus:outline-none focus:border-blue-500" />
+          <div className="relative">
+            <input type={showPassword ? "text" : "password"} placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-white focus:outline-none focus:border-blue-500 pr-12" />
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+              {showPassword ? "🙈" : "👁️"}
+            </button>
+          </div>
           <button onClick={handleSubmit} disabled={loading} className="bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-all disabled:opacity-50">
             {loading ? "Chargement..." : mode === "signup" ? "Faire ma demande" : "Se connecter"}
           </button>

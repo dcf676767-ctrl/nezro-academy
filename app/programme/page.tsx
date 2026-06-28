@@ -26,15 +26,17 @@ const modules = [
 ];
 
 export default function Programme() {
-  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
+  const [ripples, setRipples] = useState<{ [key: number]: { x: number; y: number; id: number }[] }>({});
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, modId: number) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     const id = Date.now();
-    setRipples((prev) => [...prev, { id, x, y }]);
-    setTimeout(() => setRipples((prev) => prev.filter((r) => r.id !== id)), 600);
+    setRipples((prev) => ({ ...prev, [modId]: [...(prev[modId] || []), { x, y, id }] }));
+    setTimeout(() => {
+      setRipples((prev) => ({ ...prev, [modId]: (prev[modId] || []).filter((r) => r.id !== id) }));
+    }, 600);
   };
 
   return (
@@ -53,9 +55,9 @@ export default function Programme() {
         <h2 className="text-2xl font-bold text-gray-900 mb-8">📚 Le Programme</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {modules.map((mod) => (
-            <button key={mod.id} onClick={handleClick}
+            <button key={mod.id} onClick={(e) => handleClick(e, mod.id)}
               className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow text-left">
-              {ripples.map((r) => (
+              {(ripples[mod.id] || []).map((r) => (
                 <span key={r.id} className="absolute rounded-full bg-blue-400/30 pointer-events-none"
                   style={{ left: r.x - 40, top: r.y - 40, width: 80, height: 80, animation: "ripple 0.6s linear" }} />
               ))}
