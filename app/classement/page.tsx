@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
-export default function Membres() {
+export default function Classement() {
   const [membres, setMembres] = useState<any[]>([]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -25,6 +25,8 @@ export default function Membres() {
 
   const logout = async () => { await supabase.auth.signOut(); window.location.replace("/auth"); };
 
+  const medals = ["🥇", "🥈", "🥉"];
+
   return (
     <main className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
@@ -35,9 +37,9 @@ export default function Membres() {
           </div>
           <nav className="flex gap-1">
             <button onClick={() => window.location.href="/programme"} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">Programme</button>
-            <button className="px-4 py-2 rounded-lg text-sm font-medium bg-blue-600 text-white">Membres</button>
+            <button onClick={() => window.location.href="/membres"} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">Membres</button>
             <button onClick={() => window.location.href="/ressources"} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">Ressources</button>
-            <button onClick={() => window.location.href="/classement"} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">Classement</button>
+            <button className="px-4 py-2 rounded-lg text-sm font-medium bg-blue-600 text-white">Classement</button>
           </nav>
         </div>
         <div className="relative">
@@ -52,50 +54,24 @@ export default function Membres() {
           )}
         </div>
       </header>
-      <section className="max-w-6xl mx-auto px-8 py-10 flex gap-8">
-        <div className="flex-1">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">👥 Les Membres</h2>
-          <div className="grid grid-cols-1 gap-3">
-            {membres.map((m) => (
-              <div key={m.id} className="flex items-center gap-4 bg-white border border-gray-200 rounded-2xl p-4">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden flex-shrink-0">
-                  {m.avatar_url ? <img src={m.avatar_url} className="w-12 h-12 object-cover rounded-full" alt="avatar" /> : <span className="text-blue-600 font-bold text-lg">{(m.nom?.[0]||"?").toUpperCase()}</span>}
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">{m.nom || "Membre"}</p>
-                  <p className="text-sm text-gray-400">{m.bio || ""}</p>
-                </div>
+      <section className="max-w-2xl mx-auto px-8 py-10">
+        <h2 className="text-2xl font-bold text-gray-900 mb-8">🏆 Classement</h2>
+        <div className="flex flex-col gap-3">
+          {membres.map((m, i) => (
+            <div key={m.id} className={`flex items-center gap-4 bg-white border rounded-2xl p-4 ${i === 0 ? "border-yellow-300 shadow-md" : "border-gray-200"}`}>
+              <span className="text-2xl w-8 text-center">{medals[i] || `${i+1}`}</span>
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden flex-shrink-0">
+                {m.avatar_url ? <img src={m.avatar_url} className="w-10 h-10 object-cover rounded-full" alt="avatar" /> : <span className="text-blue-600 font-bold">{(m.nom?.[0]||"?").toUpperCase()}</span>}
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="w-72 shrink-0">
-          <div className="bg-white border border-gray-200 rounded-2xl p-6 sticky top-8">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-3">N</div>
-            <h3 className="font-bold text-gray-900 text-lg">Nezro Academy</h3>
-            <p className="text-sm text-gray-500 mt-1 mb-4">La formation pour apprendre à créer et vendre en ligne.</p>
-            <div className="flex gap-4 border-t border-gray-100 pt-4 mb-4">
-              <div className="text-center">
-                <p className="text-xl font-bold text-gray-900">{membres.length}</p>
-                <p className="text-xs text-gray-400">Membres</p>
+              <div className="flex-1">
+                <p className="font-semibold text-gray-900">{m.nom || "Membre"}</p>
               </div>
-              <div className="text-center">
-                <p className="text-xl font-bold text-green-500">12</p>
-                <p className="text-xs text-gray-400">En ligne</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xl font-bold text-gray-900">1</p>
-                <p className="text-xs text-gray-400">Admins</p>
+              <div className="text-right">
+                <p className="font-bold text-blue-600">{Math.floor(Math.random() * 100)}%</p>
+                <p className="text-xs text-gray-400">progression</p>
               </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {membres.slice(0, 8).map(m => (
-                <div key={m.id} className="w-9 h-9 rounded-full bg-blue-100 overflow-hidden flex items-center justify-center">
-                  {m.avatar_url ? <img src={m.avatar_url} className="w-9 h-9 object-cover rounded-full" alt="avatar" /> : <span className="text-blue-600 font-bold text-sm">{(m.nom?.[0]||"?").toUpperCase()}</span>}
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </main>
