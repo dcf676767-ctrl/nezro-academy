@@ -17,6 +17,7 @@ export default function Sidebar({ active }: { active: string }) {
   const [nom, setNom] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
+  const [chatNonLus, setChatNonLus] = useState(0);
 
   useLayoutEffect(() => {
     const p = sessionStorage.getItem("sidebar_profile");
@@ -70,12 +71,14 @@ export default function Sidebar({ active }: { active: string }) {
 
   const links = [
     { href: "/programme", label: "Programme YMA", emoji: "📚" },
+    { href: "/dashboard", label: "Dashboard", emoji: "📊" },
     { href: "/membres", label: "Membres", emoji: "👥" },
     { href: "/ressources", label: "Ressources", emoji: "🛠️" },
     { href: "/classement", label: "Classement", emoji: "🏆" },
     { href: "/calendrier", label: "Calendrier", emoji: "📅" },
     { href: "/assistant", label: "Assistant IA", emoji: "🤖" },
-    { href: "/chat", label: "Chat", emoji: "💬" },
+    { href: "/parametres", label: "Paramètres", emoji: "⚙️" },
+    { href: "/chat", label: "Chat", emoji: "💬", badge: chatNonLus },
   ];
 
   const handleNav = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
@@ -99,6 +102,9 @@ export default function Sidebar({ active }: { active: string }) {
           <button key={l.href} onClick={(e) => handleNav(e, l.href)}
             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative hover:scale-105 active:scale-95 ${active===l.href ? "bg-blue-600 text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
             {l.emoji} {l.label}
+            {(l as any).badge > 0 && (
+              <span className="ml-auto w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">{(l as any).badge > 9 ? "9+" : (l as any).badge}</span>
+            )}
           </button>
         ))}
       </nav>
