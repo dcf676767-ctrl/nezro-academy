@@ -18,9 +18,10 @@ export default function Sidebar({ active }: { active: string }) {
   }, []);
 
   useEffect(() => {
-    let channel: any;
+    let channel: any = null;
+    let actif = true;
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) return;
+      if (!session || !actif) return;
       supabase.from("profiles").select("avatar_url,nom").eq("id", session.user.id).single().then(({ data }) => {
         if (!data) return;
         setAvatarUrl(data.avatar_url||"");
@@ -29,7 +30,12 @@ export default function Sidebar({ active }: { active: string }) {
       });
       supabase.from("profiles").upsert({ id: session.user.id, last_seen: new Date().toISOString() }, { onConflict: "id" });
 
-      channel = supabase.channel(`profile-watch-${session.user.id}`)
+      const nomCanal = `profile-watch-${session.user.id}`;
+      const existant = supabase.getChannels().find((c:any) => c.topic === `realtime:${nomCanal}`);
+      if (existant) supabase.removeChannel(existant);
+
+      if (!actif) return;
+      channel = supabase.channel(nomCanal)
         .on("postgres_changes", { event: "UPDATE", schema: "public", table: "profiles", filter: `id=eq.${session.user.id}` }, (payload: any) => {
           if (payload.new.statut !== "accepte") {
             router.push("/bloque");
@@ -48,7 +54,7 @@ export default function Sidebar({ active }: { active: string }) {
       setStats(s);
       sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
     });
-    return () => { if (channel) supabase.removeChannel(channel); };
+    return () => { actif = false; if (channel) supabase.removeChannel(channel); };
   }, []);
 
   const logout = async () => { await supabase.auth.signOut(); router.push("/auth"); };
