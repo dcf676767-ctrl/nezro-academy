@@ -18,13 +18,19 @@ export default function Classement() {
         setNom(data?.nom || "");
       });
     });
-    supabase.from("profiles").select("*").eq("statut", "accepte").then(({ data }) => {
-      if (data) setMembres(data);
+    supabase.from("profiles").select("*").eq("statut", "accepte").then(async ({ data: membresData }) => {
+      if (!membresData) return;
+      const { data: progData } = await supabase.from("progression").select("*").eq("completed", true);
+      const totalChapitres = 19;
+      const membresAvecProg = membresData.map(m => {
+        const completed = progData?.filter(p => p.user_id === m.id).length || 0;
+        return { ...m, progression: Math.round((completed / totalChapitres) * 100) };
+      }).sort((a, b) => b.progression - a.progression);
+      setMembres(membresAvecProg);
     });
   }, []);
 
   const logout = async () => { await supabase.auth.signOut(); window.location.replace("/auth"); };
-
   const medals = ["🥇", "🥈", "🥉"];
 
   return (
@@ -59,15 +65,18 @@ export default function Classement() {
         <div className="flex flex-col gap-3">
           {membres.map((m, i) => (
             <div key={m.id} className={`flex items-center gap-4 bg-white border rounded-2xl p-4 ${i === 0 ? "border-yellow-300 shadow-md" : "border-gray-200"}`}>
-              <span className="text-2xl w-8 text-center">{medals[i] || `${i+1}`}</span>
+              <span className="text-2xl w-8 text-center">{medals[i] || <span className="text-gray-400 font-bold">{i+1}</span>}</span>
               <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden flex-shrink-0">
                 {m.avatar_url ? <img src={m.avatar_url} className="w-10 h-10 object-cover rounded-full" alt="avatar" /> : <span className="text-blue-600 font-bold">{(m.nom?.[0]||"?").toUpperCase()}</span>}
               </div>
               <div className="flex-1">
                 <p className="font-semibold text-gray-900">{m.nom || "Membre"}</p>
+                <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                  <div className="bg-blue-500 h-1.5 rounded-full" style={{width:`${m.progression}%`}} />
+                </div>
               </div>
               <div className="text-right">
-                <p className="font-bold text-blue-600">{Math.floor(Math.random() * 100)}%</p>
+                <p className="font-bold text-blue-600">{m.progression}%</p>
                 <p className="text-xs text-gray-400">progression</p>
               </div>
             </div>

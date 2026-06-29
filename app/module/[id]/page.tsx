@@ -5,39 +5,39 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
-const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string}[]}} = {
+const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;description:string;lien:string;lienTexte:string}[]}} = {
   1: { titre: "Introduction", chapitres: [
-    { id: 1, titre: "Bienvenue dans la YMA !", duree: "5 min" },
+    { id: 1, titre: "Bienvenue dans la YMA !", duree: "5 min", description: "Bienvenue dans la YouTube Money Academy ! Dans cette vidéo je t'explique tout ce que tu vas apprendre.", lien: "", lienTexte: "" },
   ]},
   2: { titre: "Module 1 — Clip Roblox", chapitres: [
-    { id: 1, titre: "Trouver les bons clips", duree: "10 min" },
-    { id: 2, titre: "Filmer comme un pro", duree: "15 min" },
-    { id: 3, titre: "Rendre le clip viral", duree: "12 min" },
+    { id: 1, titre: "Trouver les bons clips", duree: "10 min", description: "Comment trouver les meilleurs clips Roblox pour tes vidéos.", lien: "", lienTexte: "" },
+    { id: 2, titre: "Filmer comme un pro", duree: "15 min", description: "Les techniques pour filmer des clips de qualité.", lien: "", lienTexte: "" },
+    { id: 3, titre: "Rendre le clip viral", duree: "12 min", description: "Les secrets pour rendre tes clips viraux.", lien: "", lienTexte: "" },
   ]},
   3: { titre: "Module 2 — Montage", chapitres: [
-    { id: 1, titre: "Les bases du montage", duree: "15 min" },
-    { id: 2, titre: "Effets et transitions", duree: "20 min" },
-    { id: 3, titre: "Exporter sa vidéo", duree: "10 min" },
+    { id: 1, titre: "Les bases du montage", duree: "15 min", description: "Les bases du montage vidéo pour débuter.", lien: "", lienTexte: "" },
+    { id: 2, titre: "Effets et transitions", duree: "20 min", description: "Comment ajouter des effets et transitions pro.", lien: "", lienTexte: "" },
+    { id: 3, titre: "Exporter sa vidéo", duree: "10 min", description: "Les bons réglages pour exporter ta vidéo.", lien: "", lienTexte: "" },
   ]},
   4: { titre: "Module 3 — Intelligence Artificielle", chapitres: [
-    { id: 1, titre: "L'IA pour les miniatures", duree: "12 min" },
-    { id: 2, titre: "L'IA pour les titres", duree: "10 min" },
-    { id: 3, titre: "Automatiser avec l'IA", duree: "18 min" },
+    { id: 1, titre: "L'IA pour les miniatures", duree: "12 min", description: "Utilise l'IA pour créer des miniatures qui font cliquer.", lien: "", lienTexte: "" },
+    { id: 2, titre: "L'IA pour les titres", duree: "10 min", description: "Génère des titres optimisés avec l'IA.", lien: "", lienTexte: "" },
+    { id: 3, titre: "Automatiser avec l'IA", duree: "18 min", description: "Automatise ta chaîne YouTube avec l'IA.", lien: "", lienTexte: "" },
   ]},
   5: { titre: "Module 4 — Importation", chapitres: [
-    { id: 1, titre: "Publier sur YouTube", duree: "15 min" },
-    { id: 2, titre: "Publier sur TikTok", duree: "10 min" },
-    { id: 3, titre: "Optimiser ses posts", duree: "12 min" },
+    { id: 1, titre: "Publier sur YouTube", duree: "15 min", description: "Comment bien publier ta vidéo sur YouTube.", lien: "", lienTexte: "" },
+    { id: 2, titre: "Publier sur TikTok", duree: "10 min", description: "Comment publier et optimiser sur TikTok.", lien: "", lienTexte: "" },
+    { id: 3, titre: "Optimiser ses posts", duree: "12 min", description: "Les techniques pour optimiser tes publications.", lien: "", lienTexte: "" },
   ]},
   6: { titre: "Module 5 — Astuces", chapitres: [
-    { id: 1, titre: "Astuce miniatures", duree: "10 min" },
-    { id: 2, titre: "Astuce algorithme", duree: "15 min" },
-    { id: 3, titre: "Astuce monétisation", duree: "12 min" },
+    { id: 1, titre: "Astuce miniatures", duree: "10 min", description: "Mes astuces pour créer des miniatures qui cartonnent.", lien: "", lienTexte: "" },
+    { id: 2, titre: "Astuce algorithme", duree: "15 min", description: "Comment jouer avec l'algorithme YouTube.", lien: "", lienTexte: "" },
+    { id: 3, titre: "Astuce monétisation", duree: "12 min", description: "Comment monétiser ta chaîne rapidement.", lien: "", lienTexte: "" },
   ]},
   7: { titre: "Module 6 — Conseils", chapitres: [
-    { id: 1, titre: "Rester consistant", duree: "10 min" },
-    { id: 2, titre: "Gérer les haters", duree: "8 min" },
-    { id: 3, titre: "Passer au niveau suivant", duree: "15 min" },
+    { id: 1, titre: "Rester consistant", duree: "10 min", description: "Comment rester consistant et ne pas abandonner.", lien: "", lienTexte: "" },
+    { id: 2, titre: "Gérer les haters", duree: "8 min", description: "Comment gérer les commentaires négatifs.", lien: "", lienTexte: "" },
+    { id: 3, titre: "Passer au niveau suivant", duree: "15 min", description: "Comment scaler ta chaîne et passer au niveau pro.", lien: "", lienTexte: "" },
   ]},
 };
 
@@ -66,6 +66,13 @@ export default function Module() {
     });
   }, []);
 
+  const marquerTermine = async (chapId: number) => {
+    if (!completed.includes(chapId)) {
+      await supabase.from("progression").upsert({ user_id: userId, module_id: moduleId, chapitre_id: chapId, completed: true });
+      setCompleted(prev => [...prev, chapId]);
+    }
+  };
+
   const toggleCompleted = async (chapId: number) => {
     const isCompleted = completed.includes(chapId);
     if (isCompleted) {
@@ -77,12 +84,22 @@ export default function Module() {
     }
   };
 
+  const suivant = async () => {
+    await marquerTermine(chapitre.id);
+    if (chapitreActif < moduleData.chapitres.length - 1) {
+      setChapitreActif(chapitreActif + 1);
+    } else {
+      window.location.href = "/programme";
+    }
+  };
+
   const logout = async () => { await supabase.auth.signOut(); window.location.replace("/auth"); };
 
   if (!moduleData) return <main className="min-h-screen flex items-center justify-center"><p>Module introuvable</p></main>;
 
   const progression = Math.round((completed.length / moduleData.chapitres.length) * 100);
   const chapitre = moduleData.chapitres[chapitreActif];
+  const estDernier = chapitreActif === moduleData.chapitres.length - 1;
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -121,11 +138,36 @@ export default function Module() {
             </div>
             <span className="text-sm text-gray-500">{progression}%</span>
           </div>
+
           <div className="bg-black rounded-2xl aspect-video flex items-center justify-center mb-6">
             <p className="text-gray-500">Vidéo à venir — {chapitre.titre}</p>
           </div>
-          <h2 className="text-xl font-bold text-gray-900">{chapitre.titre}</h2>
+
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{chapitre.titre}</h2>
+
+          {chapitre.description && (
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-4">
+              <h3 className="font-semibold text-gray-700 mb-2">📝 Description</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{chapitre.description}</p>
+            </div>
+          )}
+
+          {chapitre.lien && (
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 mb-6">
+              <h3 className="font-semibold text-blue-700 mb-2">🔗 Ressource</h3>
+              <a href={chapitre.lien} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm font-medium">
+                {chapitre.lienTexte || chapitre.lien}
+              </a>
+            </div>
+          )}
+
+          <div className="flex justify-end mt-6">
+            <button onClick={suivant} className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center gap-2">
+              {estDernier ? "🎉 Terminer le module" : "Chapitre suivant →"}
+            </button>
+          </div>
         </div>
+
         <div className="w-80 shrink-0">
           <h3 className="font-bold text-gray-900 mb-4">Chapitres</h3>
           <div className="flex flex-col gap-2">
