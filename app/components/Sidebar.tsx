@@ -19,7 +19,15 @@ export default function Sidebar({ active }: { active: string }) {
 
   useEffect(() => {
     let channel: any = null;
+    let heartbeat: any = null;
     let actif = true;
+
+    const envoyerPresence = (userId: string) => {
+      supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", userId).then(({ error }) => {
+        if (error) console.error("Erreur heartbeat:", error.message);
+      });
+    };
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session || !actif) return;
       supabase.from("profiles").select("avatar_url,nom").eq("id", session.user.id).single().then(({ data }) => {
@@ -28,12 +36,13 @@ export default function Sidebar({ active }: { active: string }) {
         setNom(data.nom||"");
         sessionStorage.setItem("sidebar_profile", JSON.stringify({avatar_url:data.avatar_url||"",nom:data.nom||""}));
       });
-      supabase.from("profiles").upsert({ id: session.user.id, last_seen: new Date().toISOString() }, { onConflict: "id" }); const heartbeat = setInterval(() => { supabase.from("profiles").upsert({ id: session.user.id, last_seen: new Date().toISOString() }, { onConflict: "id" }); }, 30000); (window as any).__heartbeat = heartbeat;
+
+      envoyerPresence(session.user.id);
+      heartbeat = setInterval(() => envoyerPresence(session.user.id), 20000);
 
       const nomCanal = `profile-watch-${session.user.id}`;
       const existant = supabase.getChannels().find((c:any) => c.topic === `realtime:${nomCanal}`);
       if (existant) supabase.removeChannel(existant);
-
       if (!actif) return;
       channel = supabase.channel(nomCanal)
         .on("postgres_changes", { event: "UPDATE", schema: "public", table: "profiles", filter: `id=eq.${session.user.id}` }, (payload: any) => {
@@ -43,18 +52,29 @@ export default function Sidebar({ active }: { active: string }) {
         })
         .subscribe();
     });
-    supabase.from("profiles").select("avatar_url,role,statut,last_seen").then(({ data }) => {
-      if (!data) return;
-      const membres = data.filter((p:any) => p.statut === "accepte");
-      const admins = data.filter((p:any) => p.role === "admin").length;
-      const now = new Date();
-      const enligne = membres.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 5*60*1000).length;
-      const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
-      const s = { membres: membres.length, admins, enligne, avatars };
-      setStats(s);
-      sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
-    });
-    return () => { actif = false; if (channel) supabase.removeChannel(channel); if ((window as any).__heartbeat) clearInterval((window as any).__heartbeat); };
+
+    const chargerStats = () => {
+      supabase.from("profiles").select("avatar_url,role,statut,last_seen").then(({ data }) => {
+        if (!data) return;
+        const membres = data.filter((p:any) => p.statut === "accepte");
+        const admins = data.filter((p:any) => p.role === "admin").length;
+        const now = new Date();
+        const enligne = membres.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 60000).length;
+        const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
+        const s = { membres: membres.length, admins, enligne, avatars };
+        setStats(s);
+        sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
+      });
+    };
+    chargerStats();
+    const statsInterval = setInterval(chargerStats, 10000);
+
+    return () => {
+      actif = false;
+      if (channel) supabase.removeChannel(channel);
+      if (heartbeat) clearInterval(heartbeat);
+      clearInterval(statsInterval);
+    };
   }, []);
 
   const logout = async () => { await supabase.auth.signOut(); router.push("/auth"); };

@@ -59,7 +59,7 @@ export default function Membres() {
               </div>
             )}
           </div>
-          <div className="w-72 flex flex-col gap-4 flex-shrink-0">
+          <div className="w-72 flex flex-col gap-4 flex-shrink-0 mt-24">
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
               <p className="font-bold text-white mb-4">👑 Administration</p>
               {admins.map(a => (
