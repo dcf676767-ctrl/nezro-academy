@@ -20,7 +20,7 @@ export default function Sidebar({ active }: { active: string }) {
 
   useLayoutEffect(() => {
     const p = sessionStorage.getItem("sidebar_profile");
-    if (p) { const d = JSON.parse(p); setAvatarUrl(d.avatar_url||""); setNom(d.nom||""); }
+    if (p) { const d = JSON.parse(p); setAvatarUrl(d.avatar_url||""); setNom(d.nom||""); setIsAdmin(d.isAdmin||false); }
     const s = sessionStorage.getItem("sidebar_stats");
     if (s) setStats(JSON.parse(s));
   }, []);
@@ -42,7 +42,7 @@ export default function Sidebar({ active }: { active: string }) {
         setAvatarUrl(data.avatar_url||"");
         setNom(data.nom||"");
         setIsAdmin(data.email === "dcf676767@gmail.com");
-        sessionStorage.setItem("sidebar_profile", JSON.stringify({avatar_url:data.avatar_url||"",nom:data.nom||""}));
+        sessionStorage.setItem("sidebar_profile", JSON.stringify({avatar_url:data.avatar_url||"",nom:data.nom||"",isAdmin:data.email==="dcf676767@gmail.com"}));
       });
       supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", session.user.id);
       const hb = setInterval(() => supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", session.user.id), 20000);
@@ -72,8 +72,9 @@ export default function Sidebar({ active }: { active: string }) {
     { href: "/programme", label: "Programme YMA", emoji: "📚" },
     { href: "/membres", label: "Membres", emoji: "👥" },
     { href: "/ressources", label: "Ressources", emoji: "🛠️" },
-    { href: "/classement", label: "Classement", emoji: "🏆" }, { href: "/chat", label: "Assistant IA", emoji: "🤖" },
+    { href: "/classement", label: "Classement", emoji: "🏆" },
     { href: "/calendrier", label: "Calendrier", emoji: "📅" },
+    { href: "/assistant", label: "Assistant IA", emoji: "🤖" },
     { href: "/chat", label: "Chat", emoji: "💬" },
   ];
 
@@ -152,7 +153,7 @@ export default function Sidebar({ active }: { active: string }) {
             <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
               {avatarUrl ? <img src={avatarUrl} className="w-9 h-9 object-cover rounded-full" alt="avatar" /> : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9ca3af" className="w-full h-full" style={{marginTop:"4px"}}><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>}
             </div>
-            <div className="flex-1 min-w-0"><p className="text-sm font-semibold text-white truncate flex items-center gap-1">👑 {nom||"Membre"}</p></div>
+            <div className="flex-1 min-w-0"><p className="text-sm font-semibold text-white truncate flex items-center gap-2">{isAdmin && "👑"} {nom||"Membre"} {isAdmin && <span className="text-xs bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 px-2 py-0.5 rounded-full font-semibold">Admin</span>}</p></div>
             <button onClick={() => setMenuOpen(!menuOpen)} className={`text-gray-400 hover:text-white transition-transform duration-200 ${menuOpen ? "rotate-45" : ""}`}>⚙️</button>
           </div>
         </div>

@@ -67,7 +67,7 @@ export default function Programme() {
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/programme" />
       <main className="flex-1 ml-64 p-8">
-        <h2 className="text-5xl font-bold text-white mb-3 text-center">Programme YMA</h2>
+        <h2 className="text-5xl font-bold text-white mb-3 text-center">YMA</h2>
         <p className="text-gray-400 mb-8 text-center">YouTube Money Academy</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {modules.map(mod => (
