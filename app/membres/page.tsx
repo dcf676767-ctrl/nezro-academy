@@ -14,7 +14,7 @@ export default function Membres() {
     const now = new Date();
     const avecStatut = data.map((m:any, i:number) => ({
       ...m,
-      enligne: m.last_seen ? (now.getTime() - new Date(m.last_seen).getTime()) < 5*60*1000 : false,
+      enligne: m.last_seen ? (now.getTime() - new Date(m.last_seen).getTime()) < 7200000 : false,
       badge: badges[i % badges.length]
     })).sort((a:any,b:any) => (b.enligne?1:0) - (a.enligne?1:0));
     setMembres(avecStatut.filter((m:any) => m.role !== "admin"));
