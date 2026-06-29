@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 export default function Auth() {
+  const router = useRouter();
   const [mode, setMode] = useState<"login"|"signup">("signup");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,21 +18,16 @@ export default function Auth() {
       const { data, error } = await supabase.auth.signUp({ email, password });
       if (error) { setMessage("Erreur : " + error.message); setLoading(false); return; }
       await supabase.from("profiles").insert({ id: data.user?.id, email, nom, statut: "en_attente", role: "membre" });
-      setMessage("Demande envoyée ! En attente de validation.");
+      router.push("/bloque");
+      return;
     } else {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) { setMessage("Email ou mot de passe incorrect."); setLoading(false); return; }
       const { data: profile } = await supabase.from("profiles").select("statut").eq("id", data.user?.id).single();
-      if (!profile || profile.statut !== "accepte") {
-        await supabase.auth.signOut();
-        if (profile?.statut === "en_attente") setMessage("Ton compte est en attente de validation par un admin.");
-        else setMessage("Ton accès a été refusé ou suspendu. Contacte un admin.");
-        setLoading(false);
-        return;
-      }
-      window.location.href = "/programme";
+      if (!profile || profile.statut !== "accepte") { router.push("/bloque"); return; }
+      router.push("/programme");
+      return;
     }
-    setLoading(false);
   };
   return (
     <main className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
