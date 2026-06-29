@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -20,26 +20,37 @@ export default function Programme() {
   const [avatarUrl, setAvatarUrl] = useState("");
   const [nom, setNom] = useState("");
   const [progression, setProgression] = useState<{[key:number]:number}>({});
+  const [userId, setUserId] = useState("");
+
+  const loadProgression = useCallback(async (uid: string) => {
+    const { data } = await supabase.from("progression").select("*").eq("user_id", uid).eq("completed", true);
+    if (!data) return;
+    const prog: {[key:number]:number} = {};
+    modules.forEach(m => {
+      const completed = data.filter((p: any) => p.module_id === m.id).length;
+      prog[m.id] = Math.round((completed / m.chapitres) * 100);
+    });
+    setProgression(prog);
+  }, []);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { window.location.replace("/auth"); return; }
+      setUserId(session.user.id);
       supabase.from("profiles").select("avatar_url,nom").eq("id", session.user.id).single().then(({ data }) => {
         setAvatarUrl(data?.avatar_url || "");
         setNom(data?.nom || "");
         setPret(true);
       });
-      supabase.from("progression").select("*").eq("user_id", session.user.id).then(({ data }) => {
-        if (!data) return;
-        const prog: {[key:number]:number} = {};
-        modules.forEach(m => {
-          const completed = data.filter(p => p.module_id === m.id && p.completed).length;
-          prog[m.id] = Math.round((completed / m.chapitres) * 100);
-        });
-        setProgression(prog);
-      });
+      loadProgression(session.user.id);
     });
   }, []);
+
+  useEffect(() => {
+    if (!userId) return;
+    const interval = setInterval(() => loadProgression(userId), 3000);
+    return () => clearInterval(interval);
+  }, [userId]);
 
   const logout = async () => { await supabase.auth.signOut(); window.location.replace("/auth"); };
 
