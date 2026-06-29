@@ -14,6 +14,7 @@ export default function Sidebar({ active }: { active: string }) {
   const menuRef = useRef<HTMLDivElement>(null);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [nom, setNom] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
 
   useLayoutEffect(() => {
@@ -23,12 +24,9 @@ export default function Sidebar({ active }: { active: string }) {
     if (s) setStats(JSON.parse(s));
   }, []);
 
-  // Fermer le menu en cliquant dehors
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMenuOpen(false);
-      }
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false);
     };
     if (menuOpen) document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -38,9 +36,11 @@ export default function Sidebar({ active }: { active: string }) {
     let actif = true;
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session || !actif) return;
-      supabase.from("profiles").select("avatar_url,nom").eq("id", session.user.id).single().then(({ data }) => {
+      supabase.from("profiles").select("avatar_url,nom,role,email").eq("id", session.user.id).single().then(({ data }) => {
         if (!data) return;
-        setAvatarUrl(data.avatar_url||""); setNom(data.nom||"");
+        setAvatarUrl(data.avatar_url||"");
+        setNom(data.nom||"");
+        setIsAdmin(data.email === "dcf676767@gmail.com");
         sessionStorage.setItem("sidebar_profile", JSON.stringify({avatar_url:data.avatar_url||"",nom:data.nom||""}));
       });
       supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", session.user.id);
@@ -116,7 +116,6 @@ export default function Sidebar({ active }: { active: string }) {
           </div>
         </div>
 
-        {/* Menu paramètres */}
         <div className="relative" ref={menuRef}>
           {menuOpen && (
             <div className="absolute bottom-14 left-0 right-0 bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-2xl z-50">
@@ -131,10 +130,12 @@ export default function Sidebar({ active }: { active: string }) {
                 <span className="text-base">⚙️</span>
                 <div><p className="font-semibold text-white">Paramètres</p><p className="text-xs text-gray-400">Notifications, compte</p></div>
               </button>
-              <button onClick={() => { router.push("/admin"); setMenuOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
-                <span className="text-base">👑</span>
-                <div><p className="font-semibold text-white">Panel Admin</p><p className="text-xs text-gray-400">Gérer les membres</p></div>
-              </button>
+              {isAdmin && (
+                <button onClick={() => { router.push("/admin"); setMenuOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
+                  <span className="text-base">👑</span>
+                  <div><p className="font-semibold text-white">Panel Admin</p><p className="text-xs text-gray-400">Gérer les membres</p></div>
+                </button>
+              )}
               <div className="border-t border-gray-700">
                 <button onClick={logout} className="w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-gray-700 flex items-center gap-3 transition-colors">
                   <span className="text-base">🚪</span>
