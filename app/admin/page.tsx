@@ -6,18 +6,18 @@ export default function Admin() {
   const [membres, setMembres] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const load = async () => {
-    const { data } = await supabase.from("profiles").select("*").order("created_at", { ascending: false });
+    console.log("Chargement des membres...");
+    const { data, error } = await supabase.from("profiles").select("*").order("created_at", { ascending: false });
+    console.log("Membres chargés:", data, "Erreur:", error);
     if (data) setMembres(data);
     setLoading(false);
   };
   useEffect(() => { load(); }, []);
   const updateStatut = async (id: string, statut: string) => {
-    await supabase.from("profiles").update({ statut }).eq("id", id);
-    load();
-  };
-  const expulser = async (id: string) => {
-    await supabase.from("profiles").update({ statut: "refuse" }).eq("id", id);
-    load();
+    console.log("Tentative update id:", id, "vers statut:", statut);
+    const { data, error } = await supabase.from("profiles").update({ statut }).eq("id", id).select();
+    console.log("Résultat update -> data:", data, "error:", error);
+    await load();
   };
   const statutColor: any = {
     accepte: "bg-green-500/20 text-green-400 border border-green-500/30",
@@ -81,7 +81,13 @@ export default function Admin() {
                         ↩ Suspendre
                       </button>
                     )}
-                    <button onClick={() => expulser(m.id)}
+                    {m.statut === "refuse" && (
+                      <button onClick={() => updateStatut(m.id, "en_attente")}
+                        className="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 text-xs font-bold px-3 py-2 rounded-xl border border-blue-500/30 transition-all">
+                        ↩ Réintégrer
+                      </button>
+                    )}
+                    <button onClick={() => updateStatut(m.id, "refuse")}
                       className="bg-red-600/20 hover:bg-red-600/40 text-red-400 text-xs font-bold px-3 py-2 rounded-xl border border-red-500/30 transition-all">
                       🚫 Expulser
                     </button>

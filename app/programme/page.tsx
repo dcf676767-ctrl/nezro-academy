@@ -30,7 +30,7 @@ export default function Programme() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { window.location.replace("/auth"); return; }
-      setUserId(session.user.id);
+      supabase.from("profiles").select("statut").eq("id", session.user.id).single().then(({ data: profile }) => { if (!profile || profile.statut !== "accepte") { supabase.auth.signOut().then(() => router.push("/auth")); return; } }); setUserId(session.user.id);
       setPret(true);
       loadProgression(session.user.id);
     });
