@@ -59,7 +59,7 @@ export default function Membres() {
               </div>
             )}
           </div>
-          <div className="w-72 flex flex-col gap-4 flex-shrink-0 mt-24">
+          <div className="w-72 flex flex-col gap-4 flex-shrink-0">
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
               <p className="font-bold text-white mb-4">👑 Administration</p>
               {admins.map(a => (
@@ -71,19 +71,6 @@ export default function Membres() {
                   <span className="text-xs bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded-full">👑 Admin</span>
                 </div>
               ))}
-            </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
-              <p className="font-bold text-white mb-3">🟢 En ligne ({enLigne.length})</p>
-              {enLigne.length === 0 ? <p className="text-gray-500 text-sm">Personne en ligne</p> : (
-                <div className="flex flex-col gap-2">
-                  {enLigne.map(m => (
-                    <div key={m.id} className="flex items-center gap-3">
-                      <Avatar m={m} size="w-8 h-8" />
-                      <p className="text-sm text-white truncate">{m.nom || "Sans nom"}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         </div>
