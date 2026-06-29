@@ -1,74 +1,95 @@
 "use client";
 import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 export default function Admin() {
   const [membres, setMembres] = useState<any[]>([]);
-
-  useEffect(() => {
-    supabase.from("profiles").select("*").order("created_at", { ascending: false }).then(({ data }) => {
-      if (data) setMembres(data);
-    });
-  }, []);
-
+  const [loading, setLoading] = useState(true);
+  const load = async () => {
+    const { data } = await supabase.from("profiles").select("*").order("created_at", { ascending: false });
+    if (data) setMembres(data);
+    setLoading(false);
+  };
+  useEffect(() => { load(); }, []);
   const updateStatut = async (id: string, statut: string) => {
     await supabase.from("profiles").update({ statut }).eq("id", id);
-    setMembres((prev) => prev.map((m) => m.id === id ? { ...m, statut } : m));
+    load();
   };
-
-  const badgeColor = (statut: string) => {
-    if (statut === "accepte") return "bg-green-100 text-green-700";
-    if (statut === "refuse") return "bg-red-100 text-red-700";
-    if (statut === "expulse") return "bg-gray-100 text-gray-700";
-    return "bg-yellow-100 text-yellow-700";
+  const expulser = async (id: string) => {
+    await supabase.from("profiles").update({ statut: "refuse" }).eq("id", id);
+    load();
   };
-
-  const badgeLabel = (statut: string) => {
-    if (statut === "accepte") return "✅ Accepté";
-    if (statut === "refuse") return "❌ Refusé";
-    if (statut === "expulse") return "🚫 Expulsé";
-    return "⏳ En attente";
+  const statutColor: any = {
+    accepte: "bg-green-500/20 text-green-400 border border-green-500/30",
+    en_attente: "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
+    refuse: "bg-red-500/20 text-red-400 border border-red-500/30",
   };
-
+  const statutLabel: any = { accepte: "✅ Accepté", en_attente: "⏳ En attente", refuse: "❌ Refusé" };
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-gray-950 text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">N</div>
-          <h1 className="text-2xl font-bold text-gray-900">Panel Admin — Nezro Academy</h1>
+        <div className="flex flex-col items-center mb-10">
+          <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-lg shadow-blue-600/30">N</div>
+          <h1 className="text-3xl font-bold text-white">Panel Admin</h1>
+          <p className="text-gray-400 mt-1">Nezro Academy</p>
         </div>
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="p-6 border-b border-gray-100">
-            <h2 className="font-bold text-gray-900">👥 Membres ({membres.length})</h2>
+        <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5 text-center">
+            <p className="text-3xl font-bold text-white">{membres.length}</p>
+            <p className="text-gray-400 text-sm mt-1">Total membres</p>
           </div>
-          {membres.length === 0 && <p className="p-6 text-gray-400">Aucun membre pour l'instant.</p>}
-          {membres.map((m) => (
-            <div key={m.id} className="flex items-center justify-between p-4 border-b border-gray-50 hover:bg-gray-50">
-              <div>
-                <p className="font-semibold text-gray-900">{m.nom || "Sans nom"}</p>
-                <p className="text-sm text-gray-500">{m.email}</p>
-                <span className={`text-xs font-semibold px-2 py-1 rounded-full mt-1 inline-block ${badgeColor(m.statut)}`}>
-                  {badgeLabel(m.statut)}
-                </span>
-              </div>
-              <div className="flex gap-2">
-                {m.statut !== "accepte" && (
-                  <button onClick={() => updateStatut(m.id, "accepte")} className="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600">✅ Accepter</button>
-                )}
-                {m.statut !== "refuse" && m.statut !== "expulse" && (
-                  <button onClick={() => updateStatut(m.id, "refuse")} className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-600">❌ Refuser</button>
-                )}
-                {m.statut === "accepte" && (
-                  <button onClick={() => updateStatut(m.id, "expulse")} className="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-900">🚫 Expulser</button>
-                )}
-              </div>
+          <div className="bg-gray-900 border border-green-500/20 rounded-2xl p-5 text-center">
+            <p className="text-3xl font-bold text-green-400">{membres.filter(m=>m.statut==="accepte").length}</p>
+            <p className="text-gray-400 text-sm mt-1">Acceptés</p>
+          </div>
+          <div className="bg-gray-900 border border-yellow-500/20 rounded-2xl p-5 text-center">
+            <p className="text-3xl font-bold text-yellow-400">{membres.filter(m=>m.statut==="en_attente").length}</p>
+            <p className="text-gray-400 text-sm mt-1">En attente</p>
+          </div>
+        </div>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
+          <div className="p-6 border-b border-gray-800">
+            <h2 className="text-lg font-bold text-white">👥 Membres ({membres.length})</h2>
+          </div>
+          {loading ? (
+            <div className="p-8 text-center text-gray-400">Chargement...</div>
+          ) : (
+            <div className="divide-y divide-gray-800">
+              {membres.map(m => (
+                <div key={m.id} className="flex items-center gap-4 p-5 hover:bg-gray-800/50 transition-all">
+                  <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
+                    {m.avatar_url ? <img src={m.avatar_url} className="w-11 h-11 object-cover rounded-full" alt="av" /> : <span className="text-white font-bold">{m.nom?.[0]?.toUpperCase()||"?"}</span>}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <p className="font-semibold text-white">{m.nom||"Sans nom"}</p>
+                      {m.role==="admin" && <span className="text-xs bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded-full">👑 Admin</span>}
+                    </div>
+                    <p className="text-xs text-gray-500 mb-2">{m.email}</p>
+                    <span className={`text-xs px-2 py-0.5 rounded-full ${statutColor[m.statut]||statutColor.refuse}`}>{statutLabel[m.statut]||"Inconnu"}</span>
+                  </div>
+                  <div className="flex gap-2 flex-shrink-0">
+                    {m.statut === "en_attente" && (
+                      <button onClick={() => updateStatut(m.id, "accepte")}
+                        className="bg-green-600 hover:bg-green-500 text-white text-xs font-bold px-3 py-2 rounded-xl transition-all">
+                        ✓ Accepter
+                      </button>
+                    )}
+                    {m.statut === "accepte" && (
+                      <button onClick={() => updateStatut(m.id, "en_attente")}
+                        className="bg-yellow-600/20 hover:bg-yellow-600/40 text-yellow-400 text-xs font-bold px-3 py-2 rounded-xl border border-yellow-500/30 transition-all">
+                        ↩ Suspendre
+                      </button>
+                    )}
+                    <button onClick={() => expulser(m.id)}
+                      className="bg-red-600/20 hover:bg-red-600/40 text-red-400 text-xs font-bold px-3 py-2 rounded-xl border border-red-500/30 transition-all">
+                      🚫 Expulser
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       </div>
     </main>

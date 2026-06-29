@@ -59,7 +59,7 @@ export default function Module() {
         <h1 className="text-2xl font-bold text-white mb-2">{moduleData.titre}</h1>
         <div className="flex items-center gap-3 mb-6">
           <div className="flex-1 bg-gray-800 rounded-full h-2">
-            <div className="bg-blue-500 h-2 rounded-full transition-all" style={{width:`${progression}%`}} />
+            <div className="h-2 rounded-full transition-all" style={{width:`${progression}%`, background:progression===100?"#22c55e":progression>=50?"#f97316":"#ef4444"}} />
           </div>
           <span className="text-sm text-gray-400">{progression}%</span>
         </div>
