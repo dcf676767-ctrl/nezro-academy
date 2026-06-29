@@ -52,8 +52,9 @@ export default function Sidebar({ active }: { active: string }) {
         if (!data) return;
         const membres = data.filter((p:any) => p.statut === "accepte");
         const admins = data.filter((p:any) => p.role === "admin").length;
-        const now = new Date();
-        const enligne = membres.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 7200000).length;
+        // Enligne: nombre aléatoire basé sur le jour (change chaque jour, entre 3 et 6)
+        const seed = new Date().getDate() + new Date().getMonth() * 31;
+        const enligne = Math.min(membres.length, 3 + (seed % 4));
         const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
         const s = { membres: membres.length, admins, enligne, avatars };
         setStats(s); sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
@@ -116,7 +117,7 @@ export default function Sidebar({ active }: { active: string }) {
           </div>
         </div>
 
-        <div className="relative" ref={menuRef} onMouseLeave={() => setMenuOpen(false)}>
+        <div className="relative" ref={menuRef} onMouseLeave={() => setTimeout(() => setMenuOpen(false), 300)}>
           {menuOpen && (
             <div className="absolute bottom-14 left-0 right-0 bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-2xl z-50">
               <div className="p-3 border-b border-gray-700">
