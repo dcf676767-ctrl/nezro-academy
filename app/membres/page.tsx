@@ -5,82 +5,55 @@ import Sidebar from "../components/Sidebar";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 export default function Membres() {
   const [membres, setMembres] = useState<any[]>([]);
-  const [admins, setAdmins] = useState<any[]>([]);
-  const [enligne, setEnligne] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const load = async () => {
+    const { data } = await supabase.from("profiles").select("*").eq("statut", "accepte");
+    if (!data) return;
+    const now = new Date();
+    const avecStatut = data.map((m:any) => ({
+      ...m,
+      enligne: m.last_seen ? (now.getTime() - new Date(m.last_seen).getTime()) < 5*60*1000 : false
+    })).sort((a:any,b:any) => (b.enligne?1:0) - (a.enligne?1:0));
+    setMembres(avecStatut);
+    setLoading(false);
+  };
   useEffect(() => {
-    supabase.from("profiles").select("*").eq("statut","accepte").then(({ data }) => {
-      if (!data) return;
-      const now = new Date();
-      setAdmins(data.filter((p:any) => p.role === "admin"));
-      setMembres(data.filter((p:any) => p.role !== "admin"));
-      setEnligne(data.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 5*60*1000).map((p:any) => p.id));
-    });
+    load();
+    const interval = setInterval(load, 10000);
+    return () => clearInterval(interval);
   }, []);
-  const badges = ["🚀 En formation","⚡ Actif","🎯 Motivé","🔥 En progression","💪 Déterminé"];
-  const MemberCard = ({ m, i }: { m: any, i: number }) => (
-    <div className="flex items-center gap-4 bg-gray-900 border border-gray-800 rounded-2xl p-4 hover:border-blue-500 transition-all">
-      <div className="relative">
-        <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
-          {m.avatar_url ? <img src={m.avatar_url} className="w-11 h-11 object-cover rounded-full" alt="avatar" /> : <span className="text-white font-bold">{m.nom?.[0]?.toUpperCase()||"?"}</span>}
-        </div>
-        {enligne.includes(m.id) && <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-900" />}
-      </div>
-      <div className="flex-1">
-        <p className="font-semibold text-white mb-1">{m.nom || "Membre"}</p>
-        <span className="text-xs bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded-full">{badges[i % badges.length]}</span>
-      </div>
-      <div className="text-xs text-gray-500">#{i+1}</div>
+  const Avatar = ({ m }: { m: any }) => (
+    <div className="relative w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
+      {m.avatar_url ? <img src={m.avatar_url} className="w-14 h-14 object-cover rounded-full" alt="av" /> : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9ca3af" className="w-full h-full" style={{marginTop:"4px"}}><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>}
+      {m.enligne && <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-gray-900 rounded-full" />}
     </div>
   );
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/membres" />
       <main className="flex-1 ml-64 p-8">
-        <h2 className="text-3xl font-bold text-white mb-1">👥 Membres</h2>
-        <p className="text-gray-400 mb-8">{membres.length + admins.length} membres dans la communauté</p>
-        <div className="flex gap-6 items-start">
-          <div className="flex-1 flex flex-col gap-3">
-            {membres.map((m,i) => <MemberCard key={m.id} m={m} i={i} />)}
-          </div>
-          <div className="w-72 shrink-0 flex flex-col gap-4">
-            <div className="bg-gray-900 border border-yellow-500/40 rounded-2xl p-5">
-              <h3 className="font-bold text-white mb-4">👑 Administration</h3>
-              <div className="flex flex-col gap-3">
-                {admins.map((m) => (
-                  <div key={m.id} className="flex items-center gap-3">
-                    <div className="relative">
-                      <div className="w-11 h-11 rounded-full bg-yellow-600 flex items-center justify-center overflow-hidden flex-shrink-0">
-                        {m.avatar_url ? <img src={m.avatar_url} className="w-11 h-11 object-cover rounded-full" alt="avatar" /> : <span className="text-white font-bold">{m.nom?.[0]?.toUpperCase()||"?"}</span>}
-                      </div>
-                      {enligne.includes(m.id) && <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-900" />}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white text-sm">{m.nom}</p>
-                      <span className="text-xs bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded-full">👑 Admin</span>
-                    </div>
+        <h2 className="text-5xl font-bold text-white mb-3 text-center">Membres</h2>
+        <p className="text-gray-400 mb-8 text-center">{membres.filter(m=>m.enligne).length} en ligne sur {membres.length}</p>
+        {loading ? (
+          <div className="text-center text-gray-400">Chargement...</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {membres.map(m => (
+              <div key={m.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 flex items-center gap-4">
+                <Avatar m={m} />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <p className="font-bold text-white truncate">{m.nom||"Sans nom"}</p>
+                    {m.role==="admin" && <span className="text-xs bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded-full flex-shrink-0">👑</span>}
                   </div>
-                ))}
+                  <p className={`text-xs font-medium ${m.enligne?"text-green-400":"text-gray-500"}`}>
+                    {m.enligne ? "🟢 En ligne" : "⚫ Hors ligne"}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
-              <h3 className="font-bold text-white mb-4">🟢 En ligne ({enligne.length})</h3>
-              <div className="flex flex-col gap-3">
-                {[...admins,...membres].filter(m => enligne.includes(m.id)).map(m => (
-                  <div key={m.id} className="flex items-center gap-3">
-                    <div className="relative">
-                      <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden">
-                        {m.avatar_url ? <img src={m.avatar_url} className="w-9 h-9 object-cover rounded-full" alt="av" /> : <span className="text-white font-bold text-sm">{m.nom?.[0]?.toUpperCase()||"?"}</span>}
-                      </div>
-                      <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-gray-900" />
-                    </div>
-                    <p className="text-sm text-white">{m.nom}</p>
-                  </div>
-                ))}
-                {enligne.length === 0 && <p className="text-xs text-gray-500">Personne en ligne pour l'instant</p>}
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
+        )}
       </main>
     </div>
   );

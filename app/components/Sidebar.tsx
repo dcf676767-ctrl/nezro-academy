@@ -28,7 +28,7 @@ export default function Sidebar({ active }: { active: string }) {
         setNom(data.nom||"");
         sessionStorage.setItem("sidebar_profile", JSON.stringify({avatar_url:data.avatar_url||"",nom:data.nom||""}));
       });
-      supabase.from("profiles").upsert({ id: session.user.id, last_seen: new Date().toISOString() }, { onConflict: "id" });
+      supabase.from("profiles").upsert({ id: session.user.id, last_seen: new Date().toISOString() }, { onConflict: "id" }); const heartbeat = setInterval(() => { supabase.from("profiles").upsert({ id: session.user.id, last_seen: new Date().toISOString() }, { onConflict: "id" }); }, 30000); (window as any).__heartbeat = heartbeat;
 
       const nomCanal = `profile-watch-${session.user.id}`;
       const existant = supabase.getChannels().find((c:any) => c.topic === `realtime:${nomCanal}`);
@@ -54,7 +54,7 @@ export default function Sidebar({ active }: { active: string }) {
       setStats(s);
       sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
     });
-    return () => { actif = false; if (channel) supabase.removeChannel(channel); };
+    return () => { actif = false; if (channel) supabase.removeChannel(channel); if ((window as any).__heartbeat) clearInterval((window as any).__heartbeat); };
   }, []);
 
   const logout = async () => { await supabase.auth.signOut(); router.push("/auth"); };
