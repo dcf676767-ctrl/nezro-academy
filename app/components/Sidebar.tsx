@@ -5,7 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 export default function Sidebar({ active }: { active: string }) {
   const router = useRouter();
-  const [menuOpen, setMenuOpen] = useState(false); useEffect(() => { const close = (e: MouseEvent) => { setMenuOpen(false); }; if (menuOpen) document.addEventListener("click", close); return () => document.removeEventListener("click", close); }, [menuOpen]);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [nom, setNom] = useState("");
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
@@ -18,6 +18,7 @@ export default function Sidebar({ active }: { active: string }) {
   }, []);
 
   useEffect(() => {
+    let channel: any;
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) return;
       supabase.from("profiles").select("avatar_url,nom").eq("id", session.user.id).single().then(({ data }) => {
@@ -27,6 +28,14 @@ export default function Sidebar({ active }: { active: string }) {
         sessionStorage.setItem("sidebar_profile", JSON.stringify({avatar_url:data.avatar_url||"",nom:data.nom||""}));
       });
       supabase.from("profiles").upsert({ id: session.user.id, last_seen: new Date().toISOString() }, { onConflict: "id" });
+
+      channel = supabase.channel(`profile-watch-${session.user.id}`)
+        .on("postgres_changes", { event: "UPDATE", schema: "public", table: "profiles", filter: `id=eq.${session.user.id}` }, (payload: any) => {
+          if (payload.new.statut !== "accepte") {
+            router.push("/bloque");
+          }
+        })
+        .subscribe();
     });
     supabase.from("profiles").select("avatar_url,role,statut,last_seen").then(({ data }) => {
       if (!data) return;
@@ -39,6 +48,7 @@ export default function Sidebar({ active }: { active: string }) {
       setStats(s);
       sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
     });
+    return () => { if (channel) supabase.removeChannel(channel); };
   }, []);
 
   const logout = async () => { await supabase.auth.signOut(); router.push("/auth"); };
