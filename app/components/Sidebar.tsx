@@ -12,6 +12,7 @@ export default function Sidebar({ active }: { active: string }) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [nom, setNom] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
@@ -117,7 +118,7 @@ export default function Sidebar({ active }: { active: string }) {
           </div>
         </div>
 
-        <div className="relative" ref={menuRef} onMouseLeave={() => setTimeout(() => setMenuOpen(false), 300)}>
+        <div className="relative" ref={menuRef} onMouseEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }} onMouseLeave={() => { closeTimer.current = setTimeout(() => setMenuOpen(false), 600); }}>
           {menuOpen && (
             <div className="absolute bottom-14 left-0 right-0 bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-2xl z-50">
               <div className="p-3 border-b border-gray-700">

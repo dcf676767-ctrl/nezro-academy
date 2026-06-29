@@ -1,15 +1,14 @@
 "use client";
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
-import { useRouter } from "next/navigation";
 
 const categories = ["Tout", "YouTube", "Montage", "IA", "Business", "Inspiration"];
 
 const ressources = [
   {
     categorie: "YouTube",
-    titre: "Comment faire exploser sa chaîne YouTube en 2024",
-    description: "Les stratégies exactes pour passer de 0 à 10k abonnés rapidement.",
+    titre: "Faire exploser sa chaine YouTube en 2024",
+    description: "Les strategies exactes pour passer de 0 a 10k abonnes rapidement.",
     lien: "https://www.youtube.com/results?search_query=faire+exploser+chaine+youtube+2024",
     emoji: "🚀",
     tag: "Gratuit",
@@ -17,8 +16,8 @@ const ressources = [
   },
   {
     categorie: "YouTube",
-    titre: "Maîtriser le SEO YouTube",
-    description: "Apprends à optimiser tes titres, descriptions et tags pour apparaître en premier.",
+    titre: "Maitriser le SEO YouTube",
+    description: "Optimise tes titres, descriptions et tags pour apparaitre en premier.",
     lien: "https://www.youtube.com/results?search_query=seo+youtube+tutorial+francais",
     emoji: "🔍",
     tag: "Gratuit",
@@ -26,8 +25,8 @@ const ressources = [
   },
   {
     categorie: "YouTube",
-    titre: "Créer des thumbnails qui cliquent",
-    description: "Design de miniatures accrocheuses avec Canva — guide complet.",
+    titre: "Creer des thumbnails qui cliquent",
+    description: "Design de miniatures accrocheuses avec Canva.",
     lien: "https://www.canva.com/fr_fr/creer/miniatures-youtube/",
     emoji: "🎨",
     tag: "Outil",
@@ -35,8 +34,8 @@ const ressources = [
   },
   {
     categorie: "Montage",
-    titre: "CapCut — Montage vidéo gratuit",
-    description: "L'outil de montage le plus utilisé par les créateurs. Effets, transitions, sous-titres auto.",
+    titre: "CapCut - Montage video gratuit",
+    description: "L outil de montage le plus utilise par les createurs. Effets, transitions, sous-titres auto.",
     lien: "https://www.capcut.com/fr-fr/",
     emoji: "✂️",
     tag: "Gratuit",
@@ -44,8 +43,8 @@ const ressources = [
   },
   {
     categorie: "Montage",
-    titre: "DaVinci Resolve — Montage Pro",
-    description: "Le logiciel de montage professionnel 100% gratuit. Utilisé par les pros d'Hollywood.",
+    titre: "DaVinci Resolve - Montage Pro",
+    description: "Le logiciel de montage professionnel 100% gratuit. Utilise par les pros.",
     lien: "https://www.blackmagicdesign.com/fr/products/davinciresolve",
     emoji: "🎬",
     tag: "Gratuit",
@@ -53,8 +52,8 @@ const ressources = [
   },
   {
     categorie: "Montage",
-    titre: "Epidemic Sound — Musique libre de droits",
-    description: "Des milliers de sons et musiques pour tes vidéos sans risque de copyright strike.",
+    titre: "Epidemic Sound - Musique libre de droits",
+    description: "Des milliers de sons et musiques sans risque de copyright strike.",
     lien: "https://www.epidemicsound.com/",
     emoji: "🎵",
     tag: "Payant",
@@ -62,8 +61,8 @@ const ressources = [
   },
   {
     categorie: "IA",
-    titre: "ChatGPT — Idées de vidéos & scripts",
-    description: "Génère des idées de contenu, scripts et titres accrocheurs en quelques secondes.",
+    titre: "ChatGPT - Idees de videos et scripts",
+    description: "Genere des idees de contenu, scripts et titres accrocheurs en secondes.",
     lien: "https://chatgpt.com",
     emoji: "🤖",
     tag: "Gratuit",
@@ -71,8 +70,8 @@ const ressources = [
   },
   {
     categorie: "IA",
-    titre: "ElevenLabs — Voix IA réalistes",
-    description: "Génère des voix off ultra-réalistes pour tes vidéos avec l'IA.",
+    titre: "ElevenLabs - Voix IA realistes",
+    description: "Genere des voix off ultra-realistes pour tes videos avec l IA.",
     lien: "https://elevenlabs.io/",
     emoji: "🎙️",
     tag: "Freemium",
@@ -80,8 +79,8 @@ const ressources = [
   },
   {
     categorie: "IA",
-    titre: "Runway ML — Vidéos générées par IA",
-    description: "Crée et édite des vidéos avec l'intelligence artificielle. Le futur du montage.",
+    titre: "Runway ML - Videos generees par IA",
+    description: "Cree et edite des videos avec l intelligence artificielle.",
     lien: "https://runwayml.com/",
     emoji: "✨",
     tag: "Freemium",
@@ -89,8 +88,8 @@ const ressources = [
   },
   {
     categorie: "Business",
-    titre: "Comment monétiser sa chaîne YouTube",
-    description: "Toutes les façons de gagner de l'argent sur YouTube : AdSense, sponsors, produits.",
+    titre: "Monetiser sa chaine YouTube",
+    description: "Toutes les facons de gagner de l argent : AdSense, sponsors, produits.",
     lien: "https://www.youtube.com/results?search_query=monetiser+chaine+youtube+francais",
     emoji: "💰",
     tag: "Gratuit",
@@ -98,110 +97,8 @@ const ressources = [
   },
   {
     categorie: "Business",
-    titre: "Gumroad — Vendre ses produits
-mkdir -p app/ressources && cat > app/ressources/page.tsx << 'MYEOF'
-"use client";
-import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import { useRouter } from "next/navigation";
-
-const categories = ["Tout", "YouTube", "Montage", "IA", "Business", "Inspiration"];
-
-const ressources = [
-  {
-    categorie: "YouTube",
-    titre: "Comment faire exploser sa chaîne YouTube en 2024",
-    description: "Les stratégies exactes pour passer de 0 à 10k abonnés rapidement.",
-    lien: "https://www.youtube.com/results?search_query=faire+exploser+chaine+youtube+2024",
-    emoji: "🚀",
-    tag: "Gratuit",
-    tagColor: "bg-green-500/20 text-green-400",
-  },
-  {
-    categorie: "YouTube",
-    titre: "Maîtriser le SEO YouTube",
-    description: "Apprends à optimiser tes titres, descriptions et tags pour apparaître en premier.",
-    lien: "https://www.youtube.com/results?search_query=seo+youtube+tutorial+francais",
-    emoji: "🔍",
-    tag: "Gratuit",
-    tagColor: "bg-green-500/20 text-green-400",
-  },
-  {
-    categorie: "YouTube",
-    titre: "Créer des thumbnails qui cliquent",
-    description: "Design de miniatures accrocheuses avec Canva — guide complet.",
-    lien: "https://www.canva.com/fr_fr/creer/miniatures-youtube/",
-    emoji: "🎨",
-    tag: "Outil",
-    tagColor: "bg-blue-500/20 text-blue-400",
-  },
-  {
-    categorie: "Montage",
-    titre: "CapCut — Montage vidéo gratuit",
-    description: "L'outil de montage le plus utilisé par les créateurs. Effets, transitions, sous-titres auto.",
-    lien: "https://www.capcut.com/fr-fr/",
-    emoji: "✂️",
-    tag: "Gratuit",
-    tagColor: "bg-green-500/20 text-green-400",
-  },
-  {
-    categorie: "Montage",
-    titre: "DaVinci Resolve — Montage Pro",
-    description: "Le logiciel de montage professionnel 100% gratuit. Utilisé par les pros d'Hollywood.",
-    lien: "https://www.blackmagicdesign.com/fr/products/davinciresolve",
-    emoji: "🎬",
-    tag: "Gratuit",
-    tagColor: "bg-green-500/20 text-green-400",
-  },
-  {
-    categorie: "Montage",
-    titre: "Epidemic Sound — Musique libre de droits",
-    description: "Des milliers de sons et musiques pour tes vidéos sans risque de copyright strike.",
-    lien: "https://www.epidemicsound.com/",
-    emoji: "🎵",
-    tag: "Payant",
-    tagColor: "bg-orange-500/20 text-orange-400",
-  },
-  {
-    categorie: "IA",
-    titre: "ChatGPT — Idées de vidéos & scripts",
-    description: "Génère des idées de contenu, scripts et titres accrocheurs en quelques secondes.",
-    lien: "https://chatgpt.com",
-    emoji: "🤖",
-    tag: "Gratuit",
-    tagColor: "bg-green-500/20 text-green-400",
-  },
-  {
-    categorie: "IA",
-    titre: "ElevenLabs — Voix IA réalistes",
-    description: "Génère des voix off ultra-réalistes pour tes vidéos avec l'IA.",
-    lien: "https://elevenlabs.io/",
-    emoji: "🎙️",
-    tag: "Freemium",
-    tagColor: "bg-purple-500/20 text-purple-400",
-  },
-  {
-    categorie: "IA",
-    titre: "Runway ML — Vidéos générées par IA",
-    description: "Crée et édite des vidéos avec l'intelligence artificielle. Le futur du montage.",
-    lien: "https://runwayml.com/",
-    emoji: "✨",
-    tag: "Freemium",
-    tagColor: "bg-purple-500/20 text-purple-400",
-  },
-  {
-    categorie: "Business",
-    titre: "Comment monétiser sa chaîne YouTube",
-    description: "Toutes les façons de gagner de l'argent sur YouTube : AdSense, sponsors, produits.",
-    lien: "https://www.youtube.com/results?search_query=monetiser+chaine+youtube+francais",
-    emoji: "💰",
-    tag: "Gratuit",
-    tagColor: "bg-green-500/20 text-green-400",
-  },
-  {
-    categorie: "Business",
-    titre: "Gumroad — Vendre ses produits digitaux",
-    description: "Crée et vends des formations, ebooks, presets en quelques clics.",
+    titre: "Gumroad - Vendre ses produits digitaux",
+    description: "Cree et vends des formations, ebooks, presets en quelques clics.",
     lien: "https://gumroad.com/",
     emoji: "🛒",
     tag: "Gratuit",
@@ -209,17 +106,17 @@ const ressources = [
   },
   {
     categorie: "Inspiration",
-    titre: "Mr Beast — Décryptage de sa stratégie",
-    description: "Analyse des vidéos les plus vues de MrBeast pour comprendre ce qui marche.",
-    lien: "https://www.youtube.com/results?search_query=mrbeat+strategy+analyse",
+    titre: "MrBeast - Decryptage de sa strategie",
+    description: "Analyse des videos les plus vues pour comprendre ce qui marche.",
+    lien: "https://www.youtube.com/results?search_query=mreast+strategy+analyse",
     emoji: "👑",
     tag: "Gratuit",
     tagColor: "bg-green-500/20 text-green-400",
   },
   {
     categorie: "Inspiration",
-    titre: "Top créateurs YouTube France 2024",
-    description: "Les créateurs FR qui cartonnent et les techniques qu'ils utilisent.",
+    titre: "Top createurs YouTube France 2024",
+    description: "Les createurs FR qui cartonnent et les techniques qu ils utilisent.",
     lien: "https://www.youtube.com/results?search_query=top+youtubeur+france+2024",
     emoji: "🇫🇷",
     tag: "Gratuit",
@@ -244,7 +141,6 @@ export default function Ressources() {
         <h1 className="text-3xl font-bold text-white mb-2">🛠️ Ressources</h1>
         <p className="text-gray-400 mb-8">Tous les outils et liens pour exploser sur YouTube</p>
 
-        {/* Recherche */}
         <input
           value={recherche}
           onChange={e => setRecherche(e.target.value)}
@@ -252,7 +148,6 @@ export default function Ressources() {
           className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 mb-6"
         />
 
-        {/* Catégories */}
         <div className="flex gap-2 flex-wrap mb-8">
           {categories.map(c => (
             <button key={c} onClick={() => setCatActive(c)}
@@ -262,7 +157,6 @@ export default function Ressources() {
           ))}
         </div>
 
-        {/* Grille ressources */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {filtrees.map((r, i) => (
             <a key={i} href={r.lien} target="_blank" rel="noopener noreferrer"
@@ -273,7 +167,7 @@ export default function Ressources() {
               </div>
               <h3 className="font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">{r.titre}</h3>
               <p className="text-sm text-gray-400 mb-3 leading-relaxed">{r.description}</p>
-              <p className="text-xs text-blue-400 font-semibold">→ Accéder à la ressource</p>
+              <p className="text-xs text-blue-400 font-semibold">Acceder a la ressource</p>
             </a>
           ))}
         </div>
@@ -281,7 +175,7 @@ export default function Ressources() {
         {filtrees.length === 0 && (
           <div className="text-center py-16 text-gray-500">
             <p className="text-4xl mb-3">🔍</p>
-            <p>Aucune ressource trouvée pour "{recherche}"</p>
+            <p>Aucune ressource trouvee</p>
           </div>
         )}
       </main>
