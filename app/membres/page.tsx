@@ -1,103 +1,87 @@
 "use client";
 import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
-
+import Sidebar from "../components/Sidebar";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-
 export default function Membres() {
   const [membres, setMembres] = useState<any[]>([]);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [avatarUrl, setAvatarUrl] = useState("");
-  const [nom, setNom] = useState("");
-
+  const [admins, setAdmins] = useState<any[]>([]);
+  const [enligne, setEnligne] = useState<string[]>([]);
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) { window.location.replace("/auth"); return; }
-      supabase.from("profiles").select("avatar_url,nom").eq("id", session.user.id).single().then(({ data }) => {
-        setAvatarUrl(data?.avatar_url || "");
-        setNom(data?.nom || "");
-      });
-    });
-    supabase.from("profiles").select("*").eq("statut", "accepte").then(({ data }) => {
-      if (data) setMembres(data);
+    supabase.from("profiles").select("*").eq("statut","accepte").then(({ data }) => {
+      if (!data) return;
+      const now = new Date();
+      setAdmins(data.filter((p:any) => p.role === "admin"));
+      setMembres(data.filter((p:any) => p.role !== "admin"));
+      setEnligne(data.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 5*60*1000).map((p:any) => p.id));
     });
   }, []);
-
-  const logout = async () => { await supabase.auth.signOut(); window.location.replace("/auth"); };
-
+  const badges = ["🚀 En formation","⚡ Actif","🎯 Motivé","🔥 En progression","💪 Déterminé"];
+  const MemberCard = ({ m, i }: { m: any, i: number }) => (
+    <div className="flex items-center gap-4 bg-gray-900 border border-gray-800 rounded-2xl p-4 hover:border-blue-500 transition-all">
+      <div className="relative">
+        <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
+          {m.avatar_url ? <img src={m.avatar_url} className="w-11 h-11 object-cover rounded-full" alt="avatar" /> : <span className="text-white font-bold">{m.nom?.[0]?.toUpperCase()||"?"}</span>}
+        </div>
+        {enligne.includes(m.id) && <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-900" />}
+      </div>
+      <div className="flex-1">
+        <p className="font-semibold text-white mb-1">{m.nom || "Membre"}</p>
+        <span className="text-xs bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded-full">{badges[i % badges.length]}</span>
+      </div>
+      <div className="text-xs text-gray-500">#{i+1}</div>
+    </div>
+  );
   return (
-    <main className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">N</div>
-            <span className="font-bold text-lg text-gray-900">Nezro Academy</span>
+    <div className="flex min-h-screen bg-gray-950 text-white">
+      <Sidebar active="/membres" />
+      <main className="flex-1 ml-64 p-8">
+        <h2 className="text-3xl font-bold text-white mb-1">👥 Membres</h2>
+        <p className="text-gray-400 mb-8">{membres.length + admins.length} membres dans la communauté</p>
+        <div className="flex gap-6 items-start">
+          <div className="flex-1 flex flex-col gap-3">
+            {membres.map((m,i) => <MemberCard key={m.id} m={m} i={i} />)}
           </div>
-          <nav className="flex gap-1">
-            <button onClick={() => window.location.href="/programme"} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">Programme</button>
-            <button className="px-4 py-2 rounded-lg text-sm font-medium bg-blue-600 text-white">Membres</button>
-            <button onClick={() => window.location.href="/ressources"} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">Ressources</button>
-            <button onClick={() => window.location.href="/classement"} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">Classement</button>
-          </nav>
-        </div>
-        <div className="relative">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden border-2 border-blue-300">
-            {avatarUrl ? <img src={avatarUrl} className="w-10 h-10 object-cover rounded-full" alt="avatar" /> : <span className="text-blue-600 font-bold">{nom?.[0]?.toUpperCase()||"?"}</span>}
-          </button>
-          {menuOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
-              <button onClick={() => window.location.href="/profil"} className="w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 rounded-t-xl font-medium">👤 Mon profil</button>
-              <button onClick={logout} className="w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-red-50 rounded-b-xl font-medium">🚪 Se déconnecter</button>
-            </div>
-          )}
-        </div>
-      </header>
-      <section className="max-w-6xl mx-auto px-8 py-10 flex gap-8">
-        <div className="flex-1">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">👥 Les Membres</h2>
-          <div className="grid grid-cols-1 gap-3">
-            {membres.map((m) => (
-              <div key={m.id} className="flex items-center gap-4 bg-white border border-gray-200 rounded-2xl p-4">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden flex-shrink-0">
-                  {m.avatar_url ? <img src={m.avatar_url} className="w-12 h-12 object-cover rounded-full" alt="avatar" /> : <span className="text-blue-600 font-bold text-lg">{(m.nom?.[0]||"?").toUpperCase()}</span>}
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">{m.nom || "Membre"}</p>
-                  <p className="text-sm text-gray-400">{m.bio || ""}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="w-72 shrink-0">
-          <div className="bg-white border border-gray-200 rounded-2xl p-6 sticky top-8">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-3">N</div>
-            <h3 className="font-bold text-gray-900 text-lg">Nezro Academy</h3>
-            <p className="text-sm text-gray-500 mt-1 mb-4">La formation pour apprendre à créer et vendre en ligne.</p>
-            <div className="flex gap-4 border-t border-gray-100 pt-4 mb-4">
-              <div className="text-center">
-                <p className="text-xl font-bold text-gray-900">{membres.length}</p>
-                <p className="text-xs text-gray-400">Membres</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xl font-bold text-green-500">12</p>
-                <p className="text-xs text-gray-400">En ligne</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xl font-bold text-gray-900">1</p>
-                <p className="text-xs text-gray-400">Admins</p>
+          <div className="w-72 shrink-0 flex flex-col gap-4">
+            <div className="bg-gray-900 border border-yellow-500/40 rounded-2xl p-5">
+              <h3 className="font-bold text-white mb-4">👑 Administration</h3>
+              <div className="flex flex-col gap-3">
+                {admins.map((m) => (
+                  <div key={m.id} className="flex items-center gap-3">
+                    <div className="relative">
+                      <div className="w-11 h-11 rounded-full bg-yellow-600 flex items-center justify-center overflow-hidden flex-shrink-0">
+                        {m.avatar_url ? <img src={m.avatar_url} className="w-11 h-11 object-cover rounded-full" alt="avatar" /> : <span className="text-white font-bold">{m.nom?.[0]?.toUpperCase()||"?"}</span>}
+                      </div>
+                      {enligne.includes(m.id) && <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-900" />}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white text-sm">{m.nom}</p>
+                      <span className="text-xs bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded-full">👑 Admin</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {membres.slice(0, 8).map(m => (
-                <div key={m.id} className="w-9 h-9 rounded-full bg-blue-100 overflow-hidden flex items-center justify-center">
-                  {m.avatar_url ? <img src={m.avatar_url} className="w-9 h-9 object-cover rounded-full" alt="avatar" /> : <span className="text-blue-600 font-bold text-sm">{(m.nom?.[0]||"?").toUpperCase()}</span>}
-                </div>
-              ))}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+              <h3 className="font-bold text-white mb-4">🟢 En ligne ({enligne.length})</h3>
+              <div className="flex flex-col gap-3">
+                {[...admins,...membres].filter(m => enligne.includes(m.id)).map(m => (
+                  <div key={m.id} className="flex items-center gap-3">
+                    <div className="relative">
+                      <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden">
+                        {m.avatar_url ? <img src={m.avatar_url} className="w-9 h-9 object-cover rounded-full" alt="av" /> : <span className="text-white font-bold text-sm">{m.nom?.[0]?.toUpperCase()||"?"}</span>}
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-gray-900" />
+                    </div>
+                    <p className="text-sm text-white">{m.nom}</p>
+                  </div>
+                ))}
+                {enligne.length === 0 && <p className="text-xs text-gray-500">Personne en ligne pour l'instant</p>}
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </main>
+    </div>
   );
 }
