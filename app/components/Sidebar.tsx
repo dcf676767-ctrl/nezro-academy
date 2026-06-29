@@ -1,58 +1,44 @@
 "use client";
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+import { supabase } from "../lib/supabase";
 export default function Sidebar({ active }: { active: string }) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [nom, setNom] = useState("");
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
-
   useLayoutEffect(() => {
     const p = sessionStorage.getItem("sidebar_profile");
     if (p) { const d = JSON.parse(p); setAvatarUrl(d.avatar_url||""); setNom(d.nom||""); }
     const s = sessionStorage.getItem("sidebar_stats");
     if (s) setStats(JSON.parse(s));
   }, []);
-
   useEffect(() => {
     let channel: any = null;
     let heartbeat: any = null;
     let actif = true;
-
     const envoyerPresence = (userId: string) => {
-      supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", userId).then(({ error }) => {
-        if (error) console.error("Erreur heartbeat:", error.message);
-      });
+      supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", userId);
     };
-
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session || !actif) return;
       supabase.from("profiles").select("avatar_url,nom").eq("id", session.user.id).single().then(({ data }) => {
         if (!data) return;
-        setAvatarUrl(data.avatar_url||"");
-        setNom(data.nom||"");
+        setAvatarUrl(data.avatar_url||""); setNom(data.nom||"");
         sessionStorage.setItem("sidebar_profile", JSON.stringify({avatar_url:data.avatar_url||"",nom:data.nom||""}));
       });
-
       envoyerPresence(session.user.id);
       heartbeat = setInterval(() => envoyerPresence(session.user.id), 20000);
-
       const nomCanal = `profile-watch-${session.user.id}`;
       const existant = supabase.getChannels().find((c:any) => c.topic === `realtime:${nomCanal}`);
       if (existant) supabase.removeChannel(existant);
       if (!actif) return;
       channel = supabase.channel(nomCanal)
         .on("postgres_changes", { event: "UPDATE", schema: "public", table: "profiles", filter: `id=eq.${session.user.id}` }, (payload: any) => {
-          if (payload.new.statut !== "accepte") {
-            router.push("/bloque");
-          }
-        })
-        .subscribe();
+          if (payload.new.statut !== "accepte") router.push("/bloque");
+        }).subscribe();
     });
-
     const chargerStats = () => {
       supabase.from("profiles").select("avatar_url,role,statut,last_seen").then(({ data }) => {
         if (!data) return;
@@ -62,21 +48,13 @@ export default function Sidebar({ active }: { active: string }) {
         const enligne = membres.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 60000).length;
         const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
         const s = { membres: membres.length, admins, enligne, avatars };
-        setStats(s);
-        sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
+        setStats(s); sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
       });
     };
     chargerStats();
     const statsInterval = setInterval(chargerStats, 10000);
-
-    return () => {
-      actif = false;
-      if (channel) supabase.removeChannel(channel);
-      if (heartbeat) clearInterval(heartbeat);
-      clearInterval(statsInterval);
-    };
+    return () => { actif = false; if (channel) supabase.removeChannel(channel); if (heartbeat) clearInterval(heartbeat); clearInterval(statsInterval); };
   }, []);
-
   const logout = async () => { await supabase.auth.signOut(); router.push("/auth"); };
   const links = [
     { href: "/programme", label: "Programme YMA", emoji: "📚" },
@@ -85,21 +63,16 @@ export default function Sidebar({ active }: { active: string }) {
     { href: "/classement", label: "Classement", emoji: "🏆" },
   ];
   const handleNav = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
-    const btn = e.currentTarget;
-    const rect = btn.getBoundingClientRect();
+    const btn = e.currentTarget; const rect = btn.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height) * 2;
     const r = document.createElement("span");
     r.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(99,179,255,0.3);left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;transform:scale(0);animation:ripple 0.6s ease-out forwards;pointer-events:none;z-index:99;`;
-    btn.appendChild(r);
-    setTimeout(() => r.remove(), 600);
-    router.push(href);
+    btn.appendChild(r); setTimeout(() => r.remove(), 600); router.push(href);
   };
   return (
     <aside className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed h-full z-40">
       <div className="p-5 border-b border-gray-800 flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
-          <span className="text-white font-bold text-sm">N</span>
-        </div>
+        <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0"><span className="text-white font-bold text-sm">N</span></div>
         <h1 className="text-base font-bold text-white">Nezro Academy</h1>
       </div>
       <nav className="flex-1 p-4 flex flex-col gap-1 overflow-y-auto">
