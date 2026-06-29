@@ -45,7 +45,7 @@ export default function Sidebar({ active }: { active: string }) {
         const membres = data.filter((p:any) => p.statut === "accepte");
         const admins = data.filter((p:any) => p.role === "admin").length;
         const now = new Date();
-        const enligne = membres.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 60000).length;
+        const enligne = membres.filter((p:any) => p.last_seen && (now.getTime() - new Date(p.last_seen).getTime()) < 7200000).length;
         const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
         const s = { membres: membres.length, admins, enligne, avatars };
         setStats(s); sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
