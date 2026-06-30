@@ -7,16 +7,25 @@ declare global {
   interface Window { puter: any; }
 }
 
+const MESSAGE_INITIAL = { role: "assistant" as const, content: "Salut ! Je suis ton assistant YMA 🎯 Je suis là pour t'aider avec YouTube, le montage, les miniatures, l'algo... Pose-moi n'importe quelle question !" };
+
 export default function Assistant() {
-  const [messages, setMessages] = useState<{role:"user"|"assistant", content:string}[]>([
-    { role: "assistant", content: "Salut ! Je suis ton assistant YMA 🎯 Je suis là pour t'aider avec YouTube, le montage, les miniatures, l'algo... Pose-moi n'importe quelle question !" }
-  ]);
+  const [messages, setMessages] = useState<{role:"user"|"assistant", content:string}[]>(() => {
+    if (typeof window !== "undefined") {
+      const saved = sessionStorage.getItem("assistant_messages");
+      if (saved) {
+        try { return JSON.parse(saved); } catch { return [MESSAGE_INITIAL]; }
+      }
+    }
+    return [MESSAGE_INITIAL];
+  });
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    sessionStorage.setItem("assistant_messages", JSON.stringify(messages));
   }, [messages]);
 
   const envoyer = async () => {
@@ -45,7 +54,7 @@ export default function Assistant() {
 
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Script src="https://js.puter.com/v2/" strategy="beforeInteractive" />
+      <Script src="https://js.puter.com/v2/" strategy="afterInteractive" />
       <Sidebar active="/assistant" />
       <main className="flex-1 ml-64 flex flex-col h-screen">
         <div className="border-b border-gray-800 px-8 py-4 flex items-center gap-3">
