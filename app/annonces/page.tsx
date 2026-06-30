@@ -37,11 +37,17 @@ export default function Annonces() {
   }, []);
 
   const chargerAnnonces = async () => {
-    const { data } = await supabase.from("annonces").select("*").order("created_at", { ascending: false });
+    const { data } = await supabase.from("annonces").select("*").order("created_at", { ascending: true });
     if (data) setAnnonces(data);
     setLoading(false);
     localStorage.setItem("dernier_vu_annonces", new Date().toISOString());
     window.dispatchEvent(new Event("annonces_vues"));
+  };
+
+  const supprimer = async (id: string) => {
+    if (!confirm("Supprimer cette annonce ?")) return;
+    await supabase.from("annonces").delete().eq("id", id);
+    setAnnonces(prev => prev.filter(a => a.id !== id));
   };
 
   const choisirImage = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +79,8 @@ export default function Annonces() {
       auteur_avatar: profil?.avatar_url || "",
     });
     setContenu(""); setImageFile(null); setImagePreview(""); setEnvoi(false);
+    localStorage.setItem("dernier_vu_annonces", new Date().toISOString());
+    window.dispatchEvent(new Event("annonces_vues"));
     chargerAnnonces();
   };
 
@@ -100,7 +108,10 @@ export default function Annonces() {
             </div>
           )}
           {annonces.map((a) => (
-            <div key={a.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <div key={a.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 relative">
+              {isAdmin && (
+                <button onClick={() => supprimer(a.id)} className="absolute top-4 right-4 text-gray-500 hover:text-red-400 text-sm transition-colors">🗑️</button>
+              )}
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
                   {a.auteur_avatar ? <img src={a.auteur_avatar} className="w-9 h-9 object-cover rounded-full" alt="" /> : <span className="text-white text-sm font-bold">N</span>}
