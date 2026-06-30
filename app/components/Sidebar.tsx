@@ -126,8 +126,7 @@ export default function Sidebar({ active }: { active: string }) {
 
   const links = [
     { href: "/programme", label: "Programme YMA", emoji: "📚" },
-    { href: "/dashboard", label: "Dashboard", emoji: "📊" },
-    { href: "/annonces", label: "Annonces", emoji: "📢" },
+    { href: "/annonces", label: "Annonces", emoji: "📢", badge: annoncesNonLues },
     { href: "/dashboard", label: "Dashboard", emoji: "📊" },
     { href: "/membres", label: "Membres", emoji: "👥" },
     { href: "/ressources", label: "Ressources", emoji: "🛠️" },
