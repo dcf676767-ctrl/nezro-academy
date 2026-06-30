@@ -17,20 +17,30 @@ export default function Sidebar({ active }: { active: string }) {
   const [nom, setNom] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
-  const [chatNonLus, setChatNonLus] = useState(() => {
-    if (typeof window === "undefined") return 0;
-    return parseInt(sessionStorage.getItem("badge_chat") || "0");
-  });
-  const [calendrierNonVu, setCalendrierNonVu] = useState(() => {
-    if (typeof window === "undefined") return 0;
-    return parseInt(sessionStorage.getItem("badge_calendrier") || "0");
-  });
+  const [annoncesNonLues, setAnnoncesNonLues] = useState(0);
+  const [chatNonLus, setChatNonLus] = useState(0);
+  const [calendrierNonVu, setCalendrierNonVu] = useState(0);
 
   useLayoutEffect(() => {
     const p = sessionStorage.getItem("sidebar_profile");
     if (p) { const d = JSON.parse(p); setAvatarUrl(d.avatar_url||""); setNom(d.nom||""); setIsAdmin(d.isAdmin||false); }
     const s = sessionStorage.getItem("sidebar_stats");
     if (s) setStats(JSON.parse(s));
+    const bc = sessionStorage.getItem("badge_chat");
+    if (bc) setChatNonLus(parseInt(bc));
+    const bcal = sessionStorage.getItem("badge_calendrier");
+    if (bcal) setCalendrierNonVu(parseInt(bcal));
+  }, []);
+
+  useEffect(() => {
+    const onCalUpdate = () => setCalendrierNonVu(0);
+    const onChatUpdate = () => setChatNonLus(0);
+    window.addEventListener("badge_calendrier_update", onCalUpdate);
+    window.addEventListener("badge_chat_update", onChatUpdate);
+    return () => {
+      window.removeEventListener("badge_calendrier_update", onCalUpdate);
+      window.removeEventListener("badge_chat_update", onChatUpdate);
+    };
   }, []);
 
   useEffect(() => {
@@ -98,10 +108,25 @@ export default function Sidebar({ active }: { active: string }) {
     return () => { actif = false; clearInterval(si); };
   }, []);
 
+  useEffect(() => {
+    const verifierAnnonces = async () => {
+      const dernierVu = localStorage.getItem("dernier_vu_annonces") || "1970-01-01";
+      const { data } = await supabase.from("annonces").select("id", { count: "exact" }).gt("created_at", dernierVu);
+      setAnnoncesNonLues(data?.length || 0);
+    };
+    verifierAnnonces();
+    window.addEventListener("annonces_vues", verifierAnnonces);
+    const sub = supabase.channel("annonces-badge")
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "annonces" }, verifierAnnonces)
+      .subscribe();
+    return () => { window.removeEventListener("annonces_vues", verifierAnnonces); supabase.removeChannel(sub); };
+  }, []);
+
   const logout = async () => { await supabase.auth.signOut(); router.push("/auth"); };
 
   const links = [
     { href: "/programme", label: "Programme YMA", emoji: "📚" },
+    { href: "/annonces", label: "Annonces", emoji: "📢" },
     { href: "/dashboard", label: "Dashboard", emoji: "📊" },
     { href: "/membres", label: "Membres", emoji: "👥" },
     { href: "/ressources", label: "Ressources", emoji: "🛠️" },

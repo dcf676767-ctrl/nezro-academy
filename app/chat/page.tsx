@@ -34,7 +34,10 @@ export default function Chat() {
           (resMsg.data || []).forEach((m: any) => { counts[m.sender_id] = (counts[m.sender_id] || 0) + 1; });
           setNonLusParMembre(counts);
         });
-        supabase.from("chat_vu").upsert({ user_id: uid, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" }).then(() => {});
+        supabase.from("chat_vu").upsert({ user_id: uid, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" }).then(() => {
+          sessionStorage.setItem("badge_chat", "0");
+          window.dispatchEvent(new Event("badge_chat_update"));
+        });
       });
       supabase.from("profiles").select("*").then(({ data }) => {
         const map: any = {};

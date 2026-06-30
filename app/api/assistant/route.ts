@@ -1,26 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { messages } = await req.json();
-  
-  const contents = messages.map((m: any) => ({
-    role: m.role === "assistant" ? "model" : "user",
-    parts: [{ text: m.content }]
-  }));
+  try {
+    const { messages } = await req.json();
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-    {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "HTTP-Referer": "http://localhost:3000",
+        "X-Title": "Nezro Academy"
+      },
       body: JSON.stringify({
-        system_instruction: { parts: [{ text: "Tu es l'assistant YMA (YouTube Money Academy). Tu aides les membres à progresser sur YouTube : montage vidéo, miniatures, algorithme, monétisation, growth hacking, TikTok, Instagram Reels. Tu réponds en français, de manière claire, pratique et motivante. Tu utilises des emojis. Tu donnes des conseils concrets et actionnables." }] },
-        contents
+        model: "meta-llama/llama-3.2-3b-instruct:free",
+        messages: [
+          { role: "system", content: "Tu es l'assistant YMA. Tu aides sur YouTube en français avec des emojis." },
+          ...messages.map((m: any) => ({ role: m.role, content: m.content }))
+        ]
       })
-    }
-  );
+    });
 
-  const data = await response.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Désolé, je n'ai pas pu répondre.";
-  return NextResponse.json({ content: [{ text }] });
+    const data = await response.json();
+    const text = data.choices?.[0]?.message?.content || "Désolé, je n'ai pas pu répondre.";
+    return NextResponse.json({ content: [{ text }] });
+  } catch(e) {
+    return NextResponse.json({ content: [{ text: "Erreur: " + String(e) }] });
+  }
 }

@@ -33,7 +33,10 @@ export default function Calendrier() {
     chargerEvenements();
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        supabase.from("calendrier_vu").upsert({ user_id: session.user.id, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" });
+        supabase.from("calendrier_vu").upsert({ user_id: session.user.id, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" }).then(() => {
+          sessionStorage.setItem("badge_calendrier", "0");
+          window.dispatchEvent(new Event("badge_calendrier_update"));
+        });
       }
     });
   }, []);
