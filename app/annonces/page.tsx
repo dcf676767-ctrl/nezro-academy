@@ -21,6 +21,11 @@ export default function Annonces() {
   const fileRef = useRef<HTMLInputElement>(null);
   const [reactions, setReactions] = useState<any[]>([]);
   const [userId, setUserId] = useState("");
+  const [sondages, setSondages] = useState<any[]>([]);
+  const [votes, setVotes] = useState<any[]>([]);
+  const [creationSondage, setCreationSondage] = useState(false);
+  const [questionSondage, setQuestionSondage] = useState("");
+  const [optionsSondage, setOptionsSondage] = useState(["", ""]);
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
@@ -30,6 +35,7 @@ export default function Annonces() {
       setIsAdmin(data?.email === "dcf676767@gmail.com");
       chargerAnnonces();
       chargerReactions();
+      chargerSondages();
 
     });
 
@@ -46,6 +52,58 @@ export default function Annonces() {
     setLoading(false);
     localStorage.setItem("dernier_vu_annonces", new Date().toISOString());
     window.dispatchEvent(new Event("annonces_vues"));
+  };
+
+  const chargerSondages = async () => {
+    const { data: s } = await supabase.from("sondages").select("*").order("created_at", { ascending: true });
+    if (s) setSondages(s);
+    const { data: v } = await supabase.from("sondage_votes").select("*");
+    if (v) setVotes(v);
+  };
+
+  const ajouterOption = () => setOptionsSondage(prev => [...prev, ""]);
+  const modifierOption = (i: number, val: string) => setOptionsSondage(prev => prev.map((o, idx) => idx === i ? val : o));
+  const retirerOption = (i: number) => setOptionsSondage(prev => prev.filter((_, idx) => idx !== i));
+
+  const creerSondage = async () => {
+    const options = optionsSondage.map(o => o.trim()).filter(o => o.length > 0);
+    if (!questionSondage.trim() || options.length < 2) { alert("Ajoute une question et au moins 2 options."); return; }
+    const { data: { session } } = await supabase.auth.getSession();
+    const { data: profil } = await supabase.from("profiles").select("nom").eq("id", session?.user.id).single();
+    const { error } = await supabase.from("sondages").insert({
+      question: questionSondage.trim(),
+      options,
+      auteur_nom: profil?.nom || "Admin",
+    });
+    if (error) { alert("Erreur : " + error.message); return; }
+    setQuestionSondage(""); setOptionsSondage(["", ""]); setCreationSondage(false);
+    chargerSondages();
+  };
+
+  const supprimerSondage = async (id: string) => {
+    if (!confirm("Supprimer ce sondage ?")) return;
+    const { error } = await supabase.from("sondages").delete().eq("id", id);
+    if (error) { alert("Erreur : " + error.message); return; }
+    setSondages(prev => prev.filter(s => s.id !== id));
+  };
+
+  const voter = async (sondageId: string, optionIndex: number) => {
+    const monVote = votes.find(v => v.sondage_id === sondageId && v.user_id === userId);
+    if (monVote) {
+      if (monVote.option_index === optionIndex) {
+        const { error } = await supabase.from("sondage_votes").delete().eq("id", monVote.id);
+        if (error) { alert("Erreur : " + error.message); return; }
+        setVotes(prev => prev.filter(v => v.id !== monVote.id));
+      } else {
+        const { error } = await supabase.from("sondage_votes").update({ option_index: optionIndex }).eq("id", monVote.id);
+        if (error) { alert("Erreur : " + error.message); return; }
+        setVotes(prev => prev.map(v => v.id === monVote.id ? { ...v, option_index: optionIndex } : v));
+      }
+    } else {
+      const { data, error } = await supabase.from("sondage_votes").insert({ sondage_id: sondageId, user_id: userId, option_index: optionIndex }).select().single();
+      if (error) { alert("Erreur : " + error.message); return; }
+      if (data) setVotes(prev => [...prev, data]);
+    }
   };
 
   const chargerReactions = async () => {
@@ -125,7 +183,66 @@ export default function Annonces() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
-          {annonces.length === 0 && (
+          {isAdmin && (
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+              {!creationSondage ? (
+                <button onClick={() => setCreationSondage(true)} className="text-blue-400 hover:text-blue-300 text-sm font-semibold flex items-center gap-2">
+                  📊 Creer un sondage
+                </button>
+              ) : (
+                <div className="flex flex-col gap-3">
+                  <input value={questionSondage} onChange={e => setQuestionSondage(e.target.value)} placeholder="Ta question..." className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500" />
+                  {optionsSondage.map((opt, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <input value={opt} onChange={e => modifierOption(i, e.target.value)} placeholder={`Option ${i + 1}`} className="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-blue-500" />
+                      {optionsSondage.length > 2 && <button onClick={() => retirerOption(i)} className="text-gray-500 hover:text-red-400">✕</button>}
+                    </div>
+                  ))}
+                  <div className="flex items-center gap-3">
+                    <button onClick={ajouterOption} className="text-gray-400 hover:text-white text-xs font-semibold">+ Ajouter une option</button>
+                  </div>
+                  <div className="flex gap-2">
+                    <button onClick={creerSondage} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-colors">Publier le sondage</button>
+                    <button onClick={() => { setCreationSondage(false); setQuestionSondage(""); setOptionsSondage(["", ""]); }} className="bg-gray-800 hover:bg-gray-700 text-gray-300 px-4 py-2 rounded-xl text-sm font-semibold transition-colors">Annuler</button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {sondages.map((s) => {
+            const votesSondage = votes.filter(v => v.sondage_id === s.id);
+            const total = votesSondage.length;
+            const monVote = votesSondage.find(v => v.user_id === userId);
+            return (
+              <div key={s.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 relative">
+                {isAdmin && (
+                  <button onClick={() => supprimerSondage(s.id)} className="absolute top-4 right-4 text-gray-500 hover:text-red-400 text-sm transition-colors">🗑️</button>
+                )}
+                <p className="text-xs text-blue-400 font-semibold mb-2">📊 Sondage</p>
+                <p className="text-white font-semibold mb-4 pr-8">{s.question}</p>
+                <div className="flex flex-col gap-2">
+                  {s.options.map((opt: string, i: number) => {
+                    const count = votesSondage.filter(v => v.option_index === i).length;
+                    const pourcent = total > 0 ? Math.round((count / total) * 100) : 0;
+                    const choisi = monVote?.option_index === i;
+                    return (
+                      <button key={i} onClick={() => voter(s.id, i)} className={`relative w-full text-left rounded-xl border overflow-hidden transition-colors ${choisi ? "border-blue-500" : "border-gray-700 hover:border-gray-600"}`}>
+                        <div className="absolute inset-0 bg-blue-600/20" style={{ width: `${pourcent}%` }} />
+                        <div className="relative flex items-center justify-between px-4 py-2.5">
+                          <span className="text-sm text-white">{choisi ? "✓ " : ""}{opt}</span>
+                          <span className="text-xs text-gray-400">{pourcent}% ({count})</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="text-xs text-gray-500 mt-3">{total} vote{total !== 1 ? "s" : ""}</p>
+              </div>
+            );
+          })}
+
+          {annonces.length === 0 && sondages.length === 0 && (
             <div className="text-center text-gray-500 mt-16">
               <p className="text-4xl mb-3">📢</p>
               <p>Aucune annonce pour le moment</p>
