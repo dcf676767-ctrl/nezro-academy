@@ -27,12 +27,13 @@ export default function Annonces() {
       setIsAdmin(data?.email === "dcf676767@gmail.com");
       chargerAnnonces();
 
-      const sub = supabase.channel("annonces-realtime")
-        .on("postgres_changes", { event: "INSERT", schema: "public", table: "annonces" }, () => {
-          chargerAnnonces();
-        }).subscribe();
-      return () => { supabase.removeChannel(sub); };
     });
+
+    const sub = supabase.channel("annonces-realtime-" + Math.random())
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "annonces" }, () => {
+        chargerAnnonces();
+      }).subscribe();
+    return () => { supabase.removeChannel(sub); };
   }, []);
 
   const chargerAnnonces = async () => {
