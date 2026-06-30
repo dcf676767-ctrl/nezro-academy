@@ -150,7 +150,10 @@ export default function Sidebar({ active }: { active: string }) {
   return (
     <aside className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed h-full z-40">
       <div className="p-5 border-b border-gray-800 flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0"><span className="text-white font-bold text-sm">N</span></div>
+        <div className="relative w-10 h-10 flex-shrink-0">
+          <div className="absolute -inset-2 bg-blue-500 blur-xl opacity-50 rounded-full" />
+          <div className="relative w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl flex items-center justify-center text-white font-bold text-base shadow-lg shadow-blue-600/50">N</div>
+        </div>
         <h1 className="text-base font-bold text-white">Nezro Academy</h1>
       </div>
 
