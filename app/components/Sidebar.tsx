@@ -116,7 +116,7 @@ export default function Sidebar({ active }: { active: string }) {
     };
     verifierAnnonces();
     window.addEventListener("annonces_vues", verifierAnnonces);
-    const sub = supabase.channel("annonces-badge")
+    const sub = supabase.channel("annonces-badge-" + Math.random())
       .on("postgres_changes", { event: "INSERT", schema: "public", table: "annonces" }, verifierAnnonces)
       .subscribe();
     return () => { window.removeEventListener("annonces_vues", verifierAnnonces); supabase.removeChannel(sub); };
