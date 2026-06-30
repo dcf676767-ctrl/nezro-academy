@@ -66,7 +66,8 @@ export default function Annonces() {
 
   const supprimer = async (id: string) => {
     if (!confirm("Supprimer cette annonce ?")) return;
-    await supabase.from("annonces").delete().eq("id", id);
+    const { error } = await supabase.from("annonces").delete().eq("id", id);
+    if (error) { alert("Erreur lors de la suppression : " + error.message); return; }
     setAnnonces(prev => prev.filter(a => a.id !== id));
   };
 
