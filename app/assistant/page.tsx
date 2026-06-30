@@ -1,6 +1,11 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Script from "next/script";
 import Sidebar from "../components/Sidebar";
+
+declare global {
+  interface Window { puter: any; }
+}
 
 export default function Assistant() {
   const [messages, setMessages] = useState<{role:"user"|"assistant", content:string}[]>([
@@ -22,15 +27,15 @@ export default function Assistant() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/assistant", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          messages: [...messages, { role: "user", content: userMsg }].map(m => ({ role: m.role, content: m.content }))
-        })
-      });
-      const data = await response.json();
-      const reply = data.content?.[0]?.text || "Désolé, je n'ai pas pu répondre.";
+      const historique = [...messages, { role: "user", content: userMsg }].map(m => ({ role: m.role, content: m.content }));
+      const response = await window.puter.ai.chat(
+        [
+          { role: "system", content: "Tu es l'assistant YMA. Réponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme." },
+          ...historique
+        ],
+        { model: "meta-llama/llama-4-maverick" }
+      );
+      const reply = response?.message?.content || "Désolé, je n'ai pas pu répondre.";
       setMessages(prev => [...prev, { role: "assistant", content: reply }]);
     } catch {
       setMessages(prev => [...prev, { role: "assistant", content: "❌ Erreur de connexion. Réessaie !" }]);
@@ -40,6 +45,7 @@ export default function Assistant() {
 
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
+      <Script src="https://js.puter.com/v2/" strategy="beforeInteractive" />
       <Sidebar active="/assistant" />
       <main className="flex-1 ml-64 flex flex-col h-screen">
         <div className="border-b border-gray-800 px-8 py-4 flex items-center gap-3">
