@@ -152,7 +152,10 @@ export default function Sidebar({ active }: { active: string }) {
       <div className="p-5 border-b border-gray-800 flex items-center gap-3">
         <div className="relative w-10 h-10 flex-shrink-0">
           <div className="absolute -inset-2 bg-blue-500 blur-xl opacity-50 rounded-full" />
-          <div className="relative w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl flex items-center justify-center text-white font-bold text-base shadow-lg shadow-blue-600/50">N</div>
+          <div className="relative w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-0">
+            <span className="font-bold text-sm leading-none">N</span>
+            <span className="font-semibold text-[4px] leading-none tracking-wide">Nezro Academy</span>
+          </div>
         </div>
         <h1 className="text-base font-bold text-white">Nezro Academy</h1>
       </div>
