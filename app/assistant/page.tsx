@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import Sidebar from "../components/Sidebar";
-import { createClient } from "../../../nezro-academy-app/node_modules/@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
