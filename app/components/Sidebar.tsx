@@ -111,8 +111,8 @@ export default function Sidebar({ active }: { active: string }) {
   useEffect(() => {
     const verifierAnnonces = async () => {
       const dernierVu = localStorage.getItem("dernier_vu_annonces") || "1970-01-01";
-      const { data } = await supabase.from("annonces").select("id", { count: "exact" }).gt("created_at", dernierVu);
-      setAnnoncesNonLues(data?.length || 0);
+      const { data } = await supabase.from("annonces").select("id").gt("created_at", dernierVu);
+      setAnnoncesNonLues(data ? data.length : 0);
     };
     verifierAnnonces();
     window.addEventListener("annonces_vues", verifierAnnonces);
@@ -126,8 +126,8 @@ export default function Sidebar({ active }: { active: string }) {
 
   const links = [
     { href: "/programme", label: "Programme YMA", emoji: "📚" },
-    { href: "/annonces", label: "Annonces", emoji: "📢", badge: annoncesNonLues },
     { href: "/dashboard", label: "Dashboard", emoji: "📊" },
+    { href: "/annonces", label: "Annonces", emoji: "📢", badge: annoncesNonLues },
     { href: "/membres", label: "Membres", emoji: "👥" },
     { href: "/ressources", label: "Ressources", emoji: "🛠️" },
     { href: "/classement", label: "Classement", emoji: "🏆" },
