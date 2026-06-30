@@ -18,6 +18,7 @@ export default function Sidebar({ active }: { active: string }) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
   const [chatNonLus, setChatNonLus] = useState(0);
+  const [calendrierNonVu, setCalendrierNonVu] = useState(0);
 
   useLayoutEffect(() => {
     const p = sessionStorage.getItem("sidebar_profile");
