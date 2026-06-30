@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
         "X-Title": "Nezro Academy"
       },
       body: JSON.stringify({
-        model: "google/gemma-3-27b-it:free",
+        model: "meta-llama/llama-3.3-70b-instruct:free",
         stream: false,
         messages: [
           { role: "user", content: "Tu es l'assistant YMA. Réponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme." },
