@@ -48,7 +48,31 @@ export default function Sidebar({ active }: { active: string }) {
       });
       supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", session.user.id);
       const hb = setInterval(() => supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", session.user.id), 20000);
-      return () => clearInterval(hb);
+
+      const chargerNonLus = () => {
+        supabase.from("chat_vu").select("derniere_visite").eq("user_id", session.user.id).single().then((resVuChat) => {
+          const dateVuChat = resVuChat.data ? resVuChat.data.derniere_visite : "2000-01-01";
+          supabase.from("messages").select("id").eq("receiver_id", session.user.id).gt("created_at", dateVuChat).then((res) => {
+            console.log("CHAT NONLUS:", res.data, res.error);
+            setChatNonLus(res.data ? res.data.length : 0);
+          });
+        });
+      };
+      chargerNonLus();
+      const nlInterval = setInterval(chargerNonLus, 5000);
+
+      const chargerCalendrierNonVu = () => {
+        supabase.from("calendrier_vu").select("derniere_visite").eq("user_id", session.user.id).single().then((resVu) => {
+          const dateVu = resVu.data ? resVu.data.derniere_visite : "2000-01-01";
+          supabase.from("evenements").select("id").gt("created_at", dateVu).then((resEv) => {
+            console.log("EVENEMENTS NON VUS:", resEv.data, resEv.error);
+            setCalendrierNonVu(resEv.data ? resEv.data.length : 0);
+          });
+        });
+      };
+      chargerCalendrierNonVu();
+      const calInterval = setInterval(chargerCalendrierNonVu, 10000);
+      return () => { clearInterval(hb); clearInterval(nlInterval); clearInterval(calInterval); };
     });
     const chargerStats = () => {
       supabase.from("profiles").select("avatar_url,role,statut,last_seen").then(({ data }) => {

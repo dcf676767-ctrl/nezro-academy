@@ -23,6 +23,7 @@ export default function Chat() {
       if (!session) { window.location.replace("/auth"); return; }
       const uid = session.user.id;
       setMoiId(uid);
+      supabase.from("chat_vu").upsert({ user_id: uid, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" }).then(() => {});
       supabase.from("profiles").select("*").then(({ data }) => {
         const map: any = {};
         (data || []).forEach((x: any) => map[x.id] = x);
