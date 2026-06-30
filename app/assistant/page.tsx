@@ -10,23 +10,24 @@ declare global {
 const MESSAGE_INITIAL = { role: "assistant" as const, content: "Salut ! Je suis ton assistant YMA 🎯 Je suis là pour t'aider avec YouTube, le montage, les miniatures, l'algo... Pose-moi n'importe quelle question !" };
 
 export default function Assistant() {
-  const [messages, setMessages] = useState<{role:"user"|"assistant", content:string}[]>(() => {
-    if (typeof window !== "undefined") {
-      const saved = sessionStorage.getItem("assistant_messages");
-      if (saved) {
-        try { return JSON.parse(saved); } catch { return [MESSAGE_INITIAL]; }
-      }
-    }
-    return [MESSAGE_INITIAL];
-  });
+  const [messages, setMessages] = useState<{role:"user"|"assistant", content:string}[]>([MESSAGE_INITIAL]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [pret, setPret] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const saved = sessionStorage.getItem("assistant_messages");
+    if (saved) {
+      try { setMessages(JSON.parse(saved)); } catch { setMessages([MESSAGE_INITIAL]); }
+    }
+    setPret(true);
+  }, []);
+
+  useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-    sessionStorage.setItem("assistant_messages", JSON.stringify(messages));
-  }, [messages]);
+    if (pret) sessionStorage.setItem("assistant_messages", JSON.stringify(messages));
+  }, [messages, pret]);
 
   const envoyer = async () => {
     if (!input.trim() || loading) return;
