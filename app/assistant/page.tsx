@@ -2,6 +2,9 @@
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import Sidebar from "../components/Sidebar";
+import { createClient } from "../../../nezro-academy-app/node_modules/@supabase/supabase-js";
+
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
 declare global {
   interface Window { puter: any; }
@@ -14,20 +17,27 @@ export default function Assistant() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [pret, setPret] = useState(false);
+  const [userId, setUserId] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const saved = sessionStorage.getItem("assistant_messages");
-    if (saved) {
-      try { setMessages(JSON.parse(saved)); } catch { setMessages([MESSAGE_INITIAL]); }
-    }
-    setPret(true);
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      const id = session?.user.id || "anonyme";
+      setUserId(id);
+      const saved = sessionStorage.getItem("assistant_messages_" + id);
+      if (saved) {
+        try { setMessages(JSON.parse(saved)); } catch { setMessages([MESSAGE_INITIAL]); }
+      } else {
+        setMessages([MESSAGE_INITIAL]);
+      }
+      setPret(true);
+    });
   }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-    if (pret) sessionStorage.setItem("assistant_messages", JSON.stringify(messages));
-  }, [messages, pret]);
+    if (pret && userId) sessionStorage.setItem("assistant_messages_" + userId, JSON.stringify(messages));
+  }, [messages, pret, userId]);
 
   const envoyer = async () => {
     if (!input.trim() || loading) return;
