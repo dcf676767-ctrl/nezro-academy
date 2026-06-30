@@ -176,12 +176,7 @@ export default function Annonces() {
     return date.toLocaleDateString("fr-FR", { day: "numeric", month: "short" }) + " a " + date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
   };
 
-  if (loading) return (
-    <div className="flex min-h-screen bg-gray-950">
-      <Sidebar active="/annonces" />
-      <main className="flex-1 ml-64 flex items-center justify-center text-white">Chargement...</main>
-    </div>
-  );
+
 
   return (
     <div className="flex min-h-screen bg-gray-950">
