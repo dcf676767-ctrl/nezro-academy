@@ -14,16 +14,28 @@ export default function Chat() {
   const [newMsg, setNewMsg] = useState("");
   const [moiId, setMoiId] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [nonLusParMembre, setNonLusParMembre] = useState<any>({});
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const isAdmin = moiId === ADMIN_ID;
 
+  const dejaCharge = useRef(false);
   useEffect(() => {
+    if (dejaCharge.current) return;
+    dejaCharge.current = true;
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { window.location.replace("/auth"); return; }
       const uid = session.user.id;
       setMoiId(uid);
-      supabase.from("chat_vu").upsert({ user_id: uid, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" }).then(() => {});
+      supabase.from("chat_vu").select("derniere_visite").eq("user_id", uid).single().then((resVu) => {
+        const dateVu = resVu.data ? resVu.data.derniere_visite : "2000-01-01";
+        supabase.from("messages").select("sender_id").eq("receiver_id", uid).gt("created_at", dateVu).then((resMsg) => {
+          const counts: any = {};
+          (resMsg.data || []).forEach((m: any) => { counts[m.sender_id] = (counts[m.sender_id] || 0) + 1; });
+          setNonLusParMembre(counts);
+        });
+        supabase.from("chat_vu").upsert({ user_id: uid, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" }).then(() => {});
+      });
       supabase.from("profiles").select("*").then(({ data }) => {
         const map: any = {};
         (data || []).forEach((x: any) => map[x.id] = x);
@@ -92,15 +104,18 @@ export default function Chat() {
             </div>
             <div className="flex-1 overflow-y-auto">
               {membres.map(m => (
-                <button key={m.id} onClick={() => setSelectedUser(m)}
+                <button key={m.id} onClick={() => { setSelectedUser(m); setNonLusParMembre((prev: any) => { const n = {...prev}; delete n[m.id]; return n; }); }}
                   className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-all text-left ${selectedUser?.id === m.id ? "bg-gray-800 border-l-2 border-blue-500" : ""}`}>
                   <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center font-bold shrink-0 overflow-hidden">
                     {m.avatar_url ? <img src={m.avatar_url} className="w-full h-full object-cover" /> : m.nom?.[0]?.toUpperCase() || "?"}
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className="text-white text-sm font-semibold truncate">{m.nom || "Sans nom"}</p>
                     <p className="text-gray-400 text-xs">{m.role || "Membre"}</p>
                   </div>
+                  {nonLusParMembre[m.id] > 0 && (
+                    <span className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">{nonLusParMembre[m.id] > 9 ? "9+" : nonLusParMembre[m.id]}</span>
+                  )}
                 </button>
               ))}
             </div>

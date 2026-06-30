@@ -17,8 +17,14 @@ export default function Sidebar({ active }: { active: string }) {
   const [nom, setNom] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
-  const [chatNonLus, setChatNonLus] = useState(0);
-  const [calendrierNonVu, setCalendrierNonVu] = useState(0);
+  const [chatNonLus, setChatNonLus] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    return parseInt(sessionStorage.getItem("badge_chat") || "0");
+  });
+  const [calendrierNonVu, setCalendrierNonVu] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    return parseInt(sessionStorage.getItem("badge_calendrier") || "0");
+  });
 
   useLayoutEffect(() => {
     const p = sessionStorage.getItem("sidebar_profile");
@@ -54,7 +60,7 @@ export default function Sidebar({ active }: { active: string }) {
           const dateVuChat = resVuChat.data ? resVuChat.data.derniere_visite : "2000-01-01";
           supabase.from("messages").select("id").eq("receiver_id", session.user.id).gt("created_at", dateVuChat).then((res) => {
             console.log("CHAT NONLUS:", res.data, res.error);
-            setChatNonLus(res.data ? res.data.length : 0);
+            const n = res.data ? res.data.length : 0; setChatNonLus(n); sessionStorage.setItem("badge_chat", String(n));
           });
         });
       };
@@ -66,7 +72,7 @@ export default function Sidebar({ active }: { active: string }) {
           const dateVu = resVu.data ? resVu.data.derniere_visite : "2000-01-01";
           supabase.from("evenements").select("id").gt("created_at", dateVu).then((resEv) => {
             console.log("EVENEMENTS NON VUS:", resEv.data, resEv.error);
-            setCalendrierNonVu(resEv.data ? resEv.data.length : 0);
+            const n2 = resEv.data ? resEv.data.length : 0; setCalendrierNonVu(n2); sessionStorage.setItem("badge_calendrier", String(n2));
           });
         });
       };
