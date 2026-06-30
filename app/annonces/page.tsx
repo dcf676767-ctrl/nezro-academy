@@ -285,37 +285,6 @@ export default function Annonces() {
               <p>Aucune annonce pour le moment</p>
             </div>
           )}
-          {annonces.map((a) => (
-            <div key={a.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 relative">
-              {isAdmin && (
-                <button onClick={() => supprimer(a.id)} className="absolute top-4 right-4 text-gray-500 hover:text-red-400 text-sm transition-colors">🗑️</button>
-              )}
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0">
-                  {a.auteur_avatar ? <img src={a.auteur_avatar} className="w-9 h-9 object-cover rounded-full" alt="" /> : <span className="text-white text-sm font-bold">N</span>}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-white">{a.auteur_nom} <span className="text-yellow-400 text-xs">👑 Admin</span></p>
-                  <p className="text-xs text-gray-500">{formatDate(a.created_at)}</p>
-                </div>
-              </div>
-              {a.contenu && <p className="text-gray-200 text-sm whitespace-pre-wrap leading-relaxed mb-3">{a.contenu}</p>}
-              {a.image_url && <img src={a.image_url} className="rounded-xl max-h-96 w-auto mb-3" alt="" />}
-              <div className="flex items-center gap-2 mt-2">
-                {["❤️","🔥","👍","🎉"].map(emoji => {
-                  const ceux = reactions.filter(r => r.annonce_id === a.id && r.emoji === emoji);
-                  const jaiReagi = ceux.some(r => r.user_id === userId);
-                  return (
-                    <button key={emoji} onClick={() => toggleReaction(a.id, emoji)}
-                      className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border transition-colors ${jaiReagi ? "bg-blue-600/20 border-blue-500 text-blue-400" : "bg-gray-800 border-gray-700 text-gray-400 hover:border-gray-500"}`}>
-                      <span>{emoji}</span>
-                      {ceux.length > 0 && <span>{ceux.length}</span>}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
         </div>
 
         {isAdmin && (
