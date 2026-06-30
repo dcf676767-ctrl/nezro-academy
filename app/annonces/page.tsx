@@ -19,13 +19,17 @@ export default function Annonces() {
   const [imagePreview, setImagePreview] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [reactions, setReactions] = useState<any[]>([]);
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (!session) { router.push("/auth"); return; }
+      setUserId(session.user.id);
       const { data } = await supabase.from("profiles").select("email").eq("id", session.user.id).single();
       setIsAdmin(data?.email === "dcf676767@gmail.com");
       chargerAnnonces();
+      chargerReactions();
 
     });
 
@@ -42,6 +46,22 @@ export default function Annonces() {
     setLoading(false);
     localStorage.setItem("dernier_vu_annonces", new Date().toISOString());
     window.dispatchEvent(new Event("annonces_vues"));
+  };
+
+  const chargerReactions = async () => {
+    const { data } = await supabase.from("annonce_reactions").select("*");
+    if (data) setReactions(data);
+  };
+
+  const toggleReaction = async (annonceId: string, emoji: string) => {
+    const existe = reactions.find(r => r.annonce_id === annonceId && r.user_id === userId && r.emoji === emoji);
+    if (existe) {
+      await supabase.from("annonce_reactions").delete().eq("id", existe.id);
+      setReactions(prev => prev.filter(r => r.id !== existe.id));
+    } else {
+      const { data } = await supabase.from("annonce_reactions").insert({ annonce_id: annonceId, user_id: userId, emoji }).select().single();
+      if (data) setReactions(prev => [...prev, data]);
+    }
   };
 
   const supprimer = async (id: string) => {
@@ -125,7 +145,20 @@ export default function Annonces() {
                 </div>
               </div>
               {a.contenu && <p className="text-gray-200 text-sm whitespace-pre-wrap leading-relaxed mb-3">{a.contenu}</p>}
-              {a.image_url && <img src={a.image_url} className="rounded-xl max-h-96 w-auto" alt="" />}
+              {a.image_url && <img src={a.image_url} className="rounded-xl max-h-96 w-auto mb-3" alt="" />}
+              <div className="flex items-center gap-2 mt-2">
+                {["❤️","🔥","👍","🎉"].map(emoji => {
+                  const ceux = reactions.filter(r => r.annonce_id === a.id && r.emoji === emoji);
+                  const jaiReagi = ceux.some(r => r.user_id === userId);
+                  return (
+                    <button key={emoji} onClick={() => toggleReaction(a.id, emoji)}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border transition-colors ${jaiReagi ? "bg-blue-600/20 border-blue-500 text-blue-400" : "bg-gray-800 border-gray-700 text-gray-400 hover:border-gray-500"}`}>
+                      <span>{emoji}</span>
+                      {ceux.length > 0 && <span>{ceux.length}</span>}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           ))}
         </div>
