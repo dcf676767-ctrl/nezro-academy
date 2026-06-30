@@ -110,7 +110,10 @@ export default function Sidebar({ active }: { active: string }) {
 
   useEffect(() => {
     const verifierAnnonces = async () => {
-      const dernierVu = localStorage.getItem("dernier_vu_annonces") || "1970-01-01";
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const { data: vu } = await supabase.from("annonces_vu").select("derniere_visite").eq("user_id", session.user.id).single();
+      const dernierVu = vu ? vu.derniere_visite : "1970-01-01";
       const { data } = await supabase.from("annonces").select("id").gt("created_at", dernierVu);
       setAnnoncesNonLues(data ? data.length : 0);
     };
