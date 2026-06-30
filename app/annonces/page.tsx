@@ -72,6 +72,11 @@ export default function Annonces() {
     }
     const { data: { session } } = await supabase.auth.getSession();
     const { data: profil } = await supabase.from("profiles").select("nom,avatar_url").eq("id", session?.user.id).single();
+
+    // Marquer comme vu AVANT l'insertion pour eviter la notif sur soi-meme
+    localStorage.setItem("dernier_vu_annonces", new Date(Date.now() + 5000).toISOString());
+    window.dispatchEvent(new Event("annonces_vues"));
+
     await supabase.from("annonces").insert({
       contenu: contenu.trim(),
       image_url: imageUrl,
@@ -79,8 +84,6 @@ export default function Annonces() {
       auteur_avatar: profil?.avatar_url || "",
     });
     setContenu(""); setImageFile(null); setImagePreview(""); setEnvoi(false);
-    localStorage.setItem("dernier_vu_annonces", new Date().toISOString());
-    window.dispatchEvent(new Event("annonces_vues"));
     chargerAnnonces();
   };
 
