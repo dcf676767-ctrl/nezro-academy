@@ -284,7 +284,7 @@ export default function Annonces() {
               );
             })}
 
-          {annonces.length === 0 && sondages.length === 0 && (
+          {!loading && annonces.length === 0 && sondages.length === 0 && (
             <div className="text-center text-gray-500 mt-16">
               <p className="text-4xl mb-3">📢</p>
               <p>Aucune annonce pour le moment</p>
