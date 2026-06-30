@@ -76,7 +76,7 @@ export default function Sidebar({ active }: { active: string }) {
     { href: "/membres", label: "Membres", emoji: "👥" },
     { href: "/ressources", label: "Ressources", emoji: "🛠️" },
     { href: "/classement", label: "Classement", emoji: "🏆" },
-    { href: "/calendrier", label: "Calendrier", emoji: "📅" },
+    { href: "/calendrier", label: "Calendrier", emoji: "📅", badge: calendrierNonVu },
     { href: "/assistant", label: "Assistant IA", emoji: "🤖" },
     { href: "/chat", label: "Chat", emoji: "💬", badge: chatNonLus },
   ];
