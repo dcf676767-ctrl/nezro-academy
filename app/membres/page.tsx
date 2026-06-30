@@ -44,7 +44,7 @@ export default function Membres() {
           <div className="flex-1">
             <h2 className="text-5xl font-bold text-white mb-3 text-center">👥 Membres</h2>
             <p className="text-gray-400 mb-8 text-center">{membres.length + admins.length} membres dans la communauté</p>
-            {loading ? <div className="text-center text-gray-400">Chargement...</div> : (
+            {!loading && (
               <div className="flex flex-col gap-4">
                 {membres.map((m, i) => (
                   <div key={m.id} className={`bg-gray-900 border rounded-2xl p-5 flex items-center gap-4 transition-all ${m.id === moiId ? "border-blue-500/40" : "border-gray-800"}`}>
