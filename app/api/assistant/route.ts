@@ -1,30 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  try {
-    const { messages } = await req.json();
+  const { messages } = await req.json();
 
+  try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "HTTP-Referer": "http://localhost:3000",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://nezro-academy.vercel.app",
         "X-Title": "Nezro Academy"
       },
       body: JSON.stringify({
-        model: "meta-llama/llama-3.2-3b-instruct:free",
+        model: "google/gemma-3-27b-it:free",
+        stream: false,
         messages: [
-          { role: "system", content: "Tu es l'assistant YMA. Tu aides sur YouTube en français avec des emojis." },
-          ...messages.map((m: any) => ({ role: m.role, content: m.content }))
+          { role: "user", content: "Tu es l'assistant YMA. Réponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme." },
+          { role: "assistant", content: "Compris ! Je suis l'assistant YMA, prêt à t'aider 🎯" },
+          ...messages
         ]
       })
     });
 
-    const data = await response.json();
-    const text = data.choices?.[0]?.message?.content || "Désolé, je n'ai pas pu répondre.";
-    return NextResponse.json({ content: [{ text }] });
-  } catch(e) {
-    return NextResponse.json({ content: [{ text: "Erreur: " + String(e) }] });
+    const text = await response.text();
+    const data = JSON.parse(text);
+    if (!data.choices) console.error("Réponse OpenRouter inattendue:", JSON.stringify(data));
+    const reply = data.choices?.[0]?.message?.content || "Désolé, je n'ai pas pu répondre.";
+    return NextResponse.json({ content: [{ text: reply }] });
+  } catch (e) {
+    console.error(e);
+    return NextResponse.json({ content: [{ text: "Erreur serveur." }] });
   }
 }
