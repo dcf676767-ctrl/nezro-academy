@@ -134,7 +134,7 @@ export default function Auth() {
           <div className="relative mb-4">
             <div className="absolute -inset-8 bg-blue-500 blur-3xl opacity-50 rounded-full" />
             <div className="absolute -inset-4 bg-blue-400 blur-2xl opacity-30 rounded-full" />
-            <div className="relative w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl flex flex-col items-center justify-end pb-3 text-white shadow-lg shadow-blue-600/50 gap-1">
+            <div className="relative w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-1">
               <span className="font-bold text-4xl leading-none">N</span>
               <span className="font-semibold text-[9px] leading-none tracking-wide">Nezro Academy</span>
             </div>
