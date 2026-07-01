@@ -169,7 +169,7 @@ export default function Auth() {
                 <input type="checkbox" checked={accepte} onChange={(e) => setAccepte(e.target.checked)} className="mt-1 w-4 h-4 accent-blue-500 flex-shrink-0" />
                 <span className="text-xs text-gray-400 leading-relaxed">
                   J'ai lu et j'accepte les{" "}
-                  <a href="/legal/cgu" target="_blank" className="text-blue-400 hover:underline">Conditions Generales d Utilisation</a>{" "}
+                  <a href="/legal/cgu" target="_blank" className="text-blue-400 hover:underline">Conditions Générales d'Utilisation (CGU)</a>{" "}
                   ainsi que la{" "}
                   <a href="/legal/confidentialite" target="_blank" className="text-blue-400 hover:underline">Politique de confidentialite</a>{" "}
                   de Nezro Academy.
