@@ -64,8 +64,19 @@ export default function Module() {
         </div>
         <div className="flex gap-8">
           <div className="flex-1">
-            <div className="bg-gray-900 rounded-2xl aspect-video flex items-center justify-center mb-6 border border-gray-800">
-              <p className="text-gray-500">Vidéo à venir — {chapitre.titre}</p>
+            <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
+              {moduleId === 1 ? (
+                <iframe
+                  src="https://www.youtube.com/embed/_3JxXTY34mM?rel=0&modestbranding=1&vq=hd2160"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="bg-gray-900 rounded-2xl w-full h-full flex items-center justify-center border border-gray-800">
+                  <p className="text-gray-500">Vidéo à venir — {chapitre.titre}</p>
+                </div>
+              )}
             </div>
 <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
             <div className="flex flex-col gap-4 mb-6">
