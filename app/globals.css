@@ -53,3 +53,13 @@ input:-webkit-autofill:focus {
 .animate-shine {
   animation: shine 3s linear infinite;
 }
+
+/* Transitions de page */
+main {
+  animation: fadeIn 0.15s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
