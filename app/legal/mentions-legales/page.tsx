@@ -12,6 +12,7 @@ export default function MentionsLegales() {
             <h2 className="text-xl font-bold text-white mb-3">1. Éditeur du site</h2>
             <ul className="text-gray-400 flex flex-col gap-1">
               <li><strong className="text-white">Nom / Responsable :</strong> Iurceac Julien</li>
+              <li><strong className="text-white">Statut juridique :</strong> Auto-entrepreneur</li>
               <li><strong className="text-white">Contact :</strong> <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a></li>
               <li><strong className="text-white">Pays :</strong> France</li>
             </ul>
