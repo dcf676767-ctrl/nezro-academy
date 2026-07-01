@@ -1,19 +1,11 @@
 "use client";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-const _sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-function useAuth() {
   const router = useRouter();
   useEffect(() => {
-    _sb.auth.getSession().then(({data:{session}}) => {
-      if (!session) { router.push("/auth"); return; }
-      _sb.from("profiles").select("statut").eq("id", session.user.id).single().then(({data}) => {
-        if (!data || data.statut !== "accepte") router.push("/bloque");
       });
     });
   }, []);
-}
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
@@ -63,4 +55,3 @@ export default function Classement() {
       </main>
     </div>
   );
-}
