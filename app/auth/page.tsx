@@ -189,9 +189,6 @@ export default function Auth() {
             </div>
           </div>
 <div className="flex justify-center gap-4 mt-4 text-xs text-gray-600">
-  <a href="/legal/mentions-legales" className="hover:text-gray-400">Mentions légales</a>
-  <a href="/legal/confidentialite" className="hover:text-gray-400">Confidentialité</a>
-  <a href="/legal/cgu" className="hover:text-gray-400">CGU</a>
 </div>
         </div>
       </div>
