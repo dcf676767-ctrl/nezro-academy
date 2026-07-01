@@ -175,3 +175,8 @@ export default function Auth() {
   <a href="/legal/confidentialite" className="hover:text-gray-400">Confidentialité</a>
   <a href="/legal/cgu" className="hover:text-gray-400">CGU</a>
 </div>
+        </div>
+      </div>
+    </main>
+  );
+}
