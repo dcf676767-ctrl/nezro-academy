@@ -1,17 +1,9 @@
 "use client";
-import { useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
-  const router = useRouter();
-  useEffect(() => {
-      });
-    });
-  }, []);
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
-const TOTAL_CHAPITRES = 7;
+const TOTAL_CHAPITRES = 19;
 export default function Classement() {
-  useAuth();
   const [classement, setClassement] = useState<any[]>([]);
   useEffect(() => {
     const load = async () => {
@@ -55,3 +47,4 @@ export default function Classement() {
       </main>
     </div>
   );
+}
