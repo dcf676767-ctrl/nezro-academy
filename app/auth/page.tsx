@@ -171,7 +171,7 @@ export default function Auth() {
                   J'ai lu et j'accepte les{" "}
                   <a href="/legal/cgu" target="_blank" className="text-blue-400 hover:underline">Conditions Générales d'Utilisation (CGU)</a>{" "}
                   ainsi que la{" "}
-                  <a href="/legal/confidentialite" target="_blank" className="text-blue-400 hover:underline">Politique de confidentialite</a>{" "}
+                  <a href="/legal/confidentialite" target="_blank" className="text-blue-400 hover:underline">Politique de confidentialité</a>{" "}
                   de Nezro Academy.
                 </span>
               </label>
