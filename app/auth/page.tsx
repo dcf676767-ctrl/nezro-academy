@@ -107,7 +107,7 @@ export default function Auth() {
 
               {/* Bio facultative */}
               <div>
-                <label className="text-sm text-gray-400 mb-1 block">Bio <span className="text-gray-600">(facultatif)</span></label>
+                <label className="text-sm text-gray-400 mb-1 block">Bio <span className="text-gray-400">(facultatif)</span></label>
                 <textarea value={bio} onChange={e => setBio(e.target.value)} rows={3} maxLength={200}
                   className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 resize-none"
                   placeholder="Parle de toi en quelques mots..." />
