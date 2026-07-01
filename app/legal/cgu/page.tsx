@@ -1,117 +1,33 @@
+"use client";
 export default function CGU() {
   return (
-    <main className="min-h-screen bg-gray-950 text-white px-6 py-12">
+    <main className="min-h-screen bg-gray-950 text-white px-4 py-12">
       <div className="max-w-3xl mx-auto">
-        <a href="/auth" className="text-blue-400 hover:underline text-sm mb-8 inline-block">← Retour</a>
-        <h1 className="text-4xl font-bold mb-2">Conditions Générales d'Utilisation</h1>
-        <p className="text-gray-500 text-sm mb-10">Dernière mise à jour : juillet 2025</p>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 1 — Présentation</h2>
-          <p className="text-gray-400 leading-relaxed">Nezro Academy est une plateforme privée de formation en ligne éditée par Iurceac Julien (France). Le programme proposé s'intitule Programme YMA. L'accès est réservé aux membres ayant effectué un achat via Beacons et dont la demande a été validée manuellement par l'administrateur.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 2 — Accès au site</h2>
-          <div className="text-gray-400 space-y-3">
-            <p>L'accès à Nezro Academy se fait en trois étapes :</p>
-            <ol className="list-decimal list-inside space-y-2 bg-gray-900 border border-gray-800 rounded-2xl p-6">
-              <li>Achat du programme YMA sur Beacons</li>
-              <li>Création d'un compte sur Nezro Academy</li>
-              <li>Validation manuelle de la demande par l'administrateur</li>
-            </ol>
-            <p>Aucun paiement n'est effectué directement sur ce site. Nezro Academy ne traite aucune transaction financière.</p>
-          </div>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 3 — Inscription</h2>
-          <p className="text-gray-400 leading-relaxed mb-3">Lors de l'inscription, le membre renseigne un prénom (et nom s'il le souhaite), une adresse e-mail et un mot de passe. Il doit obligatoirement accepter les présentes CGU et la Politique de confidentialité. Sans cette acceptation, l'inscription est impossible.</p>
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-gray-400 space-y-2">
-            <p className="font-medium text-white">Règles obligatoires :</p>
-            <ul className="list-disc list-inside space-y-1">
-              <li>Un seul compte par personne</li>
-              <li>Le partage de compte est strictement interdit</li>
-              <li>Deux connexions simultanées sont tolérées pour le même utilisateur</li>
-              <li>Toute tentative de contournement peut entraîner un bannissement immédiat</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 4 — Propriété intellectuelle</h2>
-          <p className="text-gray-400 leading-relaxed mb-3">L'ensemble des contenus du Programme YMA (vidéos, PDF, textes, structure) est la propriété exclusive de Julien Iurceac.</p>
-          <div className="bg-red-950/30 border border-red-500/30 rounded-2xl p-6 text-gray-400 space-y-2">
-            <p className="font-medium text-red-400">Sont strictement interdits :</p>
-            <ul className="list-disc list-inside space-y-1">
-              <li>La copie, reproduction ou duplication de tout contenu</li>
-              <li>La diffusion, le partage ou la mise à disposition à des tiers</li>
-              <li>La revente ou commercialisation des contenus</li>
-              <li>Le téléchargement des vidéos ou des PDF</li>
-            </ul>
-          </div>
-          <p className="text-gray-400 leading-relaxed mt-3">Les méthodes et connaissances acquises peuvent être librement appliquées dans vos projets personnels. Seule la reproduction ou revente du contenu en lui-même est interdite.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 5 — Espace membre</h2>
-          <p className="text-gray-400 leading-relaxed mb-3">L'espace membre donne accès aux fonctionnalités suivantes :</p>
-          <div className="grid grid-cols-2 gap-3">
-            {['Programme YMA','Dashboard','Annonces','Membres','Ressources','Classement','Calendrier','Assistant IA','Chat privé','Paramètres'].map(f => (
-              <div key={f} className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-2 text-gray-300 text-sm">{f}</div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 6 — Assistant IA</h2>
-          <p className="text-gray-400 leading-relaxed">L'assistant IA utilise OpenRouter. Les conversations ne sont pas conservées. Une limite quotidienne d'utilisation est appliquée. Les réponses fournies par l'IA ne constituent en aucun cas une garantie de résultat. Les utilisateurs restent seuls responsables de leurs décisions.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 7 — Chat privé</h2>
-          <p className="text-gray-400 leading-relaxed">Le chat permet uniquement de communiquer avec l'administrateur (Julien). Les membres ne peuvent pas discuter entre eux. Les messages peuvent être supprimés automatiquement après quelques jours.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 8 — Bannissement</h2>
-          <p className="text-gray-400 leading-relaxed mb-3">L'administrateur se réserve le droit de bannir tout membre sans préavis dans les cas suivants :</p>
-          <ul className="list-disc list-inside text-gray-400 space-y-1">
-            <li>Partage de compte</li>
-            <li>Création de plusieurs comptes</li>
-            <li>Copie, diffusion ou revente de contenu</li>
-            <li>Non-respect des présentes CGU</li>
-            <li>Comportement abusif</li>
-          </ul>
-          <p className="text-gray-400 mt-3">Un membre banni peut contacter l'administrateur à cookeddog67@gmail.com. L'administrateur reste libre d'accepter ou non une réintégration.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 9 — Résultats et garanties</h2>
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-gray-400">
-            <p className="leading-relaxed">Le Programme YMA fournit des méthodes, conseils et ressources. <span className="text-white font-medium">Aucun résultat financier n'est garanti.</span> Les performances dépendent entièrement de l'investissement personnel de chaque membre. Nezro Academy ne peut être tenu responsable des décisions prises sur la base des contenus du programme.</p>
-          </div>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 10 — Ressources externes</h2>
-          <p className="text-gray-400 leading-relaxed">Certaines ressources proposées redirigent vers des sites externes. Nezro Academy n'est pas responsable du contenu de ces sites. Aucun partenariat ni affiliation n'est en vigueur.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 11 — Évolution du site</h2>
-          <p className="text-gray-400 leading-relaxed">Nezro Academy se réserve le droit de modifier à tout moment les contenus, fonctionnalités, design et conditions d'utilisation du site, sans préavis. L'utilisation continue du site vaut acceptation des modifications.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 12 — Suppression de compte</h2>
-          <p className="text-gray-400 leading-relaxed">Le membre peut supprimer son compte depuis les paramètres. Une confirmation est demandée avant suppression définitive. L'accès est immédiatement révoqué. Certaines données peuvent être conservées temporairement pour des raisons administratives.</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold text-white mb-3">Article 13 — Contact</h2>
-          <p className="text-gray-400">Pour toute question : <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a></p>
-        </section>
+        <a href="/auth" className="text-blue-400 hover:underline text-sm mb-8 block">← Retour</a>
+        <h1 className="text-3xl font-bold text-white mb-2">Conditions Générales d'Utilisation</h1>
+        <p className="text-gray-400 mb-2">Version 3 - Juillet 2025</p>
+        <p className="text-gray-400 mb-10">Plateforme : Nezro Academy - Responsable : Iurceac Julien</p>
+        <div className="flex flex-col gap-8">
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 1 - Objet des CGU</h2><p className="text-gray-400 leading-relaxed">Les présentes Conditions Générales d'Utilisation régissent l'accès et l'utilisation de la plateforme privée Nezro Academy. En créant un compte, le membre accepte sans réserve l'intégralité des présentes conditions. Elles définissent les règles d'utilisation de Nezro Academy applicables à tout membre de la plateforme.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 2 - Présentation de Nezro Academy</h2><p className="text-gray-400 leading-relaxed">Nezro Academy est une plateforme privée de formation en ligne exploitée par Iurceac Julien (France). Le programme proposé s'intitule Programme YMA. La plateforme est accessible uniquement aux membres dont l'inscription a été validée manuellement par l'administrateur. Aucun paiement n'est effectué directement sur ce site. Toutes les transactions sont réalisées sur la plateforme Beacons.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 3 - Conditions d'accès au service</h2><p className="text-gray-400 leading-relaxed mb-3">L'accès à Nezro Academy est subordonné aux conditions suivantes :</p><ul className="text-gray-400 list-disc pl-6 flex flex-col gap-1"><li>Avoir effectué l'achat du Programme YMA via Beacons</li><li>Avoir créé un compte sur la plateforme</li><li>Avoir obtenu la validation de sa demande par l'administrateur</li><li>Avoir accepté les présentes CGU ainsi que la Politique de confidentialité</li></ul><p className="text-gray-400 mt-3">Le site est principalement conçu pour une utilisation sur ordinateur. La compatibilité mobile n'est actuellement pas officiellement garantie.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 4 - Processus d'inscription et validation</h2><ol className="text-gray-400 list-decimal pl-6 flex flex-col gap-1 mb-3"><li>Achat du Programme YMA sur Beacons</li><li>Réception du lien d'accès à Nezro Academy</li><li>Création d'un compte avec prénom, e-mail et mot de passe</li><li>Acceptation obligatoire des CGU et de la Politique de confidentialité</li><li>Soumission de la demande, placée en attente de validation</li><li>Vérification manuelle du paiement par l'administrateur</li><li>Acceptation ou refus de la demande</li></ol><p className="text-gray-400">L'administrateur se réserve le droit de refuser toute demande qui ne satisfait pas aux conditions d'accès. En cas de refus de validation, aucun accès à la plateforme n'est accordé.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 5 - Compte utilisateur et règles d'utilisation</h2><p className="text-gray-400 mb-2">Règles obligatoires :</p><ul className="text-gray-400 list-disc pl-6 flex flex-col gap-1"><li>Un seul compte par personne est autorisé</li><li>Le partage de compte est strictement interdit</li><li>La création de plusieurs comptes est interdite</li><li>Deux connexions simultanées sont tolérées pour le même utilisateur</li><li>Tout contournement de ces règles peut entraîner la suspension du compte</li></ul></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 6 - Sécurité du compte</h2><p className="text-gray-400 leading-relaxed">Le membre est seul responsable de la confidentialité de ses identifiants de connexion (adresse e-mail et mot de passe). Il s'engage à ne pas les divulguer à des tiers et à prendre toutes les précautions nécessaires pour en assurer la sécurité. En cas de compromission de ses identifiants, le membre doit contacter immédiatement l'administrateur à <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a>.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 7 - Accès au Programme YMA</h2><p className="text-gray-400 leading-relaxed mb-3">Le Programme YMA est composé de modules incluant des vidéos et des documents. Ces contenus sont exclusivement consultables sur la plateforme Nezro Academy.</p><p className="text-gray-400 mb-2">Sont strictement interdits :</p><ul className="text-gray-400 list-disc pl-6 flex flex-col gap-1"><li>Le téléchargement des vidéos et des PDF</li><li>La copie ou reproduction de tout contenu</li><li>La diffusion ou le partage à des tiers</li><li>La revente ou commercialisation des contenus</li></ul><p className="text-gray-400 mt-3">Les méthodes et connaissances acquises peuvent être librement appliquées dans les projets personnels du membre.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 8 - Propriété intellectuelle</h2><p className="text-gray-400 leading-relaxed">L'ensemble des contenus présents sur Nezro Academy est la propriété exclusive de Iurceac Julien. Toute reproduction, diffusion, revente ou partage non autorisé est strictement interdit. Les utilisations non autorisées peuvent engager la responsabilité de leur auteur conformément aux dispositions légales applicables.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 9 - Espace membre et fonctionnalités</h2><p className="text-gray-400 mb-2">L'espace membre donne accès aux fonctionnalités suivantes :</p><ul className="text-gray-400 list-disc pl-6 flex flex-col gap-1 mb-3"><li>Programme YMA</li><li>Dashboard</li><li>Annonces</li><li>Membres</li><li>Ressources</li><li>Classement</li><li>Calendrier</li><li>Assistant IA</li><li>Chat privé</li><li>Paramètres</li></ul><p className="text-gray-400 mb-2"><strong className="text-white">Profil :</strong> Chaque membre peut choisir d'afficher uniquement son prénom, ou son prénom et son nom. Les adresses e-mail ne sont jamais visibles par les autres membres.</p><p className="text-gray-400 mb-2"><strong className="text-white">Dashboard :</strong> Chaque membre voit uniquement sa propre progression et ses statistiques. La progression des autres membres n'est jamais visible.</p><p className="text-gray-400 mb-2"><strong className="text-white">Réseaux sociaux :</strong> Peuvent être renseignés dans les paramètres. Ces informations restent strictement privées et ne sont jamais visibles par les autres membres.</p><p className="text-gray-400"><strong className="text-white">Notifications :</strong> Le site utilise uniquement des notifications internes. Aucun e-mail automatique n'est envoyé par Nezro Academy.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 10 - Annonces et interactions</h2><p className="text-gray-400 leading-relaxed">Seul l'administrateur peut publier des annonces. Les membres peuvent lire les annonces, réagir avec des emojis et participer aux sondages. Les membres ne peuvent jamais publier d'annonces eux-mêmes.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 11 - Ressources externes</h2><p className="text-gray-400 leading-relaxed">Certaines ressources redirigent vers des sites externes. Nezro Academy n'est pas responsable du contenu de ces sites. Aucun partenariat ni affiliation n'est en vigueur.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 12 - Assistant IA</h2><p className="text-gray-400 leading-relaxed">L'assistant IA utilise OpenRouter. Les conversations ne sont pas conservées. Une limite d'utilisation est appliquée. Les réponses générées peuvent contenir des erreurs ou être incomplètes et ne constituent en aucun cas une garantie de résultat.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 13 - Chat privé</h2><p className="text-gray-400 leading-relaxed">Le chat permet uniquement de communiquer avec l'administrateur. Les membres ne peuvent pas discuter entre eux. Les messages peuvent être supprimés automatiquement après quelques jours.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 14 - Classement et badges</h2><p className="text-gray-400 leading-relaxed">Le classement est visible par tous les membres. Il est basé uniquement sur la progression dans le programme et sert à la motivation. Il ne confère aucun avantage particulier. Les badges sont uniquement décoratifs.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 15 - Responsabilités et absence de garantie</h2><p className="text-gray-400 leading-relaxed">Le Programme YMA fournit des méthodes et ressources à titre pédagogique. Aucun résultat financier, revenu, gain ou performance particulière n'est garanti par Nezro Academy ou le Programme YMA. Les performances dépendent entièrement de l'investissement personnel de chaque membre. Iurceac Julien ne peut être tenu responsable des décisions prises sur la base des contenus.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 16 - Suspension et bannissement</h2><p className="text-gray-400 leading-relaxed mb-2">L'administrateur peut suspendre ou supprimer l'accès d'un membre en cas de non-respect des présentes CGU. Selon la gravité des faits, cette mesure peut être appliquée immédiatement. Les motifs peuvent inclure : partage de compte, création de plusieurs comptes, copie ou revente de contenus, comportement abusif.</p><p className="text-gray-400">Un membre dont l'accès a été suspendu peut contacter l'administrateur à <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a>. L'administrateur se réserve le droit de réactiver un compte après examen de la situation.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 17 - Suppression du compte</h2><p className="text-gray-400 leading-relaxed">Le membre peut effectuer la suppression de son compte depuis les Paramètres. Une confirmation est demandée avant suppression définitive. L'accès est immédiatement supprimé. Certaines données peuvent être conservées pour des raisons administratives ou légales, conformément à la Politique de confidentialité de Nezro Academy.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 18 - Évolution de Nezro Academy</h2><p className="text-gray-400 leading-relaxed">Nezro Academy se réserve le droit de faire évoluer la plateforme à tout moment : ajout ou suppression de modules, modification des fonctionnalités, du design ou des conditions. Les membres seront informés des changements importants affectant leurs droits ou obligations.</p></section>
+          <section><h2 className="text-xl font-bold text-white mb-3">Article 19 - Contact</h2><p className="text-gray-400">Pour toute question : <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a></p></section>
+        </div>
       </div>
     </main>
   );
