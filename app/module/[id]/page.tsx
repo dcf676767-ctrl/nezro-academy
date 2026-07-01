@@ -68,10 +68,30 @@ export default function Module() {
               <p className="text-gray-500">Vidéo à venir — {chapitre.titre}</p>
             </div>
             <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5 mb-4">
-              <p className="text-gray-300 text-sm leading-relaxed">{chapitre.description}</p>
+            <div className="flex flex-col gap-4 mb-6">
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+                <h3 className="text-white font-bold mb-3">📄 Description</h3>
+                <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">{chapitre.description}</p>
+                {chapitre.lien && (
+                  <a href={chapitre.lien} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+                    {chapitre.lienlabel || "🔗 Lien"}
+                  </a>
+                )}
+              </div>
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+                <h3 className="text-white font-bold mb-3">📝 Mes notes</h3>
+                <textarea
+                  placeholder="Écris tes notes ici..."
+                  onChange={e => localStorage.setItem(`note-${moduleId}-${chapitre.id}`, e.target.value)}
+                  defaultValue={typeof window !== "undefined" ? localStorage.getItem(`note-${moduleId}-${chapitre.id}`) || "" : ""}
+                  rows={5}
+                  className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 resize-none"
+                />
+                <p className="text-xs text-gray-600 mt-1">Tes notes sont sauvegardées automatiquement sur cet appareil</p>
+              </div>
             </div>
-            <div className="flex justify-end mt-6">
+            <div className="flex justify-end">
               <button onClick={suivant} className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">
                 {estDernier ? "🎉 Terminer le module" : "Chapitre suivant →"}
               </button>
