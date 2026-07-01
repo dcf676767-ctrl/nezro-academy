@@ -4,8 +4,8 @@ import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 import Sidebar from "../../components/Sidebar";
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;description:string;lien?:string;lienlabel?:string}[]}} = {
-  1:{titre:"Introduction",chapitres:[{id:1,titre:"Bienvenue dans la YMA !",duree:"5 min",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument",lien:"https://www.roblox.com/share?code=5bc1a8f7c3d3e84f9d952131ccebb3ff&type=ExperienceDetails&stamp=1782900840512",lienlabel:"🎮 LIEN DU JEU"}]},
-  2:{titre:"Module 1 — Clip Roblox",chapitres:[{id:1,titre:"Trouver les bons clips",duree:"10 min",description:"Comment trouver les meilleurs clips Roblox."},{id:2,titre:"Filmer comme un pro",duree:"15 min",description:"Les techniques pour filmer des clips de qualité."},{id:3,titre:"Rendre le clip viral",duree:"12 min",description:"Les secrets pour rendre tes clips viraux."}]},
+  1:{titre:"Introduction",chapitres:[{id:1,titre:"Bienvenue dans la YMA !",duree:"5 min",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"}]},
+  2:{titre:"Module 1 — Clip Roblox",chapitres:[{id:1,titre:"Trouver les bons clips",duree:"10 min",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=5bc1a8f7c3d3e84f9d952131ccebb3ff&type=ExperienceDetails&stamp=1782900840512",lienlabel:"🎮 LIEN DU JEU"},{id:2,titre:"Filmer comme un pro",duree:"15 min",description:"Les techniques pour filmer des clips de qualité."},{id:3,titre:"Rendre le clip viral",duree:"12 min",description:"Les secrets pour rendre tes clips viraux."}]},
   3:{titre:"Module 2 — Montage",chapitres:[{id:1,titre:"Les bases du montage",duree:"15 min",description:"Les bases du montage vidéo."},{id:2,titre:"Effets et transitions",duree:"20 min",description:"Comment ajouter des effets pro."},{id:3,titre:"Exporter sa vidéo",duree:"10 min",description:"Les bons réglages pour exporter."}]},
   4:{titre:"Module 3 — Intelligence Artificielle",chapitres:[{id:1,titre:"L'IA pour les miniatures",duree:"12 min",description:"Utilise l'IA pour tes miniatures."},{id:2,titre:"L'IA pour les titres",duree:"10 min",description:"Génère des titres avec l'IA."},{id:3,titre:"Automatiser avec l'IA",duree:"18 min",description:"Automatise ta chaîne avec l'IA."}]},
   5:{titre:"Module 4 — Importation",chapitres:[{id:1,titre:"Publier sur YouTube",duree:"15 min",description:"Comment publier sur YouTube."},{id:2,titre:"Publier sur TikTok",duree:"10 min",description:"Comment publier sur TikTok."},{id:3,titre:"Optimiser ses posts",duree:"12 min",description:"Optimise tes publications."}]},
@@ -67,7 +67,7 @@ export default function Module() {
             <div className="bg-gray-900 rounded-2xl aspect-video flex items-center justify-center mb-6 border border-gray-800">
               <p className="text-gray-500">Vidéo à venir — {chapitre.titre}</p>
             </div>
-            <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
+<h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
                 <h3 className="text-white font-bold mb-3">📄 Description</h3>
@@ -92,9 +92,7 @@ export default function Module() {
               </div>
             </div>
             <div className="flex justify-end">
-              <button onClick={suivant} className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">
-                {estDernier ? "🎉 Terminer le module" : "Chapitre suivant →"}
-              </button>
+
             </div>
           </div>
           <div className="w-72 shrink-0">
@@ -108,7 +106,10 @@ export default function Module() {
                     {completed.includes(chap.id) && <span className="text-xs text-white">✓</span>}
                   </button>
                   <div className="flex-1">
-                    <p className={`text-sm font-medium ${i===chapitreActif?"text-blue-400":"text-gray-300"}`}>{chap.titre}</p>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className={`text-sm font-medium ${i===chapitreActif?"text-blue-400":"text-gray-300"}`}>{chap.titre}</p>
+                      {i===chapitreActif && <button onClick={(e) => { e.stopPropagation(); suivant(); }} className="shrink-0 bg-blue-600 text-white px-2.5 py-1 rounded-lg text-xs font-bold hover:bg-blue-700 transition-all">{estDernier?"🎉 Terminer":"Suivant →"}</button>}
+                    </div>
                     <p className="text-xs text-gray-500">{chap.duree}</p>
                   </div>
                 </div>
