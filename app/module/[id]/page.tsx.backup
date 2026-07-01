@@ -1,16 +1,16 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 import Sidebar from "../../components/Sidebar";
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;description:string;lien?:string;lienlabel?:string}[]}} = {
-  1:{titre:"Introduction",chapitres:[{id:1,titre:"Bienvenue dans la YMA !",duree:"1 min",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes demontage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualitéen un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme unpro\n✅ Importation 4K + TikTok : La méthode pour exporter en4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"}]},
-  2:{titre:"Module 1 — Clips",chapitres:[{id:1,titre:"Clips Roblox",duree:"3 min",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=5bc1a8f7c3d3e84f9d952131ccebb3ff&type=ExperienceDetails&stamp=1782900840512",lienlabel:"🎮 LIEN DU JEU"}]},
-  3:{titre:"Module 2 — Montage",chapitres:[{id:1,titre:"Montage",duree:"15 min",description:"Les bases du montage vidéo."}]},
-  4:{titre:"Module 3 — Intelligence Artificielle",chapitres:[{id:1,titre:"IA",duree:"10 min",description:"Utilise l'IA pour tes miniatures."}]},
-  5:{titre:"Module 4 — Importation",chapitres:[{id:1,titre:"Importation sur Tiktok et Youtube",duree:"5 min",description:"Comment publier sur YouTube."}]},
-  6:{titre:"Module 5 — Astuces",chapitres:[{id:1,titre:"Astuces",duree:"2 min",description:"Mes astuces miniatures."}]},
-  7:{titre:"Module 6 — Conseils",chapitres:[{id:1,titre:"Conseils",duree:"4 min",description:"Comment rester consistant."}]},
+  1:{titre:"Introduction",chapitres:[{id:1,titre:"Bienvenue dans la YMA !",duree:"1 min",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualitéen un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme unpro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"}]},
+  2:{titre:"Module 1 — Clips",chapitres:[{id:1,titre:"Trouver les bons clips",duree:"10 min",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=5bc1a8f7c3d3e84f9d952131ccebb3ff&type=ExperienceDetails&stamp=1782900840512",lienlabel:"🎮 LIEN DU JEU"},{id:2,titre:"Filmer comme un pro",duree:"15 min",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=5bc1a8f7c3d3e84f9d952131ccebb3ff&type=ExperienceDetails&stamp=1782900840512",lienlabel:"🎮 LIEN DU JEU"},{id:3,titre:"Rendre le clip viral",duree:"12 min",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=5bc1a8f7c3d3e84f9d952131ccebb3ff&type=ExperienceDetails&stamp=1782900840512",lienlabel:"🎮 LIEN DU JEU"}]},
+  3:{titre:"Module 2 — Montage",chapitres:[{id:1,titre:"Les bases du montage",duree:"15 min",description:"Les bases du montage vidéo."},{id:2,titre:"Effets et transitions",duree:"20 min",description:"Comment ajouter des effets pro."},{id:3,titre:"Exporter sa vidéo",duree:"10 min",description:"Les bons réglages pour exporter."}]},
+  4:{titre:"Module 3 — Intelligence Artificielle",chapitres:[{id:1,titre:"L'IA pour les miniatures",duree:"12 min",description:"Utilise l'IA pour tes miniatures."},{id:2,titre:"L'IA pour les titres",duree:"10 min",description:"Génère des titres avec l'IA."},{id:3,titre:"Automatiser avec l'IA",duree:"18 min",description:"Automatise ta chaîne avec l'IA."}]},
+  5:{titre:"Module 4 — Importation",chapitres:[{id:1,titre:"Publier sur YouTube",duree:"15 min",description:"Comment publier sur YouTube."},{id:2,titre:"Publier sur TikTok",duree:"10 min",description:"Comment publier sur TikTok."},{id:3,titre:"Optimiser ses posts",duree:"12 min",description:"Optimise tes publications."}]},
+  6:{titre:"Module 5 — Astuces",chapitres:[{id:1,titre:"Astuceminiatures",duree:"10 min",description:"Mes astuces miniatures."},{id:2,titre:"Astuce algorithme",duree:"15 min",description:"Joue avec l'algorithme."},{id:3,titre:"Astuce monétisation",duree:"12 min",description:"Monétise rapidement."}]},
+  7:{titre:"Module 6 — Conseils",chapitres:[{id:1,titre:"Rester consistant",duree:"10 min",description:"Comment rester consistant."},{id:2,titre:"Gérer les haters",duree:"8 min",description:"Gérer les commentaires négatifs."},{id:3,titre:"Passer au niveau suivant",duree:"15 min",description:"Scaler ta chaîne."}]},
 };
 export default function Module() {
   const params = useParams();
@@ -19,7 +19,6 @@ export default function Module() {
   const [completed, setCompleted] = useState<number[]>([]);
   const [userId, setUserId] = useState("");
   const [chapitreActif, setChapitreActif] = useState(0);
-  const playerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) =>{
       if (!session) { window.location.replace("/auth"); return; }
@@ -29,28 +28,6 @@ export default function Module() {
       });
     });
   }, []);
-  useEffect(() => {
-    if (moduleId !== 1 || !playerRef.current) return;
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-    (window as any).onYouTubeIframeAPIReady = () => {
-      new (window as any).YT.Player(playerRef.current, {
-        videoId: "_3JxXTY34mM",
-        playerVars: {
-          rel: 0,
-          modestbranding: 1,
-          showinfo: 0,
-          iv_load_policy: 3,
-          disablekb: 0,
-          fs: 1,
-          vq: "hd2160",
-        },
-        height: "100%",
-        width: "100%",
-      });
-    };
-  }, [moduleId]);
   const toggleCompleted = async (chapId: number) => {
     if (completed.includes(chapId)) {
       await supabase.from("progression").delete().eq("user_id",userId).eq("module_id",moduleId).eq("chapitre_id",chapId);
@@ -88,9 +65,9 @@ export default function Module() {
         <div className="flex gap-8">
           <div className="flex-1">
             <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
-              {moduleId === 1 || moduleId === 2 || moduleId === 3 || moduleId === 4 || moduleId === 5 || moduleId === 6 || moduleId === 7 ? (
+              {moduleId === 1 ? (
                 <iframe
-                  src={moduleId === 2 ? "https://www.youtube.com/embed/lUCpFxP9NSo?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3" : moduleId === 3 ? "https://www.youtube.com/embed/9jG1_0eL1aU?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3" : moduleId === 4 ? "https://www.youtube.com/embed/yS_9RaC-hBc?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3" : moduleId === 5 ? "https://www.youtube.com/embed/FiLeCdNQHZw?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3" : moduleId === 6 ? "https://www.youtube.com/embed/tdnIDErJaqo?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3" : moduleId === 7 ? "https://www.youtube.com/embed/DZuGYMerKRI?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3" : "https://www.youtube.com/embed/_3JxXTY34mM?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&vq=hd2160"}
+                  src="https://www.youtube.com/embed/_3JxXTY34mM?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&vq=hd2160"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   allowFullScreen
@@ -102,10 +79,14 @@ export default function Module() {
               )}
             </div>
 <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
-            {moduleId === 1 && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+                {moduleId === 2 && (
+                  <h3 className="text-white font-bold mb-3">🔗 Lien du jeu ⬇️</h3>
+                )}
+                {moduleId !== 2 && (
                   <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">{chapitre.description}</p>
+                )}
                 {chapitre.lien && (
                   <a href={chapitre.lien} target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 mt-4 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
@@ -114,32 +95,6 @@ export default function Module() {
                 )}
               </div>
             </div>
-            )}
-            {moduleId === 2 && (
-            <div className="flex flex-col gap-4 mb-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
-                <h3 className="text-white font-bold mb-3">🔗 Lien du jeu ⬇️</h3>
-                {chapitre.lien && (
-                  <a href={chapitre.lien} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
-                    {chapitre.lienlabel || "🔗 Lien"}
-                  </a>
-                )}
-              </div>
-            </div>
-            )}
-            {moduleId > 2 && (
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5 mt-4">
-              <h3 className="text-white font-bold mb-3">📝 Mes notes</h3>
-              <textarea
-                placeholder="Écris tes notes ici..."
-                onChange={e => localStorage.setItem(`note-main-${moduleId}-${chapitre.id}`, e.target.value)}
-                defaultValue={typeof window !== "undefined" ? localStorage.getItem(`note-main-${moduleId}-${chapitre.id}`) || "" : ""}
-                className="w-full min-h-[200px] bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 resize-none"
-              />
-              <p className="text-xs text-gray-600 mt-1">Tes notes sont sauvegardées automatiquement sur cet appareil</p>
-            </div>
-            )}
             <div className="flex justify-end">
 
             </div>

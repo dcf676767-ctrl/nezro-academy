@@ -4,7 +4,7 @@ import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
 const MODULES = [
   { id: 1, titre: "Introduction", chapitres: 1 },
-  { id: 2, titre: "Module 1 — Clip Roblox", chapitres: 3 },
+  { id: 2, titre: "Module 1 — Clips", chapitres: 3 },
   { id: 3, titre: "Module 2 — Montage", chapitres: 3 },
   { id: 4, titre: "Module 3 — IA", chapitres: 3 },
   { id: 5, titre: "Module 4 — Importation", chapitres: 3 },

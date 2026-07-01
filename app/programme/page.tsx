@@ -1,19 +1,22 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "../lib/supabase";
-import Sidebar from "../components/Sidebar"; import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
+import Sidebar from "../components/Sidebar";
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modules = [
-  { id: 1, titre: "Introduction", description: "Bienvenue dans la YouTube Money Academy !", image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600", chapitres: 1 },
-  { id: 2, titre: "Module 1 — Clip Roblox", description: "Apprends à créer des clips Roblox qui cartonnent.", image: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600", chapitres: 3 },
-  { id: 3, titre: "Module 2 — Montage", description: "Maîtrise le montage vidéo comme un pro.", image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600", chapitres: 3 },
-  { id: 4, titre: "Module 3 — Intelligence Artificielle", description: "Utilise l'IA pour booster tes vidéos.", image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600", chapitres: 3 },
-  { id: 5, titre: "Module 4 — Importation", description: "Publie tes vidéos sur YouTube et TikTok.", image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600", chapitres: 3 },
-  { id: 6, titre: "Module 5 — Astuces", description: "Les astuces que j'utilise pour mes vidéos.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", chapitres: 3 },
-  { id: 7, titre: "Module 6 — Conseils", description: "Mes meilleurs conseils pour réussir sur YouTube.", image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600", chapitres: 3 },
+  { id: 1, titre: "Introduction", label: "Intro", description: "Bienvenue dans la YouTube Money Academy !", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
+  { id: 2, titre: "Module 1 — Clips", label: "Clips", description: "Apprends à créer des clips viraux qui cartonnent.", image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
+  { id: 3, titre: "Module 2 — Montage", label: "Montage", description: "Maîtrise le montage vidéo comme un pro.", image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600", chapitres: 1, customThumb: true },
+  { id: 4, titre: "Module 3 — IA", label: "IA", description: "Utilise l'IA pour booster tes vidéos.", image: "https://images.unsplash.com/photo-1762330465857-07e4c81c0dfa?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
+  { id: 5, titre: "Module 4 — Importation", label: "Import", description: "Publie tes vidéos sur YouTube et TikTok.", image: "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
+  { id: 6, titre: "Module 5 — Astuces", label: "Astuces", description: "Les astuces que j'utilise pour mes vidéos.", image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
+  { id: 7, titre: "Module 6 — Conseils", label: "Conseils", description: "Mes meilleurs conseils pour réussir sur YouTube.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
 ];
 const getColor = (pct: number) => pct === 100 ? "#22c55e" : pct >= 50 ? "#f97316" : "#ef4444";
 export default function Programme() {
-  const router = useRouter(); const [pret, setPret] = useState(false);
+  const router = useRouter();
+  const [pret, setPret] = useState(false);
   const [progression, setProgression] = useState<{[key:number]:number}>({});
   const [userId, setUserId] = useState("");
   const loadProgression = useCallback(async (uid: string) => {
@@ -29,7 +32,7 @@ export default function Programme() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { window.location.replace("/auth"); return; }
-      supabase.from("profiles").select("statut").eq("id", session.user.id).single().then(({ data: profile }) => { if (!profile || profile.statut !== "accepte") { router.push("/bloque"); return; } }); setUserId(session.user.id);
+      setUserId(session.user.id);
       setPret(true);
       loadProgression(session.user.id);
     });
@@ -45,32 +48,22 @@ export default function Programme() {
     const rect = inner.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height) * 2.5;
     const ripple = document.createElement("span");
-    ripple.style.cssText = `
-      position:absolute;
-      width:${size}px;
-      height:${size}px;
-      border-radius:50%;
-      background:rgba(99,179,255,0.35);
-      left:${e.clientX - rect.left - size/2}px;
-      top:${e.clientY - rect.top - size/2}px;
-      transform:scale(0);
-      animation:ripple 0.8s ease-out forwards;
-      pointer-events:none;
-      z-index:99;
-    `;
+    ripple.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(99,179,255,0.35);left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;transform:scale(0);animation:ripple 0.8s ease-out forwards;pointer-events:none;z-index:99;`;
     inner.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 800); router.push(`/module/${id}`);
+    setTimeout(() => ripple.remove(), 800);
+    router.push(`/module/${id}`);
   };
   if (!pret) return <main className="min-h-screen bg-gray-950 flex items-center justify-center"><p className="text-gray-400">Chargement...</p></main>;
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/programme" />
       <main className="flex-1 ml-64 p-8">
-        <div className="relative rounded-2xl p-[2px] mb-8 overflow-hidden">
-          <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,#93c5fd_20%,#3b82f6_50%,#93c5fd_80%,transparent_100%)]"></div>
-          <div className="relative bg-gray-950 rounded-2xl py-8 px-6 shadow-[0_0_30px_8px_rgba(59,130,246,0.4)]">
-            <h2 className="text-8xl font-bold text-white mb-3 text-center">YMA</h2>
-            <p className="text-gray-400 text-center text-lg">YouTube Money Academy</p>
+        <div className="flex flex-col items-center mb-8">
+          <div className="glow-title-wrap">
+            <div className="glow-title-inner px-10 py-6">
+              <h2 className="text-6xl font-bold text-white text-center">YMA</h2>
+              <p className="text-gray-400 text-center mt-2">YouTube Money Academy</p>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -84,9 +77,19 @@ export default function Programme() {
                 borderRadius:"16px"
               }}>
               <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
-                <div className="relative">
-                  <img src={mod.image} alt={mod.titre} className="w-full h-40 object-cover group-hover:opacity-90 transition-all duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
+                <div className="relative h-40">
+                  {mod.customThumb ? (
+                    <div className="w-full h-full relative overflow-hidden">
+                      <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition: mod.id !== 1 ? "center center" : "initial"}} />
+                      <div className="absolute inset-0" style={{background:"linear-gradient(105deg, #60a5fa 0%, #3b82f6 45%, transparent 55%)"}} />
+                      <span style={{position:"absolute",top:"50%",left:"25%",transform:"translate(-50%,-50%)",fontFamily:"Georgia, serif",fontStyle:"italic",fontWeight:"300",fontSize:"1.4rem",color:"rgba(255,255,255,0.95)",letterSpacing:"4px",textShadow:"0 2px 12px rgba(0,0,0,0.3)"}}>{mod.label}</span>
+                    </div>
+                  ) : (
+                    <>
+                      <img src={mod.image} alt={mod.titre} className="w-full h-full object-cover group-hover:opacity-90 transition-all duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
+                    </>
+                  )}
                   {progression[mod.id] === 100 && (
                     <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">✓ Terminé</div>
                   )}
