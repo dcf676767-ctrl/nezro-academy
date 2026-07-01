@@ -64,7 +64,7 @@ export default function Confidentialite() {
             <ul className="text-gray-400 list-disc pl-6 flex flex-col gap-2">
               <li><strong className="text-white">Supabase (supabase.com)</strong> — stockage et gestion des données membres, authentification et base de données. Supabase dispose de sa propre politique de confidentialité.</li>
               <li><strong className="text-white">Vercel (vercel.com)</strong> — hébergement de l'application web. Vercel dispose de sa propre politique de confidentialité.</li>
-              <li><strong className="text-white">OpenRouter (openrouter.ai)</strong> — traitement des requêtes envoyées à l'assistant IA. Les conversations ne sont pas conservées par Nezro Academy. OpenRouter dispose de sa propre politique de confidentialité.</li>
+              <li><strong className="text-white">OpenRouter (openrouter.ai)</strong> — traitement des requêtes envoyées à l'assistant IA. Les conversations ne sont pas conservées par Nezro Academy. Les données transmises à l'assistant IA doivent se limiter aux informations nécessaires à l'utilisation du service. OpenRouter dispose de sa propre politique de confidentialité.</li>
             </ul>
           </section>
 
@@ -82,7 +82,7 @@ export default function Confidentialite() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">7. Durée de conservation</h2>
-            <p className="text-gray-400 leading-relaxed">Les données sont conservées tant que le compte est actif. En cas de suppression de compte, l'accès est immédiatement révoqué. Certaines données peuvent être conservées temporairement dans Supabase pour des raisons administratives ou légales, conformément aux conditions d'utilisation de ce service.</p>
+            <p className="text-gray-400 leading-relaxed">Les données sont conservées tant que le compte est actif. En cas de suppression de compte, l'accès est immédiatement révoqué. Certaines données peuvent être conservées pendant une durée limitée lorsque cela est nécessaire pour respecter des obligations administratives ou légales, prévenir les abus ou assurer la sécurité du service.</p>
           </section>
 
           <section>
