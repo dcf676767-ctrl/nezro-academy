@@ -15,6 +15,7 @@ export default function Auth() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [accepte, setAccepte] = useState(false);
   const [uploading, setUploading] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -163,7 +164,19 @@ export default function Auth() {
                   {showPassword ? "🙈" : "👁️"}
                 </button>
               </div>
-              <button onClick={handleSubmit} disabled={loading}
+              {mode === "signup" && (
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" checked={accepte} onChange={(e) => setAccepte(e.target.checked)} className="mt-1 w-4 h-4 accent-blue-500 flex-shrink-0" />
+                <span className="text-xs text-gray-400 leading-relaxed">
+                  J ai lu et j accepte les{" "}
+                  <a href="/legal/cgu" target="_blank" className="text-blue-400 hover:underline">Conditions Generales d Utilisation</a>{" "}
+                  ainsi que la{" "}
+                  <a href="/legal/confidentialite" target="_blank" className="text-blue-400 hover:underline">Politique de confidentialite</a>{" "}
+                  de Nezro Academy.
+                </span>
+              </label>
+            )}
+            <button onClick={handleSubmit} disabled={loading || (mode==="signup" && !accepte)}
                 className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-3 rounded-xl font-bold hover:from-blue-400 hover:to-blue-600 transition-all disabled:opacity-50 shadow-lg shadow-blue-600/30">
                 {loading ? "Chargement..." : mode==="signup" ? "Faire ma demande →" : "Se connecter"}
               </button>
