@@ -182,6 +182,11 @@ export default function Auth() {
               </button>
             </div>
             {message && <p className="mt-4 text-center text-sm text-red-400">{message}</p>}
+            <div className="flex justify-center gap-4 mt-6 text-xs text-gray-500">
+              <a href="/legal/mentions-legales" target="_blank" className="hover:text-gray-300 underline">Mentions légales</a>
+              <a href="/legal/confidentialite" target="_blank" className="hover:text-gray-300 underline">Confidentialité</a>
+              <a href="/legal/cgu" target="_blank" className="hover:text-gray-300 underline">CGU</a>
+            </div>
           </div>
 <div className="flex justify-center gap-4 mt-4 text-xs text-gray-600">
   <a href="/legal/mentions-legales" className="hover:text-gray-400">Mentions légales</a>
