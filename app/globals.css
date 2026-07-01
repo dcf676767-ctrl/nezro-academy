@@ -56,7 +56,7 @@ input:-webkit-autofill:focus {
 
 /* Transitions de page */
 main {
-  animation: fadeIn 0.15s ease-in;
+  animation: fadeIn 0.08s ease-in;
 }
 
 @keyframes fadeIn {
