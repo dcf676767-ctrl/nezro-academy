@@ -2,8 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
-const MODULES = [{id:1,c:1},{id:2,c:3},{id:3,c:3},{id:4,c:3},{id:5,c:3},{id:6,c:3},{id:7,c:3}];
-const TOTAL = 19;
+const MODULES = [{id:1,c:1},{id:2,c:1},{id:3,c:1},{id:4,c:1},{id:5,c:1},{id:6,c:1},{id:7,c:1}];
+const TOTAL = 7;
 export default function Profil() {
   const [nom, setNom] = useState("");
   const [bio, setBio] = useState("");

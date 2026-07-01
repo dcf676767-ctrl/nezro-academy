@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
-const TOTAL_CHAPITRES = 19;
+const TOTAL_CHAPITRES = 7;
 export default function Classement() {
   const [classement, setClassement] = useState<any[]>([]);
   useEffect(() => {

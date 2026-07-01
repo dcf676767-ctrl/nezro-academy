@@ -4,14 +4,14 @@ import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
 const MODULES = [
   { id: 1, titre: "Introduction", chapitres: 1 },
-  { id: 2, titre: "Module 1 — Clips", chapitres: 3 },
-  { id: 3, titre: "Module 2 — Montage", chapitres: 3 },
-  { id: 4, titre: "Module 3 — IA", chapitres: 3 },
-  { id: 5, titre: "Module 4 — Importation", chapitres: 3 },
-  { id: 6, titre: "Module 5 — Astuces", chapitres: 3 },
-  { id: 7, titre: "Module 6 — Conseils", chapitres: 3 },
+  { id: 2, titre: "Module 1 — Clips", chapitres: 1 },
+  { id: 3, titre: "Module 2 — Montage", chapitres: 1 },
+  { id: 4, titre: "Module 3 — IA", chapitres: 1 },
+  { id: 5, titre: "Module 4 — Importation", chapitres: 1 },
+  { id: 6, titre: "Module 5 — Astuces", chapitres: 1 },
+  { id: 7, titre: "Module 6 — Conseils", chapitres: 1 },
 ];
-const TOTAL_CHAPITRES = 19;
+const TOTAL_CHAPITRES = 7;
 
 export default function Dashboard() {
   const [nom, setNom] = useState("");
