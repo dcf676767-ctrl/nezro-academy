@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar"; import { useRouter } from "next/navigation";
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modules = [
   { id: 1, titre: "Introduction", description: "Bienvenue dans la YouTube Money Academy !", image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600", chapitres: 1 },
   { id: 2, titre: "Module 1 — Clip Roblox", description: "Apprends à créer des clips Roblox qui cartonnent.", image: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600", chapitres: 3 },
@@ -67,8 +66,13 @@ export default function Programme() {
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/programme" />
       <main className="flex-1 ml-64 p-8">
-        <h2 className="text-5xl font-bold text-white mb-3 text-center">YMA</h2>
-        <p className="text-gray-400 mb-8 text-center">YouTube Money Academy</p>
+        <div className="relative rounded-2xl p-[2px] mb-8 overflow-hidden">
+          <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,#93c5fd_20%,#3b82f6_50%,#93c5fd_80%,transparent_100%)]"></div>
+          <div className="relative bg-gray-950 rounded-2xl py-8 px-6 shadow-[0_0_30px_8px_rgba(59,130,246,0.4)]">
+            <h2 className="text-8xl font-bold text-white mb-3 text-center">YMA</h2>
+            <p className="text-gray-400 text-center text-lg">YouTube Money Academy</p>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {modules.map(mod => (
             <button key={mod.id} onClick={(e) => handleClick(e, mod.id)}

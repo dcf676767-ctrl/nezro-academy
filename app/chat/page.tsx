@@ -1,9 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const ADMIN_ID = "cc055cc7-0c49-44e4-a81b-bd3f7dc74f55";
 
 export default function Chat() {
@@ -14,8 +13,25 @@ export default function Chat() {
   const [newMsg, setNewMsg] = useState("");
   const [moiId, setMoiId] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [msgsLoaded, setMsgsLoaded] = useState(false);
+  const [pageReady, setPageReady] = useState(false);
   const [nonLusParMembre, setNonLusParMembre] = useState<any>({});
+  const [reactions, setReactions] = useState<any[]>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const toggleReaction = async (messageId: string, emoji: string) => {
+    const existe = reactions.find(r => r.message_id === messageId && r.user_id === moiId && r.emoji === emoji);
+    if (existe) {
+      await supabase.from("message_reactions").delete().eq("id", existe.id);
+      setReactions(prev => prev.filter(r => r.id !== existe.id));
+    } else {
+      const { data } = await supabase.from("message_reactions").insert({ message_id: messageId, user_id: moiId, emoji }).select().single();
+      if (data) setReactions(prev => [...prev, data]);
+    }
+  };
+  const deleteMessage = async (messageId: string) => {
+    await supabase.from("messages").delete().eq("id", messageId);
+    setMessages(prev => prev.filter(m => m.id !== messageId));
+  };
   const fileRef = useRef<HTMLInputElement>(null);
   const isAdmin = moiId === ADMIN_ID;
 
@@ -49,6 +65,7 @@ export default function Chat() {
           const admin = (data || []).find((x: any) => x.id === ADMIN_ID);
           if (admin) setSelectedUser(admin);
         }
+        setPageReady(true);
       });
     });
   }, []);
@@ -56,11 +73,13 @@ export default function Chat() {
   useEffect(() => {
     if (!moiId || !selectedUser) return;
     const otherId = selectedUser.id;
+    setMsgsLoaded(false);
     supabase.from("messages")
       .select("*")
       .or(`and(sender_id.eq.${moiId},receiver_id.eq.${otherId}),and(sender_id.eq.${otherId},receiver_id.eq.${moiId})`)
       .order("created_at", { ascending: true })
-      .then(({ data }) => setMessages(data || []));
+      .then(({ data }) => { setMessages(data || []); setMsgsLoaded(true); });
+    supabase.from("message_reactions").select("*").then(({ data }) => setReactions(data || []));
 
     const channel = supabase.channel(`chat-${moiId}-${otherId}`)
       .on("postgres_changes", { event: "INSERT", schema: "public", table: "messages" }, (payload) => {
@@ -137,7 +156,7 @@ export default function Chat() {
                 </div>
               </div>
               <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-3">
-                {messages.length === 0 && (
+                {msgsLoaded && messages.length === 0 && (
                   <div className="text-center py-16 text-gray-500">
                     <p className="text-4xl mb-3">💬</p>
                     <p>Aucun message pour l'instant</p>
@@ -147,18 +166,41 @@ export default function Chat() {
                 {messages.map((msg, i) => {
                   const isMe = msg.sender_id === moiId;
                   return (
-                    <div key={msg.id || i} className={`flex items-end gap-2 ${isMe ? "flex-row-reverse" : ""}`}>
+                    <div key={msg.id || i} className={`group flex items-end gap-2 ${isMe ? "flex-row-reverse" : ""}`}>
                       <div className="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
                         {profiles[msg.sender_id]?.avatar_url ? <img src={profiles[msg.sender_id].avatar_url} className="w-full h-full object-cover" /> : profiles[msg.sender_id]?.nom?.[0]?.toUpperCase() || "?"}
                       </div>
                       <div className={`max-w-sm flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}>
-                        {msg.image_url ? (
-                          <img src={msg.image_url} className="max-w-xs rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
-                        ) : (
-                          <div className={`px-4 py-2 rounded-2xl text-sm ${isMe ? "bg-blue-600 rounded-br-sm" : "bg-gray-800 rounded-bl-sm"}`}>
-                            {msg.content}
+                        <div className={`flex items-center gap-1 ${isMe ? "flex-row-reverse" : ""}`}>
+                          {msg.image_url ? (
+                            <img src={msg.image_url} className="max-w-xs rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
+                          ) : (
+                            <div className={`px-4 py-2 rounded-2xl text-sm ${isMe ? "bg-blue-600 rounded-br-sm" : "bg-gray-800 rounded-bl-sm"}`}>
+                              {msg.content}
+                            </div>
+                          )}
+                          {isMe && (
+                            <button onClick={() => deleteMessage(msg.id)} className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-500 hover:text-red-400 text-xs">🗑️</button>
+                          )}
+                        </div>
+                        <div className="flex gap-1">
+                          {["❤️","🔥","👍","🎉"].map(emoji => {
+                            const ceux = reactions.filter(r => r.message_id === msg.id && r.emoji === emoji);
+                            if (ceux.length === 0) return null;
+                            const jAiReagi = ceux.some(r => r.user_id === moiId);
+                            return (
+                              <button key={emoji} onClick={() => toggleReaction(msg.id, emoji)}
+                                className={`text-xs px-1.5 py-0.5 rounded-full border flex items-center gap-1 ${jAiReagi ? "bg-blue-600/30 border-blue-500" : "bg-gray-800 border-gray-700"}`}>
+                                <span>{emoji}</span><span>{ceux.length}</span>
+                              </button>
+                            );
+                          })}
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity flex gap-1">
+                            {["❤️","🔥","👍","🎉"].filter(emoji => !reactions.some(r => r.message_id === msg.id && r.emoji === emoji)).map(emoji => (
+                              <button key={emoji} onClick={() => toggleReaction(msg.id, emoji)} className="text-xs px-1.5 py-0.5 rounded-full border bg-gray-800 border-gray-700 hover:bg-gray-700">{emoji}</button>
+                            ))}
                           </div>
-                        )}
+                        </div>
                         <span className="text-xs text-gray-600">{formatHeure(msg.created_at)}</span>
                       </div>
                     </div>
@@ -177,6 +219,7 @@ export default function Chat() {
               </div>
             </>
           ) : (
+            pageReady && (
             <div className="flex-1 flex items-center justify-center text-gray-500">
               <div className="text-center">
                 <p className="text-5xl mb-4">💬</p>
@@ -184,6 +227,7 @@ export default function Chat() {
                 <p className="text-sm mt-1">pour démarrer une conversation</p>
               </div>
             </div>
+            )
           )}
         </div>
       </main>

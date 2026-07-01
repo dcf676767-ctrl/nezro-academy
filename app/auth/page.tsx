@@ -1,9 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-
+import { supabase } from "../lib/supabase";
 export default function Auth() {
   const router = useRouter();
   const [mode, setMode] = useState<"login"|"signup">("signup");
@@ -68,10 +66,13 @@ export default function Auth() {
           <div className="flex flex-col items-center mb-8">
             <div className="relative mb-4">
               <div className="absolute -inset-8 bg-blue-500 blur-3xl opacity-50 rounded-full" />
-              <div className="relative w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-600/50">N</div>
+              <div className="relative w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-0">
+                <span className="font-bold text-3xl leading-none">N</span>
+                <span className="font-semibold text-[7px] leading-none tracking-wide">Nezro Academy</span>
+              </div>
             </div>
-            <h1 className="text-3xl font-bold text-white mt-2">Complète ton profil</h1>
-            <p className="text-gray-400 text-sm mt-1">Avant de rejoindre la communauté</p>
+            <h1 className="text-xl font-bold text-white mt-2">Complète ton profil</h1>
+            <p className="text-gray-400 text-xs mt-1">Avant de rejoindre la communauté</p>
           </div>
 
           <div className="relative">
@@ -153,7 +154,7 @@ export default function Auth() {
                 <input type="text" placeholder="Ton prénom *" value={nom} onChange={e => setNom(e.target.value)}
                   className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-blue-500" />
               )}
-              <input type="email" placeholder="Ton email" value={email} onChange={e => setEmail(e.target.value)}
+              <input type="email" autoComplete="off" placeholder="Ton email" value={email} onChange={e => setEmail(e.target.value)}
                 className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-blue-500" />
               <div className="relative">
                 <input type={showPassword?"text":"password"} placeholder="Mot de passe" value={password} onChange={e => setPassword(e.target.value)}
@@ -169,8 +170,8 @@ export default function Auth() {
             </div>
             {message && <p className="mt-4 text-center text-sm text-red-400">{message}</p>}
           </div>
-        </div>
-      </div>
-    </main>
-  );
-}
+<div className="flex justify-center gap-4 mt-4 text-xs text-gray-600">
+  <a href="/legal/mentions-legales" className="hover:text-gray-400">Mentions légales</a>
+  <a href="/legal/confidentialite" className="hover:text-gray-400">Confidentialité</a>
+  <a href="/legal/cgu" className="hover:text-gray-400">CGU</a>
+</div>

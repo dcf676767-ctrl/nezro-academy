@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const MODULES = [{id:1,c:1},{id:2,c:3},{id:3,c:3},{id:4,c:3},{id:5,c:3},{id:6,c:3},{id:7,c:3}];
 const TOTAL = 19;
 export default function Profil() {
@@ -44,8 +43,9 @@ export default function Profil() {
     const path = `${userId}/avatar.${ext}`;
     await supabase.storage.from("avatars").upload(path, file, { upsert: true });
     const { data } = supabase.storage.from("avatars").getPublicUrl(path);
-    await supabase.from("profiles").update({ avatar_url: data.publicUrl }).eq("id", userId);
-    setAvatarUrl(data.publicUrl);
+    const urlAvecCache = `${data.publicUrl}?t=${Date.now()}`;
+    await supabase.from("profiles").update({ avatar_url: urlAvecCache }).eq("id", userId);
+    setAvatarUrl(urlAvecCache);
   };
 
   const save = async () => {

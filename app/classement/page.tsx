@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const TOTAL_CHAPITRES = 19;
 export default function Classement() {
   const [classement, setClassement] = useState<any[]>([]);

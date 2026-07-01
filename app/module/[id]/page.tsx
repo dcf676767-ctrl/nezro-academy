@@ -1,9 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../../lib/supabase";
 import Sidebar from "../../components/Sidebar";
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;description:string}[]}} = {
   1:{titre:"Introduction",chapitres:[{id:1,titre:"Bienvenue dans la YMA !",duree:"5 min",description:"Bienvenue dans la YouTube Money Academy !"}]},
   2:{titre:"Module 1 — Clip Roblox",chapitres:[{id:1,titre:"Trouver les bons clips",duree:"10 min",description:"Comment trouver les meilleurs clips Roblox."},{id:2,titre:"Filmer comme un pro",duree:"15 min",description:"Les techniques pour filmer des clips de qualité."},{id:3,titre:"Rendre le clip viral",duree:"12 min",description:"Les secrets pour rendre tes clips viraux."}]},

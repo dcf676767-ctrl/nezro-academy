@@ -1,9 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-
 const MODULES = [
   { id: 1, titre: "Introduction", chapitres: 1 },
   { id: 2, titre: "Module 1 — Clip Roblox", chapitres: 3 },

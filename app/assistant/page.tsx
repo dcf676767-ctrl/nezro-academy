@@ -2,9 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import Sidebar from "../components/Sidebar";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
 declare global {
   interface Window { puter: any; }
@@ -21,8 +20,7 @@ export default function Assistant() {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      const id = session?.user.id || "anonyme";
+    const chargerPourUtilisateur = (id: string) => {
       setUserId(id);
       const saved = sessionStorage.getItem("assistant_messages_" + id);
       if (saved) {
@@ -31,7 +29,17 @@ export default function Assistant() {
         setMessages([MESSAGE_INITIAL]);
       }
       setPret(true);
+    };
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      chargerPourUtilisateur(session?.user.id || "anonyme");
     });
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      chargerPourUtilisateur(session?.user.id || "anonyme");
+    });
+
+    return () => { listener.subscription.unsubscribe(); };
   }, []);
 
   useEffect(() => {
