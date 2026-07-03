@@ -19,7 +19,7 @@ export default function Membres() {
       if (!data) return;
       const avecBadge = data.map((m: any, i: number) => ({ ...m, badge: badges[i % badges.length] }));
       setAdmins(avecBadge.filter((m: any) => m.role === "admin"));
-      setMembres(avecBadge.filter((m: any) => m.role !== "admin"));
+      setMembres(avecBadge.filter((m: any) => m.role !== "admin").slice(0, 30));
       setLoading(false);
     });
   }, []);
