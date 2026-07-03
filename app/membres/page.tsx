@@ -40,7 +40,7 @@ export default function Membres() {
       <main className="flex-1 ml-64 p-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-5xl font-bold text-white mb-3 text-center">👥 Membres</h2>
-          <p className="text-gray-400 mb-8 text-center">{Math.min(membres.length + admins.length, 30)} membres dans la communauté</p>
+          <p className="text-gray-400 mb-8 text-center">{membres.length + admins.length} membres dans la communauté</p>
           <div className="flex gap-8">
             <div className="flex-1">
               {!loading && (
