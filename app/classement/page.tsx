@@ -15,7 +15,7 @@ export default function Classement() {
         ...p,
         completed: prog.filter((x:any) => x.user_id === p.id).length,
         pct: Math.round((prog.filter((x:any) => x.user_id === p.id).length / TOTAL_CHAPITRES) * 100)
-      })).sort((a,b) => b.pct - a.pct);
+      })).sort((a,b) => b.pct - a.pct).slice(0, 30);
       setClassement(scores);
     };
     load();
