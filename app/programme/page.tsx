@@ -86,8 +86,8 @@ export default function Programme() {
                     </div>
                   ) : (
                     <>
-                      <img src={mod.image} alt={mod.titre} className="w-full h-full object-cover group-hover:opacity-90 transition-all duration-300" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
+                      <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"right center"}} /><div className="absolute inset-0" style={{background:"linear-gradient(to right, #2563eb 50%, transparent 50%)"}} /><span style={{position:"absolute",top:"50%",left:"25%",transform:"translate(-50%,-50%)",fontFamily:"Trebuchet MS, sans-serif",fontWeight:"700",fontSize:"1.4rem",color:"rgba(255,255,255,0.95)",letterSpacing:"4px",textShadow:"0 2px 12px rgba(0,0,0,0.3)"}}>{mod.titre.split(" ")[0]}</span>
+                      
                     </>
                   )}
                   {progression[mod.id] === 100 && (
