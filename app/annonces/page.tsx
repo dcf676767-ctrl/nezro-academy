@@ -31,6 +31,12 @@ export default function Annonces() {
   }, [annonces]);
 
   useEffect(() => {
+    if (annonces.length > 0) {
+      bottomRef.current?.scrollIntoView({ behavior: "auto" });
+    }
+  }, [annonces.length]);
+
+  useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (!session) { router.push("/auth"); return; }
       setUserId(session.user.id);
