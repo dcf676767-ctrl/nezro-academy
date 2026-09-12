@@ -85,7 +85,7 @@ export default function Module() {
           </div>
           <span className="text-sm text-gray-400">{progression}%</span>
         </div>
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
               {moduleId === 1 || moduleId === 2 || moduleId === 3 || moduleId === 4 || moduleId === 5 || moduleId === 6 || moduleId === 7 ? (
@@ -144,7 +144,7 @@ export default function Module() {
 
             </div>
           </div>
-          <div className="w-72 shrink-0 flex flex-col gap-6">
+          <div className="w-full md:w-72 shrink-0 flex flex-col gap-6">
             <div>
               <h3 className="font-bold text-white mb-4">Chapitres</h3>
               <div className="flex flex-col gap-2">

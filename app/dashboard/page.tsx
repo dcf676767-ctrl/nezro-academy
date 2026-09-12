@@ -87,7 +87,7 @@ export default function Dashboard() {
         <h1 className="text-3xl font-bold text-white mb-2">📊 Dashboard</h1>
         <p className="text-gray-400 mb-8">Bienvenue {nom} — suis ta progression dans le programme</p>
 
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
             <p className="text-sm text-gray-400 mb-2">🎯 Progression globale</p>
             <p className="text-4xl font-bold text-blue-400 mb-3">{progressionGlobale}%</p>
