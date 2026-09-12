@@ -120,7 +120,7 @@ export default function Chat() {
       <Sidebar active="/chat" />
       <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden" style={{height:"100dvh"}} >
         {isAdmin && (
-          <div className="w-full md:w-72 border-r border-gray-800 flex flex-col md:flex shrink-0">
+          <div className={`${vueMobile === "conversation" ? "hidden" : "flex"} md:flex w-full md:w-72 border-r border-gray-800 flex-col shrink-0`}>
             <div className="p-4 border-b border-gray-800">
               <h2 className="font-bold text-white">💬 Conversations</h2>
               <p className="text-xs text-gray-400 mt-1">{membres.length} membres</p>
@@ -144,7 +144,7 @@ export default function Chat() {
             </div>
           </div>
         )}
-        <div className={`${vueMobile === "liste" && !selectedUser ? "hidden md:flex" : "flex"} flex-1 flex-col`}>
+        <div className={`${vueMobile === "liste" ? "hidden" : "flex"} md:flex flex-1 flex-col`}>
           {selectedUser ? (
             <>
               <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3">
