@@ -5,7 +5,6 @@ import { supabase } from "../lib/supabase";
 export default function Sidebar({ active }: { active: string }) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -59,20 +58,24 @@ export default function Sidebar({ active }: { active: string }) {
       });
       supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", session.user.id);
       const hb = setInterval(() => supabase.from("profiles").update({ last_seen: new Date().toISOString() }).eq("id", session.user.id), 20000);
+
       const chargerNonLus = () => {
         supabase.from("chat_vu").select("derniere_visite").eq("user_id", session.user.id).single().then((resVuChat) => {
           const dateVuChat = resVuChat.data ? resVuChat.data.derniere_visite : "2000-01-01";
           supabase.from("messages").select("id").eq("receiver_id", session.user.id).gt("created_at", dateVuChat).then((res) => {
+            console.log("CHAT NONLUS:", res.data, res.error);
             const n = res.data ? res.data.length : 0; setChatNonLus(n); sessionStorage.setItem("badge_chat", String(n));
           });
         });
       };
       chargerNonLus();
       const nlInterval = setInterval(chargerNonLus, 5000);
+
       const chargerCalendrierNonVu = () => {
         supabase.from("calendrier_vu").select("derniere_visite").eq("user_id", session.user.id).single().then((resVu) => {
           const dateVu = resVu.data ? resVu.data.derniere_visite : "2000-01-01";
           supabase.from("evenements").select("id").gt("created_at", dateVu).then((resEv) => {
+            console.log("EVENEMENTS NON VUS:", resEv.data, resEv.error);
             const n2 = resEv.data ? resEv.data.length : 0; setCalendrierNonVu(n2); sessionStorage.setItem("badge_calendrier", String(n2));
           });
         });
@@ -86,9 +89,10 @@ export default function Sidebar({ active }: { active: string }) {
         if (!data) return;
         const membres = data.filter((p:any) => p.statut === "accepte");
         const admins = data.filter((p:any) => p.role === "admin").length;
+        // Enligne: simulation proportionnelle au nombre de membres, change chaque heure
         const maintenant = new Date();
         const seed = maintenant.getDate() + maintenant.getMonth() * 31 + maintenant.getHours() * 7;
-        const pourcentage = 0.25 + ((seed % 21) / 100);
+        const pourcentage = 0.25 + ((seed % 21) / 100); // entre 25% et 45%
         const enligne = Math.max(1, Math.min(membres.length, Math.round(membres.length * pourcentage)));
         const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
         const s = { membres: membres.length, admins, enligne, avatars };
@@ -136,16 +140,11 @@ export default function Sidebar({ active }: { active: string }) {
     const size = Math.max(rect.width, rect.height) * 2;
     const r = document.createElement("span");
     r.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(99,179,255,0.3);left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;transform:scale(0);animation:ripple 0.6s ease-out forwards;pointer-events:none;z-index:99;`;
-    btn.appendChild(r); setTimeout(() => r.remove(), 600); router.push(href); setSidebarOpen(false);
+    btn.appendChild(r); setTimeout(() => r.remove(), 600); router.push(href);
   };
 
   return (
-    <>
-      <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden fixed top-4 left-4 z-50 bg-gray-900 border border-gray-700 rounded-xl p-2 text-white text-xl">
-        {sidebarOpen ? "✕" : "☰"}
-      </button>
-      {sidebarOpen && <div onClick={() => setSidebarOpen(false)} className="md:hidden fixed inset-0 bg-black/50 z-30" />}
-      <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed h-full z-40 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
+    <aside className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed h-full z-40">
       <div className="relative m-3 mb-2 rounded-2xl p-[2px] overflow-hidden">
         <div className="absolute inset-0 animate-shine bg-[length:200%_100%] bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
         <div className="relative bg-gray-900 rounded-2xl p-4 flex items-center gap-4 shadow-[0_0_20px_4px_rgba(59,130,246,0.3)]">
@@ -159,6 +158,7 @@ export default function Sidebar({ active }: { active: string }) {
           <h1 className="text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>
         </div>
       </div>
+
       <nav className="flex-1 p-4 flex flex-col gap-1 overflow-y-auto">
         <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-3">Principal</p>
         {links.map(l => (
@@ -171,7 +171,8 @@ export default function Sidebar({ active }: { active: string }) {
           </button>
         ))}
       </nav>
-      <div className="relative">
+
+        <div className="relative">
         <div className="p-4 border-t border-gray-800 flex flex-col gap-3">
           <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 shadow-[0_0_14px_2px_rgba(59,130,246,0.6)]">
             <p className="text-xs font-bold uppercase tracking-wider mb-3 bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">La communauté</p>
@@ -189,6 +190,7 @@ export default function Sidebar({ active }: { active: string }) {
             </div>
           </div>
         </div>
+
         <div className="relative" ref={menuRef} onMouseEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }} onMouseLeave={() => { closeTimer.current = setTimeout(() => setMenuOpen(false), 600); }}>
           {menuOpen && (
             <div className="absolute bottom-14 left-0 right-0 bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-2xl z-50">
@@ -217,6 +219,7 @@ export default function Sidebar({ active }: { active: string }) {
               </div>
             </div>
           )}
+
           <div className={`flex items-center gap-3 ${!isAdmin ? "justify-center" : ""}`}>
             <div className={`w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden flex-shrink-0 ${!isAdmin ? "ml-1" : ""}`}>
               {avatarUrl ? <img src={avatarUrl} className="w-9 h-9 object-cover rounded-full" alt="avatar" /> : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9ca3af" className="w-full h-full" style={{marginTop:"4px"}}><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>}
@@ -228,6 +231,5 @@ export default function Sidebar({ active }: { active: string }) {
       </div>
       <style>{`@keyframes ripple { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(4); opacity: 0; } }`}</style>
     </aside>
-    </>
   );
 }
