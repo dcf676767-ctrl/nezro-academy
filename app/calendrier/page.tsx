@@ -93,7 +93,7 @@ export default function Calendrier() {
   return (
     <div className="flex min-h-screen bg-gray-950">
       <Sidebar active="/calendrier" />
-      <main className="flex-1 ml-64 p-8">
+      <main className="flex-1 md:ml-64 p-8">
         <h1 className="text-4xl font-bold text-white mb-2 text-center">📅 Calendrier</h1>
         <p className="text-gray-400 mb-8 text-center">Lives, deadlines et événements de la communauté</p>
 

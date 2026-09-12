@@ -57,7 +57,7 @@ export default function Programme() {
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/programme" />
-      <main className="flex-1 ml-64 p-8">
+      <main className="flex-1 md:ml-64 p-8">
         <div className="flex flex-col items-center mb-8">
           <div className="glow-title-wrap">
             <div className="glow-title-inner px-10 py-6">
