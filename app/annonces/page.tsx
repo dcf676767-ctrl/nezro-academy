@@ -27,6 +27,10 @@ export default function Annonces() {
   const [optionsSondage, setOptionsSondage] = useState(["", ""]);
 
   useEffect(() => {
+    setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: "auto" }), 200);
+  }, [annonces]);
+
+  useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (!session) { router.push("/auth"); return; }
       setUserId(session.user.id);

@@ -10,6 +10,7 @@ export default function Chat() {
   const [profiles, setProfiles] = useState<any>({});
   const [membres, setMembres] = useState<any[]>([]);
   const [selectedUser, setSelectedUser] = useState<any>(null);
+  const [vueMobile, setVueMobile] = useState<"liste"|"conversation">("liste");
   const [newMsg, setNewMsg] = useState("");
   const [moiId, setMoiId] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -117,7 +118,7 @@ export default function Chat() {
   return (
     <div className="flex bg-gray-950 text-white" style={{height:"100dvh"}}>
       <Sidebar active="/chat" />
-      <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden" style={{height:"100dvh"}}>
+      <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden" style={{height:"100dvh"}} >
         {isAdmin && (
           <div className="w-full md:w-72 border-r border-gray-800 flex flex-col md:flex shrink-0">
             <div className="p-4 border-b border-gray-800">
@@ -143,10 +144,11 @@ export default function Chat() {
             </div>
           </div>
         )}
-        <div className="flex-1 flex flex-col">
+        <div className={`${vueMobile === "liste" && !selectedUser ? "hidden md:flex" : "flex"} flex-1 flex-col`}>
           {selectedUser ? (
             <>
-              <div className="border-b border-gray-800 px-6 py-4 flex items-center gap-3">
+              <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3">
+                <button onClick={() => setVueMobile("liste")} className="md:hidden text-gray-400 hover:text-white mr-1">←</button>
                 <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center font-bold overflow-hidden">
                   {selectedUser.avatar_url ? <img src={selectedUser.avatar_url} className="w-full h-full object-cover" /> : selectedUser.nom?.[0]?.toUpperCase() || "?"}
                 </div>
