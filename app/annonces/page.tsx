@@ -192,7 +192,7 @@ export default function Annonces() {
   return (
     <div className="flex min-h-screen bg-gray-950">
       <Sidebar active="/annonces" />
-      <main className="flex-1 md:ml-64 flex flex-col h-screen">
+      <main className="flex-1 md:ml-64 flex flex-col h-screen pt-14 md:pt-0">
         <div className="p-6 border-b border-gray-800">
           <h1 className="text-2xl font-bold text-white">📢 Annonces</h1>
           <p className="text-sm text-gray-400">{isAdmin ? "Publie une annonce pour tous les membres" : "Les annonces de l'equipe Nezro Academy"}</p>
