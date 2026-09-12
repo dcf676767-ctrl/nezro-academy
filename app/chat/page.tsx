@@ -117,7 +117,7 @@ export default function Chat() {
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/chat" />
-      <main className="flex-1 md:ml-64 flex flex-col md:flex-row h-screen overflow-hidden">
+      <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden" style={{height:"100dvh"}}>
         {isAdmin && (
           <div className="w-full md:w-72 border-r border-gray-800 flex flex-col md:flex shrink-0">
             <div className="p-4 border-b border-gray-800">
