@@ -127,7 +127,7 @@ export default function Chat() {
             </div>
             <div className="flex-1 overflow-y-auto">
               {membres.map(m => (
-                <button key={m.id} onClick={() => { setSelectedUser(m); setNonLusParMembre((prev: any) => { const n = {...prev}; delete n[m.id]; return n; }); }}
+                <button key={m.id} onClick={() => { setSelectedUser(m); setVueMobile("conversation"); setNonLusParMembre((prev: any) => { const n = {...prev}; delete n[m.id]; return n; }); }}
                   className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-all text-left ${selectedUser?.id === m.id ? "bg-gray-800 border-l-2 border-blue-500" : ""}`}>
                   <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center font-bold shrink-0 overflow-hidden">
                     {m.avatar_url ? <img src={m.avatar_url} className="w-full h-full object-cover" /> : m.nom?.[0]?.toUpperCase() || "?"}
