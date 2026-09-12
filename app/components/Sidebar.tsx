@@ -120,7 +120,7 @@ export default function Sidebar({ active }: { active: string }) {
   const logout = async () => { await supabase.auth.signOut(); router.push("/auth"); };
 
   const links = [
-    { href: "/programme", label: "Programme YMA", emoji: "📚" },
+    { href: "/programme", label: "Programme", emoji: "📚" },
     { href: "/dashboard", label: "Dashboard", emoji: "📊" },
     { href: "/annonces", label: "Annonces", emoji: "📢", badge: annoncesNonLues },
     { href: "/membres", label: "Membres", emoji: "👥" },

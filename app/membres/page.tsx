@@ -39,7 +39,7 @@ export default function Membres() {
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/membres" />
-      <main className="flex-1 md:ml-64 p-8">
+      <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-5xl font-bold text-white mb-3 text-center">👥 Membres</h2>
           <p className="text-gray-400 mb-8 text-center">{totalMembres + admins.length} membres dans la communauté</p>
