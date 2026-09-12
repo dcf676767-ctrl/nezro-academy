@@ -115,7 +115,7 @@ export default function Chat() {
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <div className="flex min-h-screen bg-gray-950 text-white">
+    <div className="flex bg-gray-950 text-white" style={{height:"100dvh"}}>
       <Sidebar active="/chat" />
       <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden" style={{height:"100dvh"}}>
         {isAdmin && (

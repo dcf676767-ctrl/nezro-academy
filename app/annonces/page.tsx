@@ -17,6 +17,7 @@ export default function Annonces() {
   const [imagePreview, setImagePreview] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
   const [reactions, setReactions] = useState<any[]>([]);
   const [userId, setUserId] = useState("");
   const [sondages, setSondages] = useState<any[]>([]);
@@ -48,6 +49,7 @@ export default function Annonces() {
     const { data } = await supabase.from("annonces").select("*").order("created_at", { ascending: true });
     if (data) setAnnonces(data);
     setLoading(false);
+    setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
       await supabase.from("annonces_vu").upsert({ user_id: session.user.id, derniere_visite: new Date().toISOString() });
