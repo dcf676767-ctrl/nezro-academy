@@ -97,7 +97,7 @@ export default function Calendrier() {
         <h1 className="text-4xl font-bold text-white mb-2 text-center">📅 Calendrier</h1>
         <p className="text-gray-400 mb-8 text-center">Lives, deadlines et événements de la communauté</p>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="col-span-2 bg-gray-900 border border-gray-800 rounded-2xl p-6">
             <div className="flex items-center justify-between mb-6">
               <button onClick={() => changerMois(-1)} className="text-gray-400 hover:text-white text-xl px-3 py-1 rounded-lg hover:bg-gray-800 transition-all">←</button>

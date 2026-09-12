@@ -43,7 +43,7 @@ export default function Membres() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-5xl font-bold text-white mb-3 text-center">👥 Membres</h2>
           <p className="text-gray-400 mb-8 text-center">{totalMembres + admins.length} membres dans la communauté</p>
-          <div className="flex gap-8">
+          <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-1">
               {!loading && (
                 <div className="flex flex-col gap-4">
