@@ -79,8 +79,8 @@ export default function Assistant() {
         <div className="border-b border-gray-800 px-8 py-4 pl-16 md:pl-8 flex items-center gap-3">
           <span className="text-2xl">🤖</span>
           <div>
-            <h1 className="font-bold text-lg">Assistant YMA</h1>
-            <p className="text-xs text-gray-400">Ton coach IA pour tout ce qui est YouTube & contenu</p>
+            <h1 className="font-bold text-lg">Assistant YouTube</h1>
+            <p className="text-xs text-gray-400">Ton coach IA pour tout ce qui est YouTube</p>
           </div>
         </div>
 
