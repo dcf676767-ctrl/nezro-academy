@@ -18,6 +18,7 @@ export default function Annonces() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [reactions, setReactions] = useState<any[]>([]);
   const [userId, setUserId] = useState("");
   const [sondages, setSondages] = useState<any[]>([]);
@@ -27,12 +28,12 @@ export default function Annonces() {
   const [optionsSondage, setOptionsSondage] = useState(["", ""]);
 
   useEffect(() => {
-    setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: "auto" }), 200);
+    setTimeout(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, 200);
   }, [annonces]);
 
   useEffect(() => {
     if (annonces.length > 0) {
-      bottomRef.current?.scrollIntoView({ behavior: "auto" });
+      if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [annonces.length]);
 
@@ -59,7 +60,7 @@ export default function Annonces() {
     const { data } = await supabase.from("annonces").select("*").order("created_at", { ascending: true });
     if (data) setAnnonces(data);
     setLoading(false);
-    setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
+    setTimeout(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, 100);
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
       await supabase.from("annonces_vu").upsert({ user_id: session.user.id, derniere_visite: new Date().toISOString() });
@@ -197,7 +198,7 @@ export default function Annonces() {
           <p className="text-sm text-gray-400">{isAdmin ? "Publie une annonce pour tous les membres" : "Les annonces de l'equipe Nezro Academy"}</p>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
           {isAdmin && (
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
               {!creationSondage ? (
@@ -300,6 +301,7 @@ export default function Annonces() {
               <p>Aucune annonce pour le moment</p>
             </div>
           )}
+        <div ref={bottomRef} />
         </div>
 
         {isAdmin && (
