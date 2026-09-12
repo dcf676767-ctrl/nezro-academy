@@ -120,12 +120,12 @@ export default function Chat() {
       <Sidebar active="/chat" />
       <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden" style={{height:"100dvh"}} >
         {isAdmin && (
-          <div className={`${vueMobile === "conversation" ? "hidden" : "flex"} md:flex w-full md:w-72 border-r border-gray-800 flex-col shrink-0`}>
+          <div className={`${vueMobile === "conversation" ? "hidden" : "flex"} md:flex w-full md:w-72 border-r border-gray-800 flex-col shrink-0 pt-14 md:pt-0 overflow-hidden`}>
             <div className="p-4 border-b border-gray-800">
               <h2 className="font-bold text-white">💬 Conversations</h2>
               <p className="text-xs text-gray-400 mt-1">{membres.length} membres</p>
             </div>
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto pb-10">
               {membres.map(m => (
                 <button key={m.id} onClick={() => { setSelectedUser(m); setVueMobile("conversation"); setNonLusParMembre((prev: any) => { const n = {...prev}; delete n[m.id]; return n; }); }}
                   className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-all text-left ${selectedUser?.id === m.id ? "bg-gray-800 border-l-2 border-blue-500" : ""}`}>
@@ -148,7 +148,7 @@ export default function Chat() {
           {selectedUser ? (
             <>
               <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3">
-                <button onClick={() => setVueMobile("liste")} className="md:hidden text-gray-400 hover:text-white mr-1">←</button>
+                <button onClick={() => setVueMobile("liste")} className="md:hidden text-gray-400 hover:text-white ml-10 mr-2 text-xl font-bold">←</button>
                 <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center font-bold overflow-hidden">
                   {selectedUser.avatar_url ? <img src={selectedUser.avatar_url} className="w-full h-full object-cover" /> : selectedUser.nom?.[0]?.toUpperCase() || "?"}
                 </div>
