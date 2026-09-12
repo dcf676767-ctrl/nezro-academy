@@ -9,7 +9,7 @@ declare global {
   interface Window { puter: any; }
 }
 
-const MESSAGE_INITIAL = { role: "assistant" as const, content: "Salut ! Je suis ton assistant YMA 🎯 Je suis là pour t'aider avec YouTube, le montage, les miniatures, l'algo... Pose-moi n'importe quelle question !" };
+const MESSAGE_INITIAL = { role: "assistant" as const, content: "Salut ! Je suis ton assistant YouTube 🎯 Je suis là pour t'aider avec le montage, les miniatures, l'algo... Pose-moi n'importe quelle question !" };
 
 export default function Assistant() {
   const [messages, setMessages] = useState<{role:"user"|"assistant", content:string}[]>([MESSAGE_INITIAL]);
