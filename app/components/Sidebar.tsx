@@ -161,11 +161,11 @@ export default function Sidebar({ active }: { active: string }) {
           <h1 className="text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>
         </div>
       </div>
-      <nav className="flex-1 p-4 flex flex-col gap-1 overflow-y-auto">
+      <nav className="flex-1 p-4 flex flex-col gap-1 overflow-y-auto" style={{WebkitOverflowScrolling:"touch"}}>
         <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-3">Principal</p>
         {links.map(l => (
           <button key={l.href} onClick={(e) => handleNav(e, l.href)}
-            className={`flex items-center gap-2 px-3 py-1.5 md:py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative hover:scale-105 active:scale-95 ${active===l.href ? "bg-blue-600 text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative hover:scale-105 active:scale-95 ${active===l.href ? "bg-blue-600 text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
             {l.emoji} <span className={active===l.href ? "" : "bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shine"}>{l.label}</span>
             {(l as any).badge > 0 && (
               <span className="ml-auto w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">{(l as any).badge > 9 ? "9+" : (l as any).badge}</span>
