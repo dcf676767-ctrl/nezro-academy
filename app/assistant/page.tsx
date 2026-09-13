@@ -1,12 +1,10 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Script from "next/script";
 import Sidebar from "../components/Sidebar";
 import { supabase } from "../lib/supabase";
 
 
 declare global {
-  interface Window { puter: any; }
 }
 
 const MESSAGE_INITIAL = { role: "assistant" as const, content: "Salut ! Je suis ton assistant YouTube 🎯 Je suis là pour t'aider avec le montage, les miniatures, l'algo... Pose-moi n'importe quelle question !" };
@@ -51,29 +49,26 @@ export default function Assistant() {
     if (!input.trim() || loading) return;
     const userMsg = input.trim();
     setInput("");
-    setMessages(prev => [...prev, { role: "user", content: userMsg }]);
+    const newMessages = [...messages, { role: "user" as const, content: userMsg }];
+    setMessages(newMessages);
     setLoading(true);
-
     try {
-      const historique = [...messages, { role: "user", content: userMsg }].map(m => ({ role: m.role, content: m.content }));
-      const response = await window.puter.ai.chat(
-        [
-          { role: "system", content: "Tu es l'assistant YMA. Réponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme." },
-          ...historique
-        ],
-        { model: "meta-llama/llama-4-maverick" }
-      );
-      const reply = response?.message?.content || "Désolé, je n'ai pas pu répondre.";
+      const res = await fetch("/api/assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: newMessages }),
+      });
+      const data = await res.json();
+      const reply = data.content?.[0]?.text || "Desole, je n'ai pas pu repondre.";
       setMessages(prev => [...prev, { role: "assistant", content: reply }]);
-    } catch {
-      setMessages(prev => [...prev, { role: "assistant", content: "❌ Erreur de connexion. Réessaie !" }]);
+    } catch (e) {
+      setMessages(prev => [...prev, { role: "assistant", content: "Erreur de connexion. Reessaie !" }]);
     }
     setLoading(false);
   };
 
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Script src="https://js.puter.com/v2/" strategy="afterInteractive" />
       <Sidebar active="/assistant" />
       <main className="flex-1 md:ml-64 flex flex-col h-screen pt-14 md:pt-0">
         <div className="border-b border-gray-800 px-8 py-4 pl-16 md:pl-8 flex items-center gap-3">
