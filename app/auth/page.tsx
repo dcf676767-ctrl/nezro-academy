@@ -48,7 +48,9 @@ export default function Auth() {
       if (error) { setMessage("Email ou mot de passe incorrect."); setLoading(false); return; }
       const { data: profile } = await supabase.from("profiles").select("statut").eq("id", data.user?.id).single();
       if (!profile || profile.statut !== "accepte") { router.push("/bloque"); return; }
-      router.push("/programme");
+      const dejaBienvenu = localStorage.getItem("bienvenu_" + data.user?.id);
+      if (!dejaBienvenu) { localStorage.setItem("bienvenu_" + data.user?.id, "1"); router.push("/bienvenue"); }
+      else { router.push("/programme"); }
     }
   };
 
