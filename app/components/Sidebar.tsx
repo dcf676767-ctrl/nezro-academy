@@ -88,7 +88,7 @@ export default function Sidebar({ active }: { active: string }) {
         const admins = data.filter((p:any) => p.role === "admin").length;
         const maintenant = new Date();
         const seed = maintenant.getDate() + maintenant.getMonth() * 31 + maintenant.getHours() * 7;
-        const pourcentage = 0.25 + ((seed % 21) / 100);
+        const pourcentage = 0.03 + ((seed % 6) / 100);
         const enligne = Math.max(1, Math.min(membres.length, Math.round(membres.length * pourcentage)));
         const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
         const s = { membres: membres.length, admins, enligne, avatars };
