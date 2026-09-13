@@ -130,6 +130,7 @@ export default function Sidebar({ active }: { active: string }) {
     { href: "/assistant", label: "Assistant IA", emoji: "🤖" },
     { href: "/chat", label: "Chat", emoji: "💬", badge: chatNonLus },
     { href: "/roadmap", label: "Roadmap", emoji: "🗺️" },
+    { href: "/communaute", label: "Communauté", emoji: "👥" },
   ];
 
   const handleNav = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
