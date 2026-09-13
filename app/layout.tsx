@@ -13,6 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
   verification: { google: "yn3c6uG0YfRwl0_z_lfPUEycAE30KDGWWk1WXr_GDhI"
