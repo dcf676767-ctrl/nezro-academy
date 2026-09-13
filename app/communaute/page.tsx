@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import Sidebar from "../components/Sidebar";
 
 const _sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+const ADMIN_ID = "cc055cc7-0c49-44e4-a81b-bd3f7dc74f55";
 
 export default function Communaute() {
   const router = useRouter();
@@ -70,6 +71,11 @@ export default function Communaute() {
     setUploading(false);
   };
 
+  const supprimerMessage = async (id: string) => {
+    await _sb.from("community_messages").delete().eq("id", id);
+    setMessages(prev => prev.filter(m => m.id !== id));
+  };
+
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
@@ -101,6 +107,9 @@ export default function Communaute() {
                     <img src={msg.image_url} className="max-w-sm rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
                   ) : (
                     <p className="text-gray-200 text-sm">{msg.content}</p>
+                  )}
+                  {moiId === ADMIN_ID && (
+                    <button onClick={() => supprimerMessage(msg.id)} className="text-xs text-red-500 hover:text-red-400 mt-1">🗑 Supprimer</button>
                   )}
                 </div>
               </div>
