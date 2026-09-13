@@ -81,12 +81,12 @@ export default function Programme() {
                   {mod.customThumb ? (
                     <div className="w-full h-full relative overflow-hidden">
                       <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition: mod.id !== 1 ? "center center" : "initial"}} />
-                      <div className="absolute inset-0" style={{background:"linear-gradient(105deg, #0f172a 0%, #0ea5e9 45%, transparent 55%)"}} />
+                
                       <span style={{position:"absolute",top:"50%",left:"25%",transform:"translate(-50%,-50%)",fontFamily:"'Trebuchet MS', sans-serif",fontStyle:"normal",fontWeight:"700",fontSize:"1.4rem",color:"rgba(255,255,255,0.95)",letterSpacing:"4px",textShadow:"0 2px 12px rgba(0,0,0,0.3)"}}>{mod.label}</span>
                     </div>
                   ) : (
                     <>
-                      <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"right center"}} /><div className="absolute inset-0" style={{background:"linear-gradient(to right, #2563eb 50%, transparent 50%)"}} /><span style={{position:"absolute",top:"50%",left:"25%",transform:"translate(-50%,-50%)",fontFamily:"Trebuchet MS, sans-serif",fontWeight:"700",fontSize:"1.4rem",color:"rgba(255,255,255,0.95)",letterSpacing:"4px",textShadow:"0 2px 12px rgba(0,0,0,0.3)"}}>{mod.titre.split(" ")[0]}</span>
+                      <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"center center"}} /><span style={{position:"absolute",top:"50%",left:"25%",transform:"translate(-50%,-50%)",fontFamily:"Trebuchet MS, sans-serif",fontWeight:"700",fontSize:"1.4rem",color:"rgba(255,255,255,0.95)",letterSpacing:"4px",textShadow:"0 2px 12px rgba(0,0,0,0.3)"}}>{mod.titre.split(" ")[0]}</span>
                       
                     </>
                   )}
