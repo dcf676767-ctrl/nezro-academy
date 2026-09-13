@@ -49,8 +49,8 @@ export default function Auth() {
       const { data: profile } = await supabase.from("profiles").select("statut").eq("id", data.user?.id).single();
       if (!profile || profile.statut !== "accepte") { router.push("/bloque"); return; }
       const dejaBienvenu = localStorage.getItem("bienvenu_" + data.user?.id);
-      if (!dejaBienvenu) { localStorage.setItem("bienvenu_" + data.user?.id, "1"); router.push("/bienvenue"); }
-      else { router.push("/programme"); }
+      if (!dejaBienvenu) { localStorage.setItem("bienvenu_" + data.user?.id, "1"); router.push("/bienvenue?nouveau=1"); }
+      else { router.push("/bienvenue?nouveau=0"); }
     }
   };
 

@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Bienvenue() {
   const router = useRouter();
+  const params = useSearchParams();
+  const isNouveau = params.get("nouveau") !== "0";
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -11,8 +13,8 @@ export default function Bienvenue() {
     const t2 = setTimeout(() => setStep(2), 2200);
     const t3 = setTimeout(() => setStep(3), 3600);
     const t4 = setTimeout(() => setStep(4), 5000);
-    const t5 = setTimeout(() => router.push("/programme"), 8000);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); clearTimeout(t5); };
+
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
   return (
@@ -35,14 +37,13 @@ export default function Bienvenue() {
         {/* Titre */}
         <div className={`transition-all duration-700 ${step >= 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h1 className="text-4xl font-black mb-2">Bienvenue dans</h1>
-          <h2 className="text-4xl font-black text-blue-400">Nezro Academy 🎯</h2>
+          <h2 className="text-4xl font-black text-blue-400">{isNouveau ? "Nezro Academy 🎯" : "Content de te revoir 👋"}</h2>
         </div>
 
         {/* Message */}
         <div className={`transition-all duration-700 ${step >= 3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <p className="text-gray-300 text-lg max-w-sm leading-relaxed">
-            Tu fais maintenant partie de l'élite YouTube 🚀<br/>
-            <span className="text-blue-400 font-semibold">Prêt à exploser sur YouTube ?</span>
+            {isNouveau ? <>Tu fais maintenant partie de l'élite YouTube 🚀<br/><span className="text-blue-400 font-semibold">Prêt à exploser sur YouTube ?</span></> : <>Ton académie t'attend 🔥<br/><span className="text-blue-400 font-semibold">Continuons ensemble !</span></>}
           </p>
         </div>
 
@@ -54,7 +55,7 @@ export default function Bienvenue() {
           >
             Accéder à l'académie 🎬
           </button>
-          <p className="text-gray-600 text-sm mt-3">Redirection automatique dans quelques secondes...</p>
+
         </div>
       </div>
     </div>
