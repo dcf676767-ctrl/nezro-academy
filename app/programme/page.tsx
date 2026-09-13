@@ -82,11 +82,11 @@ export default function Programme() {
                     <div className="w-full h-full relative overflow-hidden">
                       <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition: mod.id !== 1 ? "center center" : "initial"}} />
                 
-                      <span style={{position:"absolute",top:"50%",left:"25%",transform:"translate(-50%,-50%)",fontFamily:"'Trebuchet MS', sans-serif",fontStyle:"normal",fontWeight:"700",fontSize:"1.4rem",color:"rgba(255,255,255,0.95)",letterSpacing:"4px",textShadow:"0 2px 12px rgba(0,0,0,0.3)"}}>{mod.label}</span>
+                      
                     </div>
                   ) : (
                     <>
-                      <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"center center"}} /><span style={{position:"absolute",top:"50%",left:"25%",transform:"translate(-50%,-50%)",fontFamily:"Trebuchet MS, sans-serif",fontWeight:"700",fontSize:"1.4rem",color:"rgba(255,255,255,0.95)",letterSpacing:"4px",textShadow:"0 2px 12px rgba(0,0,0,0.3)"}}>{mod.titre.split(" ")[0]}</span>
+                      <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"center center"}} />
                       
                     </>
                   )}
