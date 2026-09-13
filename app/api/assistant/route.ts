@@ -3,46 +3,27 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   const { messages } = await req.json();
 
-  const MODELES_DE_SECOURS = [
-    "deepseek/deepseek-r1-0528:free",
-    "google/gemini-2.0-flash-exp:free",
-    "microsoft/mai-ds-r1:free",
-    "tngtech/deepseek-r1t-chimera:free"
-  ];
+  try {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "llama-3.3-70b-versatile",
+        messages: [
+          { role: "system", content: "Tu es l'assistant YouTube de Nezro Academy. Reponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme, monetisation." },
+          ...messages
+        ],
+        max_tokens: 1024,
+      })
+    });
 
-  for (const modele of MODELES_DE_SECOURS) {
-    try {
-      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": "https://nezro-academy.vercel.app",
-          "X-Title": "Nezro Academy"
-        },
-        body: JSON.stringify({
-          model: modele,
-          stream: false,
-          messages: [
-            { role: "user", content: "Tu es l'assistant YMA. Réponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme." },
-            { role: "assistant", content: "Compris ! Je suis l'assistant YMA, prêt à t'aider 🎯" },
-            ...messages
-          ]
-        })
-      });
-
-      const text = await response.text();
-      const data = JSON.parse(text);
-
-      if (data.choices?.[0]?.message?.content) {
-        return NextResponse.json({ content: [{ text: data.choices[0].message.content }] });
-      }
-
-      console.error(`Modele ${modele} indisponible, on essaie le suivant:`, JSON.stringify(data));
-    } catch (e) {
-      console.error(`Erreur avec le modele ${modele}:`, e);
-    }
+    const data = await response.json();
+    const reply = data.choices?.[0]?.message?.content || "Desole, je n'ai pas pu repondre.";
+    return NextResponse.json({ content: [{ text: reply }] });
+  } catch (e) {
+    return NextResponse.json({ content: [{ text: "Erreur de connexion. Reessaie !" }] });
   }
-
-  return NextResponse.json({ content: [{ text: "Désolé, je n'ai pas pu répondre." }] });
 }
