@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+        model: "groq/compound",
         messages: [
           { role: "system", content: "Tu es l'assistant YouTube de Nezro Academy. Reponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme, monetisation." },
           ...messages
