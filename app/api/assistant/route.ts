@@ -4,10 +4,10 @@ export async function POST(req: NextRequest) {
   const { messages } = await req.json();
 
   const MODELES_DE_SECOURS = [
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "deepseek/deepseek-chat-v3-0324:free",
-    "qwen/qwen-2.5-72b-instruct:free",
-    "mistralai/mistral-small-3.1-24b-instruct:free"
+    "deepseek/deepseek-r1-0528:free",
+    "google/gemini-2.0-flash-exp:free",
+    "microsoft/mai-ds-r1:free",
+    "tngtech/deepseek-r1t-chimera:free"
   ];
 
   for (const modele of MODELES_DE_SECOURS) {
