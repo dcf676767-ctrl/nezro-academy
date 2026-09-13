@@ -219,7 +219,7 @@ export default function Chat() {
                 <input value={newMsg} onChange={e => setNewMsg(e.target.value)} onKeyDown={e => e.key === "Enter" && envoyer()}
                   placeholder={uploading ? "Upload en cours..." : "Écris un message..."}
                   disabled={uploading}
-                  className="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500" style={{fontSize:"16px"}} onFocus={() => setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 300)} />
+                  className="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500" style={{fontSize:"16px"}} />
                 <button onClick={envoyer} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl font-bold transition-all">➤</button>
               </div>
             </>
