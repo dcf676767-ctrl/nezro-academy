@@ -88,18 +88,19 @@ export default function Communaute() {
             const isMe = msg.user_id === moiId;
             const prof = profiles[msg.user_id];
             return (
-              <div key={msg.id} className={`flex gap-2 ${isMe ? "flex-row-reverse" : "flex-row"}`}>
-                <div className="w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
+              <div key={msg.id} className="flex gap-3 items-start w-full">
+                <div className="w-9 h-9 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
                   {prof?.avatar_url ? <img src={prof.avatar_url} className="w-full h-full object-cover" /> : prof?.nom?.[0]?.toUpperCase() || "?"}
                 </div>
-                <div className={`flex flex-col gap-1 max-w-xs ${isMe ? "items-end" : "items-start"}`}>
-                  <span className="text-xs text-gray-500">{prof?.nom || "Membre"} · {formatHeure(msg.created_at)}</span>
+                <div className="flex flex-col gap-1 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className={`text-sm font-semibold ${isMe ? "text-blue-400" : "text-white"}`}>{prof?.nom || "Membre"}</span>
+                    <span className="text-xs text-gray-500">{formatHeure(msg.created_at)}</span>
+                  </div>
                   {msg.image_url ? (
-                    <img src={msg.image_url} className="max-w-xs rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
+                    <img src={msg.image_url} className="max-w-sm rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
                   ) : (
-                    <div className={`px-4 py-2 rounded-2xl text-sm ${isMe ? "bg-blue-600 text-white" : "bg-gray-800 text-white"}`}>
-                      {msg.content}
-                    </div>
+                    <p className="text-gray-200 text-sm">{msg.content}</p>
                   )}
                 </div>
               </div>
