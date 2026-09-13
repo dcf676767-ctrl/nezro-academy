@@ -150,7 +150,7 @@ export default function Chat() {
         <div className={`${vueMobile === "liste" ? "hidden" : "flex"} md:flex flex-1 flex-col`}>
           {selectedUser ? (
             <>
-              <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3">
+              <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3 pl-14 md:pl-4">
                 {moiId === ADMIN_ID && <button onClick={() => setVueMobile("liste")} className="md:hidden text-gray-400 hover:text-white mr-3 text-xl font-bold">←</button>}
                 <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center font-bold overflow-hidden">
                   {selectedUser.avatar_url ? <img src={selectedUser.avatar_url} className="w-full h-full object-cover" /> : selectedUser.nom?.[0]?.toUpperCase() || "?"}
