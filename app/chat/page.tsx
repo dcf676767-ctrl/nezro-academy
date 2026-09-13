@@ -147,7 +147,7 @@ export default function Chat() {
             </div>
           </div>
         )}
-        <div className={`${vueMobile === "liste" ? "hidden" : "flex"} md:flex flex-1 flex-col`}>
+        <div className={`${vueMobile === "liste" ? "hidden" : "flex"} md:flex flex-1 flex-col overflow-hidden`} style={{height:"100%"}}>
           {selectedUser ? (
             <>
               <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3 pl-14 md:pl-4">
