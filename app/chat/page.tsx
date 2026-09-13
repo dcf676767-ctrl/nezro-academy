@@ -151,7 +151,7 @@ export default function Chat() {
           {selectedUser ? (
             <>
               <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3">
-                <button onClick={() => { if (moiId === ADMIN_ID) { setVueMobile("liste"); } else { window.location.href = "/programme"; } }} className="md:hidden text-gray-400 hover:text-white ml-14 mr-2 text-xl font-bold">←</button>
+                {moiId === ADMIN_ID && <button onClick={() => setVueMobile("liste")} className="md:hidden text-gray-400 hover:text-white ml-14 mr-2 text-xl font-bold">←</button>}
                 <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center font-bold overflow-hidden">
                   {selectedUser.avatar_url ? <img src={selectedUser.avatar_url} className="w-full h-full object-cover" /> : selectedUser.nom?.[0]?.toUpperCase() || "?"}
                 </div>
