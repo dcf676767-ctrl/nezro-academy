@@ -7,11 +7,11 @@ export default function Bienvenue() {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setStep(1), 500);
-    const t2 = setTimeout(() => setStep(2), 1500);
-    const t3 = setTimeout(() => setStep(3), 2500);
-    const t4 = setTimeout(() => setStep(4), 3500);
-    const t5 = setTimeout(() => router.push("/programme"), 5500);
+    const t1 = setTimeout(() => setStep(1), 800);
+    const t2 = setTimeout(() => setStep(2), 2200);
+    const t3 = setTimeout(() => setStep(3), 3600);
+    const t4 = setTimeout(() => setStep(4), 5000);
+    const t5 = setTimeout(() => router.push("/programme"), 8000);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); clearTimeout(t5); };
   }, []);
 
@@ -52,7 +52,7 @@ export default function Bienvenue() {
             onClick={() => router.push("/programme")}
             className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all hover:scale-105 active:scale-95"
           >
-            Accéder à la formation 🎬
+            Accéder à l'académie 🎬
           </button>
           <p className="text-gray-600 text-sm mt-3">Redirection automatique dans quelques secondes...</p>
         </div>
