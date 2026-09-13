@@ -56,8 +56,10 @@ export default function Communaute() {
 
   const envoyer = async () => {
     if (!newMsg.trim()) return;
-    await _sb.from("community_messages").insert({ user_id: moiId, content: newMsg.trim() });
+    const msg = { user_id: moiId, content: newMsg.trim(), image_url: null, created_at: new Date().toISOString(), id: Math.random().toString() };
+    setMessages(prev => [...prev, msg]);
     setNewMsg("");
+    await _sb.from("community_messages").insert({ user_id: moiId, content: msg.content });
   };
 
   const envoyerPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
