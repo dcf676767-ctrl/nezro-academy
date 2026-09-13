@@ -10,10 +10,10 @@ export default function Bienvenue() {
   useEffect(() => {
     const url = new URL(window.location.href);
     setIsNouveau(url.searchParams.get("nouveau") !== "0");
-    const t1 = setTimeout(() => setStep(1), 800);
-    const t2 = setTimeout(() => setStep(2), 2200);
-    const t3 = setTimeout(() => setStep(3), 3600);
-    const t4 = setTimeout(() => setStep(4), 5000);
+    const t1 = setTimeout(() => setStep(1), 500);
+    const t2 = setTimeout(() => setStep(2), 1400);
+    const t3 = setTimeout(() => setStep(3), 2300);
+    const t4 = setTimeout(() => setStep(4), 3200);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
