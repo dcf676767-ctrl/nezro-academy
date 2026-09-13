@@ -13,10 +13,10 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         model: "groq/compound",
         messages: [
-          { role: "system", content: "Tu es l'assistant YouTube de Nezro Academy. Reponds toujours en français avec des emojis et des conseils pratiques sur YouTube, montage, miniatures, algorithme, monetisation." },
+          { role: "system", content: "Tu es l'assistant YouTube de Nezro Academy. Reponds TOUJOURS en français. Sois TRÈS concis : maximum 3-4 phrases courtes. Pas de listes à puces. Pas de pavés. Donne un conseil direct et pratique avec 1-2 emojis max." },
           ...messages
         ],
-        max_tokens: 1024,
+        max_tokens: 300,
       })
     });
 
