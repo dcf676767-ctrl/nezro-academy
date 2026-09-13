@@ -161,7 +161,7 @@ export default function Sidebar({ active }: { active: string }) {
           <h1 className="text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>
         </div>
       </div>
-      <nav className="flex-1 p-4 flex flex-col gap-1 overflow-y-auto" style={{WebkitOverflowScrolling:"touch"}}>
+      <nav className="flex-1 p-4 flex flex-col gap-2 overflow-y-auto" style={{WebkitOverflowScrolling:"touch"}}>
         <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-3">Principal</p>
         {links.map(l => (
           <button key={l.href} onClick={(e) => handleNav(e, l.href)}
