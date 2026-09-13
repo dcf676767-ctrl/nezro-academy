@@ -79,7 +79,7 @@ export default function Communaute() {
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white flex">
+    <div className="bg-gray-950 text-white flex" style={{height:"100dvh", overflow:"hidden"}}>
       <Sidebar active="communaute" />
       <main className="flex-1 md:ml-64 flex flex-col overflow-hidden" style={{height:"100dvh", paddingBottom:"env(safe-area-inset-bottom)"}}>
         <div className="border-b border-gray-800 px-4 py-4 pt-16 md:pt-4 flex items-center gap-3">
