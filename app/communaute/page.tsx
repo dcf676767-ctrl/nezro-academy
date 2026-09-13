@@ -81,7 +81,7 @@ export default function Communaute() {
   return (
     <div className="min-h-screen bg-gray-950 text-white flex">
       <Sidebar active="communaute" />
-      <main className="flex-1 md:ml-64 flex flex-col overflow-hidden" style={{height:"100dvh"}}>
+      <main className="flex-1 md:ml-64 flex flex-col overflow-hidden" style={{height:"100dvh", paddingBottom:"env(safe-area-inset-bottom)"}}>
         <div className="border-b border-gray-800 px-4 py-4 pt-16 md:pt-4 flex items-center gap-3">
           <div className="text-2xl">👥</div>
           <div>
