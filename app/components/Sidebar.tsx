@@ -147,7 +147,7 @@ export default function Sidebar({ active }: { active: string }) {
         {sidebarOpen ? "✕" : "☰"}
       </button>
       {sidebarOpen && <div onClick={() => setSidebarOpen(false)} className="md:hidden fixed inset-0 bg-black/50 z-30" />}
-      <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed h-full z-40 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
+      <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed z-40 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`} style={{height:"100dvh"}}>
       <div className="relative m-3 mb-2 rounded-2xl p-[2px] overflow-hidden">
         <div className="absolute inset-0 animate-shine bg-[length:200%_100%] bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
         <div className="relative bg-gray-900 rounded-2xl p-4 flex items-center gap-4 shadow-[0_0_20px_4px_rgba(59,130,246,0.3)]">
