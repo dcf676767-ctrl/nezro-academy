@@ -64,7 +64,10 @@ export default function Chat() {
         setMembres(autres);
         if (uid !== ADMIN_ID) {
           const admin = (data || []).find((x: any) => x.id === ADMIN_ID);
-          if (admin && window.innerWidth >= 768) setSelectedUser(admin);
+          if (admin) {
+            setSelectedUser(admin);
+            setVueMobile("conversation");
+          }
         }
         setPageReady(true);
       });
