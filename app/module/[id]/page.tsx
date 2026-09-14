@@ -129,7 +129,7 @@ export default function Module() {
             </div>
             )}
             {moduleId > 2 && (
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5 mt-4">
+            <div className="hidden md:block bg-gray-900 border border-gray-800 rounded-2xl p-5 mt-4">
               <h3 className="text-white font-bold mb-3">📝 Mes notes</h3>
               <textarea
                 placeholder="Écris tes notes ici..."
