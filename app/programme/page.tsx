@@ -12,6 +12,7 @@ const modules = [
   { id: 5, titre: "Module 4 — Importation", label: "Import", description: "Publie tes vidéos sur YouTube et TikTok.", image: "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
   { id: 6, titre: "Module 5 — Astuces", label: "Astuces", description: "Les astuces que j'utilise pour mes vidéos.", image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
   { id: 7, titre: "Module 6 — Conseils", label: "Conseils", description: "Mes meilleurs conseils pour réussir sur YouTube.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
+  { id: 8, titre: "Module 7 — Bientôt", label: "???", description: "Contenu secret en cours de préparation...", image: "https://media.rockstargames.com/rockstargames/img/global/news/upload/actual_1701973441.jpg", chapitres: 1, customThumb: true, locked: true },
 ];
 const getColor = (pct: number) => pct === 100 ? "#22c55e" : pct >= 50 ? "#f97316" : "#ef4444";
 export default function Programme() {
@@ -68,7 +69,7 @@ export default function Programme() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {modules.map(mod => (
-            <button key={mod.id} onClick={(e) => handleClick(e, mod.id)}
+            <button key={mod.id} onClick={(e) => { if ((mod as any).locked) return; handleClick(e, mod.id); }}
               className="relative group text-left rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 active:scale-95"
               style={{
                 padding:"2px",
@@ -80,7 +81,7 @@ export default function Programme() {
                 <div className="relative h-40">
                   {mod.customThumb ? (
                     <div className="w-full h-full relative overflow-hidden">
-                      <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition: mod.id !== 1 ? "center center" : "initial"}} />
+                      <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition: mod.id !== 1 ? "center center" : "initial", filter: (mod as any).locked ? "grayscale(80%) brightness(0.4)" : "none"}} />{(mod as any).locked && <div className="absolute inset-0 flex items-center justify-center"><span style={{fontSize:"4rem", color:"rgba(255,255,255,0.85)", textShadow:"0 2px 20px rgba(0,0,0,0.8)"}}>?</span></div>}
                 
                       
                     </div>
