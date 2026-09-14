@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Sidebar from "../components/Sidebar";
 import { supabase } from "../lib/supabase";
 
 
@@ -69,7 +68,6 @@ export default function Assistant() {
 
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Sidebar active="/assistant" />
       <main className="flex-1 md:ml-64 flex flex-col h-screen pt-14 md:pt-0 module-enter-page">
         <div className="border-b border-gray-800 px-8 py-4 pl-16 md:pl-8 flex items-center gap-3">
           <span className="text-2xl">🤖</span>

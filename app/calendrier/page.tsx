@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-import Sidebar from "../components/Sidebar";
 const MOIS = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
 const JOURS = ["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"];
 const TYPES: any = {
@@ -92,7 +91,6 @@ export default function Calendrier() {
 
   return (
     <div className="flex min-h-screen bg-gray-950">
-      <Sidebar active="/calendrier" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <h1 className="text-4xl font-bold text-white mb-2 text-center">📅 Calendrier</h1>
         <p className="text-gray-400 mb-8 text-center">Lives, deadlines et événements de la communauté</p>

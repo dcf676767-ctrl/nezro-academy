@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-import Sidebar from "../components/Sidebar";
 const MODULES = [
   { id: 1, titre: "Introduction", chapitres: 1 },
   { id: 2, titre: "Module 1 — Clips", chapitres: 1 },
@@ -82,7 +81,6 @@ export default function Dashboard() {
 
   return (
     <div className="flex min-h-screen bg-gray-950">
-      <Sidebar active="/dashboard" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <h1 className="text-3xl font-bold text-white mb-2">📊 Dashboard</h1>
         <p className="text-gray-400 mb-8">Bienvenue {nom} — suis ta progression dans le programme</p>

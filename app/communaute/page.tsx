@@ -2,7 +2,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-import Sidebar from "../components/Sidebar";
 
 const _sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const ADMIN_ID = "cc055cc7-0c49-44e4-a81b-bd3f7dc74f55";
@@ -81,9 +80,7 @@ export default function Communaute() {
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <div className="bg-gray-950 text-white flex fixed inset-0" style={{overflow:"hidden"}}>
-      <Sidebar active="communaute" />
-      <main className="flex-1 md:ml-64 flex flex-col overflow-hidden h-full module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
+    <div className="bg-gray-950 text-white flex fixed inset-0" style={{overflow:"hidden"}}>      <main className="flex-1 md:ml-64 flex flex-col overflow-hidden h-full module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
         <div className="border-b border-gray-800 px-4 py-4 pt-16 md:pt-4 flex items-center gap-3">
           <div className="text-2xl">👥</div>
           <div>

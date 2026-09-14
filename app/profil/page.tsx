@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "../lib/supabase";
-import Sidebar from "../components/Sidebar";
 const MODULES = [{id:1,c:1},{id:2,c:1},{id:3,c:1},{id:4,c:1},{id:5,c:1},{id:6,c:1},{id:7,c:1}];
 const TOTAL = 7;
 export default function Profil() {
@@ -67,7 +66,6 @@ export default function Profil() {
 
   return (
     <div className="flex min-h-screen bg-gray-950">
-      <Sidebar active="/profil" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <h1 className="text-3xl font-bold text-white mb-8">👤 Mon profil</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

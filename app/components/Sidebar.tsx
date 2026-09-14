@@ -1,9 +1,15 @@
 "use client";
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { supabase } from "../lib/supabase";
-export default function Sidebar({ active }: { active: string }) {
+export default function Sidebar() {
   const router = useRouter();
+  const pathname = usePathname();
+  const pagesSansSidebar = ["/auth", "/bienvenue", "/bloque", "/attente"];
+  const cacherSidebar = pagesSansSidebar.some(p => pathname.startsWith(p)) || pathname.startsWith("/legal");
+  const active = pathname.startsWith("/module") ? "/programme" : pathname;
+
+  if (cacherSidebar) return null;
   const [menuOpen, setMenuOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);

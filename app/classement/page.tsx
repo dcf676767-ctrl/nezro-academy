@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-import Sidebar from "../components/Sidebar";
 const TOTAL_CHAPITRES = 7;
 export default function Classement() {
   const [classement, setClassement] = useState<any[]>([]);
@@ -23,7 +22,6 @@ export default function Classement() {
   const medals = ["🥇","🥈","🥉"];
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Sidebar active="/classement" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <h2 className="text-3xl font-bold text-white mb-1">🏆 Classement</h2>
         <p className="text-gray-400 mb-8">Les membres les plus avancés</p>

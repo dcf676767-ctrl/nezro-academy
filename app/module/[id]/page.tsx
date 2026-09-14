@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
-import Sidebar from "../../components/Sidebar";
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;description:string;lien?:string;lienlabel?:string}[]}} = {
   1:{titre:"Introduction",chapitres:[{id:1,titre:"Bienvenue dans la YMA !",duree:"1 min",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes demontage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualitéen un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme unpro\n✅ Importation 4K + TikTok : La méthode pour exporter en4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"}]},
   2:{titre:"Module 1 — Clips",chapitres:[{id:1,titre:"Clips Roblox",duree:"3 min",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=2e18c279d8ce9e4dadb9cace848fbff3&type=ExperienceDetails&stamp=1783802571761",lienlabel:"🎮 LIEN DU JEU"}]},
@@ -75,7 +74,6 @@ export default function Module() {
   const estDernier = chapitreActif === moduleData.chapitres.length-1;
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Sidebar active="/programme" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <button onClick={() => window.location.href="/programme"} className="text-sm text-gray-400 hover:text-white mb-6 flexitems-center gap-1 transition-colors">← Retour au programme</button>
         <h1 className="text-2xl font-bold text-white mb-2">{moduleData.titre}</h1>

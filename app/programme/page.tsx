@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-import Sidebar from "../components/Sidebar";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modules = [
   { id: 1, titre: "Introduction", label: "Intro", description: "Bienvenue dans la YouTube Money Academy !", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
@@ -57,7 +56,6 @@ export default function Programme() {
   if (!pret) return <main className="min-h-screen bg-gray-950 flex items-center justify-center"><p className="text-gray-400">Chargement...</p></main>;
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Sidebar active="/programme" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <div className="flex flex-col items-center mb-8">
           <div className="glow-title-wrap">

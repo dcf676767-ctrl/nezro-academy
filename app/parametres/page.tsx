@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-import Sidebar from "../components/Sidebar";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
@@ -74,7 +73,6 @@ export default function Parametres() {
 
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Sidebar active="/parametres" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold mb-8">⚙️ Paramètres</h1>

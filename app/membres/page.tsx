@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-import Sidebar from "../components/Sidebar";
 
 const badges = ["🚀 En formation", "⚡ Actif", "🎯 Motivé", "🔥 En progression", "💪 Déterminé", "⭐ Engagé"];
 
@@ -38,7 +37,6 @@ export default function Membres() {
 
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
-      <Sidebar active="/membres" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-5xl font-bold text-white mb-3 text-center">👥 Membres</h2>
