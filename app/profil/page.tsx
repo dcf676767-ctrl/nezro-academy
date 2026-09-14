@@ -68,7 +68,7 @@ export default function Profil() {
   return (
     <div className="flex min-h-screen bg-gray-950">
       <Sidebar active="/profil" />
-      <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8">
+      <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <h1 className="text-3xl font-bold text-white mb-8">👤 Mon profil</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="col-span-2 bg-gray-900 border border-gray-800 rounded-2xl p-8">

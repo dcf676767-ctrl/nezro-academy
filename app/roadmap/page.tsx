@@ -37,7 +37,7 @@ export default function Roadmap() {
   return (
     <div className="min-h-screen bg-gray-950 text-white flex">
       <Sidebar active="roadmap" />
-      <main className="flex-1 md:ml-64 px-6 py-8 pt-20 md:pt-8">
+      <main className="flex-1 md:ml-64 px-6 py-8 pt-20 md:pt-8 module-enter-page">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">🗺️ Roadmap</h1>
           <p className="text-gray-400">Les prochains modules et nouveautés qui arrivent sur la plateforme.</p>
