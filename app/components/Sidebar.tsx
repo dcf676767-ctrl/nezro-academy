@@ -12,6 +12,15 @@ export default function Sidebar({ active }: { active: string }) {
   const [nom, setNom] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [stats, setStats] = useState({ membres: 0, admins: 0, enligne: 0, avatars: [] as string[] });
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [sidebarOpen]);
   const [annoncesNonLues, setAnnoncesNonLues] = useState(0);
   const [chatNonLus, setChatNonLus] = useState(0);
   const [calendrierNonVu, setCalendrierNonVu] = useState(0);
@@ -160,7 +169,7 @@ export default function Sidebar({ active }: { active: string }) {
           <h1 className="text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>
         </div>
       </div>
-      <nav className="flex-1 p-4 flex flex-col gap-2 overflow-y-auto" style={{WebkitOverflowScrolling:"touch"}}>
+      <nav className="flex-1 p-4 flex flex-col gap-2 overflow-y-auto" style={{WebkitOverflowScrolling:"touch", overscrollBehavior:"contain"}}>
         <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-3">Principal</p>
         {links.map(l => (
           <button key={l.href} onClick={(e) => handleNav(e, l.href)}

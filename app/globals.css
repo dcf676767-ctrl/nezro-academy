@@ -91,3 +91,9 @@ main {
 @keyframes spin-border {
   to { transform: rotate(360deg); }
 }
+
+
+html, body {
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
