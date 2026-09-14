@@ -141,12 +141,47 @@ export default function Sidebar({ active }: { active: string }) {
     { href: "/communaute", label: "Communauté", emoji: "🌐" },
   ];
 
-  const handleNav = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
+  const navRef = useRef<HTMLElement>(null);
+  const linkRefs = useRef<{[key:string]: HTMLButtonElement | null}>({});
+  const [indicatorStyle, setIndicatorStyle] = useState<{top:number;height:number;opacity:number}>({top:0,height:0,opacity:0});
+  const [indicatorReady, setIndicatorReady] = useState(false);
+
+  useEffect(() => {
+    const activeEl = linkRefs.current[active];
+    const navEl = navRef.current;
+    if (!activeEl || !navEl) return;
+    const navRect = navEl.getBoundingClientRect();
+    const activeRect = activeEl.getBoundingClientRect();
+    const targetTop = activeRect.top - navRect.top + navEl.scrollTop;
+    const targetHeight = activeRect.height;
+
+    const prevHref = typeof window !== "undefined" ? sessionStorage.getItem("sidebar_prev_href") : null;
+    const prevEl = prevHref ? linkRefs.current[prevHref] : null;
+
+    if (prevEl && prevHref !== active) {
+      const prevRect = prevEl.getBoundingClientRect();
+      const prevTop = prevRect.top - navRect.top + navEl.scrollTop;
+      setIndicatorReady(false);
+      setIndicatorStyle({ top: prevTop, height: prevRect.height, opacity: 1 });
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIndicatorReady(true);
+          setIndicatorStyle({ top: targetTop, height: targetHeight, opacity: 1 });
+        });
+      });
+    } else {
+      setIndicatorReady(true);
+      setIndicatorStyle({ top: targetTop, height: targetHeight, opacity: 1 });
+    }
+  }, [active]);
+
+    const handleNav = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
     const btn = e.currentTarget; const rect = btn.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height) * 2;
     const r = document.createElement("span");
     r.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(99,179,255,0.3);left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;transform:scale(0);animation:ripple 0.6s ease-out forwards;pointer-events:none;z-index:99;`;
     btn.appendChild(r); setTimeout(() => r.remove(), 600);
+    if (typeof window !== "undefined") sessionStorage.setItem("sidebar_prev_href", active);
     document.body.classList.add("page-exit");
     setTimeout(() => { router.push(href); setSidebarOpen(false); document.body.classList.remove("page-exit"); }, 200);
   };
@@ -171,11 +206,12 @@ export default function Sidebar({ active }: { active: string }) {
           <h1 className="text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>
         </div>
       </div>
-      <nav className="flex-1 p-4 flex flex-col gap-2 overflow-y-auto" style={{WebkitOverflowScrolling:"touch", overscrollBehavior:"contain"}}>
+      <nav ref={navRef} className="flex-1 p-4 flex flex-col gap-2 overflow-y-auto relative" style={{WebkitOverflowScrolling:"touch", overscrollBehavior:"contain"}}>
         <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-3">Principal</p>
+        <div className={`absolute left-4 right-4 bg-blue-600 rounded-xl pointer-events-none ${indicatorReady ? "transition-all duration-300 ease-out" : ""}`} style={{top: indicatorStyle.top, height: indicatorStyle.height, opacity: indicatorStyle.opacity, zIndex: 0}} />
         {links.map(l => (
-          <button key={l.href} onClick={(e) => handleNav(e, l.href)}
-            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative hover:scale-105 active:scale-95 ${active===l.href ? "bg-blue-600 text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
+          <button key={l.href} ref={(el) => { linkRefs.current[l.href] = el; }} onClick={(e) => handleNav(e, l.href)}
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative z-10 hover:scale-105 active:scale-95 ${active===l.href ? "text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
             {l.emoji} <span className={active===l.href ? "" : "bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shine"}>{l.label}</span>
             {(l as any).badge > 0 && (
               <span className="ml-auto w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">{(l as any).badge > 9 ? "9+" : (l as any).badge}</span>
