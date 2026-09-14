@@ -12,7 +12,7 @@ const modules = [
   { id: 5, titre: "Module 4 — Importation", label: "Import", description: "Publie tes vidéos sur YouTube et TikTok.", image: "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
   { id: 6, titre: "Module 5 — Astuces", label: "Astuces", description: "Les astuces que j'utilise pour mes vidéos.", image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
   { id: 7, titre: "Module 6 — Conseils", label: "Conseils", description: "Mes meilleurs conseils pour réussir sur YouTube.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
-  { id: 8, titre: "Module 7 — Bientôt", label: "???", description: "Contenu secret en cours de préparation...", image: "/gta6.jpg", chapitres: 1, customThumb: true, locked: true },
+  { id: 8, titre: "Module 7 — Niche GTA 6", label: "???", description: "Contenu secret en cours de préparation...", image: "/gta6.jpg", chapitres: 1, customThumb: true, locked: true },
 ];
 const getColor = (pct: number) => pct === 100 ? "#22c55e" : pct >= 50 ? "#f97316" : "#ef4444";
 export default function Programme() {
