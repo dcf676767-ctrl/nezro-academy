@@ -113,3 +113,13 @@ html, body {
     transform: translateY(0);
   }
 }
+
+
+.page-exit {
+  animation: pageExit 0.2s ease-in forwards;
+}
+
+@keyframes pageExit {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

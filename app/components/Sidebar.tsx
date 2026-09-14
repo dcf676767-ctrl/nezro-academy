@@ -146,7 +146,9 @@ export default function Sidebar({ active }: { active: string }) {
     const size = Math.max(rect.width, rect.height) * 2;
     const r = document.createElement("span");
     r.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(99,179,255,0.3);left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;transform:scale(0);animation:ripple 0.6s ease-out forwards;pointer-events:none;z-index:99;`;
-    btn.appendChild(r); setTimeout(() => r.remove(), 600); router.push(href); setSidebarOpen(false);
+    btn.appendChild(r); setTimeout(() => r.remove(), 600);
+    document.body.classList.add("page-exit");
+    setTimeout(() => { router.push(href); setSidebarOpen(false); document.body.classList.remove("page-exit"); }, 200);
   };
 
   return (

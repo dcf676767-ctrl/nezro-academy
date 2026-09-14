@@ -67,7 +67,7 @@ export default function Module() {
       setCompleted(prev => [...prev, chapitre.id]);
     }
     if (chapitreActif < moduleData.chapitres.length - 1) { setChapitreActif(chapitreActif+1); }
-    else { window.location.href="/programme"; }
+    else { document.body.classList.add("page-exit"); setTimeout(() => window.location.href="/programme", 200); }
   };
   if (!moduleData) return <div className="min-h-screen bg-gray-950 flex items-center justify-center text-white">Module introuvable</div>;
   const progression = Math.round((completed.length/moduleData.chapitres.length)*100);
@@ -77,7 +77,7 @@ export default function Module() {
     <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/programme" />
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
-        <button onClick={() => window.location.href="/programme"} className="text-sm text-gray-400 hover:text-white mb-6 flexitems-center gap-1 transition-colors">← Retour au programme</button>
+        <button onClick={() => { document.body.classList.add("page-exit"); setTimeout(() => window.location.href="/programme", 200); }} className="text-sm text-gray-400 hover:text-white mb-6 flexitems-center gap-1 transition-colors">← Retour au programme</button>
         <h1 className="text-2xl font-bold text-white mb-2">{moduleData.titre}</h1>
         <div className="flex items-center gap-3 mb-6">
           <div className="flex-1 bg-gray-800 rounded-full h-2">
