@@ -74,9 +74,9 @@ export default function Module() {
   const chapitre = moduleData.chapitres[chapitreActif];
   const estDernier = chapitreActif === moduleData.chapitres.length-1;
   return (
-    <div className="flex min-h-screen bg-gray-950 text-white module-enter-page">
+    <div className="flex min-h-screen bg-gray-950 text-white">
       <Sidebar active="/programme" />
-      <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8">
+      <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
         <button onClick={() => window.location.href="/programme"} className="text-sm text-gray-400 hover:text-white mb-6 flexitems-center gap-1 transition-colors">← Retour au programme</button>
         <h1 className="text-2xl font-bold text-white mb-2">{moduleData.titre}</h1>
         <div className="flex items-center gap-3 mb-6">
