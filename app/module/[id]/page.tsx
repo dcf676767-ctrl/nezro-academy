@@ -5,7 +5,7 @@ import { supabase } from "../../lib/supabase";
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string}[]}} = {
   1:{titre:"Niche Roblox",chapitres:[
-    {id:1,titre:"Bienvenue dans la YMA !",duree:"1 min",videoId:"_3JxXTY34mM",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
+    {id:1,titre:"Introduction",duree:"1 min",videoId:"_3JxXTY34mM",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
     {id:2,titre:"Clips Roblox",duree:"3 min",videoId:"lUCpFxP9NSo",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=2e18c279d8ce9e4dadb9cace848fbff3&type=ExperienceDetails&stamp=1783802571761",lienlabel:"🎮 LIEN DU JEU"},
     {id:3,titre:"Montage",duree:"15 min",videoId:"9jG1_0eL1aU",description:"Les bases du montage vidéo."},
     {id:4,titre:"IA",duree:"10 min",videoId:"yS_9RaC-hBc",description:"Utilise l'IA pour tes miniatures."},
@@ -38,7 +38,16 @@ export default function Module() {
   const estPremierChapitre = chapitreActif === 0;
 
   useEffect(() => {
-    if (moduleId !== 1 || !estPremierChapitre || !playerRef.current || !chapitre) return;
+    if (moduleId !== 1 || chapitreActif !== 0 || !playerRef.current || !chapitre) return;
+    if ((window as any).YT && (window as any).YT.Player) {
+      new (window as any).YT.Player(playerRef.current, {
+        videoId: chapitre.videoId,
+        playerVars: { rel: 0, modestbranding: 1, showinfo: 0, iv_load_policy: 3, disablekb: 0, fs: 1, vq: "hd2160" },
+        height: "100%",
+        width: "100%",
+      });
+      return;
+    }
     const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
@@ -51,6 +60,8 @@ export default function Module() {
       });
     };
   }, [moduleId, chapitreActif]);
+
+
 
   const toggleCompleted = async (chapId: number) => {
     if (completed.includes(chapId)) {
@@ -91,7 +102,7 @@ export default function Module() {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
-              {estPremierChapitre ? (
+              {moduleId === 1 && chapitreActif === 0 ? (
                 <div ref={playerRef} className="w-full h-full" />
               ) : (
                 <iframe
