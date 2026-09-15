@@ -4,13 +4,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modules = [
-  { id: 1, titre: "Introduction", label: "Intro", description: "Bienvenue dans la YouTube Money Academy !", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
-  { id: 2, titre: "Module 1 — Clips", label: "Clips", description: "Apprends à créer des clips viraux qui cartonnent.", image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
-  { id: 3, titre: "Module 2 — Montage", label: "Montage", description: "Maîtrise le montage vidéo comme un pro.", image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600", chapitres: 1, customThumb: true },
-  { id: 4, titre: "Module 3 — IA", label: "IA", description: "Utilise l'IA pour booster tes vidéos.", image: "https://images.unsplash.com/photo-1762330465857-07e4c81c0dfa?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
-  { id: 5, titre: "Module 4 — Importation", label: "Import", description: "Publie tes vidéos sur YouTube et TikTok.", image: "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
-  { id: 6, titre: "Module 5 — Astuces", label: "Astuces", description: "Les astuces que j'utilise pour mes vidéos.", image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
-  { id: 7, titre: "Module 6 — Conseils", label: "Conseils", description: "Mes meilleurs conseils pour réussir sur YouTube.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop", chapitres: 1, customThumb: true },
+  { id: 1, titre: "Niche Roblox", label: "Roblox", description: "Le programme complet pour percer sur la niche Roblox.", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop", chapitres: 7, customThumb: true },
   { id: 8, titre: "Module 7 — Niche GTA 6", label: "???", description: "Contenu secret en cours de préparation...", image: "/gta6.jpg", chapitres: 1, customThumb: true, locked: true },
 ];
 const getColor = (pct: number) => pct === 100 ? "#22c55e" : pct >= 50 ? "#f97316" : "#ef4444";
