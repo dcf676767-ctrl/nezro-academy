@@ -33,6 +33,7 @@ export default function Module() {
     });
   }, []);
 
+  const [animKey, setAnimKey] = useState(0);
   const chapitre = moduleData?.chapitres[chapitreActif];
 
 
@@ -54,7 +55,7 @@ export default function Module() {
       await supabase.from("progression").upsert({user_id:userId,module_id:moduleId,chapitre_id:chap.id,completed:true});
       setCompleted(prev => [...prev, chap.id]);
     }
-    if (chapitreActif < moduleData.chapitres.length - 1) { setChapitreActif(chapitreActif+1); }
+    if (chapitreActif < moduleData.chapitres.length - 1) { setChapitreActif(chapitreActif+1); setAnimKey(k => k + 1); }
     else { window.location.href="/programme"; }
   };
 
@@ -77,7 +78,7 @@ export default function Module() {
           <span className="text-sm text-gray-400">{progression}%</span>
         </div>
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex-1">
+          <div key={animKey} className="flex-1 module-enter-page">
             <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
               <iframe
                   src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
@@ -125,7 +126,7 @@ export default function Module() {
               <h3 className="font-bold text-white mb-4">Chapitres</h3>
               <div className="flex flex-col gap-2">
                 {moduleData.chapitres.map((chap,i) => (
-                  <div key={chap.id} onClick={() => setChapitreActif(i)}
+                  <div key={chap.id} onClick={() => { setChapitreActif(i); setAnimKey(k => k + 1); }}
                     className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all ${i===chapitreActif?"bg-blue-600/20 border border-blue-500":"bg-gray-900 border border-gray-800 hover:border-gray-600"}`}>
                     <button onClick={(e) => {e.stopPropagation();toggleCompleted(chap.id);}}
                       className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${completed.includes(chap.id)?"bg-green-500 border-green-500":"border-gray-600"}`}>
