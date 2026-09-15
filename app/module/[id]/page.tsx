@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
@@ -22,7 +22,6 @@ export default function Module() {
   const [completed, setCompleted] = useState<number[]>([]);
   const [userId, setUserId] = useState("");
   const [chapitreActif, setChapitreActif] = useState(0);
-  const playerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -35,31 +34,6 @@ export default function Module() {
   }, []);
 
   const chapitre = moduleData?.chapitres[chapitreActif];
-  const estPremierChapitre = chapitreActif === 0;
-
-  useEffect(() => {
-    if (moduleId !== 1 || chapitreActif !== 0 || !playerRef.current || !chapitre) return;
-    if ((window as any).YT && (window as any).YT.Player) {
-      new (window as any).YT.Player(playerRef.current, {
-        videoId: chapitre.videoId,
-        playerVars: { rel: 0, modestbranding: 1, showinfo: 0, iv_load_policy: 3, disablekb: 0, fs: 1, vq: "hd2160" },
-        height: "100%",
-        width: "100%",
-      });
-      return;
-    }
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-    (window as any).onYouTubeIframeAPIReady = () => {
-      new (window as any).YT.Player(playerRef.current, {
-        videoId: chapitre.videoId,
-        playerVars: { rel: 0, modestbranding: 1, showinfo: 0, iv_load_policy: 3, disablekb: 0, fs: 1, vq: "hd2160" },
-        height: "100%",
-        width: "100%",
-      });
-    };
-  }, [moduleId, chapitreActif]);
 
 
 
@@ -105,16 +79,12 @@ export default function Module() {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
-              {moduleId === 1 && chapitreActif === 0 ? (
-                <div ref={playerRef} className="w-full h-full" />
-              ) : (
-                <iframe
+              <iframe
                   src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   allowFullScreen
                 />
-              )}
             </div>
             <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
             {chapitre.id === 1 && (
