@@ -2,13 +2,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 const MODULES = [
-  { id: 1, titre: "Introduction", chapitres: 1 },
-  { id: 2, titre: "Module 1 — Clips", chapitres: 1 },
-  { id: 3, titre: "Module 2 — Montage", chapitres: 1 },
-  { id: 4, titre: "Module 3 — IA", chapitres: 1 },
-  { id: 5, titre: "Module 4 — Importation", chapitres: 1 },
-  { id: 6, titre: "Module 5 — Astuces", chapitres: 1 },
-  { id: 7, titre: "Module 6 — Conseils", chapitres: 1 },
+  { id: 1, titre: "Niche Roblox", chapitres: 7 },
 ];
 const TOTAL_CHAPITRES = 7;
 
@@ -95,14 +89,14 @@ export default function Dashboard() {
             <p className="text-xs text-gray-500 mt-2">{chapitresFaits}/{TOTAL_CHAPITRES} chapitres terminés</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <p className="text-sm text-gray-400 mb-2">✅ Modules terminés</p>
-            <p className="text-4xl font-bold text-green-400 mb-3">{modulesTermines}/7</p>
+            <p className="text-sm text-gray-400 mb-2">✅ Chapitres terminés</p>
+            <p className="text-4xl font-bold text-green-400 mb-3">{chapitresFaits}/{TOTAL_CHAPITRES}</p>
             <div className="flex gap-1">
-              {MODULES.map(m => (
-                <div key={m.id} className="flex-1 h-2 rounded-full" style={{ background: getColor(progressionParModule[m.id]||0) }} />
+              {Array.from({length: TOTAL_CHAPITRES}).map((_, i) => (
+                <div key={i} className="flex-1 h-2 rounded-full" style={{ background: i < chapitresFaits ? "#22c55e" : "#374151" }} />
               ))}
             </div>
-            <p className="text-xs text-gray-500 mt-2">Vue d'ensemble des 7 modules</p>
+            <p className="text-xs text-gray-500 mt-2">Vue d'ensemble du programme</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
             <p className="text-sm text-gray-400 mb-2">🚀 Prochaine étape</p>
