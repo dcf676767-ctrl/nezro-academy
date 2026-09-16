@@ -147,6 +147,10 @@ export default function Sidebar() {
     { href: "/communaute", label: "Communauté", emoji: "🌐" },
   ];
 
+  useEffect(() => {
+    links.forEach(l => router.prefetch(l.href));
+  }, []);
+
   const navRef = useRef<HTMLElement>(null);
   const linkRefs = useRef<{[key:string]: HTMLButtonElement | null}>({});
   const [indicatorStyle, setIndicatorStyle] = useState<{top:number;height:number;opacity:number}>({top:0,height:0,opacity:0});
