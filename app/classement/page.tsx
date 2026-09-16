@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-const TOTAL_CHAPITRES = 57;
+import { TOTAL_CHAPITRES } from "../lib/modulesData";
 export default function Classement() {
   const [classement, setClassement] = useState<any[]>([]);
   useEffect(() => {

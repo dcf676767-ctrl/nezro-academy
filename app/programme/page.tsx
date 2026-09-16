@@ -94,17 +94,16 @@ export default function Programme() {
               }}>
               <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
                 <div className="relative h-72 md:h-60">
-                  {mod.customThumb ? (
+                  {!mod.image ? (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-900 via-gray-900 to-gray-950">
+                      <span className="text-4xl font-bold text-blue-400/50">{mod.label ? mod.label[0].toUpperCase() : "📚"}</span>
+                    </div>
+                  ) : mod.customThumb ? (
                     <div className="w-full h-full relative overflow-hidden">
                       <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition: mod.id !== 1 ? "center center" : "initial", filter: (mod as any).locked ? "grayscale(80%) brightness(0.4)" : "none"}} />{(mod as any).locked && <div className="absolute inset-0 flex items-center justify-center"><span style={{fontSize:"7rem", fontWeight:"900", color:"rgba(255,255,255,0.9)", textShadow:"0 4px 30px rgba(0,0,0,0.9)", lineHeight:"1"}}>?</span></div>}
-                
-                      
                     </div>
                   ) : (
-                    <>
-                      <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"center center"}} />
-                      
-                    </>
+                    <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"center center"}} />
                   )}
                   {progression[mod.id] === 100 && (
                     <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">✓ Terminé</div>
