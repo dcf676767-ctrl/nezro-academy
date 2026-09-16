@@ -15,8 +15,9 @@ const MODULES = [
   { id: 20, titre: "Augmenter son RPM", chapitres: 1 },
   { id: 21, titre: "Astuces", chapitres: 7 },
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
+  { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },
 ];
-const TOTAL_CHAPITRES = 44;
+const TOTAL_CHAPITRES = 46;
 
 export default function Dashboard() {
   const [nom, setNom] = useState("");
