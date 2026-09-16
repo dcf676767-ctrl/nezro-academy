@@ -44,6 +44,9 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   16:{titre:"Exemple de montage sur CapCut",chapitres:[
     {id:1,titre:"Exemple de montage sur CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
+  23:{titre:"Présentation du montage CapCut sur PC",chapitres:[
+    {id:1,titre:"Présentation du montage CapCut sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
   17:{titre:"Commencer à poster",chapitres:[
     {id:1,titre:"Chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Importation des vidéos sur YouTube et tous les réseaux",duree:"-",videoId:"",description:"Contenu à venir."},
