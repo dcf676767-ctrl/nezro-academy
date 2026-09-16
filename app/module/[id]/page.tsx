@@ -117,7 +117,7 @@ export default function Module() {
       setCompleted(prev => [...prev, chap.id]);
     }
     if (chapitreActif < moduleData.chapitres.length - 1) { setChapitreActif(chapitreActif+1); setAnimKey(k => k + 1); }
-    else { window.location.href="/programme"; }
+    else { window.location.href="/programme#module-"+moduleId; }
   };
 
   if (!moduleData || !chapitre) {
