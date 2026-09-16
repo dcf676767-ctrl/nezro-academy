@@ -15,10 +15,11 @@ const MODULES = [
   { id: 19, titre: "Problèmes de monétisation", chapitres: 3 },
   { id: 20, titre: "Augmenter son RPM", chapitres: 1 },
   { id: 21, titre: "Astuces", chapitres: 7 },
+  { id: 24, titre: "Bien maîtriser sa chaîne YouTube", chapitres: 3 },
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
   { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },
 ];
-const TOTAL_CHAPITRES = 51;
+const TOTAL_CHAPITRES = 54;
 
 export default function Dashboard() {
   const [nom, setNom] = useState("");

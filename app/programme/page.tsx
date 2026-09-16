@@ -18,6 +18,7 @@ const modules = [
   { id: 20, titre: "Augmenter son RPM", label: "RPM", description: "Comment augmenter son RPM sur les réseaux.", image: "", chapitres: 1, customThumb: false },
   { id: 21, titre: "Astuces", label: "Astuces", description: "Toutes les astuces pour aller plus vite et plus loin.", image: "", chapitres: 7, customThumb: false },
   { id: 22, titre: "Déclaration et compte AdSense", label: "AdSense", description: "Comment gérer son compte AdSense et retirer son argent.", image: "", chapitres: 2, customThumb: false },
+  { id: 24, titre: "Bien maîtriser sa chaîne YouTube", label: "YouTube", description: "Personnalise ta chaîne et construis ta communauté sur YouTube.", image: "", chapitres: 3, customThumb: false },
   { id: 1, titre: "Niche Roblox", label: "Roblox", description: "Le programme complet pour percer sur la niche Roblox.", image: "/roblox.jpg", chapitres: 7, customThumb: true },
   { id: 8, titre: "Niche GTA 6", label: "???", description: "Contenu secret en cours de préparation...", image: "/gta6.jpg", chapitres: 1, customThumb: true, locked: true },
 ];
