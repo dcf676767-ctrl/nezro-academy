@@ -46,7 +46,8 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   17:{titre:"Commencer à poster",chapitres:[
     {id:1,titre:"Chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Importation des vidéos",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Importation des vidéos sur YouTube et tous les réseaux",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Outils importation automatique",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
     {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"Contenu à venir."},
