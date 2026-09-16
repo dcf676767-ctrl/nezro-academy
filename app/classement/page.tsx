@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-const TOTAL_CHAPITRES = 7;
+const TOTAL_CHAPITRES = 57;
 export default function Classement() {
   const [classement, setClassement] = useState<any[]>([]);
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function Classement() {
               <div className="flex-1">
                 <p className="font-semibold text-white mb-1">{m.nom||"Membre"}</p>
                 <div className="w-full bg-gray-800 rounded-full h-1.5">
-                  <div className="h-1.5 rounded-full transition-all" style={{width:`${m.pct}%`, background:m.pct===100?"#22c55e":m.pct>=50?"#f97316":"#ef4444"}} />
+                  <div className="h-1.5 rounded-full transition-all" style={{width:`${Math.min(m.pct,100)}%`, background:m.pct>=100?"#22c55e":m.pct>=50?"#f97316":"#ef4444"}} />
                 </div>
               </div>
               <div className="text-blue-400 font-bold text-lg">{m.pct}%</div>
