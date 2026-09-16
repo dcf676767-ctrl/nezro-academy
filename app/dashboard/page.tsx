@@ -2,9 +2,13 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 const MODULES = [
+  { id: 10, titre: "Introduction", chapitres: 1 },
+  { id: 11, titre: "Mind-set et organisation", chapitres: 2 },
+  { id: 12, titre: "Comprendre les réseaux et comment être monétisé", chapitres: 4 },
+  { id: 13, titre: "Contenu 100% anonyme", chapitres: 9 },
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
 ];
-const TOTAL_CHAPITRES = 7;
+const TOTAL_CHAPITRES = 23;
 
 export default function Dashboard() {
   const [nom, setNom] = useState("");

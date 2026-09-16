@@ -4,6 +4,10 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modules = [
+  { id: 10, titre: "Introduction", label: "Intro", description: "Bienvenue dans le programme.", image: "", chapitres: 1, customThumb: false },
+  { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "", chapitres: 2, customThumb: false },
+  { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 4, customThumb: false },
+  { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 9, customThumb: false },
   { id: 1, titre: "Niche Roblox", label: "Roblox", description: "Le programme complet pour percer sur la niche Roblox.", image: "/roblox.jpg", chapitres: 7, customThumb: true },
   { id: 8, titre: "Niche GTA 6", label: "???", description: "Contenu secret en cours de préparation...", image: "/gta6.jpg", chapitres: 1, customThumb: true, locked: true },
 ];

@@ -4,6 +4,30 @@ import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string}[]}} = {
+  10:{titre:"Introduction",chapitres:[
+    {id:1,titre:"Introduction",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  11:{titre:"Mind-set et organisation",chapitres:[
+    {id:1,titre:"Organisation et planification",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Mind set",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  12:{titre:"Comprendre les réseaux et comment être monétisé",chapitres:[
+    {id:1,titre:"Les bases",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Analyse vidéo virale",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Critères de monétisation",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:4,titre:"10 niches pour monter à 10K abonnés sur TikTok",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  13:{titre:"Contenu 100% anonyme",chapitres:[
+    {id:1,titre:"Contenu anonyme, c'est quoi ?",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Exemple de contenu anonyme",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Faire du contenu sans tête et sans voix de qualité",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:4,titre:"Voix off anonyme sur TikTok",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:5,titre:"Voix off facile sur CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:6,titre:"Faire du contenu Allemand, Espagnol, Italien",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:7,titre:"Contenu étranger avec CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:8,titre:"Avoir une bonne voix off IA",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:9,titre:"Retirer les sous-titres d'une vidéo",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
   1:{titre:"Niche Roblox",chapitres:[
     {id:1,titre:"Introduction",duree:"1 min",videoId:"_3JxXTY34mM",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
     {id:2,titre:"Clips Roblox",duree:"3 min",videoId:"lUCpFxP9NSo",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=2e18c279d8ce9e4dadb9cace848fbff3&type=ExperienceDetails&stamp=1783802571761",lienlabel:"🎮 LIEN DU JEU"},
@@ -80,12 +104,18 @@ export default function Module() {
         <div className="flex flex-col md:flex-row gap-8">
           <div key={animKey} className="flex-1 module-enter-page">
             <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
-              <iframe
+              {chapitre.videoId ? (
+                <iframe
                   src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   allowFullScreen
                 />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gray-900">
+                  <p className="text-gray-500 text-sm">🎬 Vidéo à venir</p>
+                </div>
+              )}
             </div>
             <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
             {chapitre.id === 1 && (
