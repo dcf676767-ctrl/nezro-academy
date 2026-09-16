@@ -6,7 +6,7 @@ const MODULES = [
   { id: 11, titre: "Mind-set et organisation", chapitres: 2 },
   { id: 12, titre: "Comprendre les réseaux et comment être monétisé", chapitres: 4 },
   { id: 13, titre: "Contenu 100% anonyme", chapitres: 9 },
-  { id: 14, titre: "Trouver sa niche, être efficace et monétiser", chapitres: 5 },
+  { id: 14, titre: "Trouver sa niche, être efficace et monétiser", chapitres: 8 },
   { id: 15, titre: "30 exemples de niches à faire", chapitres: 1 },
   { id: 16, titre: "Exemple de montage sur CapCut", chapitres: 1 },
   { id: 17, titre: "Commencer à poster", chapitres: 2 },
@@ -17,7 +17,7 @@ const MODULES = [
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
   { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },
 ];
-const TOTAL_CHAPITRES = 46;
+const TOTAL_CHAPITRES = 49;
 
 export default function Dashboard() {
   const [nom, setNom] = useState("");

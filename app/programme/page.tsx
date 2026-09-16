@@ -8,7 +8,7 @@ const modules = [
   { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "", chapitres: 2, customThumb: false },
   { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 4, customThumb: false },
   { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 9, customThumb: false },
-  { id: 14, titre: "Trouver sa niche, être efficace et monétiser", label: "Niche", description: "Trouve ta niche et apprends à être efficace et monétisé.", image: "", chapitres: 5, customThumb: false },
+  { id: 14, titre: "Trouver sa niche, être efficace et monétiser", label: "Niche", description: "Trouve ta niche et apprends à être efficace et monétisé.", image: "", chapitres: 8, customThumb: false },
   { id: 15, titre: "30 exemples de niches à faire", label: "Exemples", description: "30 exemples concrets de niches à exploiter.", image: "", chapitres: 1, customThumb: false },
   { id: 16, titre: "Exemple de montage sur CapCut", label: "Montage", description: "Un exemple complet de montage sur CapCut.", image: "", chapitres: 1, customThumb: false },
   { id: 17, titre: "Commencer à poster", label: "Poster", description: "Chauffe ton compte et importe tes premières vidéos.", image: "", chapitres: 2, customThumb: false },

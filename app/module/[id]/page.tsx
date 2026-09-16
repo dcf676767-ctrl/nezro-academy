@@ -31,6 +31,9 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   14:{titre:"Trouver sa niche, être efficace et monétiser",chapitres:[
     {id:1,titre:"Trouver TA niche",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Que faire quand tu as trouvé ta niche ?",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:6,titre:"Comment s'inspirer des autres ?",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:7,titre:"Faire du contenu grâce aux autres",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:8,titre:"Trouver des idées avec l'IA",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Branding et identité du compte",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:4,titre:"Conseils pour être viral sans effort",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:5,titre:"Faire de l'argent avec les collaborations/affiliations",duree:"-",videoId:"",description:"Contenu à venir."},
