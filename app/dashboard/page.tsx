@@ -11,6 +11,7 @@ const MODULES = [
   { id: 16, titre: "Exemple de montage sur CapCut téléphone", chapitres: 1 },
   { id: 23, titre: "Présentation du montage CapCut sur PC", chapitres: 1 },
   { id: 17, titre: "Commencer à poster", chapitres: 3 },
+  { id: 25, titre: "Analyser pourquoi une vidéo a percé", chapitres: 3 },
   { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", chapitres: 1 },
   { id: 19, titre: "Problèmes de monétisation", chapitres: 3 },
   { id: 20, titre: "Augmenter son RPM", chapitres: 1 },
@@ -19,7 +20,7 @@ const MODULES = [
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
   { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },
 ];
-const TOTAL_CHAPITRES = 54;
+const TOTAL_CHAPITRES = 57;
 
 export default function Dashboard() {
   const [nom, setNom] = useState("");
