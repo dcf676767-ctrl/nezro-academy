@@ -28,6 +28,43 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:8,titre:"Avoir une bonne voix off IA",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:9,titre:"Retirer les sous-titres d'une vidéo",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
+  14:{titre:"Trouver sa niche, être efficace et monétiser",chapitres:[
+    {id:1,titre:"Trouver TA niche",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Que faire quand tu as trouvé ta niche ?",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Branding et identité du compte",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:4,titre:"Conseils pour être viral sans effort",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:5,titre:"Faire de l'argent avec les collaborations/affiliations",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  15:{titre:"30 exemples de niches à faire",chapitres:[
+    {id:1,titre:"30 exemples de niches à faire",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  16:{titre:"Exemple de montage sur CapCut",chapitres:[
+    {id:1,titre:"Exemple de montage sur CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  17:{titre:"Commencer à poster",chapitres:[
+    {id:1,titre:"Chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Importation des vidéos",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
+    {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  19:{titre:"Problèmes de monétisation",chapitres:[
+    {id:1,titre:"Rester monétisé sur TikTok et YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Contestation à mettre",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Récupérer un compte banni / une vidéo bannie",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  20:{titre:"Augmenter son RPM",chapitres:[
+    {id:1,titre:"Comment augmenter son RPM sur les réseaux ?",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
+  21:{titre:"Astuces",chapitres:[
+    {id:1,titre:"Créer des e-mails facilement en illimité",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Outils pour analyser les concurrents",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Faire une vidéo dans n'importe quelle langue en 5 minutes",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:4,titre:"Améliorer l'accroche et le hook",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:5,titre:"Heure / hashtags pour poster",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:6,titre:"Programmer ses vidéos",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:7,titre:"Que faire si la vidéo a du potentiel mais qu'elle ne perce pas ?",duree:"-",videoId:"",description:"Contenu à venir."},
+  ]},
   1:{titre:"Niche Roblox",chapitres:[
     {id:1,titre:"Introduction",duree:"1 min",videoId:"_3JxXTY34mM",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
     {id:2,titre:"Clips Roblox",duree:"3 min",videoId:"lUCpFxP9NSo",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=2e18c279d8ce9e4dadb9cace848fbff3&type=ExperienceDetails&stamp=1783802571761",lienlabel:"🎮 LIEN DU JEU"},
@@ -125,7 +162,7 @@ export default function Module() {
               </div>
             </div>
             )}
-            {chapitre.id === 2 && (
+            {chapitre.id === 2 && moduleId === 1 && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
                 <h3 className="text-white font-bold mb-3">🔗 Lien du jeu ⬇️</h3>
