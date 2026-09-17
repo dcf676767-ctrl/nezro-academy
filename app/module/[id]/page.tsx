@@ -88,6 +88,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:5,titre:"Heure / hashtags pour poster",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:6,titre:"Programmer ses vidéos",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:7,titre:"Que faire si la vidéo a du potentiel mais qu'elle ne perce pas ?",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:8,titre:"Reposter une ancienne vidéo de 3 mois",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   22:{titre:"Déclaration et compte AdSense",chapitres:[
     {id:1,titre:"Déclaration et compte AdSense",duree:"-",videoId:"",description:"Contenu à venir."},
