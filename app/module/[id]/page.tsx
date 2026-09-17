@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
-const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string}[]}} = {
+const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
   10:{titre:"Introduction",chapitres:[
     {id:1,titre:"Introduction",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
@@ -176,6 +176,21 @@ export default function Module() {
               )}
             </div>
             <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
+            {chapitre.liens && chapitre.liens.length > 0 && (
+            <div className="flex flex-col gap-4 mb-6">
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+                <h3 className="text-white font-bold mb-3">🔗 Liens et outils</h3>
+                <div className="flex flex-col gap-2">
+                  {chapitre.liens.map((l, i) => (
+                    <a key={i} href={l.url} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+                      🔗 {l.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+            )}
             {chapitre.id === 1 && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
