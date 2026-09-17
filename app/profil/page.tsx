@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "../lib/supabase";
-const MODULES = [{id:1,c:7},{id:10,c:1},{id:11,c:2},{id:12,c:4},{id:13,c:9},{id:14,c:1},{id:15,c:3},{id:16,c:3},{id:17,c:3},{id:18,c:1},{id:19,c:3},{id:20,c:1},{id:21,c:7},{id:22,c:2},{id:23,c:1},{id:24,c:3},{id:25,c:3}];
-const TOTAL = 58;
+const MODULES = [{id:1,c:7},{id:10,c:1},{id:11,c:2},{id:12,c:4},{id:13,c:9},{id:14,c:8},{id:15,c:1},{id:16,c:1},{id:17,c:3},{id:18,c:1},{id:19,c:3},{id:20,c:1},{id:21,c:7},{id:22,c:2},{id:23,c:1},{id:24,c:3},{id:25,c:3}];
+const TOTAL = 57;
 export default function Profil() {
   const [nom, setNom] = useState("");
   const [bio, setBio] = useState("");

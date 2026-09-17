@@ -4,6 +4,9 @@ import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
+  8:{titre:"Niche GTA 6",chapitres:[
+    {id:1,titre:"Niche GTA 6",duree:"-",videoId:"",description:"Contenu secret en cours de préparation..."},
+  ]},
   18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
     {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"",liens:[
       {label:"SnapTik - Télécharger vidéos TikTok",url:"https://snaptik.app/en2"},
