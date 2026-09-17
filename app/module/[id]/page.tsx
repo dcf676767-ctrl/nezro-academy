@@ -199,7 +199,7 @@ export default function Module() {
               </div>
             </div>
             )}
-            {chapitre.id === 1 && (
+            {chapitre.id === 1 && chapitre.description && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
                   <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">{chapitre.description}</p>
