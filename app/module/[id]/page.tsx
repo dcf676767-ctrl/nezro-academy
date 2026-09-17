@@ -5,7 +5,7 @@ import { supabase } from "../../lib/supabase";
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
   18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
-    {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"Contenu à venir.",liens:[
+    {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"",liens:[
       {label:"SnapTik - Télécharger vidéos TikTok",url:"https://snaptik.app/en2"},
       {label:"SSS Instagram - Télécharger vidéos Instagram",url:"https://sssinstagram.com/fr"},
       {label:"YTDown - Télécharger vidéos YouTube",url:"https://app.ytdown.to/en27/"},
