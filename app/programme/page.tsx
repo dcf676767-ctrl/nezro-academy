@@ -95,8 +95,8 @@ export default function Programme() {
               <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
                 <div className="relative h-72 md:h-60">
                   {!mod.image ? (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-900 via-gray-900 to-gray-950">
-                      <span className="text-4xl font-bold text-blue-400/50">{mod.label ? mod.label[0].toUpperCase() : "📚"}</span>
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
+                      <span style={{fontSize:"5rem", fontWeight:"900", color:"rgba(255,255,255,0.25)", lineHeight:"1"}}>?</span>
                     </div>
                   ) : mod.customThumb ? (
                     <div className="w-full h-full relative overflow-hidden">
