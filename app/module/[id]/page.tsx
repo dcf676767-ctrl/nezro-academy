@@ -15,6 +15,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
       {label:"YouTube to Transcript",url:"https://youtubetotranscript.com"},
       {label:"Saveto AI - TikTok Transcript",url:"https://saveto.ai/tiktok-transcript-generator/"},
       {label:"Repurpose.io",url:"https://repurpose.io/?fpr=545571"},
+      {label:"VidIQ - Extension YouTube",url:"https://vidiq.com/fr/extension/"},
     ]},
   ]},
   10:{titre:"Introduction",chapitres:[
