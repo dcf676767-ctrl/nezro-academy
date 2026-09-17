@@ -74,7 +74,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
 
   19:{titre:"Problèmes de monétisation",chapitres:[
     {id:1,titre:"Rester monétisé sur TikTok et YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Contestation à mettre",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Contestation à mettre",duree:"-",videoId:"",description:"Voici la contestation à envoyer sur YouTube, TikTok et Facebook pour avoir encore une chance d'être monétisé : Je ne comprends pas pourquoi mon compte a été refusé pour le programme de rémunération. Mon compte respecte toutes vos règles. Pouvez-vous réexaminer votre décision ? Je trouve cette disqualification injustifiée."},
     {id:3,titre:"Récupérer un compte banni / une vidéo bannie",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   20:{titre:"Augmenter son RPM",chapitres:[
