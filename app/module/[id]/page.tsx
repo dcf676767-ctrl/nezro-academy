@@ -4,6 +4,16 @@ import { useParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
+  18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
+    {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"Contenu à venir.",liens:[
+      {label:"SnapTik - Télécharger vidéos TikTok",url:"https://snaptik.app/en2"},
+      {label:"SSS Instagram - Télécharger vidéos Instagram",url:"https://sssinstagram.com/fr"},
+      {label:"YTDown - Télécharger vidéos YouTube",url:"https://app.ytdown.to/en27/"},
+      {label:"YouTube to Transcript",url:"https://youtubetotranscript.com"},
+      {label:"Saveto AI - TikTok Transcript",url:"https://saveto.ai/tiktok-transcript-generator/"},
+      {label:"Repurpose.io",url:"https://repurpose.io/?fpr=545571"},
+    ]},
+  ]},
   10:{titre:"Introduction",chapitres:[
     {id:1,titre:"Introduction",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
@@ -57,9 +67,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:2,titre:"Analyser la rétention sur TikTok",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Savoir en avance si une vidéo va percer ou pas",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
-  18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
-    {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"Contenu à venir."},
-  ]},
+
   19:{titre:"Problèmes de monétisation",chapitres:[
     {id:1,titre:"Rester monétisé sur TikTok et YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Contestation à mettre",duree:"-",videoId:"",description:"Contenu à venir."},
