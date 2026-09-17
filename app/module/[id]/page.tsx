@@ -53,7 +53,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:5,titre:"Faire de l'argent avec les collaborations/affiliations",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   15:{titre:"30 exemples de niches à faire",chapitres:[
-    {id:1,titre:"30 exemples de niches à faire",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:1,titre:"30 exemples de niches à faire",duree:"-",videoId:"",description:"1. Technologie (Apple, Samsung)<br/>2. Voyages<br/>3. Immobilier<br/>4. Le droit<br/>5. Éducation<br/>6. Covering / moto / réparation moto<br/>7. Cuisine / dégustation (réaction du contenu US / Espagnol)<br/>8. Chaussures de mode<br/>9. Sport peu connu / lutte / judo / basket / tennis<br/>10. Les dinosaures<br/>11. Le gaming (GTA 6 bientôt)<br/>12. Histoire (humanité, seconde guerre mondiale)<br/>13. La coiffure<br/>14. Musique<br/>15. Bateau<br/>16. Armée<br/>17. Innovation<br/>18. Accident (route, incendie, inondations)<br/>19. Animaux (comparaison des animaux sous format réaction)<br/>20. Salaire (footballeur, acteur, combattant)<br/>21. Crime<br/>22. Les transports<br/>23. Séduction / drague<br/>24. Les métiers (docteur, chirurgien)<br/>25. Les pays<br/>26. Autour d\'un style de musique (parler des artistes, des sons)<br/>27. Les prisons<br/>28. La loi<br/>29. L\'actualité<br/>30. Les boissons (Coca, Monster)<br/>31. Décoration d\'intérieur"},
   ]},
   16:{titre:"Exemple de montage sur CapCut",chapitres:[
     {id:1,titre:"Exemple de montage sur CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
