@@ -74,7 +74,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
 
   19:{titre:"Problèmes de monétisation",chapitres:[
     {id:1,titre:"Rester monétisé sur TikTok et YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Contestation à mettre",duree:"-",videoId:"",description:"Voici la contestation à envoyer sur YouTube, TikTok et Facebook pour avoir encore une chance d'être monétisé : Je ne comprends pas pourquoi mon compte a été refusé pour le programme de rémunération. Mon compte respecte toutes vos règles. Pouvez-vous réexaminer votre décision ? Je trouve cette disqualification injustifiée."},
+    {id:2,titre:"Contestation à mettre",duree:"-",videoId:"",description:"Voici la contestation à envoyer sur YouTube, TikTok et Facebook pour avoir encore une chance d'être monétisé :<br/><br/><strong>\"Je ne comprends pas pourquoi mon compte a été refusé pour le programme de rémunération. Mon compte respecte toutes vos règles. Pouvez-vous réexaminer votre décision ? Je trouve cette disqualification injustifiée.\"</strong>"},
     {id:3,titre:"Récupérer un compte banni / une vidéo bannie",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   20:{titre:"Augmenter son RPM",chapitres:[
@@ -207,7 +207,7 @@ export default function Module() {
             {chapitre.description && chapitre.description !== "Contenu à venir." && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
-                  <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">{chapitre.description}</p>
+                  <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line" dangerouslySetInnerHTML={{__html: chapitre.description}} />
               </div>
             </div>
             )}
