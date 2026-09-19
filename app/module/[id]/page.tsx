@@ -19,7 +19,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     ]},
   ]},
   10:{titre:"Introduction",chapitres:[
-    {id:1,titre:"Introduction",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:1,titre:"Introduction",duree:"3 min 45",videoId:"UoHrVkEEpVw",description:"BIENVENUE DANS LE PROGRAMME !"},
   ]},
   11:{titre:"Mind-set et organisation",chapitres:[
     {id:1,titre:"Organisation et planification",duree:"-",videoId:"",description:"Contenu à venir."},
