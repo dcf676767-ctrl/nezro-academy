@@ -27,7 +27,6 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   12:{titre:"Comprendre les réseaux et comment être monétisé",chapitres:[
     {id:1,titre:"Les bases",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Analyse vidéo virale",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Critères de monétisation",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:4,titre:"10 niches pour monter à 10K abonnés sur TikTok",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
