@@ -117,11 +117,13 @@ export default function Module() {
   const moduleData = modulesData[moduleId];
   const [completed, setCompleted] = useState<number[]>([]);
   const [userId, setUserId] = useState("");
+  const [authChecked, setAuthChecked] = useState(false);
   const [chapitreActif, setChapitreActif] = useState(0);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { window.location.replace("/auth"); return; }
+      setAuthChecked(true);
       setUserId(session.user.id);
       supabase.from("progression").select("chapitre_id").eq("user_id",session.user.id).eq("module_id",moduleId).eq("completed",true).then(({ data }) => {
         if (data) setCompleted(data.map((p:any) => p.chapitre_id));
@@ -161,6 +163,8 @@ export default function Module() {
   }
   const progression = Math.round((completed.length/moduleData.chapitres.length)*100);
   const estDernier = chapitreActif === moduleData.chapitres.length-1;
+
+  if (!authChecked) return <div className="min-h-screen bg-gray-950 flex items-center justify-center"><div className="text-white text-sm">Chargement...</div></div>;
 
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
