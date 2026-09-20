@@ -1,6 +1,6 @@
 export const MODULES = [
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
-  { id: 8, titre: "Niche GTA 6", chapitres: 1 },
+
   { id: 10, titre: "Introduction", chapitres: 1 },
   { id: 11, titre: "Mind-set et organisation", chapitres: 2 },
   { id: 12, titre: "Comprendre les réseaux et comment être monétisé", chapitres: 3 },
