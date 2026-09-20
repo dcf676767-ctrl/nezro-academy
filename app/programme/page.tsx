@@ -6,7 +6,7 @@ const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.
 const modules = [
   { id: 10, titre: "Introduction", label: "Intro", description: "Bienvenue dans le programme.", image: "", chapitres: 1, customThumb: false },
   { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "", chapitres: 2, customThumb: false },
-  { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 4, customThumb: false },
+  { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 3, customThumb: false },
   { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 9, customThumb: false },
   { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", label: "Outils", description: "Les meilleurs outils pour être plus productif et rentable.", image: "", chapitres: 1, customThumb: false },
   { id: 14, titre: "Trouver sa niche, être efficace et monétiser", label: "Niche", description: "Trouve ta niche et apprends à être efficace et monétisé.", image: "", chapitres: 8, customThumb: false },
