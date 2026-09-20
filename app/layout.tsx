@@ -22,7 +22,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  icons: { icon: "/icon.svg", shortcut: "/icon.svg", apple: "/icon.svg" },
+  icons: { icon: [{ url: "/icon.svg", type: "image/svg+xml" }, { url: "/favicon.ico", type: "image/x-icon" }], shortcut: "/favicon.ico", apple: "/icon.svg" },
   verification: { google: "yn3c6uG0YfRwl0_z_lfPUEycAE30KDGWWk1WXr_GDhI"
     
    },
