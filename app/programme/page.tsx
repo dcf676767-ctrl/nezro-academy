@@ -18,7 +18,7 @@ const modules = [
   { id: 25, titre: "Analyser pourquoi une vidéo a percé", label: "Analyse", description: "Comprends ce qui fait vraiment percer une vidéo.", image: "", chapitres: 3, customThumb: false },
   { id: 19, titre: "Problèmes de monétisation", label: "Monétisation", description: "Résous les problèmes de monétisation sur TikTok et YouTube.", image: "", chapitres: 3, customThumb: false },
   { id: 20, titre: "Augmenter son RPM", label: "RPM", description: "Comment augmenter son RPM sur les réseaux.", image: "", chapitres: 1, customThumb: false },
-  { id: 21, titre: "Astuces", label: "Astuces", description: "Toutes les astuces pour aller plus vite et plus loin.", image: "", chapitres: 7, customThumb: false },
+  { id: 21, titre: "Astuces", label: "Astuces", description: "Toutes les astuces pour aller plus vite et plus loin.", image: "", chapitres: 8, customThumb: false },
   { id: 22, titre: "Déclaration et compte AdSense", label: "AdSense", description: "Comment gérer son compte AdSense et retirer son argent.", image: "", chapitres: 2, customThumb: false },
   { id: 1, titre: "Niche Roblox", label: "Roblox", description: "Le programme complet pour percer sur la niche Roblox.", image: "/roblox.jpg", chapitres: 7, customThumb: true },
   { id: 8, titre: "Niche GTA 6", label: "???", description: "Contenu secret en cours de préparation...", image: "/gta6.jpg", chapitres: 1, customThumb: true, locked: true },
