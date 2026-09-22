@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modules = [
-  { id: 10, titre: "Introduction", label: "Intro", description: "Bienvenue dans le programme.", image: "", chapitres: 1, customThumb: false },
+  { id: 10, titre: "Introduction", label: "Intro", description: "Bienvenue dans le programme.", image: "/introduction.jpg", chapitres: 1, customThumb: true },
   { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "", chapitres: 2, customThumb: false },
   { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 3, customThumb: false },
   { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 9, customThumb: false },
