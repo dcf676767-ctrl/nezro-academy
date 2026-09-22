@@ -11,7 +11,7 @@ export default function MentionsLegales() {
           <section>
             <h2 className="text-xl font-bold text-white mb-3">1. Éditeur du site</h2>
             <ul className="text-gray-400 flex flex-col gap-1">
-              <li><strong className="text-white">Nom / Responsable :</strong> Iurceac Julien</li>
+              <li><strong className="text-white">Nom / Responsable :</strong> Nezro Youtube</li>
               <li><strong className="text-white">Statut juridique :</strong> Auto-entrepreneur</li>
               <li><strong className="text-white">Adresse :</strong> Boulevard de Magenta, 75010 Paris, France</li>
               <li><strong className="text-white">Contact :</strong> <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a></li>
@@ -56,7 +56,7 @@ export default function MentionsLegales() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">5. Propriété intellectuelle</h2>
-            <p className="text-gray-400 leading-relaxed">L'ensemble des contenus présents sur Nezro Academy (vidéos, documents PDF, textes, images, structure du programme) est la propriété exclusive de Iurceac Julien. Toute reproduction, diffusion, revente ou utilisation non autorisée des contenus peut engager la responsabilité de son auteur conformément aux dispositions légales applicables.</p>
+            <p className="text-gray-400 leading-relaxed">L'ensemble des contenus présents sur Nezro Academy (vidéos, documents PDF, textes, images, structure du programme) est la propriété exclusive de Nezro Youtube. Toute reproduction, diffusion, revente ou utilisation non autorisée des contenus peut engager la responsabilité de son auteur conformément aux dispositions légales applicables.</p>
           </section>
 
           <section>

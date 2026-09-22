@@ -10,7 +10,7 @@ export default function Confidentialite() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">1. Responsable du traitement</h2>
-            <p className="text-gray-400 leading-relaxed">Le responsable du traitement des données personnelles est Iurceac Julien, accessible à l'adresse : <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a></p>
+            <p className="text-gray-400 leading-relaxed">Le responsable du traitement des données personnelles est Nezro Youtube, accessible à l'adresse : <a href="mailto:cookeddog67@gmail.com" className="text-blue-400 hover:underline">cookeddog67@gmail.com</a></p>
           </section>
 
           <section>
@@ -46,7 +46,7 @@ export default function Confidentialite() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">4. Accès aux données</h2>
-            <p className="text-gray-400 mb-2">Seul l'administrateur (Julien) a accès aux données suivantes :</p>
+            <p className="text-gray-400 mb-2">Seul l'administrateur (Nezro) a accès aux données suivantes :</p>
             <ul className="text-gray-400 list-disc pl-6 flex flex-col gap-1 mb-3">
               <li>Prénom et nom</li>
               <li>Adresse e-mail</li>
