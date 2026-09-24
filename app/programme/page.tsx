@@ -164,7 +164,12 @@ export default function Programme() {
                     </div>
                   )}
                   {progression[mod.id] === 100 && (
-                    <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">✓ Terminé</div>
+                    <div className="absolute bottom-3 left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full" style={{zIndex:3}}>✓ Terminé</div>
+                  )}
+                  {!(mod.id === 1 || mod.id === 8) && (
+                    <div style={{position:"absolute", top:"12px", right:"12px", width:"32px", height:"32px", borderRadius:"8px", background:"linear-gradient(135deg,#6366f1,#3b82f6)", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 0 12px rgba(99,102,241,0.6)", zIndex:3}}>
+                      <span style={{color:"#fff", fontWeight:"900", fontSize:"1rem", lineHeight:1}}>N</span>
+                    </div>
                   )}
                 </div>
                 <div className="p-4">
