@@ -83,7 +83,7 @@ export default function Programme() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {modules.map(mod => (
+          {modules.map((mod, modIndex) => (
             <button key={mod.id} id={`module-${mod.id}`} onClick={(e) => { if ((mod as any).locked) return; handleClick(e, mod.id); }}
               className="relative group text-left rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 active:scale-95"
               style={{
@@ -103,7 +103,7 @@ export default function Programme() {
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:2}}>
-                        <span style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(mod.id).padStart(2,"0")}</span>
+                        <span style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
                       <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity:0.18}} viewBox="0 0 100 100">
@@ -126,8 +126,8 @@ export default function Programme() {
                          <circle cx="50" cy="50" r="30" fill="white"/>}
                       </svg>
                       <div style={{position:"absolute", bottom:0, left:0, right:0, padding:"10px 16px", background:"linear-gradient(to top, rgba(10,20,50,0.85) 0%, transparent 100%)", zIndex:2}}>
-                        <p style={{color:"#ffffff", fontWeight:"700", fontSize:"0.85rem", margin:0, lineHeight:"1.2"}}>{mod.titre}</p>
-                        <p style={{color:"#93c5fd", fontSize:"0.7rem", margin:"2px 0 0", fontWeight:"500"}}>{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
+                        <p style={{color:"#ffffff", fontWeight:"800", fontSize:"1.05rem", margin:0, lineHeight:"1.2"}}>{mod.titre}</p>
+                        <p style={{color:"#93c5fd", fontSize:"0.8rem", margin:"3px 0 0", fontWeight:"600"}}>{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
                       </div>
                     </div>
                   )}
