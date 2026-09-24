@@ -106,9 +106,28 @@ export default function Programme() {
                         <span style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
-                      <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity:0.18}} viewBox="0 0 100 100">
+                      <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: mod.id === 11 ? 0 : 0.18}} viewBox="0 0 100 100">
                         {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
-                         mod.id === 11 ? <circle cx="50" cy="50" r="35" fill="white"/> :
+                         mod.id === 11 ? <g>
+                           <defs>
+                             <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
+                               <stop offset="0%" stopColor="#60a5fa"/>
+                               <stop offset="100%" stopColor="#3b82f6" stopOpacity="0"/>
+                             </radialGradient>
+                             <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                               <stop offset="0%" stopColor="#93c5fd"/>
+                               <stop offset="50%" stopColor="#3b82f6"/>
+                               <stop offset="100%" stopColor="#1d4ed8"/>
+                             </linearGradient>
+                           </defs>
+                           <ellipse cx="50" cy="52" rx="45" ry="30" fill="url(#brainGlow)" opacity="0.5"/>
+                           <path d="M50 22 C38 22 28 30 26 40 C22 42 18 46 18 52 C18 60 25 66 34 66 C36 70 40 73 44 73 L56 73 C60 73 64 70 66 66 C75 66 82 60 82 52 C82 46 78 42 74 40 C72 30 62 22 50 22Z" fill="url(#brainGrad)" stroke="#93c5fd" strokeWidth="1.5"/>
+                           <path d="M50 22 C50 22 50 45 50 73" fill="none" stroke="#1e40af" strokeWidth="1.5" opacity="0.6"/>
+                           <path d="M30 38 C34 42 34 50 30 54" fill="none" stroke="#93c5fd" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
+                           <path d="M70 38 C66 42 66 50 70 54" fill="none" stroke="#93c5fd" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
+                           <path d="M36 30 C40 26 45 25 50 25" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
+                           <path d="M64 30 C60 26 55 25 50 25" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
+                         </g> :
                          mod.id === 12 ? <rect x="25" y="15" width="50" height="70" rx="8" fill="white"/> :
                          mod.id === 13 ? <path d="M50 10 C30 10 15 25 15 45 C15 65 30 75 50 90 C70 75 85 65 85 45 C85 25 70 10 50 10Z" fill="white"/> :
                          mod.id === 14 ? <circle cx="50" cy="50" r="35" fill="none" stroke="white" strokeWidth="8"/> :
@@ -125,6 +144,23 @@ export default function Programme() {
                          mod.id === 25 ? <><circle cx="42" cy="42" r="25" fill="none" stroke="white" strokeWidth="8"/><path d="M60 60 L80 80" stroke="white" strokeWidth="8" strokeLinecap="round"/></> :
                          <circle cx="50" cy="50" r="30" fill="white"/>}
                       </svg>
+                      {mod.id === 11 && <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", zIndex:1}}>
+                        <svg width="140" height="120" viewBox="0 0 100 100" style={{filter:"drop-shadow(0 0 20px rgba(96,165,250,0.6))"}}>
+                          <defs>
+                            <linearGradient id="brainGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor="#93c5fd"/>
+                              <stop offset="50%" stopColor="#3b82f6"/>
+                              <stop offset="100%" stopColor="#1d4ed8"/>
+                            </linearGradient>
+                          </defs>
+                          <path d="M50 18 C37 18 26 27 24 38 C19 40 15 45 15 52 C15 61 23 68 33 68 C35 72 40 76 45 76 L55 76 C60 76 65 72 67 68 C77 68 85 61 85 52 C85 45 81 40 76 38 C74 27 63 18 50 18Z" fill="url(#brainGrad2)" stroke="#bfdbfe" strokeWidth="1.2"/>
+                          <path d="M50 18 L50 76" fill="none" stroke="#1e3a8a" strokeWidth="1.5" opacity="0.5"/>
+                          <path d="M28 36 C33 41 33 51 28 56" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
+                          <path d="M72 36 C67 41 67 51 72 56" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
+                          <path d="M34 26 C40 21 45 20 50 20" fill="none" stroke="#e0f2fe" strokeWidth="1.5" strokeLinecap="round"/>
+                          <path d="M66 26 C60 21 55 20 50 20" fill="none" stroke="#e0f2fe" strokeWidth="1.5" strokeLinecap="round"/>
+                        </svg>
+                      </div>}
                       <div style={{position:"absolute", bottom:0, left:0, right:0, padding:"10px 16px", background:"linear-gradient(to top, rgba(10,20,50,0.85) 0%, transparent 100%)", zIndex:2}}>
                         <p style={{color:"#ffffff", fontWeight:"800", fontSize:"1.05rem", margin:0, lineHeight:"1.2"}}>{mod.titre}</p>
                         <p style={{color:"#93c5fd", fontSize:"0.8rem", margin:"3px 0 0", fontWeight:"600"}}>{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
