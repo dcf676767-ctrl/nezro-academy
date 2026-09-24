@@ -99,7 +99,7 @@ export default function Programme() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {modules.map((mod, modIndex) => (
-            <button key={mod.id} id={`module-${mod.id}`} onClick={(e) => { if ((mod as any).locked) return; handleClick(e, mod.id); }}
+            <button key={mod.id} onClick={(e) => { if ((mod as any).locked) return; handleClick(e, mod.id); }}
               className="relative group text-left rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 active:scale-95"
               style={{
                 padding:"2px",
