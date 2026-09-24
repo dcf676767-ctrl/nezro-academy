@@ -172,6 +172,28 @@ export default function Programme() {
                       <span style={{color:"#fff", fontWeight:"900", fontSize:"1rem", lineHeight:1}}>N</span>
                     </div>
                   )}
+                  {mod.id === 11 && (
+                    <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", zIndex:1}}>
+                      <img src="/brain.png" alt="brain" style={{width:"55%", height:"auto", objectFit:"contain", filter:"drop-shadow(0 0 20px rgba(96,165,250,0.5))"}}/>
+                    </div>
+                  )}
+                  {mod.id === 10 && (
+                    <div style={{position:"absolute", inset:0, overflow:"hidden", zIndex:1, pointerEvents:"none"}}>
+                      {[...Array(28)].map((_,i) => {
+                        const colors = ["#f472b6","#facc15","#34d399","#60a5fa","#f87171","#a78bfa","#fb923c","#ffffff"];
+                        const col = colors[i % colors.length];
+                        const left = (i * 37 + 5) % 95;
+                        const delay = (i * 0.18) % 2.5;
+                        const size = 6 + (i % 5) * 2;
+                        const dur = 2 + (i % 4) * 0.4;
+                        const rotate = i * 47;
+                        return (
+                          <div key={i} style={{position:"absolute",left:`${left}%`,top:"-10px",width:`${size}px`,height:`${size*0.5}px`,background:col,borderRadius:i%3===0?"50%":"2px",transform:`rotate(${rotate}deg)`,animation:`cFall${i%4} ${dur}s ${delay}s infinite linear`,opacity:0.9}}/>
+                        );
+                      })}
+                      <style>{`@keyframes cFall0{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(250px) rotate(360deg);opacity:0}}@keyframes cFall1{0%{transform:translateY(-10px) rotate(45deg);opacity:1}100%{transform:translateY(250px) rotate(180deg);opacity:0}}@keyframes cFall2{0%{transform:translateY(-10px) rotate(90deg);opacity:1}100%{transform:translateY(250px) rotate(270deg);opacity:0}}@keyframes cFall3{0%{transform:translateY(-10px) rotate(20deg);opacity:1}100%{transform:translateY(250px) rotate(400deg);opacity:0}}`}</style>
+                    </div>
+                  )}
                 </div>
                 <div className="p-4">
                   <h3 className="font-bold text-white text-base mb-1">{mod.titre}</h3>
