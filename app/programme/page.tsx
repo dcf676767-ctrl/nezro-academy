@@ -103,8 +103,8 @@ export default function Programme() {
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:2}}>
-                        <span style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
-                        <span style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
+                        <span style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1", textShadow:"0 0 20px rgba(96,165,250,0.9), 0 0 40px rgba(59,130,246,0.7), 0 0 80px rgba(37,99,235,0.5)"}}>{String(modIndex + 1).padStart(2,"0")}</span>
+                        <span style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px", textShadow:"0 0 10px rgba(147,197,253,0.8)"}}>MODULE</span>
                       </div>
                       <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: 0}} viewBox="0 0 100 100">
                         {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
