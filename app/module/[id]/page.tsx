@@ -19,7 +19,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     ]},
   ]},
   10:{titre:"Introduction",chapitres:[
-    {id:1,titre:"Introduction",duree:"5:28",videoId:"UoHrVkEEpVw",description:"BIENVENUE DANS LE PROGRAMME !"},
+    {id:1,titre:"Introduction",duree:"5:28",videoId:"10yu3gJfRGg",description:"BIENVENUE DANS LE PROGRAMME !"},
   ]},
   11:{titre:"Mind-set et organisation",chapitres:[
     {id:1,titre:"Organisation et planification",duree:"1 min 54",videoId:"S6aNErn7KWg",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- FAIRE UNE TO-DO LISTE TOUS LES SOIRS\n\n- QUAND TU FAIS TA VIDÉO, METS UN TIMER DE 15-20MIN (ÇA CRÉER DU SENTIMENT D'URGENCE)\n\n- ESSAYER DE FAIRE LES VIDÉOS PENDANT LE WEEK END POUR LES POSTER DURANT LA SEMAINE (BEAUCOUP PLUS PRODUCTIF)\n\n- PROGRAMMER LES VIDÉOS (EXPLIQUÉ DANS LA SUITE DU PROGRAMME)"},
