@@ -95,16 +95,14 @@ export default function Programme() {
               <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
                 <div className="relative h-72 md:h-60">
                   {!mod.image ? (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center" style={{background:"linear-gradient(135deg,#1d4ed8 0%,#2563eb 50%,#3b82f6 100%)"}}>
-                      <div style={{position:"absolute", top:"12px", left:"16px", display:"flex", alignItems:"flex-end", gap:"8px"}}>
-                        <span style={{fontSize:"2rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(mod.id).padStart(2,"0")}</span>
-                        <span style={{fontSize:"0.6rem", fontWeight:"800", color:"rgba(255,255,255,0.6)", letterSpacing:"4px", marginBottom:"4px"}}>MODULE</span>
+                    <div className="absolute inset-0" style={{background:"#0d1b3e", backgroundImage:"linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)", backgroundSize:"32px 32px"}}>
+                      <div style={{position:"absolute", top:"16px", left:"20px", display:"flex", alignItems:"flex-end", gap:"10px"}}>
+                        <span style={{fontSize:"2.8rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(mod.id).padStart(2,"0")}</span>
+                        <span style={{fontSize:"0.65rem", fontWeight:"800", color:"#60a5fa", letterSpacing:"5px", marginBottom:"6px"}}>MODULE</span>
                       </div>
-                      <div style={{position:"absolute", right:"-30px", top:"-30px", width:"140px", height:"140px", borderRadius:"50%", background:"rgba(255,255,255,0.06)"}} />
-                      <div style={{position:"absolute", right:"40px", bottom:"-40px", width:"100px", height:"100px", borderRadius:"50%", background:"rgba(255,255,255,0.04)"}} />
-                      <span style={{fontSize:"5.5rem", filter:"drop-shadow(0 4px 24px rgba(0,0,0,0.3))"}}>
+                      <div style={{position:"absolute", top:"-10px", right:"-10px", fontSize:"7rem", filter:"drop-shadow(0 4px 32px rgba(59,130,246,0.4))"}}>
                         {mod.id === 12 ? "📱" : mod.id === 13 ? "🎭" : mod.id === 14 ? "🎯" : mod.id === 15 ? "💡" : mod.id === 16 ? "✂️" : mod.id === 17 ? "📤" : mod.id === 18 ? "🛠️" : mod.id === 19 ? "💰" : mod.id === 20 ? "📈" : mod.id === 21 ? "⚡" : mod.id === 22 ? "💳" : mod.id === 23 ? "🖥️" : mod.id === 24 ? "▶️" : mod.id === 25 ? "🔍" : "⭐"}
-                      </span>
+                      </div>
                     </div>
                   ) : mod.customThumb ? (
                     <div className="w-full h-full relative overflow-hidden">
