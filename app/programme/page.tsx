@@ -94,22 +94,42 @@ export default function Programme() {
               }}>
               <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
                 <div className="relative h-72 md:h-60">
-                  {!mod.image ? (
-                    <div className="absolute inset-0" style={{background:"#0d1b3e", backgroundImage:"linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)", backgroundSize:"32px 32px"}}>
-                      <div style={{position:"absolute", top:"16px", left:"20px", display:"flex", alignItems:"flex-end", gap:"10px"}}>
-                        <span style={{fontSize:"2.8rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(mod.id).padStart(2,"0")}</span>
-                        <span style={{fontSize:"0.65rem", fontWeight:"800", color:"#60a5fa", letterSpacing:"5px", marginBottom:"6px"}}>MODULE</span>
-                      </div>
-                      <div style={{position:"absolute", top:"-10px", right:"-10px", fontSize:"7rem", filter:"drop-shadow(0 4px 32px rgba(59,130,246,0.4))"}}>
-                        {mod.id === 12 ? "📱" : mod.id === 13 ? "🎭" : mod.id === 14 ? "🎯" : mod.id === 15 ? "💡" : mod.id === 16 ? "✂️" : mod.id === 17 ? "📤" : mod.id === 18 ? "🛠️" : mod.id === 19 ? "💰" : mod.id === 20 ? "📈" : mod.id === 21 ? "⚡" : mod.id === 22 ? "💳" : mod.id === 23 ? "🖥️" : mod.id === 24 ? "▶️" : mod.id === 25 ? "🔍" : "⭐"}
-                      </div>
-                    </div>
-                  ) : mod.customThumb ? (
+                  {(mod.id === 1 || mod.id === 8) ? (
                     <div className="w-full h-full relative overflow-hidden">
-                      {mod.id === 10 ? (<><img src="/introduction-mobile.jpg" alt={mod.titre} className="absolute inset-0 w-full h-full object-cover block md:hidden" /><img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover hidden md:block" style={{objectPosition: "center 4%"}} /></>) : (<img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition: mod.id !== 1 ? "center center" : "initial", filter: (mod as any).locked ? "grayscale(80%) brightness(0.4)" : "none"}} />)}{(mod as any).locked && <div className="absolute inset-0 flex items-center justify-center"><span style={{fontSize:"7rem", fontWeight:"900", color:"rgba(255,255,255,0.9)", textShadow:"0 4px 30px rgba(0,0,0,0.9)", lineHeight:"1"}}>?</span></div>}
+                      <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition:"center center", filter: (mod as any).locked ? "grayscale(80%) brightness(0.4)" : "none"}} />
+                      {(mod as any).locked && <div className="absolute inset-0 flex items-center justify-center"><span style={{fontSize:"7rem", fontWeight:"900", color:"rgba(255,255,255,0.9)", textShadow:"0 4px 30px rgba(0,0,0,0.9)", lineHeight:"1"}}>?</span></div>}
                     </div>
                   ) : (
-                    <div className="absolute inset-0" style={{backgroundImage:`url(${mod.image})`, backgroundSize:"cover", backgroundPosition:"center center"}} />
+                    <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
+                      <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
+                      <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:2}}>
+                        <span style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(mod.id).padStart(2,"0")}</span>
+                        <span style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
+                      </div>
+                      <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity:0.18}} viewBox="0 0 100 100">
+                        {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
+                         mod.id === 11 ? <circle cx="50" cy="50" r="35" fill="white"/> :
+                         mod.id === 12 ? <rect x="25" y="15" width="50" height="70" rx="8" fill="white"/> :
+                         mod.id === 13 ? <path d="M50 10 C30 10 15 25 15 45 C15 65 30 75 50 90 C70 75 85 65 85 45 C85 25 70 10 50 10Z" fill="white"/> :
+                         mod.id === 14 ? <circle cx="50" cy="50" r="35" fill="none" stroke="white" strokeWidth="8"/> :
+                         mod.id === 15 ? <path d="M50 15 L60 40 L85 40 L65 57 L73 82 L50 67 L27 82 L35 57 L15 40 L40 40Z" fill="white"/> :
+                         mod.id === 16 ? <path d="M20 30 L50 70 L80 30" fill="none" stroke="white" strokeWidth="10" strokeLinecap="round"/> :
+                         mod.id === 17 ? <path d="M20 50 L45 75 L80 25" fill="none" stroke="white" strokeWidth="10" strokeLinecap="round"/> :
+                         mod.id === 18 ? <rect x="20" y="20" width="60" height="60" rx="6" fill="white"/> :
+                         mod.id === 19 ? <path d="M50 15 C30 15 15 30 15 50 C15 70 30 85 50 85 C70 85 85 70 85 50 C85 30 70 15 50 15ZM50 30 L50 55 M50 65 L50 70" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round"/> :
+                         mod.id === 20 ? <path d="M15 70 L35 45 L55 55 L85 20" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round"/> :
+                         mod.id === 21 ? <path d="M55 15 L25 55 L50 55 L45 85 L75 45 L50 45Z" fill="white"/> :
+                         mod.id === 22 ? <rect x="15" y="30" width="70" height="45" rx="6" fill="white"/> :
+                         mod.id === 23 ? <rect x="15" y="20" width="70" height="50" rx="4" fill="white"/> :
+                         mod.id === 24 ? <path d="M35 25 L75 50 L35 75Z" fill="white"/> :
+                         mod.id === 25 ? <><circle cx="42" cy="42" r="25" fill="none" stroke="white" strokeWidth="8"/><path d="M60 60 L80 80" stroke="white" strokeWidth="8" strokeLinecap="round"/></> :
+                         <circle cx="50" cy="50" r="30" fill="white"/>}
+                      </svg>
+                      <div style={{position:"absolute", bottom:0, left:0, right:0, padding:"10px 16px", background:"linear-gradient(to top, rgba(10,20,50,0.85) 0%, transparent 100%)", zIndex:2}}>
+                        <p style={{color:"#ffffff", fontWeight:"700", fontSize:"0.85rem", margin:0, lineHeight:"1.2"}}>{mod.titre}</p>
+                        <p style={{color:"#93c5fd", fontSize:"0.7rem", margin:"2px 0 0", fontWeight:"500"}}>{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
+                      </div>
+                    </div>
                   )}
                   {progression[mod.id] === 100 && (
                     <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">✓ Terminé</div>
