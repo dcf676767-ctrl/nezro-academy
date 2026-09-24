@@ -95,8 +95,19 @@ export default function Programme() {
               <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
                 <div className="relative h-72 md:h-60">
                   {!mod.image ? (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
-                      <span style={{fontSize:"5rem", fontWeight:"900", color:"rgba(255,255,255,0.25)", lineHeight:"1"}}>?</span>
+                    <div className="absolute inset-0 flex items-center justify-between px-6" style={{background:"linear-gradient(135deg,#1d4ed8 0%,#2563eb 50%,#3b82f6 100%)"}}>
+                      <div className="flex flex-col gap-1 z-10">
+                        <div className="flex items-end gap-2">
+                          <span style={{fontSize:"3.2rem", fontWeight:"900", color:"#ffffff", lineHeight:"1", textShadow:"0 2px 20px rgba(0,0,0,0.3)"}}>{String(mod.id).padStart(2,"0")}</span>
+                          <span style={{fontSize:"0.7rem", fontWeight:"800", color:"rgba(255,255,255,0.7)", letterSpacing:"5px", marginBottom:"8px"}}>MODULE</span>
+                        </div>
+                        <span style={{fontSize:"0.75rem", fontWeight:"600", color:"rgba(255,255,255,0.6)"}}>{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</span>
+                      </div>
+                      <div style={{position:"absolute", right:"-30px", top:"-30px", width:"140px", height:"140px", borderRadius:"50%", background:"rgba(255,255,255,0.08)"}} />
+                      <div style={{position:"absolute", right:"40px", bottom:"-40px", width:"100px", height:"100px", borderRadius:"50%", background:"rgba(255,255,255,0.05)"}} />
+                      <div style={{position:"absolute", left:"50%", top:"50%", transform:"translate(-50%,-50%)", fontSize:"5rem", opacity:0.12, pointerEvents:"none"}}>
+                        {mod.id === 12 ? "📱" : mod.id === 13 ? "🎭" : mod.id === 14 ? "🎯" : mod.id === 15 ? "💡" : mod.id === 16 ? "✂️" : mod.id === 17 ? "📤" : mod.id === 18 ? "🛠️" : mod.id === 19 ? "💰" : mod.id === 20 ? "📈" : mod.id === 21 ? "⚡" : mod.id === 22 ? "💳" : mod.id === 23 ? "🖥️" : mod.id === 24 ? "▶️" : mod.id === 25 ? "🔍" : "⭐"}
+                      </div>
                     </div>
                   ) : mod.customThumb ? (
                     <div className="w-full h-full relative overflow-hidden">
