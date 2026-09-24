@@ -23,7 +23,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   11:{titre:"Mind-set et organisation",chapitres:[
     {id:1,titre:"Organisation et planification",duree:"2min06",videoId:"jDOyduSjKCU",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- FAIRE UNE TO-DO LISTE TOUS LES SOIRS\n\n- QUAND TU FAIS TA VIDÉO, METS UN TIMER DE 15-20MIN (ÇA CRÉER DU SENTIMENT D'URGENCE)\n\n- ESSAYER DE FAIRE LES VIDÉOS PENDANT LE WEEK END POUR LES POSTER DURANT LA SEMAINE (BEAUCOUP PLUS PRODUCTIF)\n\n- PROGRAMMER LES VIDÉOS (EXPLIQUÉ DANS LA SUITE DU PROGRAMME)"},
-    {id:2,titre:"Mind set",duree:"1min20",videoId:"VO9lc_Xw_aU",description:"JAMAIS ABANDONNER !"},
+    {id:2,titre:"Mind set",duree:"1min20",videoId:"GddLPbqCu4o",description:"JAMAIS ABANDONNER !"},
   ]},
   12:{titre:"Comprendre les réseaux et comment être monétisé",chapitres:[
     {id:1,titre:"Les bases",duree:"-",videoId:"",description:"Contenu à venir."},
