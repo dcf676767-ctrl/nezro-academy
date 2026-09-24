@@ -144,23 +144,7 @@ export default function Programme() {
                          mod.id === 25 ? <><circle cx="42" cy="42" r="25" fill="none" stroke="white" strokeWidth="8"/><path d="M60 60 L80 80" stroke="white" strokeWidth="8" strokeLinecap="round"/></> :
                          <circle cx="50" cy="50" r="30" fill="white"/>}
                       </svg>
-                      {mod.id === 11 && <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", zIndex:1}}>
-                        <svg width="140" height="120" viewBox="0 0 100 100" style={{filter:"drop-shadow(0 0 20px rgba(96,165,250,0.6))"}}>
-                          <defs>
-                            <linearGradient id="brainGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                              <stop offset="0%" stopColor="#93c5fd"/>
-                              <stop offset="50%" stopColor="#3b82f6"/>
-                              <stop offset="100%" stopColor="#1d4ed8"/>
-                            </linearGradient>
-                          </defs>
-                          <path d="M50 18 C37 18 26 27 24 38 C19 40 15 45 15 52 C15 61 23 68 33 68 C35 72 40 76 45 76 L55 76 C60 76 65 72 67 68 C77 68 85 61 85 52 C85 45 81 40 76 38 C74 27 63 18 50 18Z" fill="url(#brainGrad2)" stroke="#bfdbfe" strokeWidth="1.2"/>
-                          <path d="M50 18 L50 76" fill="none" stroke="#1e3a8a" strokeWidth="1.5" opacity="0.5"/>
-                          <path d="M28 36 C33 41 33 51 28 56" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
-                          <path d="M72 36 C67 41 67 51 72 56" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
-                          <path d="M34 26 C40 21 45 20 50 20" fill="none" stroke="#e0f2fe" strokeWidth="1.5" strokeLinecap="round"/>
-                          <path d="M66 26 C60 21 55 20 50 20" fill="none" stroke="#e0f2fe" strokeWidth="1.5" strokeLinecap="round"/>
-                        </svg>
-                      </div>}
+
 
                     </div>
                   )}
