@@ -22,8 +22,8 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"Introduction",duree:"5min28",videoId:"CiEdH9O2g0o",description:"BIENVENUE DANS LE PROGRAMME !"},
   ]},
   11:{titre:"Mind-set et organisation",chapitres:[
-    {id:1,titre:"Organisation et planification",duree:"1 min 54",videoId:"S6aNErn7KWg",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- FAIRE UNE TO-DO LISTE TOUS LES SOIRS\n\n- QUAND TU FAIS TA VIDÉO, METS UN TIMER DE 15-20MIN (ÇA CRÉER DU SENTIMENT D'URGENCE)\n\n- ESSAYER DE FAIRE LES VIDÉOS PENDANT LE WEEK END POUR LES POSTER DURANT LA SEMAINE (BEAUCOUP PLUS PRODUCTIF)\n\n- PROGRAMMER LES VIDÉOS (EXPLIQUÉ DANS LA SUITE DU PROGRAMME)"},
-    {id:2,titre:"Mind set",duree:"1 min 20",videoId:"VO9lc_Xw_aU",description:"JAMAIS ABANDONNER !"},
+    {id:1,titre:"Organisation et planification",duree:"2min06",videoId:"jDOyduSjKCU",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- FAIRE UNE TO-DO LISTE TOUS LES SOIRS\n\n- QUAND TU FAIS TA VIDÉO, METS UN TIMER DE 15-20MIN (ÇA CRÉER DU SENTIMENT D'URGENCE)\n\n- ESSAYER DE FAIRE LES VIDÉOS PENDANT LE WEEK END POUR LES POSTER DURANT LA SEMAINE (BEAUCOUP PLUS PRODUCTIF)\n\n- PROGRAMMER LES VIDÉOS (EXPLIQUÉ DANS LA SUITE DU PROGRAMME)"},
+    {id:2,titre:"Mind set",duree:"1min20",videoId:"VO9lc_Xw_aU",description:"JAMAIS ABANDONNER !"},
   ]},
   12:{titre:"Comprendre les réseaux et comment être monétisé",chapitres:[
     {id:1,titre:"Les bases",duree:"-",videoId:"",description:"Contenu à venir."},
@@ -101,12 +101,12 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:3,titre:"Créer des posts spéciaux pour faire une communauté sur YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   1:{titre:"Niche Roblox",chapitres:[
-    {id:1,titre:"Introduction",duree:"1 min",videoId:"_3JxXTY34mM",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
-    {id:2,titre:"Clips Roblox",duree:"3 min",videoId:"lUCpFxP9NSo",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=2e18c279d8ce9e4dadb9cace848fbff3&type=ExperienceDetails&stamp=1783802571761",lienlabel:"🎮 LIEN DU JEU"},
-    {id:3,titre:"Montage",duree:"15 min",videoId:"9jG1_0eL1aU",description:"Les bases du montage vidéo."},
-    {id:4,titre:"IA",duree:"10 min",videoId:"yS_9RaC-hBc",description:"Utilise l'IA pour tes miniatures."},
-    {id:5,titre:"Importation sur Tiktok et Youtube",duree:"5 min",videoId:"FiLeCdNQHZw",description:"Comment publier sur YouTube."},
-    {id:6,titre:"Astuces",duree:"2 min",videoId:"tdnIDErJaqo",description:"Mes astuces miniatures."},
+    {id:1,titre:"Introduction",duree:"1min",videoId:"_3JxXTY34mM",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
+    {id:2,titre:"Clips Roblox",duree:"3min",videoId:"lUCpFxP9NSo",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=2e18c279d8ce9e4dadb9cace848fbff3&type=ExperienceDetails&stamp=1783802571761",lienlabel:"🎮 LIEN DU JEU"},
+    {id:3,titre:"Montage",duree:"15min",videoId:"9jG1_0eL1aU",description:"Les bases du montage vidéo."},
+    {id:4,titre:"IA",duree:"10min",videoId:"yS_9RaC-hBc",description:"Utilise l'IA pour tes miniatures."},
+    {id:5,titre:"Importation sur Tiktok et Youtube",duree:"5min",videoId:"FiLeCdNQHZw",description:"Comment publier sur YouTube."},
+    {id:6,titre:"Astuces",duree:"2min",videoId:"tdnIDErJaqo",description:"Mes astuces miniatures."},
     {id:7,titre:"Conseils",duree:"5min28",videoId:"DZuGYMerKRI",description:"Comment rester consistant."},
   ]},
 };
