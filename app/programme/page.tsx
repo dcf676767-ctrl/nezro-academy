@@ -121,16 +121,29 @@ export default function Programme() {
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
-                      <svg style={{position:"absolute", inset:0, width:"100%", height:"100%", opacity:0.12, pointerEvents:"none"}} viewBox="0 0 400 200" preserveAspectRatio="none">
+                      <svg style={{position:"absolute", inset:0, width:"100%", height:"100%", pointerEvents:"none", overflow:"visible"}} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
                         <defs>
-                          <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="white" stopOpacity="0"/>
-                            <stop offset="40%" stopColor="white" stopOpacity="0.6"/>
-                            <stop offset="100%" stopColor="white" stopOpacity="1"/>
+                          <linearGradient id={`ag${modIndex}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#60a5fa" stopOpacity="0"/>
+                            <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.5"/>
+                            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.95"/>
                           </linearGradient>
+                          <filter id={`gf${modIndex}`}>
+                            <feGaussianBlur stdDeviation="2" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                          </filter>
                         </defs>
-                        <polyline points="-20,220 80,160 160,175 260,100 360,40 430,-10" fill="none" stroke="url(#arrowGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        <polyline points="415,-18 432,-8 422,10" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                        {/* Zone remplie sous la courbe */}
+                        <path d="M-10,210 C60,190 100,170 160,140 C220,110 280,70 420,-20 L420,210 Z" fill="#3b82f6" opacity="0.08"/>
+                        {/* Ligne principale épaisse avec glow */}
+                        <path d="M-10,200 C60,180 100,160 160,130 C220,100 280,60 420,-20" fill="none" stroke={`url(#ag${modIndex})`} strokeWidth="2.5" strokeLinecap="round" filter={`url(#gf${modIndex})`}/>
+                        {/* Ligne fine dessus pour le brillant */}
+                        <path d="M-10,200 C60,180 100,160 160,130 C220,100 280,60 420,-20" fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.4"/>
+                        {/* Flèche en bout */}
+                        <path d="M405,-28 L422,-18 L408,-6" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
+                        {/* Points lumineux sur la courbe */}
+                        <circle cx="160" cy="130" r="3" fill="white" opacity="0.6"/>
+                        <circle cx="280" cy="58" r="3" fill="white" opacity="0.8"/>
                       </svg>
                       <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: 0}} viewBox="0 0 100 100">
                         {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
