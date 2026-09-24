@@ -121,24 +121,7 @@ export default function Programme() {
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
-                      <svg style={{position:"absolute", bottom:0, right:0, width:"70%", height:"70%", pointerEvents:"none"}} viewBox="0 0 300 180">
-                        <defs>
-                          <linearGradient id={`lineG${modIndex}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0"/>
-                            <stop offset="100%" stopColor="#93c5fd" stopOpacity="1"/>
-                          </linearGradient>
-                          <linearGradient id={`fillG${modIndex}`} x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.25"/>
-                            <stop offset="100%" stopColor="#60a5fa" stopOpacity="0"/>
-                          </linearGradient>
-                        </defs>
-                        <path d="M0,160 C40,155 60,140 90,120 C120,100 140,90 170,65 C200,40 230,20 300,0 L300,180 L0,180 Z" fill={`url(#fillG${modIndex})`}/>
-                        <path d="M0,160 C40,155 60,140 90,120 C120,100 140,90 170,65 C200,40 230,20 300,0" fill="none" stroke={`url(#lineG${modIndex})`} strokeWidth="2" strokeLinecap="round"/>
-                        <circle cx="90" cy="120" r="2.5" fill="white" opacity="0.7"/>
-                        <circle cx="170" cy="65" r="2.5" fill="white" opacity="0.85"/>
-                        <circle cx="300" cy="0" r="3.5" fill="white" opacity="1"/>
-                        <path d="M288,-8 L301,0 L291,10" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+
                       <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: 0}} viewBox="0 0 100 100">
                         {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
                          mod.id === 11 ? <g>
