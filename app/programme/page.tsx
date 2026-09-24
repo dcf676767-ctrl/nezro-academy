@@ -121,9 +121,16 @@ export default function Programme() {
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
-                      <svg style={{position:"absolute", bottom:"10px", right:"8px", width:"80px", height:"80px", opacity:0.25}} viewBox="0 0 80 80">
-                        <polyline points="10,70 25,55 40,60 55,35 70,15" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                        <polyline points="62,10 70,15 65,23" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg style={{position:"absolute", inset:0, width:"100%", height:"100%", opacity:0.12, pointerEvents:"none"}} viewBox="0 0 400 200" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="white" stopOpacity="0"/>
+                            <stop offset="40%" stopColor="white" stopOpacity="0.6"/>
+                            <stop offset="100%" stopColor="white" stopOpacity="1"/>
+                          </linearGradient>
+                        </defs>
+                        <polyline points="-20,220 80,160 160,175 260,100 360,40 430,-10" fill="none" stroke="url(#arrowGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <polyline points="415,-18 432,-8 422,10" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
                       </svg>
                       <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: 0}} viewBox="0 0 100 100">
                         {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
