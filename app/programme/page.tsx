@@ -106,7 +106,7 @@ export default function Programme() {
                         <span style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
-                      <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: mod.id === 11 ? 0 : 0.18}} viewBox="0 0 100 100">
+                      <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: 0}} viewBox="0 0 100 100">
                         {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
                          mod.id === 11 ? <g>
                            <defs>
@@ -161,10 +161,7 @@ export default function Programme() {
                           <path d="M66 26 C60 21 55 20 50 20" fill="none" stroke="#e0f2fe" strokeWidth="1.5" strokeLinecap="round"/>
                         </svg>
                       </div>}
-                      <div style={{position:"absolute", bottom:0, left:0, right:0, padding:"10px 16px", background:"linear-gradient(to top, rgba(10,20,50,0.85) 0%, transparent 100%)", zIndex:2}}>
-                        <p style={{color:"#ffffff", fontWeight:"800", fontSize:"1.05rem", margin:0, lineHeight:"1.2"}}>{mod.titre}</p>
-                        <p style={{color:"#93c5fd", fontSize:"0.8rem", margin:"3px 0 0", fontWeight:"600"}}>{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
-                      </div>
+
                     </div>
                   )}
                   {progression[mod.id] === 100 && (
