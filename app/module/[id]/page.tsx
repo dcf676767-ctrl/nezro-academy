@@ -229,18 +229,7 @@ export default function Module() {
               </div>
             </div>
             )}
-            {chapitre.id > 2 && (
-            <div className="hidden md:block bg-gray-900 border border-gray-800 rounded-2xl p-5 mt-4">
-              <h3 className="text-white font-bold mb-3">📝 Mes notes</h3>
-              <textarea
-                placeholder="Écris tes notes ici..."
-                onChange={e => localStorage.setItem(`note-main-${moduleId}-${chapitre.id}`, e.target.value)}
-                defaultValue={typeof window !== "undefined" ? localStorage.getItem(`note-main-${moduleId}-${chapitre.id}`) || "" : ""}
-                className="w-full min-h-[200px] bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 resize-none"
-              />
-              <p className="text-xs text-gray-600 mt-1">Tes notes sont sauvegardées automatiquement sur cet appareil</p>
-            </div>
-            )}
+
           </div>
           <div className="w-full md:w-72 shrink-0 flex flex-col gap-6">
             <div>
