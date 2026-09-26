@@ -32,7 +32,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   13:{titre:"Contenu 100% anonyme",chapitres:[
     {id:1,titre:"Contenu anonyme, c'est quoi ?",duree:"1min12",videoId:"VQjm1hA2euU",description:"<strong style=\"font-size:1.1rem\">À retenir :</strong>\n\nLe contenu anonyme, c'est créer des vidéos sans jamais montrer ton visage ni utiliser ta vraie voix. Concrètement :\n\n• Les clips vidéo sont trouvés sur Internet et remontés\n• La voix est générée par une IA\n• Le montage fait toute la différence\n\n→ Résultat : un contenu professionnel, viral, et 100% anonyme."},
-    {id:2,titre:"Exemple de contenu anonyme",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Exemple de contenu anonyme",duree:"1min36",videoId:"E7QuR44xUBA",description:"Voici un exemple d'une vidéo anonyme."},
     {id:3,titre:"Faire du contenu sans tête et sans voix de qualité",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:4,titre:"Voix off anonyme sur TikTok",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:5,titre:"Voix off facile sur CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
