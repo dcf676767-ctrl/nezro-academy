@@ -174,7 +174,25 @@ export default function Programme() {
                   )}
                   {mod.id === 11 && (
                     <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", zIndex:1}}>
-                      <img src="/brain.png" alt="brain" style={{width:"55%", height:"auto", objectFit:"contain", filter:"drop-shadow(0 0 20px rgba(96,165,250,0.5))"}}/>
+                      <svg width="160" height="140" viewBox="0 0 200 180" style={{filter:"drop-shadow(0 4px 24px rgba(210,180,140,0.4))"}}>
+                        <defs>
+                          <linearGradient id="brainBeige" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#f5e6d3"/>
+                            <stop offset="50%" stopColor="#e8c9a0"/>
+                            <stop offset="100%" stopColor="#d4a96a"/>
+                          </linearGradient>
+                        </defs>
+                        <path d="M100 25 C75 25 55 38 48 55 C38 57 28 65 28 78 C28 88 35 96 45 99 C47 108 53 116 62 120 C64 128 72 134 82 134 L118 134 C128 134 136 128 138 120 C147 116 153 108 155 99 C165 96 172 88 172 78 C172 65 162 57 152 55 C145 38 125 25 100 25Z" fill="url(#brainBeige)" stroke="#c4956a" strokeWidth="2"/>
+                        <path d="M100 25 L100 134" fill="none" stroke="#c4956a" strokeWidth="1.5" opacity="0.4"/>
+                        <path d="M55 50 C62 58 62 72 55 80" fill="none" stroke="#c4956a" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
+                        <path d="M145 50 C138 58 138 72 145 80" fill="none" stroke="#c4956a" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
+                        <path d="M68 35 C76 28 88 26 100 26" fill="none" stroke="#e8d5b8" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M132 35 C124 28 112 26 100 26" fill="none" stroke="#e8d5b8" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M42 72 C50 68 58 72 62 80 C66 72 74 68 80 72" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+                        <path d="M120 72 C126 68 134 72 138 80 C142 72 150 68 158 72" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+                        <path d="M60 95 C70 90 80 95 85 103" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+                        <path d="M140 95 C130 90 120 95 115 103" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+                      </svg>
                     </div>
                   )}
                   {mod.id === 10 && (
