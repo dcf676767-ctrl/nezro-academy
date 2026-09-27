@@ -8,7 +8,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"Niche GTA 6",duree:"-",videoId:"",description:"Contenu secret en cours de préparation..."},
   ]},
   18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
-    {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"-",videoId:"",description:"",liens:[
+    {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"3min36",videoId:"9YIjSqpT66U",description:"",liens:[
       {label:"SnapTik - Télécharger vidéos TikTok",url:"https://snaptik.app/en2"},
       {label:"SSS Instagram - Télécharger vidéos Instagram",url:"https://sssinstagram.com/fr"},
       {label:"YTDown - Télécharger vidéos YouTube",url:"https://app.ytdown.to/en27/"},
