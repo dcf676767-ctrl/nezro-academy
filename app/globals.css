@@ -164,3 +164,15 @@ html, body {
     top: 50%;
   }
 }
+
+.anonyme-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 999;
+}
