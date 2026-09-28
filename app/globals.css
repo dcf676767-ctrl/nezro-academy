@@ -131,7 +131,8 @@ html, body {
 
 @media (max-width: 768px) {
   .mindset-img {
-    width: 150%;
-    height: 150%;
+    width: 165%;
+    height: 165%;
+    top: -8%;
   }
 }
