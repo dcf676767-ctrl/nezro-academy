@@ -127,6 +127,7 @@ html, body {
 .mindset-img {
   width: 106%;
   height: 106%;
+  top: 50%;
 }
 
 @media (max-width: 768px) {
