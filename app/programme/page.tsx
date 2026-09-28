@@ -109,7 +109,7 @@ export default function Programme() {
               }}>
               <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
                 <div className="relative h-72 md:h-60">
-                  {(mod.id === 1 || mod.id === 8 || mod.id === 11) ? (
+                  {(mod.id === 1 || mod.id === 8) ? (
                     <div className="w-full h-full relative overflow-hidden">
                       <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition:"center center", filter: (mod as any).locked ? "grayscale(80%) brightness(0.4)" : "none"}} />
                       {(mod as any).locked && <div className="absolute inset-0 flex items-center justify-center"><span style={{fontSize:"7rem", fontWeight:"900", color:"rgba(255,255,255,0.9)", textShadow:"0 4px 30px rgba(0,0,0,0.9)", lineHeight:"1"}}>?</span></div>}
@@ -117,6 +117,7 @@ export default function Programme() {
                   ) : (
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
+                      {mod.id === 11 && <img src="/module-mindset.png" alt="mindset" style={{position:"absolute", right:"0", bottom:"0", height:"100%", width:"60%", objectFit:"contain", objectPosition:"right bottom", zIndex:1}} />}
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:2}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
