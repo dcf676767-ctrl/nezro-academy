@@ -143,3 +143,24 @@ html, body {
     top: 50%;
   }
 }
+
+
+.intro-img {
+  position: absolute;
+  left: 52.5%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 106%;
+  height: 106%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .intro-img {
+    width: 134%;
+    height: 140%;
+    top: 50%;
+  }
+}
