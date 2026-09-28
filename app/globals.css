@@ -125,15 +125,21 @@ html, body {
 }
 
 .mindset-img {
+  position: absolute;
+  left: 52.5%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 106%;
   height: 106%;
-  top: 50%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 999;
 }
 
 @media (max-width: 768px) {
   .mindset-img {
-    width: 165%;
-    height: 165%;
-    top: -8%;
+    width: 128%;
+    height: 128%;
+    top: 42%;
   }
 }
