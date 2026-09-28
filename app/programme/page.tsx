@@ -124,44 +124,7 @@ export default function Programme() {
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
 
-                      <svg style={{position:"absolute", top:"-10px", right:"-10px", width:"110px", height:"110px", opacity: mod.id === 11 ? 0 : 0}} viewBox="0 0 100 100">
-                        {mod.id === 10 ? <path d="M50 20 L80 80 L20 80 Z" fill="white"/> :
-                         mod.id === 11 ? <g>
-                           <defs>
-                             <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
-                               <stop offset="0%" stopColor="#60a5fa"/>
-                               <stop offset="100%" stopColor="#3b82f6" stopOpacity="0"/>
-                             </radialGradient>
-                             <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                               <stop offset="0%" stopColor="#93c5fd"/>
-                               <stop offset="50%" stopColor="#3b82f6"/>
-                               <stop offset="100%" stopColor="#1d4ed8"/>
-                             </linearGradient>
-                           </defs>
-                           <ellipse cx="50" cy="52" rx="45" ry="30" fill="url(#brainGlow)" opacity="0.5"/>
-                           <path d="M50 22 C38 22 28 30 26 40 C22 42 18 46 18 52 C18 60 25 66 34 66 C36 70 40 73 44 73 L56 73 C60 73 64 70 66 66 C75 66 82 60 82 52 C82 46 78 42 74 40 C72 30 62 22 50 22Z" fill="url(#brainGrad)" stroke="#93c5fd" strokeWidth="1.5"/>
-                           <path d="M50 22 C50 22 50 45 50 73" fill="none" stroke="#1e40af" strokeWidth="1.5" opacity="0.6"/>
-                           <path d="M30 38 C34 42 34 50 30 54" fill="none" stroke="#93c5fd" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
-                           <path d="M70 38 C66 42 66 50 70 54" fill="none" stroke="#93c5fd" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
-                           <path d="M36 30 C40 26 45 25 50 25" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
-                           <path d="M64 30 C60 26 55 25 50 25" fill="none" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
-                         </g> :
-                         mod.id === 12 ? <rect x="25" y="15" width="50" height="70" rx="8" fill="white"/> :
-                         mod.id === 13 ? <path d="M50 10 C30 10 15 25 15 45 C15 65 30 75 50 90 C70 75 85 65 85 45 C85 25 70 10 50 10Z" fill="white"/> :
-                         mod.id === 14 ? <circle cx="50" cy="50" r="35" fill="none" stroke="white" strokeWidth="8"/> :
-                         mod.id === 15 ? <path d="M50 15 L60 40 L85 40 L65 57 L73 82 L50 67 L27 82 L35 57 L15 40 L40 40Z" fill="white"/> :
-                         mod.id === 16 ? <path d="M20 30 L50 70 L80 30" fill="none" stroke="white" strokeWidth="10" strokeLinecap="round"/> :
-                         mod.id === 17 ? <path d="M20 50 L45 75 L80 25" fill="none" stroke="white" strokeWidth="10" strokeLinecap="round"/> :
-                         mod.id === 18 ? <rect x="20" y="20" width="60" height="60" rx="6" fill="white"/> :
-                         mod.id === 19 ? <path d="M50 15 C30 15 15 30 15 50 C15 70 30 85 50 85 C70 85 85 70 85 50 C85 30 70 15 50 15ZM50 30 L50 55 M50 65 L50 70" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round"/> :
-                         mod.id === 20 ? <path d="M15 70 L35 45 L55 55 L85 20" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round"/> :
-                         mod.id === 21 ? <path d="M55 15 L25 55 L50 55 L45 85 L75 45 L50 45Z" fill="white"/> :
-                         mod.id === 22 ? <rect x="15" y="30" width="70" height="45" rx="6" fill="white"/> :
-                         mod.id === 23 ? <rect x="15" y="20" width="70" height="50" rx="4" fill="white"/> :
-                         mod.id === 24 ? <path d="M35 25 L75 50 L35 75Z" fill="white"/> :
-                         mod.id === 25 ? <><circle cx="42" cy="42" r="25" fill="none" stroke="white" strokeWidth="8"/><path d="M60 60 L80 80" stroke="white" strokeWidth="8" strokeLinecap="round"/></> :
-                         <circle cx="50" cy="50" r="30" fill="white"/>}
-                      </svg>
+                      
 
 
                     </div>
@@ -174,29 +137,7 @@ export default function Programme() {
                       <span style={{color:"#fff", fontWeight:"900", fontSize:"1rem", lineHeight:1}}>N</span>
                     </div>
                   )}
-                  {mod.id === 11 && (
-                    <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", zIndex:1}}>
-                      <svg width="160" height="140" viewBox="0 0 200 180" style={{filter:"drop-shadow(0 4px 24px rgba(210,180,140,0.4))"}}>
-                        <defs>
-                          <linearGradient id="brainBeige" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#f5e6d3"/>
-                            <stop offset="50%" stopColor="#e8c9a0"/>
-                            <stop offset="100%" stopColor="#d4a96a"/>
-                          </linearGradient>
-                        </defs>
-                        <path d="M100 25 C75 25 55 38 48 55 C38 57 28 65 28 78 C28 88 35 96 45 99 C47 108 53 116 62 120 C64 128 72 134 82 134 L118 134 C128 134 136 128 138 120 C147 116 153 108 155 99 C165 96 172 88 172 78 C172 65 162 57 152 55 C145 38 125 25 100 25Z" fill="url(#brainBeige)" stroke="#c4956a" strokeWidth="2"/>
-                        <path d="M100 25 L100 134" fill="none" stroke="#c4956a" strokeWidth="1.5" opacity="0.4"/>
-                        <path d="M55 50 C62 58 62 72 55 80" fill="none" stroke="#c4956a" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
-                        <path d="M145 50 C138 58 138 72 145 80" fill="none" stroke="#c4956a" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
-                        <path d="M68 35 C76 28 88 26 100 26" fill="none" stroke="#e8d5b8" strokeWidth="2" strokeLinecap="round"/>
-                        <path d="M132 35 C124 28 112 26 100 26" fill="none" stroke="#e8d5b8" strokeWidth="2" strokeLinecap="round"/>
-                        <path d="M42 72 C50 68 58 72 62 80 C66 72 74 68 80 72" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-                        <path d="M120 72 C126 68 134 72 138 80 C142 72 150 68 158 72" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-                        <path d="M60 95 C70 90 80 95 85 103" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-                        <path d="M140 95 C130 90 120 95 115 103" fill="none" stroke="#c4956a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-                      </svg>
-                    </div>
-                  )}
+                  
                   {mod.id === 10 && (
                     <div style={{position:"absolute", inset:0, overflow:"hidden", zIndex:1, pointerEvents:"none"}}>
                       {[...Array(28)].map((_,i) => {
