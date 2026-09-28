@@ -176,3 +176,15 @@ html, body {
   object-position: center;
   z-index: 999;
 }
+
+.reseaux-img {
+  position: absolute;
+  left: 47%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 106%;
+  height: 106%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 999;
+}

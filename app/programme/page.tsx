@@ -118,7 +118,7 @@ export default function Programme() {
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
                       {mod.id === 11 && <img src="/module-mindset.png" alt="mindset" className="mindset-img" />}
-                      {mod.id === 12 && <img src="/module-reseaux.png" alt="reseaux" className="mindset-img" />}
+                      {mod.id === 12 && <img src="/module-reseaux.png" alt="reseaux" className="reseaux-img" />}
                       {mod.id === 18 && <img src="/module-outils.png" alt="outils" className="mindset-img" />}
                       {mod.id === 13 && <img src="/module-anonyme.png" alt="anonyme" className="anonyme-img" />}
                       {mod.id === 10 && <img src="/module-intro.png" alt="intro" className="intro-img" />}
