@@ -117,7 +117,7 @@ export default function Programme() {
                   ) : (
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
-                      {mod.id === 11 && <img src="/module-mindset.png" alt="mindset" style={{position:"absolute", left:"52.5%", top:"50%", transform:"translate(-50%, -50%)", width:"106%", height:"106%", objectFit:"contain", objectPosition:"center", zIndex:999}} />}
+                      {mod.id === 11 && <img src="/module-mindset.png" alt="mindset" className="mindset-img" style={{position:"absolute", left:"52.5%", top:"50%", transform:"translate(-50%, -50%)", objectFit:"contain", objectPosition:"center", zIndex:999}} />}
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:2}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>

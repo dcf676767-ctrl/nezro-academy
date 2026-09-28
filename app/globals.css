@@ -123,3 +123,15 @@ html, body {
   from { opacity: 1; }
   to { opacity: 0; }
 }
+
+.mindset-img {
+  width: 106%;
+  height: 106%;
+}
+
+@media (max-width: 768px) {
+  .mindset-img {
+    width: 122%;
+    height: 122%;
+  }
+}
