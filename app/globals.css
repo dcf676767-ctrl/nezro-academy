@@ -212,3 +212,15 @@ html, body {
   object-position: center;
   z-index: 999;
 }
+
+.capcut-pc-img {
+  position: absolute;
+  left: 47%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 999;
+}
