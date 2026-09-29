@@ -122,6 +122,7 @@ export default function Programme() {
                       {mod.id === 18 && <img src="/module-outils.png" alt="outils" className="mindset-img" />}
                       {mod.id === 13 && <img src="/module-anonyme.png" alt="anonyme" className="anonyme-img" />}
                       {mod.id === 14 && <img src="/module-niche.png" alt="niche" className="niche-img" />}
+                      {mod.id === 15 && <img src="/module-exemples-niches.png" alt="exemples niches" className="mindset-img" />}
                       {mod.id === 10 && <img src="/module-intro.png" alt="intro" className="intro-img" />}
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:999}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
