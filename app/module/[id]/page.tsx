@@ -83,7 +83,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   21:{titre:"Astuces",chapitres:[
     {id:1,titre:"Créer des e-mails facilement en illimité",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Outils pour analyser les concurrents",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Outils pour analyser les concurrents",duree:"1min28",videoId:"Jcg80S8eSWY",description:"Voici quelques outils utiles pour analyser des vidéos d'autres personnes sur TikTok et YouTube."},
     {id:3,titre:"Faire une vidéo dans n'importe quelle langue en 5 minutes",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:4,titre:"Améliorer l'accroche et le hook",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:5,titre:"Heure / hashtags pour poster",duree:"-",videoId:"",description:"Contenu à venir."},
