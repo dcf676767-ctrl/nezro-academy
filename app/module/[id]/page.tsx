@@ -35,7 +35,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:2,titre:"Exemple de contenu anonyme",duree:"1min36",videoId:"E7QuR44xUBA",description:"Voici un exemple d'une vidéo anonyme."},
     {id:3,titre:"Faire du contenu sans tête et sans voix de qualité",duree:"5min13",videoId:"p31WL_jKXI0",description:"Comment faire du contenu anonyme de qualité."},
     {id:4,titre:"Voix off anonyme sur TikTok",duree:"1min03",videoId:"cRwpZ9f54qM",description:"Voix off anonyme sur TikTok."},
-    {id:5,titre:"Voix off facile sur CapCut",duree:"1min33",videoId:"iDdMg_tKZdQ",description:"Voix off facile et voix IA sur CapCut."},
+    {id:5,titre:"Voix off facile sur CapCut",duree:"1min33",videoId:"zLvmkMyPO5I",description:"Voix off facile et voix IA sur CapCut."},
     {id:6,titre:"Faire du contenu Allemand, Espagnol, Italien",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:7,titre:"Contenu étranger avec CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:8,titre:"Avoir une bonne voix off IA",duree:"-",videoId:"",description:"Contenu à venir."},
