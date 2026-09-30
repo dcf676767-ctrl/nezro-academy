@@ -242,8 +242,8 @@ html, body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  height: 85%;
+  width: 95%;
+  height: 95%;
   object-fit: contain;
   object-position: center;
   z-index: 1;
