@@ -125,6 +125,7 @@ export default function Programme() {
                       {mod.id === 15 && <img src="/module-exemples-niches.png" alt="exemples niches" className="exemples-niches-img" />}
                       {mod.id === 16 && <img src="/module-capcut-telephone.png" alt="capcut telephone" className="capcut-telephone-img" />}
                       {mod.id === 17 && <img src="/module-poster.png" alt="poster" className="mindset-img" />}
+                      {mod.id === 24 && <img src="/module-chaine-youtube.png" alt="chaine youtube" className="mindset-img" />}
                       {mod.id === 23 && <img src="/module-capcut-pc.png" alt="capcut pc" className="capcut-pc-img" />}
                       {mod.id === 10 && <img src="/module-intro.png" alt="intro" className="intro-img" />}
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:1}}>
