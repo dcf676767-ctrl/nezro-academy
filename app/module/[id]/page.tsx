@@ -87,7 +87,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:3,titre:"Faire une vidéo dans n'importe quelle langue en 5 minutes",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:4,titre:"Améliorer l'accroche et le hook",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:5,titre:"Heure / hashtags pour poster",duree:"2min40",videoId:"yWpILVupjqM",description:"L'heure pour poster n'est pas très importante : le plus important, c'est que ton contenu soit bon. Les hashtags sont un peu importants car ils servent à cibler l'audience avec ta niche."},
-    {id:6,titre:"Programmer ses vidéos",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:6,titre:"Programmer ses vidéos",duree:"1min11",videoId:"aVgvnh2p35I",description:"Dans ce module, je te montre comment programmer ta vidéo sur TikTok, Facebook et YouTube."},
     {id:7,titre:"Que faire si la vidéo a du potentiel mais qu'elle ne perce pas ?",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:8,titre:"Reposter une ancienne vidéo de 3 mois",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
