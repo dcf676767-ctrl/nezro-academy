@@ -133,7 +133,7 @@ html, body {
   height: 106%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -154,7 +154,7 @@ html, body {
   height: 106%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -174,7 +174,7 @@ html, body {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 .reseaux-img {
@@ -186,7 +186,7 @@ html, body {
   height: 106%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 .niche-img {
@@ -198,7 +198,7 @@ html, body {
   height: 85%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 .exemples-niches-img {
@@ -210,7 +210,7 @@ html, body {
   height: 106%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 .capcut-pc-img {
@@ -222,7 +222,7 @@ html, body {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 .capcut-telephone-img {
@@ -234,5 +234,5 @@ html, body {
   height: 102%;
   object-fit: contain;
   object-position: center;
-  z-index: 999;
+  z-index: 1;
 }
