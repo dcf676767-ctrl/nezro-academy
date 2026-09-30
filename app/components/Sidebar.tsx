@@ -12,6 +12,23 @@ export default function Sidebar() {
   if (cacherSidebar) return null;
   const [menuOpen, setMenuOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  useEffect(() => {
+    if (!sidebarOpen || window.innerWidth >= 768) return;
+    const scrollY = window.scrollY;
+    const b = document.body;
+    const prev = { position: b.style.position, top: b.style.top, width: b.style.width, overflow: b.style.overflow };
+    b.style.position = "fixed";
+    b.style.top = "-" + scrollY + "px";
+    b.style.width = "100%";
+    b.style.overflow = "hidden";
+    return () => {
+      b.style.position = prev.position;
+      b.style.top = prev.top;
+      b.style.width = prev.width;
+      b.style.overflow = prev.overflow;
+      window.scrollTo(0, scrollY);
+    };
+  }, [sidebarOpen]);
   const menuRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -200,8 +217,8 @@ export default function Sidebar() {
       <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden fixed top-4 left-4 z-[1002] bg-gray-900 border border-gray-700 rounded-xl p-2 text-white text-xl">
         {sidebarOpen ? "✕" : "☰"}
       </button>
-      {sidebarOpen && <div onClick={() => setSidebarOpen(false)} className="md:hidden fixed inset-0 bg-black/50 z-[1000]" />}
-      <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed top-0 bottom-0 left-0 z-[1001] transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
+      {sidebarOpen && <div onClick={() => setSidebarOpen(false)} className="md:hidden fixed inset-0 bg-black/50 z-[1000] touch-none" />}
+      <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed top-0 bottom-0 left-0 z-[1001] overscroll-contain transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
       <div className="relative m-3 mb-2 rounded-2xl p-[2px] overflow-hidden">
         <div className="absolute inset-0 animate-shine bg-[length:200%_100%] bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
         <div className="relative bg-gray-900 rounded-2xl p-4 flex items-center gap-4 shadow-[0_0_20px_4px_rgba(59,130,246,0.3)]">
