@@ -197,11 +197,11 @@ export default function Sidebar() {
 
   return (
     <>
-      <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden fixed top-4 left-4 z-50 bg-gray-900 border border-gray-700 rounded-xl p-2 text-white text-xl">
+      <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden fixed top-4 left-4 z-[1002] bg-gray-900 border border-gray-700 rounded-xl p-2 text-white text-xl">
         {sidebarOpen ? "✕" : "☰"}
       </button>
-      {sidebarOpen && <div onClick={() => setSidebarOpen(false)} className="md:hidden fixed inset-0 bg-black/50 z-30" />}
-      <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed top-0 bottom-0 left-0 z-40 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
+      {sidebarOpen && <div onClick={() => setSidebarOpen(false)} className="md:hidden fixed inset-0 bg-black/50 z-[1000]" />}
+      <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed top-0 bottom-0 left-0 z-[1001] transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
       <div className="relative m-3 mb-2 rounded-2xl p-[2px] overflow-hidden">
         <div className="absolute inset-0 animate-shine bg-[length:200%_100%] bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
         <div className="relative bg-gray-900 rounded-2xl p-4 flex items-center gap-4 shadow-[0_0_20px_4px_rgba(59,130,246,0.3)]">
