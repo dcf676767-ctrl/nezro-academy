@@ -63,7 +63,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   17:{titre:"Commencer à poster",chapitres:[
     {id:1,titre:"Créer et chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Importation, Publication et problème de droit d'auteur sur YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:3,titre:"Outils importation automatique",duree:"-",videoId:"",description:"",liens:[
+    {id:3,titre:"Outils importation automatique",duree:"0min43",videoId:"MA_6t7sMykQ",description:"",liens:[
       {label:"Repurpose.io",url:"https://repurpose.io/?fpr=545571"},
     ]},
   ]},
