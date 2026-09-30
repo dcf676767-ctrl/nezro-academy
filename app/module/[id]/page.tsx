@@ -61,7 +61,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"Présentation du montage CapCut sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   17:{titre:"Commencer à poster",chapitres:[
-    {id:1,titre:"Chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:1,titre:"Créer et chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Importation des vidéos sur YouTube et tous les réseaux",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Outils importation automatique",duree:"-",videoId:"",description:"",liens:[
       {label:"Repurpose.io",url:"https://repurpose.io/?fpr=545571"},
