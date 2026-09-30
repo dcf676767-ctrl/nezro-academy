@@ -127,7 +127,7 @@ export default function Programme() {
                       {mod.id === 17 && <img src="/module-poster.png" alt="poster" className="mindset-img" />}
                       {mod.id === 23 && <img src="/module-capcut-pc.png" alt="capcut pc" className="capcut-pc-img" />}
                       {mod.id === 10 && <img src="/module-intro.png" alt="intro" className="intro-img" />}
-                      <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:999}}>
+                      <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:1}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
@@ -138,7 +138,7 @@ export default function Programme() {
                     </div>
                   )}
                   {progression[mod.id] === 100 && (
-                    <div style={{position:"absolute", bottom:"12px", left:"12px", background:"#22c55e", color:"white", fontSize:"0.75rem", fontWeight:"700", padding:"4px 10px", borderRadius:"999px", zIndex:999, pointerEvents:"none"}}>✓ Terminé</div>
+                    <div style={{position:"absolute", bottom:"12px", left:"12px", background:"#22c55e", color:"white", fontSize:"0.75rem", fontWeight:"700", padding:"4px 10px", borderRadius:"999px", zIndex:1, pointerEvents:"none"}}>✓ Terminé</div>
                   )}
                   {!(mod.id === 1 || mod.id === 8) && (
                     <div style={{position:"absolute", top:"12px", right:"12px", width:"32px", height:"32px", borderRadius:"8px", background:"linear-gradient(135deg,#6366f1,#3b82f6)", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 0 12px rgba(99,102,241,0.6)", zIndex:3}}>
