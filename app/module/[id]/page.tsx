@@ -62,7 +62,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   17:{titre:"Commencer à poster",chapitres:[
     {id:1,titre:"Créer et chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Importation des vidéos sur YouTube et tous les réseaux et problème de droit d'auteur",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Importation, Publication et problème de droit d'auteur sur YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Outils importation automatique",duree:"-",videoId:"",description:"",liens:[
       {label:"Repurpose.io",url:"https://repurpose.io/?fpr=545571"},
     ]},
