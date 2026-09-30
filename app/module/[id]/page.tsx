@@ -97,7 +97,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   24:{titre:"Bien maîtriser sa chaîne YouTube",chapitres:[
     {id:1,titre:"Personnaliser sa chaîne YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"IA qui peut t'aider à devenir viral sur YouTube Studio",duree:"0min35",videoId:"yFdqVaEQQdc",description:"L'IA est directement enterrée sur YouTube!"},
+    {id:2,titre:"IA qui peut t'aider à devenir viral sur YouTube Studio",duree:"0min35",videoId:"yFdqVaEQQdc",description:"L'IA est directement intégrée sur YouTube!"},
     {id:3,titre:"Créer des posts spéciaux pour faire une communauté sur YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   1:{titre:"Niche Roblox",chapitres:[
