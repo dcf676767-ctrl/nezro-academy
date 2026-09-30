@@ -81,8 +81,19 @@ export default function Programme() {
   useEffect(() => {
     if (!pret) return;
     if (typeof window === "undefined" || !window.location.hash) return;
-    const el = document.querySelector(window.location.hash);
-    if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
+    const hash = window.location.hash;
+    let essais = 0;
+    const timer = setInterval(() => {
+      essais++;
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "auto", block: "center" });
+        clearInterval(timer);
+      } else if (essais >= 20) {
+        clearInterval(timer);
+      }
+    }, 100);
+    return () => clearInterval(timer);
   }, [pret]);
 
   if (!pret) return <main className="min-h-screen bg-gray-950 flex items-center justify-center"><p className="text-gray-400">Chargement...</p></main>;
@@ -99,7 +110,7 @@ export default function Programme() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {modules.map((mod, modIndex) => (
-            <button key={mod.id} onClick={(e) => { if ((mod as any).locked) return; handleClick(e, mod.id); }}
+            <button key={mod.id} id={`module-${mod.id}`} onClick={(e) => { if ((mod as any).locked) return; handleClick(e, mod.id); }}
               className="relative group text-left rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 active:scale-95"
               style={{
                 padding:"2px",
