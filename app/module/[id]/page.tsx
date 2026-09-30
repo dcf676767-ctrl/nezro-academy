@@ -98,7 +98,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   24:{titre:"Bien maîtriser sa chaîne YouTube",chapitres:[
     {id:1,titre:"Personnaliser sa chaîne YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"IA qui peut t'aider à devenir viral sur YouTube Studio",duree:"0min35",videoId:"yFdqVaEQQdc",description:"L'IA est directement intégrée sur YouTube!"},
-    {id:3,titre:"Créer des posts spéciaux pour faire une communauté sur YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Créer des posts spéciaux pour faire une communauté sur YouTube",duree:"0min45",videoId:"YCPMsZZJ5B8",description:"Voici comment créer des posts pour votre communauté et interagir avec elle."},
   ]},
   1:{titre:"Niche Roblox",chapitres:[
     {id:1,titre:"Introduction",duree:"1min",videoId:"_3JxXTY34mM",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
