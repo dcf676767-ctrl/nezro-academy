@@ -89,7 +89,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:5,titre:"Heure / hashtags pour poster",duree:"2min40",videoId:"yWpILVupjqM",description:"L'heure pour poster n'est pas très importante : le plus important, c'est que ton contenu soit bon. Les hashtags sont un peu importants car ils servent à cibler l'audience avec ta niche."},
     {id:6,titre:"Programmer ses vidéos",duree:"1min11",videoId:"aVgvnh2p35I",description:"Dans ce module, je te montre comment programmer ta vidéo sur TikTok, Facebook et YouTube."},
     {id:7,titre:"Que faire si la vidéo a du potentiel mais qu'elle ne perce pas ?",duree:"1min55",videoId:"ls3FfpivImc",description:"À RETENIR : ne jamais supprimer une vidéo TikTok, cela casse l'algorithme ! Mets-la juste en privé."},
-    {id:8,titre:"Reposter une ancienne vidéo de 3 mois",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:8,titre:"Reposter une ancienne vidéo de 3 mois",duree:"1min24",videoId:"T8sVboI1CiY",description:"Tu peux reposter les anciennes vidéos que tu as postées sur ton compte ou ta chaîne YouTube qui datent d'il y a trois mois, si tu as la flemme de faire de nouvelles vidéos !"},
   ]},
   22:{titre:"Déclaration et compte AdSense",chapitres:[
     {id:1,titre:"Déclaration et compte AdSense",duree:"-",videoId:"",description:"Contenu à venir."},
