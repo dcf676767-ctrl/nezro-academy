@@ -37,6 +37,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:4,titre:"Voix off anonyme sur TikTok",duree:"1min03",videoId:"cRwpZ9f54qM",description:"Voix off anonyme sur TikTok."},
     {id:5,titre:"Voix off facile sur CapCut",duree:"1min33",videoId:"zLvmkMyPO5I",description:"Voix off facile et voix IA sur CapCut."},
     {id:6,titre:"Faire du contenu Allemand, Espagnol, Italien",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:10,titre:"Faire une vidéo dans n'importe quelle langue en 5 minutes",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:7,titre:"Contenu étranger avec CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:8,titre:"Avoir une bonne voix off IA",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:9,titre:"Retirer les sous-titres d'une vidéo",duree:"-",videoId:"",description:"Contenu à venir."},
@@ -84,7 +85,6 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   21:{titre:"Astuces",chapitres:[
     {id:1,titre:"Créer des e-mails facilement en illimité",duree:"1min22",videoId:"jP6kluEbED8",description:"",liens:[{label:"Firefox Relay",url:"https://relay.firefox.com/accounts/profile/"}]},
     {id:2,titre:"Outils pour analyser les concurrents",duree:"1min28",videoId:"Jcg80S8eSWY",description:"Voici quelques outils utiles pour analyser des vidéos d'autres personnes sur TikTok et YouTube.",liens:[{label:"vidIQ",url:"https://vidiq.com/fr/extension/"}]},
-    {id:3,titre:"Faire une vidéo dans n'importe quelle langue en 5 minutes",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:4,titre:"Améliorer l'accroche et le hook",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:5,titre:"Heure / hashtags pour poster",duree:"2min40",videoId:"yWpILVupjqM",description:"L'heure pour poster n'est pas très importante : le plus important, c'est que ton contenu soit bon. Les hashtags sont un peu importants car ils servent à cibler l'audience avec ta niche."},
     {id:6,titre:"Programmer ses vidéos",duree:"1min11",videoId:"aVgvnh2p35I",description:"Dans ce module, je te montre comment programmer ta vidéo sur TikTok, Facebook et YouTube."},
