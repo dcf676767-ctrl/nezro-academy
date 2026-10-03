@@ -91,9 +91,9 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:7,titre:"Que faire si la vidéo a du potentiel mais qu'elle ne perce pas ?",duree:"1min55",videoId:"ls3FfpivImc",description:"À RETENIR : ne jamais supprimer une vidéo TikTok, cela casse l'algorithme ! Mets-la juste en privé."},
     {id:8,titre:"Reposter une ancienne vidéo de 3 mois",duree:"1min24",videoId:"T8sVboI1CiY",description:"Tu peux reposter les anciennes vidéos que tu as postées sur ton compte ou ta chaîne YouTube qui datent d'il y a trois mois, si tu as la flemme de faire de nouvelles vidéos !"},
   ]},
-  22:{titre:"Déclaration et compte AdSense",chapitres:[
-    {id:1,titre:"Déclaration et compte AdSense",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Retirer l'argent",duree:"-",videoId:"",description:"Contenu à venir."},
+  22:{titre:"Retirer L'argent et compte Adsense",chapitres:[
+    {id:1,titre:"Configurer son compte AdSense",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Retirer l'argent sur TikTok, YouTube et Facebook",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   24:{titre:"Bien maîtriser sa chaîne YouTube",chapitres:[
     {id:1,titre:"Personnaliser sa chaîne YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
