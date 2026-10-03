@@ -92,7 +92,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:8,titre:"Reposter une ancienne vidéo de 3 mois",duree:"1min24",videoId:"T8sVboI1CiY",description:"Tu peux reposter les anciennes vidéos que tu as postées sur ton compte ou ta chaîne YouTube qui datent d'il y a trois mois, si tu as la flemme de faire de nouvelles vidéos !"},
   ]},
   22:{titre:"Retirer L'argent et compte Adsense",chapitres:[
-    {id:1,titre:"Configurer son compte AdSense et déclaration",duree:"-",videoId:"",description:"Contenu à venir.",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
+    {id:1,titre:"Configurer son compte AdSense et déclaration",duree:"1min58",videoId:"MfcAMouV7lQ",description:"",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
     {id:2,titre:"Retirer l'argent sur TikTok et YouTube",duree:"-",videoId:"",description:"Contenu à venir.",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
   ]},
   24:{titre:"Bien maîtriser sa chaîne YouTube",chapitres:[
