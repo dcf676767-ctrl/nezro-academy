@@ -45,7 +45,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   14:{titre:"Trouver sa niche, être efficace et monétiser",chapitres:[
     {id:1,titre:"Trouver TA niche",duree:"1min01",videoId:"cBv_CKgzeIk",description:"Reste focus sur une seule niche par compte ! Ne pas faire plusieurs niches sur un seul compte."},
     {id:2,titre:"Que faire quand tu as trouvé ta niche ?",duree:"0min55",videoId:"Lc2QQj1fo8U",description:"Utilise un compte déjà chauffé!"},
-    {id:6,titre:"Comment s'inspirer des autres ?",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:6,titre:"Comment s'inspirer des autres ?",duree:"2min19",videoId:"-PoWlgE-y2A",description:"Pour t'inspirer d'autres créateurs, il faut que tu aies une vision d'un vrai créateur, et non d'un simple consommateur. Quand tu regardes des vidéos d'autres créateurs, analyse leur contenu et vérifie s'ils sont monétisés."},
     {id:7,titre:"Faire du contenu grâce aux autres",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:8,titre:"Trouver des idées avec l'IA",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Branding et identité du compte",duree:"-",videoId:"",description:"Contenu à venir."},
