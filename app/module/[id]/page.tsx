@@ -96,7 +96,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:2,titre:"Retirer l'argent sur TikTok et YouTube",duree:"2min27",videoId:"VLtrXXOLsW0",description:"",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
   ]},
   24:{titre:"Bien maîtriser sa chaîne YouTube",chapitres:[
-    {id:1,titre:"Personnaliser sa chaîne YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:1,titre:"Personnaliser sa chaîne YouTube",duree:"2min08",videoId:"ouNtOvzX76c",description:"Comment bien personnaliser sa chaîne YouTube et donner envie aux gens de regarder ton contenu ?"},
     {id:2,titre:"IA qui peut t'aider à devenir viral sur YouTube Studio",duree:"0min35",videoId:"yFdqVaEQQdc",description:"L'IA est directement intégrée sur YouTube!"},
     {id:3,titre:"Créer des posts spéciaux pour faire une communauté sur YouTube",duree:"0min45",videoId:"YCPMsZZJ5B8",description:"Voici comment créer des posts pour votre communauté et interagir avec elle."},
   ]},
