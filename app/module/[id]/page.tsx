@@ -43,7 +43,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:9,titre:"Retirer les sous-titres d'une vidéo",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   14:{titre:"Trouver sa niche, être efficace et monétiser",chapitres:[
-    {id:1,titre:"Trouver TA niche",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:1,titre:"Trouver TA niche",duree:"1min01",videoId:"cBv_CKgzeIk",description:"Reste focus sur une seule niche par compte ! Ne pas faire plusieurs niches sur un seul compte."},
     {id:2,titre:"Que faire quand tu as trouvé ta niche ?",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:6,titre:"Comment s'inspirer des autres ?",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:7,titre:"Faire du contenu grâce aux autres",duree:"-",videoId:"",description:"Contenu à venir."},
