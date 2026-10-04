@@ -93,7 +93,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   22:{titre:"Retirer L'argent et compte Adsense",chapitres:[
     {id:1,titre:"Configurer son compte AdSense et déclaration",duree:"1min58",videoId:"MfcAMouV7lQ",description:"",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
-    {id:2,titre:"Retirer l'argent sur TikTok et YouTube",duree:"-",videoId:"",description:"Contenu à venir.",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
+    {id:2,titre:"Retirer l'argent sur TikTok et YouTube",duree:"2min27",videoId:"VLtrXXOLsW0",description:"",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
   ]},
   24:{titre:"Bien maîtriser sa chaîne YouTube",chapitres:[
     {id:1,titre:"Personnaliser sa chaîne YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
