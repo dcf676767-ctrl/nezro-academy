@@ -48,7 +48,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:6,titre:"Comment s'inspirer des autres ?",duree:"2min19",videoId:"-PoWlgE-y2A",description:"Pour t'inspirer d'autres créateurs, il faut que tu aies une vision d'un vrai créateur, et non d'un simple consommateur. Quand tu regardes des vidéos d'autres créateurs, analyse leur contenu et vérifie s'ils sont monétisés."},
     {id:7,titre:"Faire du contenu grâce aux autres",duree:"1min48",videoId:"MjnVjY2kFXI",description:"Tu n'es pas obligé de tout créer toi-même : réagis à du contenu existant, fais des compilations ou des commentaires sur des vidéos populaires de ta niche. C'est une méthode rapide pour produire régulièrement sans t'épuiser."},
     {id:8,titre:"Trouver des idées avec l'IA",duree:"1min30",videoId:"YzXxrjOo8dc",description:"Utilise l'IA (ChatGPT, Gemini...) pour générer rapidement des idées de sujets, de titres et d'angles dans ta niche. Ça te permet de ne jamais tomber en panne d'inspiration."},
-    {id:3,titre:"Branding et identité du compte",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:3,titre:"Branding et identité du compte",duree:"2min22",videoId:"3E38_Qbpi0Q",description:"Ton compte doit donner envie de te suivre dès la première seconde : choisis un pseudo, une photo de profil et une bio cohérents avec ta niche. Garde la même identité visuelle sur tous tes réseaux pour que les gens te reconnaissent facilement."},
     {id:5,titre:"Faire de l'argent avec les collaborations/affiliations",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   15:{titre:"30 exemples de niches à faire",chapitres:[
