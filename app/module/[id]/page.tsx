@@ -49,7 +49,6 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:7,titre:"Faire du contenu grâce aux autres",duree:"1min48",videoId:"MjnVjY2kFXI",description:"Tu n'es pas obligé de tout créer toi-même : réagis à du contenu existant, fais des compilations ou des commentaires sur des vidéos populaires de ta niche. C'est une méthode rapide pour produire régulièrement sans t'épuiser."},
     {id:8,titre:"Trouver des idées avec l'IA",duree:"1min30",videoId:"YzXxrjOo8dc",description:"Utilise l'IA (ChatGPT, Gemini...) pour générer rapidement des idées de sujets, de titres et d'angles dans ta niche. Ça te permet de ne jamais tomber en panne d'inspiration."},
     {id:3,titre:"Branding et identité du compte",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:4,titre:"Conseils pour être viral sans effort",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:5,titre:"Faire de l'argent avec les collaborations/affiliations",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   15:{titre:"30 exemples de niches à faire",chapitres:[
