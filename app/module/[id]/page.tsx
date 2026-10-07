@@ -134,6 +134,21 @@ export default function Module() {
   const [animKey, setAnimKey] = useState(0);
   const chapitre = moduleData?.chapitres[chapitreActif];
 
+  const [chapRestaure, setChapRestaure] = useState<number | null>(null);
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("chapitre_actif_" + moduleId);
+      const n = Number(saved);
+      const max = moduleData?.chapitres.length ?? 0;
+      if (saved !== null && Number.isInteger(n) && n >= 0 && n < max) setChapitreActif(n);
+    } catch {}
+    setChapRestaure(moduleId);
+  }, [moduleId]);
+  useEffect(() => {
+    if (chapRestaure !== moduleId) return;
+    try { localStorage.setItem("chapitre_actif_" + moduleId, String(chapitreActif)); } catch {}
+  }, [chapitreActif, chapRestaure, moduleId]);
+
 
 
   const toggleCompleted = async (chapId: number) => {
