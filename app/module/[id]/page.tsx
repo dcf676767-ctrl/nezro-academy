@@ -242,9 +242,9 @@ export default function Module() {
                       className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${completed.includes(chap.id)?"bg-green-500 border-green-500":"border-gray-600"}`}>
                       {completed.includes(chap.id) && <span className="text-xs text-white">✓</span>}
                     </button>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2">
-                        <p className={`text-sm font-medium ${i===chapitreActif?"text-blue-400":"text-gray-300"}`}>{chap.titre}</p>
+                        <p className={`text-sm font-medium min-w-0 break-words ${i===chapitreActif?"text-blue-400":"text-gray-300"}`}>{chap.titre}</p>
                         {i===chapitreActif && <button onClick={(e) => { e.stopPropagation(); suivant(); }} className="shrink-0 bg-blue-600 text-white px-2.5 py-1 rounded-lg text-xs font-bold hover:bg-blue-700 transition-all">{estDernier?"🎉 Terminer":"Suivant →"}</button>}
                       </div>
                       <p className="text-xs text-gray-500">{chap.duree}</p>
