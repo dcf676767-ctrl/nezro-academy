@@ -22,7 +22,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"Introduction",duree:"5min28",videoId:"CiEdH9O2g0o",description:"BIENVENUE DANS LE PROGRAMME !"},
   ]},
   11:{titre:"Mind-set et organisation",chapitres:[
-    {id:1,titre:"Organisation et planification",duree:"2min06",videoId:"jDOyduSjKCU",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- FAIRE UNE TO-DO LISTE TOUS LES SOIRS\n\n- QUAND TU FAIS TA VIDÉO, METS UN TIMER DE 15-20MIN (ÇA CRÉER DU SENTIMENT D'URGENCE)\n\n- ESSAYER DE FAIRE LES VIDÉOS PENDANT LE WEEK END POUR LES POSTER DURANT LA SEMAINE (BEAUCOUP PLUS PRODUCTIF)\n\n- PROGRAMMER LES VIDÉOS (EXPLIQUÉ DANS LA SUITE DU PROGRAMME)"},
+    {id:1,titre:"Organisation et planification",duree:"2min06",videoId:"jDOyduSjKCU",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- Faire une to-do liste tous les soirs\n\n- Quand tu fais ta vidéo, mets un timer de 15-20min (ça crée du sentiment d'urgence)\n\n- Essayer de faire les vidéos pendant le week-end pour les poster durant la semaine (beaucoup plus productif)\n\n- Programmer les vidéos (expliqué dans la suite du programme)"},
     {id:2,titre:"Mind set",duree:"1min20",videoId:"GddLPbqCu4o",description:"JAMAIS ABANDONNER !"},
   ]},
   12:{titre:"Comprendre les réseaux et comment être monétisé",chapitres:[
