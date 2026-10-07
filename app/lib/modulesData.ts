@@ -11,7 +11,7 @@ export const MODULES = [
   { id: 17, titre: "Commencer à poster", chapitres: 3 },
   { id: 24, titre: "Bien maîtriser sa chaîne YouTube", chapitres: 3 },
   { id: 25, titre: "Analyser pourquoi une vidéo a percé", chapitres: 3 },
-  { id: 19, titre: "Problèmes de monétisation", chapitres: 4 },
+  { id: 19, titre: "Problèmes de compte et de monétisation", chapitres: 4 },
   { id: 20, titre: "Augmenter son RPM", chapitres: 1 },
   { id: 21, titre: "Astuces", chapitres: 7 },
   { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },

@@ -73,7 +73,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:3,titre:"Savoir en avance si une vidéo va percer ou pas",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
 
-  19:{titre:"Problèmes de monétisation",chapitres:[
+  19:{titre:"Problèmes de compte et de monétisation",chapitres:[
     {id:1,titre:"Rester monétisé",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Contestation de monétisation pour YouTube/TikTok/Facebook",duree:"0min28",videoId:"9RlQLv6kF7E",description:"Voici la contestation à envoyer sur YouTube, TikTok et Facebook pour avoir encore une chance d'être monétisé :<br/><br/><strong>\"Je ne comprends pas pourquoi mon compte a été refusé pour le programme de rémunération. Mon compte respecte toutes vos règles. Pouvez-vous réexaminer votre décision ? Je trouve cette disqualification injustifiée.\"</strong>"},
     {id:3,titre:"Récupérer un compte banni sur TikTok et YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
