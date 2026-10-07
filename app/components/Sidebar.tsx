@@ -198,8 +198,11 @@ export default function Sidebar() {
         });
       });
     } else {
-      setIndicatorReady(true);
+      setIndicatorReady(false);
       setIndicatorStyle({ top: targetTop, height: targetHeight, opacity: 1 });
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setIndicatorReady(true));
+      });
     }
   }, [active]);
 
