@@ -183,6 +183,7 @@ export default function Sidebar() {
     const targetHeight = activeRect.height;
 
     const prevHref = typeof window !== "undefined" ? sessionStorage.getItem("sidebar_prev_href") : null;
+    if (typeof window !== "undefined") sessionStorage.removeItem("sidebar_prev_href");
     const prevEl = prevHref ? linkRefs.current[prevHref] : null;
 
     if (prevEl && prevHref !== active) {
