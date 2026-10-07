@@ -208,7 +208,7 @@ export default function Module() {
                 </div>
               )}
             </div>
-            <h2 className="text-xl font-bold text-white mb-3">{chapitre.titre}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{chapitre.titre}</h2>
             {chapitre.liens && chapitre.liens.length > 0 && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
