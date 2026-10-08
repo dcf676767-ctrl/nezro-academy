@@ -8,7 +8,7 @@ const modules = [
   { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "/module-mindset.png", chapitres: 2, customThumb: true },
   { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 3, customThumb: false },
   { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", label: "Outils", description: "Les meilleurs outils pour être plus productif et rentable.", image: "", chapitres: 1, customThumb: false },
-  { id: 14, titre: "Trouver sa niche, être efficace et monétiser", label: "Niche", description: "Trouve ta niche et apprends à être efficace et monétisé.", image: "", chapitres: 7, customThumb: false },
+  { id: 14, titre: "Trouver sa niche, être efficace", label: "Niche", description: "Trouve ta niche et apprends à être efficace et monétisé.", image: "", chapitres: 7, customThumb: false },
   { id: 15, titre: "30 exemples de niches à faire", label: "Exemples", description: "30 exemples concrets de niches à exploiter.", image: "", chapitres: 2, customThumb: false },
   { id: 26, titre: "Présentation de CapCut téléphone et PC", label: "CapCut", description: "Présentation de CapCut sur téléphone et sur PC.", image: "", chapitres: 2, customThumb: false },
   { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 10, customThumb: false },
