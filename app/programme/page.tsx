@@ -50,7 +50,7 @@ export default function Programme() {
     const prog: {[key:number]:number} = {};
     modules.forEach(m => {
       const completed = data.filter((p:any) => p.module_id === m.id).length;
-      prog[m.id] = Math.round((completed / m.chapitres) * 100);
+      prog[m.id] = Math.min(100, Math.round((completed / m.chapitres) * 100));
     });
     setProgression(prog);
   }, []);
