@@ -54,7 +54,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:2,titre:"Utiliser l'IA pour trouver des sous-niches",duree:"1min03",videoId:"IWsekpQ9vHo",description:"Utilise l'IA pour trouver des sous-niches à partir de ta niche principale.\n\nÀ retenir :\n\n• Donner ta niche à l'IA\n• Lui demander des idées de sous-niches\n• Choisir celle qui te plaît le plus"},
   ]},
   26:{titre:"Présentation de CapCut téléphone et PC",chapitres:[
-    {id:1,titre:"Présentation de CapCut sur téléphone",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:1,titre:"Présentation de CapCut sur téléphone",duree:"1min02",videoId:"ZOYH5HzknhM",description:"<strong style='font-size:1.25rem'>Voici une vidéo beaucoup plus complète pour mieux comprendre le montage vidéo CapCut sur téléphone :</strong>",liens:[{label:"Voir la vidéo complète sur le montage CapCut téléphone",url:"https://youtu.be/u8BuF1qpmnI?si=rc-zO_DSsv7YERML"}]},
     {id:2,titre:"Présentation de CapCut sur PC",duree:"3min01",videoId:"P28T3qtaY5s",description:"<strong style='font-size:1.25rem'>Voici une vidéo beaucoup plus complète pour mieux comprendre le montage vidéo CapCut sur PC :</strong>",liens:[{label:"Voir la vidéo complète sur le montage CapCut PC",url:"https://youtu.be/MwEMHRQoSV4?si=ao_Alb_DyperZcGg"}]},
   ]},
   16:{titre:"Exemple de montage CapCut sur téléphone et PC",chapitres:[
