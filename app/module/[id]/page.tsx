@@ -37,7 +37,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:4,titre:"Voix off anonyme sur TikTok",duree:"1min03",videoId:"cRwpZ9f54qM",description:"Voix off anonyme sur TikTok."},
     {id:5,titre:"Voix off facile sur CapCut",duree:"1min33",videoId:"zLvmkMyPO5I",description:"Voix off facile et voix IA sur CapCut."},
     {id:6,titre:"Faire du contenu Allemand, Espagnol, Italien",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:10,titre:"Faire une vidéo dans n'importe quelle langue en 5 minutes",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:10,titre:"Faire vidéo étranger pour les 10k abos TikTok",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:7,titre:"Contenu étranger avec CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:8,titre:"Avoir une bonne voix off IA",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:9,titre:"Retirer les sous-titres d'une vidéo",duree:"-",videoId:"",description:"Contenu à venir."},
