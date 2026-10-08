@@ -55,11 +55,13 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"30 exemples de niches à faire",duree:"6min27",videoId:"JaOHbK6O4dg",description:"<strong style='font-size:1.4em;display:block;margin-bottom:8px;'>Niche avec peu de concurrence à faire :</strong><br/><br/><strong>1. Technologie (Apple, Samsung)</strong><br/><strong>2. Voyages</strong><br/><strong>3. Immobilier</strong><br/><strong>4. Le droit</strong><br/><strong>5. Éducation</strong><br/><strong>6. Covering / moto / réparation moto</strong><br/><strong>7. Cuisine / dégustation (réaction du contenu US / Espagnol)</strong><br/><strong>8. Chaussures de mode</strong><br/><strong>9. Sport peu connu / lutte / judo / basket / tennis</strong><br/><strong>10. Les dinosaures</strong><br/><strong>11. Le gaming (GTA 6 bientôt)</strong><br/><strong>12. Histoire (humanité, seconde guerre mondiale)</strong><br/><strong>13. La coiffure</strong><br/><strong>14. Musique</strong><br/><strong>15. Bateau</strong><br/><strong>16. Armée</strong><br/><strong>17. Innovation</strong><br/><strong>18. Accident (route, incendie, inondations)</strong><br/><strong>19. Animaux (comparaison des animaux sous format réaction)</strong><br/><strong>20. Salaire (footballeur, acteur, combattant)</strong><br/><strong>21. Crime</strong><br/><strong>22. Les transports</strong><br/><strong>23. Séduction / drague</strong><br/><strong>24. Les métiers (docteur, chirurgien)</strong><br/><strong>25. Les pays</strong><br/><strong>26. Autour d\'un style de musique (parler des artistes, des sons)</strong><br/><strong>27. Les prisons</strong><br/><strong>28. La loi</strong><br/><strong>29. L\'actualité</strong><br/><strong>30. Les boissons (Coca, Monster)</strong><br/><strong>31. Décoration d\'intérieur</strong>"},
     {id:2,titre:"Utiliser l'IA pour trouver des sous-niches",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
-  16:{titre:"Exemple de montage sur CapCut",chapitres:[
-    {id:1,titre:"Exemple de montage sur CapCut",duree:"-",videoId:"",description:"Contenu à venir."},
+  26:{titre:"Présentation de CapCut téléphone et PC",chapitres:[
+    {id:1,titre:"Présentation de CapCut sur téléphone",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Présentation de CapCut sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
-  23:{titre:"Présentation du montage CapCut sur PC",chapitres:[
-    {id:1,titre:"Présentation du montage CapCut sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
+  16:{titre:"Exemple de montage CapCut sur téléphone et PC",chapitres:[
+    {id:1,titre:"Exemple de montage sur téléphone",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Exemple de montage sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
   17:{titre:"Commencer à poster",chapitres:[
     {id:1,titre:"Créer et chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},

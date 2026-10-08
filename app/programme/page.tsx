@@ -10,9 +10,9 @@ const modules = [
   { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", label: "Outils", description: "Les meilleurs outils pour être plus productif et rentable.", image: "", chapitres: 1, customThumb: false },
   { id: 14, titre: "Trouver sa niche, être efficace et monétiser", label: "Niche", description: "Trouve ta niche et apprends à être efficace et monétisé.", image: "", chapitres: 7, customThumb: false },
   { id: 15, titre: "30 exemples de niches à faire", label: "Exemples", description: "30 exemples concrets de niches à exploiter.", image: "", chapitres: 2, customThumb: false },
+  { id: 26, titre: "Présentation de CapCut téléphone et PC", label: "CapCut", description: "Présentation de CapCut sur téléphone et sur PC.", image: "", chapitres: 2, customThumb: false },
   { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 10, customThumb: false },
-  { id: 16, titre: "Exemple de montage sur CapCut téléphone", label: "Montage", description: "Un exemple complet de montage sur CapCut, sur téléphone.", image: "", chapitres: 1, customThumb: false },
-  { id: 23, titre: "Présentation du montage CapCut sur PC", label: "CapCut PC", description: "Présentation complète du montage sur CapCut version PC.", image: "", chapitres: 1, customThumb: false },
+  { id: 16, titre: "Exemple de montage CapCut sur téléphone et PC", label: "Montage", description: "Un exemple complet de montage sur CapCut, sur téléphone et sur PC.", image: "", chapitres: 2, customThumb: false },
   { id: 17, titre: "Commencer à poster", label: "Poster", description: "Chauffe ton compte et importe tes premières vidéos.", image: "", chapitres: 3, customThumb: false },
   { id: 24, titre: "Bien maîtriser sa chaîne YouTube", label: "YouTube", description: "Personnalise ta chaîne et construis ta communauté sur YouTube.", image: "", chapitres: 3, customThumb: false },
   { id: 25, titre: "Analyser pourquoi une vidéo a percé", label: "Analyse", description: "Comprends ce qui fait vraiment percer une vidéo.", image: "", chapitres: 3, customThumb: false },
@@ -137,7 +137,6 @@ export default function Programme() {
                       {mod.id === 16 && <img src="/module-capcut-telephone.png" alt="capcut telephone" className="capcut-telephone-img" />}
                       {mod.id === 17 && <img src="/module-poster.png" alt="poster" className="mindset-img" />}
                       {mod.id === 24 && <img src="/module-chaine-youtube.png" alt="chaine youtube" className="chaine-youtube-img" />}
-                      {mod.id === 23 && <img src="/module-capcut-pc.png" alt="capcut pc" className="capcut-pc-img" />}
                       {mod.id === 10 && <img src="/module-intro.png" alt="intro" className="intro-img" />}
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:1}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
