@@ -55,7 +55,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   26:{titre:"Présentation de CapCut téléphone et PC",chapitres:[
     {id:1,titre:"Présentation de CapCut sur téléphone",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Présentation de CapCut sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Présentation de CapCut sur PC",duree:"3min01",videoId:"P28T3qtaY5s",description:"Voici une vidéo beaucoup plus complète pour mieux comprendre le montage vidéo CapCut sur PC :\n\n🔗 <a href='https://youtu.be/MwEMHRQoSV4?si=ao_Alb_DyperZcGg' target='_blank' rel='noopener noreferrer' style='color:#60a5fa;text-decoration:underline'>Voir la vidéo complète sur le montage CapCut PC</a>"},
   ]},
   16:{titre:"Exemple de montage CapCut sur téléphone et PC",chapitres:[
     {id:1,titre:"Exemple de montage sur téléphone",duree:"-",videoId:"",description:"Contenu à venir."},
