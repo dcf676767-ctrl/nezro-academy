@@ -70,7 +70,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   25:{titre:"Analyser pourquoi une vidéo a percé",chapitres:[
     {id:1,titre:"Analyser le Stayed to Watch et la rétention d'audience sur YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Analyser la rétention sur TikTok",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Analyser la rétention sur TikTok",duree:"4min13",videoId:"W8OOjA5L9fE",description:"<strong style='font-size:1.25rem'>À retenir :</strong>\n\nSur TikTok, ce qui compte vraiment, ce sont ces trois critères :\n\n• ⏱️ <strong>La rétention</strong> : combien de personnes regardent ta vidéo jusqu'à la fin\n• 🎣 <strong>Le hook</strong> : les premières secondes qui donnent envie de rester\n• 💬 <strong>L'interaction</strong> : combien de personnes partagent ta vidéo et la mettent en favoris\n\n👉 Les likes ne sont pas importants. Concentre-toi sur la rétention, le hook, les partages et les favoris."},
     {id:3,titre:"Savoir en avance si une vidéo va percer ou pas",duree:"-",videoId:"",description:"Contenu à venir."},
   ]},
 
