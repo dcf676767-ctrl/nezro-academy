@@ -151,6 +151,10 @@ export default function Module() {
     if (chapRestaure !== moduleId) return;
     try { localStorage.setItem("chapitre_actif_" + moduleId, String(chapitreActif)); } catch {}
   }, [chapitreActif, chapRestaure, moduleId]);
+  useEffect(() => {
+    if (chapRestaure !== moduleId) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [chapitreActif]);
 
 
 
