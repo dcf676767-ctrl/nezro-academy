@@ -122,7 +122,18 @@ export default function Sidebar() {
         const seed = maintenant.getDate() + maintenant.getMonth() * 31 + maintenant.getHours() * 7;
         const pourcentage = 0.02 + ((seed % 4) / 100);
         const enligne = Math.max(1, Math.min(membres.length, Math.round(membres.length * pourcentage)));
-        const avatars = membres.slice(0,4).map((p:any) => p.avatar_url || "");
+        const avatars = (() => {
+          const avec = membres.filter((p:any) => p.avatar_url).sort((a:any, b:any) => String(a.avatar_url).localeCompare(String(b.avatar_url)));
+          const pool = avec.length >= 4 ? avec : membres;
+          let seed = Math.floor(Date.now() / 60000);
+          const rand = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+          const tab = [...pool];
+          for (let i = tab.length - 1; i > 0; i--) {
+            const j = Math.floor(rand() * (i + 1));
+            [tab[i], tab[j]] = [tab[j], tab[i]];
+          }
+          return tab.slice(0, 4).map((p:any) => p.avatar_url || "");
+        })();
         const s = { membres: membres.length, admins, enligne, avatars };
         setStats(s); sessionStorage.setItem("sidebar_stats", JSON.stringify(s));
       });
