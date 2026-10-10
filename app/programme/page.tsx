@@ -79,7 +79,6 @@ export default function Programme() {
     router.push(`/module/${id}`);
   };
   useLayoutEffect(() => {
-    if (!pret) return;
     if (typeof window === "undefined" || !window.location.hash) return;
     const hash = window.location.hash;
     const aller = () => {
@@ -98,9 +97,8 @@ export default function Programme() {
       if (aller() || essais >= 20) clearInterval(timer);
     }, 100);
     return () => clearInterval(timer);
-  }, [pret]);
+  }, []);
 
-  if (!pret) return <main className="min-h-screen bg-gray-950" />;
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
