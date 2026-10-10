@@ -215,7 +215,7 @@ export default function Module() {
                 </div>
               )}
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{chapitre.titre}</h2>
+            {!(moduleData.chapitres.length === 1 && chapitre.titre.trim().toLowerCase() === moduleData.titre.trim().toLowerCase()) && <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{chapitre.titre}</h2>}
             {chapitre.description && chapitre.description !== "Contenu à venir." && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
