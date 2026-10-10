@@ -60,7 +60,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   16:{titre:"Exemple de montage CapCut sur téléphone et PC",chapitres:[
     {id:1,titre:"Exemple de montage sur téléphone",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Exemple de montage sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
-    {id:2,titre:"Exemple et analyse de niches anonymes",duree:"-",videoId:"",description:""},
+    {id:3,titre:"Exemple et analyse de niches anonymes",duree:"-",videoId:"",description:""},
   ]},
   17:{titre:"Commencer à poster",chapitres:[
     {id:1,titre:"Créer et chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
