@@ -125,7 +125,7 @@ export default function Sidebar() {
         const avatars = (() => {
           const avec = membres.filter((p:any) => p.avatar_url).sort((a:any, b:any) => String(a.avatar_url).localeCompare(String(b.avatar_url)));
           const pool = avec.length >= 4 ? avec : membres;
-          let seed = Math.floor(Date.now() / 60000);
+          let seed = Math.floor(Date.now() / 3600000);
           const rand = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
           const tab = [...pool];
           for (let i = tab.length - 1; i > 0; i--) {
