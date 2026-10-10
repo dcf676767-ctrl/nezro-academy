@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useLayoutEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -78,20 +78,24 @@ export default function Programme() {
     setTimeout(() => ripple.remove(), 800);
     router.push(`/module/${id}`);
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!pret) return;
     if (typeof window === "undefined" || !window.location.hash) return;
     const hash = window.location.hash;
+    const aller = () => {
+      const el = document.querySelector(hash) as HTMLElement | null;
+      if (!el) return false;
+      let y = 0;
+      let n: HTMLElement | null = el;
+      while (n) { y += n.offsetTop; n = n.offsetParent as HTMLElement | null; }
+      window.scrollTo(0, Math.max(0, y - window.innerHeight / 2 + el.offsetHeight / 2));
+      return true;
+    };
+    if (aller()) return;
     let essais = 0;
     const timer = setInterval(() => {
       essais++;
-      const el = document.querySelector(hash);
-      if (el) {
-        el.scrollIntoView({ behavior: "auto", block: "center" });
-        clearInterval(timer);
-      } else if (essais >= 20) {
-        clearInterval(timer);
-      }
+      if (aller() || essais >= 20) clearInterval(timer);
     }, 100);
     return () => clearInterval(timer);
   }, [pret]);
