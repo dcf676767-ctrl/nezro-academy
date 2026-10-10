@@ -263,21 +263,26 @@ html, body {
 }
 
 
-/* sidebar-mobile-scroll : le menu garde ses espaces et défile sur petits écrans */
-@media (max-width: 767px) {
-  aside.fixed.left-0 {
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-  }
-  aside.fixed.left-0 > * {
-    flex-shrink: 0;
-  }
-  aside.fixed.left-0 nav {
-    flex: none;
-    overflow: visible;
-  }
-  aside.fixed.left-0 nav > * {
-    flex-shrink: 0;
-  }
+/* sidebar-compact : le menu rentre sans défiler sur les écrans courts */
+@media (max-width: 767px) and (max-height: 820px) {
+  aside.fixed.left-0 > div:first-child { margin: 8px 12px 4px; }
+  aside.fixed.left-0 > div:first-child > div:last-child { padding: 8px 12px; gap: 12px; }
+  aside.fixed.left-0 .w-14 { width: 40px; height: 40px; }
+  aside.fixed.left-0 h1 { font-size: 1rem; }
+  aside.fixed.left-0 nav { padding: 8px 12px; gap: 4px; }
+  aside.fixed.left-0 nav > p { margin-bottom: 2px; }
+  aside.fixed.left-0 nav > button { padding-top: 6px; padding-bottom: 6px; }
+  aside.fixed.left-0 > div.relative > div.border-t { padding: 8px 12px; }
+  aside.fixed.left-0 .bg-gray-800 { padding: 8px 12px; }
+  aside.fixed.left-0 .bg-gray-800 > p { margin-bottom: 6px; }
+  aside.fixed.left-0 .bg-gray-800 > div:nth-of-type(1) { margin-bottom: 6px; }
+  aside.fixed.left-0 .bg-gray-800 > div:nth-of-type(1) .w-8 { width: 24px; height: 24px; }
+  aside.fixed.left-0 .bg-gray-800 > div:nth-of-type(2) p.text-lg { font-size: 1rem; line-height: 1.25rem; }
+}
+
+@media (max-width: 767px) and (max-height: 700px) {
+  aside.fixed.left-0 nav { padding-top: 4px; padding-bottom: 4px; gap: 2px; }
+  aside.fixed.left-0 nav > button { padding-top: 5px; padding-bottom: 5px; }
+  aside.fixed.left-0 > div.relative > div.border-t { padding-top: 6px; padding-bottom: 6px; }
+  aside.fixed.left-0 .bg-gray-800 > div:nth-of-type(1) { display: none; }
 }
