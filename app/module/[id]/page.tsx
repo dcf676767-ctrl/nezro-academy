@@ -46,7 +46,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"Trouver TA niche",duree:"1min01",videoId:"cBv_CKgzeIk",description:"Reste focus sur une seule niche par compte ! Ne pas faire plusieurs niches sur un seul compte."},
     {id:2,titre:"Que faire quand tu as trouvé ta niche ?",duree:"0min55",videoId:"Lc2QQj1fo8U",description:"Utilise un compte déjà chauffé!"},
     {id:6,titre:"Comment s'inspirer des autres ?",duree:"2min19",videoId:"-PoWlgE-y2A",description:"Pour t'inspirer d'autres créateurs, il faut que tu aies une vision d'un vrai créateur, et non d'un simple consommateur. Quand tu regardes des vidéos d'autres créateurs, analyse leur contenu et vérifie s'ils sont monétisés."},
-    {id:7,titre:"Faire du contenu grâce aux autres",duree:"1min48",videoId:"MjnVjY2kFXI",description:"Tu n'es pas obligé de tout créer toi-même : réagis à du contenu existant, fais des compilations ou des commentaires sur des vidéos populaires de ta niche. C'est une méthode rapide pour produire régulièrement sans t'épuiser."},
+    {id:7,titre:"Faire du contenu grâce aux autres",duree:"1min47",videoId:"EFag5_boGhs",description:"Tu n'es pas obligé de tout créer toi-même : réagis à du contenu existant, fais des compilations ou des commentaires sur des vidéos populaires de ta niche. C'est une méthode rapide pour produire régulièrement sans t'épuiser."},
     {id:8,titre:"Trouver des idées avec l'IA",duree:"1min30",videoId:"YzXxrjOo8dc",description:"Utilise l'IA (ChatGPT, Gemini...) pour générer rapidement des idées de sujets, de titres et d'angles dans ta niche. Ça te permet de ne jamais tomber en panne d'inspiration."},
   ]},
   15:{titre:"30 exemples de niches à faire",chapitres:[
