@@ -237,7 +237,6 @@ export default function Sidebar() {
         </div>
       </div>
       <nav ref={navRef} className="flex-1 p-4 flex flex-col gap-2 overflow-y-auto relative" style={{WebkitOverflowScrolling:"touch", overscrollBehavior:"contain"}}>
-        <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-3">Principal</p>
         <div className={`absolute left-4 right-4 bg-blue-600 rounded-xl pointer-events-none ${indicatorReady ? "transition-all duration-300 ease-out" : ""}`} style={{top: indicatorStyle.top, height: indicatorStyle.height, opacity: indicatorStyle.opacity, zIndex: 0}} />
         {links.map(l => (
           <button key={l.href} ref={(el) => { linkRefs.current[l.href] = el; }} onClick={(e) => handleNav(e, l.href)}
