@@ -261,3 +261,23 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .chapitre-enter { animation: none; }
 }
+
+
+/* sidebar-mobile-scroll : le menu garde ses espaces et défile sur petits écrans */
+@media (max-width: 767px) {
+  aside.fixed.left-0 {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  aside.fixed.left-0 > * {
+    flex-shrink: 0;
+  }
+  aside.fixed.left-0 nav {
+    flex: none;
+    overflow: visible;
+  }
+  aside.fixed.left-0 nav > * {
+    flex-shrink: 0;
+  }
+}
