@@ -11,7 +11,7 @@ const modules = [
   { id: 14, titre: "Trouver sa niche et être efficace", label: "Niche", description: "Trouve ta niche et apprends à être efficace.", image: "", chapitres: 5, customThumb: false },
   { id: 15, titre: "30 exemples de niches à faire", label: "Exemples", description: "30 exemples concrets de niches à exploiter.", image: "", chapitres: 2, customThumb: false },
   { id: 26, titre: "Présentation de CapCut téléphone et PC", label: "CapCut", description: "Présentation de CapCut sur téléphone et sur PC.", image: "", chapitres: 2, customThumb: false },
-  { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 11, customThumb: false },
+  { id: 13, titre: "Contenu 100% anonyme", label: "Anonyme", description: "Apprends à créer du contenu sans montrer ton visage ni ta voix.", image: "", chapitres: 12, customThumb: false },
   { id: 16, titre: "Exemple de montage CapCut sur téléphone et PC", label: "Montage", description: "Un exemple complet de montage sur CapCut, sur téléphone et sur PC.", image: "", chapitres: 3, customThumb: false },
   { id: 17, titre: "Commencer à poster", label: "Poster", description: "Chauffe ton compte et importe tes premières vidéos.", image: "", chapitres: 3, customThumb: false },
   { id: 24, titre: "Bien maîtriser sa chaîne YouTube", label: "YouTube", description: "Personnalise ta chaîne et construis ta communauté sur YouTube.", image: "", chapitres: 5, customThumb: false },

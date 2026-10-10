@@ -6,7 +6,7 @@ export const MODULES = [
   { id: 14, titre: "Trouver sa niche et être efficace", chapitres: 5 },
   { id: 15, titre: "30 exemples de niches à faire", chapitres: 2 },
   { id: 26, titre: "Présentation de CapCut téléphone et PC", chapitres: 2 },
-  { id: 13, titre: "Contenu 100% anonyme", chapitres: 11 },
+  { id: 13, titre: "Contenu 100% anonyme", chapitres: 12 },
   { id: 16, titre: "Exemple de montage CapCut sur téléphone et PC", chapitres: 3 },
   { id: 17, titre: "Commencer à poster", chapitres: 3 },
   { id: 24, titre: "Bien maîtriser sa chaîne YouTube", chapitres: 5 },
