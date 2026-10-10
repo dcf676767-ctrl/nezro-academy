@@ -215,7 +215,16 @@ export default function Module() {
                 </div>
               )}
             </div>
-            {!(moduleData.chapitres.length === 1 && chapitre.titre.trim().toLowerCase() === moduleData.titre.trim().toLowerCase()) && <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{chapitre.titre}</h2>}
+            {chapitre.titre.trim().toLowerCase() !== moduleData.titre.trim().toLowerCase() && <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{chapitre.titre}</h2>}
+            {Number(moduleId) === 1 && (
+              <a href="https://youtube.com/@cooked_dog67?si=lKeVqqNENmvJmYY1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-2xl p-4 mb-6 hover:border-blue-500 transition-colors">
+                <span className="text-2xl">▶️</span>
+                <div>
+                  <p className="text-white font-semibold text-sm">Découvre ma chaîne YouTube</p>
+                  <p className="text-gray-400 text-xs">Regarde mes vidéos pour t'inspirer et prendre exemple.</p>
+                </div>
+              </a>
+            )}
             {chapitre.description && chapitre.description !== "Contenu à venir." && (
             <div className="flex flex-col gap-4 mb-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
