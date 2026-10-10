@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { supabase } from "../lib/supabase";
 import { useRouter } from "next/navigation";
 
@@ -9,6 +9,7 @@ export default function Annonces() {
   const router = useRouter();
   const [annonces, setAnnonces] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [pret, setPret] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [contenu, setContenu] = useState("");
   const [envoi, setEnvoi] = useState(false);
@@ -35,6 +36,26 @@ export default function Annonces() {
       if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [annonces.length]);
+
+  useLayoutEffect(() => {
+    if (loading) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    const bas = () => { el.scrollTop = el.scrollHeight; };
+    bas();
+    const imgs = Array.from(el.querySelectorAll("img")).filter(i => !i.complete);
+    if (imgs.length === 0) { setPret(true); return; }
+    let fini = false;
+    const terminer = () => { if (fini) return; fini = true; bas(); setPret(true); };
+    let restantes = imgs.length;
+    imgs.forEach(i => {
+      const ok = () => { restantes--; bas(); if (restantes <= 0) terminer(); };
+      i.addEventListener("load", ok, { once: true });
+      i.addEventListener("error", ok, { once: true });
+    });
+    const t = setTimeout(terminer, 800);
+    return () => clearTimeout(t);
+  }, [loading]);
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
@@ -196,7 +217,7 @@ export default function Annonces() {
           <p className="text-sm text-gray-400">{isAdmin ? "Publie une annonce pour tous les membres" : "Les annonces de l'equipe Nezro Academy"}</p>
         </div>
 
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 flex flex-col gap-4" style={{opacity: pret ? 1 : 0, transition: "opacity 0.2s ease-out"}}>
           {isAdmin && (
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
               {!creationSondage ? (
