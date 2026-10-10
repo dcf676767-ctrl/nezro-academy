@@ -153,7 +153,7 @@ export default function Module() {
   }, [chapitreActif, chapRestaure, moduleId]);
   useEffect(() => {
     if (chapRestaure !== moduleId) return;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: window.innerWidth < 768 ? "auto" : "smooth" });
   }, [chapitreActif]);
 
 
@@ -200,7 +200,7 @@ export default function Module() {
           <span className="text-sm text-gray-400">{progression}%</span>
         </div>
         <div className="flex flex-col md:flex-row gap-8">
-          <div key={animKey} className="flex-1 module-enter-page">
+          <div key={animKey} className="flex-1 chapitre-enter">
             <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
               {chapitre.videoId ? (
                 <iframe

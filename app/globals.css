@@ -248,3 +248,16 @@ html, body {
   object-position: center;
   z-index: 1;
 }
+
+.chapitre-enter {
+  animation: chapitreFade 0.25s ease-out;
+}
+
+@keyframes chapitreFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapitre-enter { animation: none; }
+}
