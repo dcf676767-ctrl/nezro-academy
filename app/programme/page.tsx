@@ -76,6 +76,7 @@ export default function Programme() {
     ripple.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(99,179,255,0.35);left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;transform:scale(0);animation:ripple 0.8s ease-out forwards;pointer-events:none;z-index:99;`;
     inner.appendChild(ripple);
     setTimeout(() => ripple.remove(), 800);
+    try { sessionStorage.setItem("programme_scroll", String(window.scrollY)); } catch {}
     router.push(`/module/${id}`);
   };
   useLayoutEffect(() => {
@@ -106,6 +107,22 @@ export default function Programme() {
     return () => clearInterval(timer);
   }, []);
 
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    let y = NaN;
+    try {
+      const retour = sessionStorage.getItem("programme_retour");
+      const s = sessionStorage.getItem("programme_scroll");
+      sessionStorage.removeItem("programme_retour");
+      sessionStorage.removeItem("programme_scroll");
+      if (retour === "1" && s !== null) y = parseInt(s, 10);
+    } catch {}
+    if (isNaN(y)) return;
+    const cible = y;
+    window.scrollTo(0, cible);
+    const ids = [50, 150, 300, 600].map(d => window.setTimeout(() => window.scrollTo(0, cible), d));
+    return () => ids.forEach(t => window.clearTimeout(t));
+  }, []);
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
