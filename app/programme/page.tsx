@@ -5,7 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const modules = [
   { id: 10, titre: "Introduction", label: "Intro", description: "Bienvenue dans le programme.", image: "/introduction.jpg", chapitres: 1, customThumb: true },
-  { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "/module-mindset.png", chapitres: 2, customThumb: true },
+  { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "/module-mindset.webp", chapitres: 2, customThumb: true },
   { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 2, customThumb: false },
   { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", label: "Outils", description: "Les meilleurs outils pour être plus productif et rentable.", image: "", chapitres: 1, customThumb: false },
   { id: 14, titre: "Trouver sa niche et être efficace", label: "Niche", description: "Trouve ta niche et apprends à être efficace.", image: "", chapitres: 5, customThumb: false },
@@ -18,7 +18,7 @@ const modules = [
   { id: 25, titre: "Analyser pourquoi une vidéo a percé", label: "Analyse", description: "Comprends ce qui fait vraiment percer une vidéo.", image: "", chapitres: 3, customThumb: false },
   { id: 19, titre: "Problèmes de compte et de monétisation", label: "Monétisation", description: "Résous les problèmes de monétisation sur TikTok et YouTube.", image: "", chapitres: 4, customThumb: false },
   { id: 20, titre: "Augmenter son RPM", label: "RPM", description: "Comment augmenter son RPM sur les réseaux.", image: "", chapitres: 1, customThumb: false },
-  { id: 21, titre: "Astuces", label: "Astuces", description: "Toutes les astuces pour aller plus vite et plus loin.", image: "/module-astuces.png", chapitres: 7, customThumb: true },
+  { id: 21, titre: "Astuces", label: "Astuces", description: "Toutes les astuces pour aller plus vite et plus loin.", image: "/module-astuces.webp", chapitres: 7, customThumb: true },
   { id: 22, titre: "Déclaration et compte AdSense", label: "AdSense", description: "Comment gérer son compte AdSense et retirer son argent.", image: "", chapitres: 2, customThumb: false },
   { id: 1, titre: "Niche Roblox", label: "Roblox", description: "Le programme complet pour percer sur la niche Roblox.", image: "/roblox.jpg", chapitres: 7, customThumb: true },
   { id: 8, titre: "Niche GTA 6", label: "???", description: "Contenu secret en cours de préparation...", image: "/gta6.jpg", chapitres: 1, customThumb: true, locked: true },
@@ -154,18 +154,18 @@ export default function Programme() {
                   ) : (
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
-                      {mod.id === 11 && <img src="/module-mindset.png" alt="mindset" className="mindset-img" />}
-                      {mod.id === 12 && <img src="/module-reseaux.png" alt="reseaux" className="reseaux-img" />}
-                      {mod.id === 18 && <img src="/module-outils.png" alt="outils" className="mindset-img" />}
-                      {mod.id === 13 && <img src="/module-anonyme.png" alt="anonyme" className="anonyme-img" />}
-                      {mod.id === 14 && <img src="/module-niche.png" alt="niche" className="niche-img" />}
-                      {mod.id === 21 && <img src="/module-astuces.png" alt="astuces" className="mindset-img" style={{translate:"-8px 0"}} />}
-                      {mod.id === 22 && <img src="/module-adsense.png" alt="adsense" className="mindset-img adsense-thumb" />}
-                      {mod.id === 15 && <img src="/module-exemples-niches.png" alt="exemples niches" className="exemples-niches-img" />}
-                      {mod.id === 16 && <img src="/module-capcut-telephone.png" alt="capcut telephone" className="capcut-telephone-img" />}
-                      {mod.id === 17 && <img src="/module-commencer-poster.png" alt="poster" className="mindset-img" style={{translate:"-14px 0"}} />}
-                      {mod.id === 24 && <img src="/module-chaine-youtube.png" alt="chaine youtube" className="chaine-youtube-img" />}
-                      {mod.id === 10 && <img src="/module-intro.png" alt="intro" className="intro-img" />}
+                      {mod.id === 11 && <img src="/module-mindset.webp" alt="mindset" className="mindset-img" />}
+                      {mod.id === 12 && <img src="/module-reseaux.webp" alt="reseaux" className="reseaux-img" />}
+                      {mod.id === 18 && <img src="/module-outils.webp" alt="outils" className="mindset-img" />}
+                      {mod.id === 13 && <img src="/module-anonyme.webp" alt="anonyme" className="anonyme-img" />}
+                      {mod.id === 14 && <img src="/module-niche.webp" alt="niche" className="niche-img" />}
+                      {mod.id === 21 && <img src="/module-astuces.webp" alt="astuces" className="mindset-img" style={{translate:"-8px 0"}} />}
+                      {mod.id === 22 && <img src="/module-adsense.webp" alt="adsense" className="mindset-img adsense-thumb" />}
+                      {mod.id === 15 && <img src="/module-exemples-niches.webp" alt="exemples niches" className="exemples-niches-img" />}
+                      {mod.id === 16 && <img src="/module-capcut-telephone.webp" alt="capcut telephone" className="capcut-telephone-img" />}
+                      {mod.id === 17 && <img src="/module-commencer-poster.webp" alt="poster" className="mindset-img" style={{translate:"-14px 0"}} />}
+                      {mod.id === 24 && <img src="/module-chaine-youtube.webp" alt="chaine youtube" className="chaine-youtube-img" />}
+                      {mod.id === 10 && <img src="/module-intro.webp" alt="intro" className="intro-img" />}
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:1}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
