@@ -274,3 +274,9 @@ html, body {
   aside.fixed.left-0 .bg-gray-800.p-4 > div:nth-of-type(1) { margin-bottom: 6px; }
   aside.fixed.left-0 .bg-gray-800.p-4 > div:nth-of-type(2) p.text-lg { font-size: 1rem; line-height: 1.25rem; }
 }
+
+/* Miniature AdSense : réglage séparé ordinateur / téléphone */
+.adsense-thumb { translate: 0px 0; scale: 1.06; }
+@media (max-width: 767px) {
+  .adsense-thumb { translate: 0px 6px; scale: 1.12; }
+}
