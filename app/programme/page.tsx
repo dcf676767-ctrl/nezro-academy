@@ -79,8 +79,15 @@ export default function Programme() {
     router.push(`/module/${id}`);
   };
   useLayoutEffect(() => {
-    if (typeof window === "undefined" || !window.location.hash) return;
-    const hash = window.location.hash;
+    if (typeof window === "undefined") return;
+    let cible = window.location.hash;
+    try {
+      const sauve = sessionStorage.getItem("programme_cible");
+      sessionStorage.removeItem("programme_cible");
+      if (!cible && sauve) cible = "#" + sauve;
+    } catch {}
+    if (!cible) return;
+    const hash = cible;
     const aller = () => {
       const el = document.querySelector(hash) as HTMLElement | null;
       if (!el) return false;

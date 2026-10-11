@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
@@ -118,6 +118,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
 
 export default function Module() {
   const params = useParams();
+  const router = useRouter();
   const moduleId = Number(params.id);
   const moduleData = modulesData[moduleId];
   const [completed, setCompleted] = useState<number[]>([]);
@@ -193,7 +194,7 @@ export default function Module() {
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
-        <button onClick={() => window.location.href="/programme#module-"+moduleId} className="text-sm text-gray-400 hover:text-white mb-6 flex items-center gap-1 transition-colors">← Retour au programme</button>
+        <button onClick={() => { try { sessionStorage.setItem("programme_cible", "module-"+moduleId); } catch {} router.push("/programme#module-"+moduleId, { scroll: false }); }} className="text-sm text-gray-400 hover:text-white mb-6 flex items-center gap-1 transition-colors">← Retour au programme</button>
         <h1 className="text-2xl font-bold text-white mb-2">{moduleData.titre}</h1>
         <div className="flex items-center gap-3 mb-6">
           <div className="flex-1 bg-gray-800 rounded-full h-2">
