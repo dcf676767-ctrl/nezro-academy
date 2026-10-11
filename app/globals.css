@@ -278,5 +278,5 @@ html, body {
 /* Miniature AdSense : réglage séparé ordinateur / téléphone */
 .adsense-thumb { translate: 0px 0; scale: 1.06; }
 @media (max-width: 767px) {
-  .adsense-thumb { translate: 24px 32px; scale: 1.18; }
+  .adsense-thumb { translate: 20px 32px; scale: 1.18; }
 }
