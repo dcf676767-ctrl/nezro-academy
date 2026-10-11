@@ -123,6 +123,16 @@ export default function Programme() {
     const ids = [50, 150, 300, 600].map(d => window.setTimeout(() => window.scrollTo(0, cible), d));
     return () => ids.forEach(t => window.clearTimeout(t));
   }, []);
+  useLayoutEffect(() => {
+    try {
+      const s = sessionStorage.getItem("programme_progression");
+      if (s) setProgression(JSON.parse(s));
+    } catch {}
+  }, []);
+  useEffect(() => {
+    if (Object.keys(progression).length === 0) return;
+    try { sessionStorage.setItem("programme_progression", JSON.stringify(progression)); } catch {}
+  }, [progression]);
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
@@ -208,7 +218,7 @@ export default function Programme() {
                   <p className="text-sm text-gray-400 mb-3">{mod.description}</p>
                   <p className="text-xs text-gray-500 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
                   <div className="w-full bg-gray-800 rounded-full h-1.5">
-                    <div className="h-1.5 rounded-full transition-all duration-500" style={{width:`${progression[mod.id]||0}%`,background:getColor(progression[mod.id]||0)}} />
+                    <div className="barre-progres h-1.5 rounded-full transition-all duration-500" style={{width:`${progression[mod.id]||0}%`,background:getColor(progression[mod.id]||0)}} />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">{progression[mod.id]||0}%</p>
                 </div>

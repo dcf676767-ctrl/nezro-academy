@@ -280,3 +280,8 @@ html, body {
 @media (max-width: 767px) {
   .adsense-thumb { translate: 20px 32px; scale: 1.18; }
 }
+
+/* Barres de progression : pas d'animation de remplissage sur téléphone */
+@media (max-width: 767px) {
+  .barre-progres { transition: none !important; }
+}
