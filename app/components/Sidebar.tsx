@@ -12,6 +12,7 @@ export default function Sidebar() {
   if (cacherSidebar) return null;
   const [menuOpen, setMenuOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  useEffect(() => { setSidebarOpen(false); setMenuOpen(false); }, [pathname]);
   useEffect(() => {
     if (!sidebarOpen || window.innerWidth >= 768) return;
     const scrollY = window.scrollY;
@@ -283,16 +284,16 @@ export default function Sidebar() {
               <div className="p-3 border-b border-gray-700">
                 <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">Mon compte</p>
               </div>
-              <button onClick={() => { router.push("/profil"); setMenuOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
+              <button onClick={() => { router.push("/profil"); setMenuOpen(false); setSidebarOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
                 <span className="text-base">👤</span>
                 <div><p className="font-semibold text-white">Mon profil</p><p className="text-xs text-gray-400">Photo, bio, réseaux</p></div>
               </button>
-              <button onClick={() => { router.push("/parametres"); setMenuOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
+              <button onClick={() => { router.push("/parametres"); setMenuOpen(false); setSidebarOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
                 <span className="text-base">⚙️</span>
                 <div><p className="font-semibold text-white">Paramètres</p><p className="text-xs text-gray-400">Notifications, compte</p></div>
               </button>
               {isAdmin && (
-                <button onClick={() => { router.push("/admin"); setMenuOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
+                <button onClick={() => { router.push("/admin"); setMenuOpen(false); setSidebarOpen(false); }} className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-3 transition-colors">
                   <span className="text-base">👑</span>
                   <div><p className="font-semibold text-white">Panel Admin</p><p className="text-xs text-gray-400">Gérer les membres</p></div>
                 </button>
