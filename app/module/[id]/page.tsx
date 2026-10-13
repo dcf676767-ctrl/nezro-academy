@@ -154,7 +154,8 @@ export default function Module() {
     const debut = (e: TouchEvent) => {
       const t = e.touches[0];
       const cible = e.target as HTMLElement | null;
-      actif = !(cible && cible.closest("textarea, input"));
+      const champ = cible ? cible.closest("textarea, input") : null;
+      actif = !(champ && document.activeElement === champ);
       sx = t.clientX; sy = t.clientY;
     };
     const bouge = (e: TouchEvent) => {
