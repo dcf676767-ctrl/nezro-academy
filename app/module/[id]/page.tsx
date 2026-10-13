@@ -150,7 +150,10 @@ export default function Module() {
       try { sessionStorage.setItem("programme_cible", "module-"+moduleId); sessionStorage.setItem("programme_retour", "1"); } catch {}
       const m = document.querySelector("main");
       if (m) m.classList.add("page-exit-swipe");
-      router.push("/programme#module-"+moduleId, { scroll: false });
+      const cibleUrl = "/programme#module-"+moduleId;
+      const tactile = window.matchMedia("(pointer: coarse)").matches;
+      if (tactile) router.push(cibleUrl, { scroll: false });
+      else window.setTimeout(() => router.push(cibleUrl, { scroll: false }), 170);
     };
     let sx = 0, sy = 0, actif = false;
     const debut = (e: TouchEvent) => {
