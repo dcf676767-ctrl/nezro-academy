@@ -285,3 +285,12 @@ html, body {
 @media (max-width: 767px) {
   .barre-progres { transition: none !important; }
 }
+
+.page-exit-swipe {
+  animation: pageExitSwipe 0.18s ease-in forwards !important;
+}
+
+@keyframes pageExitSwipe {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(48px); }
+}

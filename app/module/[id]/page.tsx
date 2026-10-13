@@ -148,6 +148,8 @@ export default function Module() {
   useEffect(() => {
     const gesteRetour = () => {
       try { sessionStorage.setItem("programme_cible", "module-"+moduleId); sessionStorage.setItem("programme_retour", "1"); } catch {}
+      const m = document.querySelector("main");
+      if (m) m.classList.add("page-exit-swipe");
       router.push("/programme#module-"+moduleId, { scroll: false });
     };
     let sx = 0, sy = 0, actif = false;
@@ -162,7 +164,7 @@ export default function Module() {
       if (!actif) return;
       const t = e.touches[0];
       const dx = t.clientX - sx, dy = Math.abs(t.clientY - sy);
-      if (dx > 60 && dy < dx * 0.5) { actif = false; gesteRetour(); }
+      if (dx > 45 && dy < dx * 0.5) { actif = false; gesteRetour(); }
     };
     const fin = (e: TouchEvent) => {
       if (!actif) return;
