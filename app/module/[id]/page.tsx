@@ -121,6 +121,52 @@ export default function Module() {
   const params = useParams();
   const router = useRouter();
   const moduleId = Number(params.id);
+  useEffect(() => {
+    const gesteRetour = () => {
+      try { sessionStorage.setItem("programme_cible", "module-"+moduleId); sessionStorage.setItem("programme_retour", "1"); } catch {}
+      router.push("/programme#module-"+moduleId, { scroll: false });
+    };
+    let sx = 0, sy = 0, actif = false;
+    const debut = (e: TouchEvent) => {
+      const t = e.touches[0];
+      actif = t.clientX < 30;
+      sx = t.clientX; sy = t.clientY;
+    };
+    const fin = (e: TouchEvent) => {
+      if (!actif) return;
+      actif = false;
+      const t = e.changedTouches[0];
+      if (t.clientX - sx > 80 && Math.abs(t.clientY - sy) < 60) gesteRetour();
+    };
+    const touche = (e: KeyboardEvent) => {
+      if (e.key !== "Escape" || document.fullscreenElement) return;
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === "TEXTAREA" || el.tagName === "INPUT")) return;
+      gesteRetour();
+    };
+    let cumul = 0, minuterie: any = null, bloque = false;
+    const molette = (e: WheelEvent) => {
+      if (bloque || Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      cumul += e.deltaX;
+      clearTimeout(minuterie);
+      minuterie = setTimeout(() => { cumul = 0; }, 150);
+      if (cumul < -300) { bloque = true; cumul = 0; gesteRetour(); }
+    };
+    const ancien = document.body.style.overscrollBehaviorX;
+    document.body.style.overscrollBehaviorX = "none";
+    window.addEventListener("touchstart", debut, { passive: true });
+    window.addEventListener("touchend", fin, { passive: true });
+    window.addEventListener("keydown", touche);
+    window.addEventListener("wheel", molette, { passive: true });
+    return () => {
+      document.body.style.overscrollBehaviorX = ancien;
+      window.removeEventListener("touchstart", debut);
+      window.removeEventListener("touchend", fin);
+      window.removeEventListener("keydown", touche);
+      window.removeEventListener("wheel", molette);
+      clearTimeout(minuterie);
+    };
+  }, [moduleId, router]);
   const moduleData = modulesData[moduleId];
   const [completed, setCompleted] = useState<number[]>([]);
   const [userId, setUserId] = useState("");
