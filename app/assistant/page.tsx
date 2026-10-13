@@ -15,6 +15,7 @@ export default function Assistant() {
   const [pret, setPret] = useState(false);
   const [userId, setUserId] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
+  const listeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const chargerPourUtilisateur = (id: string) => {
@@ -40,7 +41,7 @@ export default function Assistant() {
   }, []);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const l = listeRef.current; if (l) l.scrollTo({ top: l.scrollHeight, behavior: "smooth" });
     if (pret && userId) sessionStorage.setItem("assistant_messages_" + userId, JSON.stringify(messages));
   }, [messages, pret, userId]);
 
@@ -67,8 +68,8 @@ export default function Assistant() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-950 text-white">
-      <main className="flex-1 md:ml-64 flex flex-col h-screen pt-14 md:pt-0 module-enter-page">
+    <div className="bg-gray-950 text-white flex fixed inset-0" style={{overflow:"hidden"}}>
+      <main className="flex-1 md:ml-64 flex flex-col overflow-hidden h-full pt-14 md:pt-0 module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
         <div className="border-b border-gray-800 px-8 py-4 pl-16 md:pl-8 flex items-center gap-3">
           <span className="text-2xl">🤖</span>
           <div>
@@ -77,7 +78,7 @@ export default function Assistant() {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-8 py-6 flex flex-col gap-4">
+        <div ref={listeRef} className="flex-1 overflow-y-auto overscroll-contain px-4 md:px-8 py-6 flex flex-col gap-4">
           {messages.map((msg, i) => (
             <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${msg.role === "assistant" ? "bg-blue-600" : "bg-gray-700"}`}>
@@ -103,10 +104,10 @@ export default function Assistant() {
           <div ref={bottomRef} />
         </div>
 
-        <div className="border-t border-gray-800 px-8 py-4 flex gap-3">
+        <div className="border-t border-gray-800 px-4 md:px-8 py-4 flex gap-3">
           <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && envoyer()}
             placeholder="Pose ta question sur YouTube, le montage, les miniatures..."
-            className="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500" />
+            className="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-base md:text-sm focus:outline-none focus:border-blue-500" />
           <button onClick={envoyer} disabled={loading}
             className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-6 py-3 rounded-xl font-bold transition-all">
             ➤
