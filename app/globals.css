@@ -294,3 +294,9 @@ html, body {
   from { opacity: 1; transform: translateX(0); }
   to { opacity: 0; transform: translateX(48px); }
 }
+
+/* Lecteur video : 16/9 sur ordinateur, plus haut sur telephone (videos verticales) */
+.video-box { aspect-ratio: 16 / 9; }
+@media (max-width: 767px) {
+  .video-box { aspect-ratio: 9 / 14; }
+}
