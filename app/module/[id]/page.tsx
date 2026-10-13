@@ -117,10 +117,34 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
 };
 
+let etatVideo = 0;
+function ecouterVideo(e: any) {
+  etatVideo = 0;
+  try { e.currentTarget.contentWindow.postMessage(JSON.stringify({ event: "listening", id: 1, channel: "widget" }), "*"); } catch {}
+}
+function basculerVideo() {
+  const f = document.querySelector('iframe[src*="youtube.com/embed"]') as HTMLIFrameElement | null;
+  if (!f || !f.contentWindow) return;
+  const func = etatVideo === 1 ? "pauseVideo" : "playVideo";
+  f.contentWindow.postMessage(JSON.stringify({ event: "command", func: func, args: "" }), "*");
+}
+
 export default function Module() {
   const params = useParams();
   const router = useRouter();
   const moduleId = Number(params.id);
+  useEffect(() => {
+    const msg = (e: MessageEvent) => {
+      if (typeof e.origin !== "string" || !e.origin.includes("youtube.com")) return;
+      try {
+        const d = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+        if (d && d.event === "onStateChange" && typeof d.info === "number") etatVideo = d.info;
+        else if (d && d.event === "infoDelivery" && d.info && typeof d.info.playerState === "number") etatVideo = d.info.playerState;
+      } catch {}
+    };
+    window.addEventListener("message", msg);
+    return () => window.removeEventListener("message", msg);
+  }, []);
   useEffect(() => {
     const gesteRetour = () => {
       try { sessionStorage.setItem("programme_cible", "module-"+moduleId); sessionStorage.setItem("programme_retour", "1"); } catch {}
@@ -253,10 +277,11 @@ export default function Module() {
         </div>
         <div className="flex flex-col md:flex-row gap-8">
           <div key={animKey} className="flex-1 chapitre-enter">
-            <div className="rounded-2xl aspect-video mb-6 overflow-hidden">
+            <div className="relative rounded-2xl aspect-video mb-6 overflow-hidden">
+              {chapitre.videoId && <div onClick={basculerVideo} className="absolute left-0 right-0 top-0 z-10" style={{bottom:"48px"}} />}
               {chapitre.videoId ? (
-                <iframe
-                  src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
+                <iframe onLoad={ecouterVideo}
+                  src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&enablejsapi=1`}
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   allowFullScreen
