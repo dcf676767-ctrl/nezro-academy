@@ -293,7 +293,7 @@ export default function Module() {
         <div className="flex flex-col md:flex-row gap-8">
           <div key={animKey} className="flex-1 chapitre-enter">
             <div className="relative rounded-2xl aspect-video mb-6 overflow-hidden">
-              {chapitre.videoId && <div onClick={basculerVideo} className="absolute left-0 top-0 z-10" style={{bottom:"48px", width:"56px"}} />}
+              {chapitre.videoId && <div onClick={basculerVideo} className="absolute left-0 right-0 z-10" style={{top:"15%", bottom:"20%"}} />}
               {chapitre.videoId ? (
                 <iframe onLoad={ecouterVideo}
                   src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&enablejsapi=1`}
