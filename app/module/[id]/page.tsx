@@ -157,6 +157,12 @@ export default function Module() {
       actif = !(cible && cible.closest("textarea, input"));
       sx = t.clientX; sy = t.clientY;
     };
+    const bouge = (e: TouchEvent) => {
+      if (!actif) return;
+      const t = e.touches[0];
+      const dx = t.clientX - sx, dy = Math.abs(t.clientY - sy);
+      if (dx > 60 && dy < dx * 0.5) { actif = false; gesteRetour(); }
+    };
     const fin = (e: TouchEvent) => {
       if (!actif) return;
       actif = false;
@@ -178,15 +184,18 @@ export default function Module() {
       minuterie = setTimeout(() => { cumul = 0; }, 150);
       if (cumul < -300) { bloque = true; cumul = 0; gesteRetour(); }
     };
+    router.prefetch("/programme");
     const ancien = document.body.style.overscrollBehaviorX;
     document.body.style.overscrollBehaviorX = "none";
     window.addEventListener("touchstart", debut, { passive: true });
+    window.addEventListener("touchmove", bouge, { passive: true });
     window.addEventListener("touchend", fin, { passive: true });
     window.addEventListener("keydown", touche);
     window.addEventListener("wheel", molette, { passive: true });
     return () => {
       document.body.style.overscrollBehaviorX = ancien;
       window.removeEventListener("touchstart", debut);
+      window.removeEventListener("touchmove", bouge);
       window.removeEventListener("touchend", fin);
       window.removeEventListener("keydown", touche);
       window.removeEventListener("wheel", molette);
@@ -267,7 +276,7 @@ export default function Module() {
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
-        <button onClick={() => { try { sessionStorage.setItem("programme_cible", "module-"+moduleId); sessionStorage.setItem("programme_retour", "1"); } catch {} router.push("/programme#module-"+moduleId, { scroll: false }); }} className="text-sm text-gray-400 hover:text-white mb-6 flex items-center gap-1 transition-colors">← Retour au programme</button>
+        <button onClick={() => { try { sessionStorage.setItem("programme_cible", "module-"+moduleId); sessionStorage.setItem("programme_retour", "1"); } catch {} router.push("/programme#module-"+moduleId, { scroll: false }); }} className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-xl border-2 border-blue-500 text-blue-400 hover:bg-blue-500/10 text-sm font-semibold transition-colors">← Retour au programme</button>
         <h1 className="text-2xl font-bold text-white mb-2">{moduleData.titre}</h1>
         <div className="flex items-center gap-3 mb-6">
           <div className="flex-1 bg-gray-800 rounded-full h-2">
