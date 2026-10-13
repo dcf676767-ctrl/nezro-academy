@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
+// Ratio des videos (videoId -> largeur / hauteur). Par defaut 1.54 (enregistrement ecran)
+const ratios: {[id:string]:string} = {
+};
+
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
   8:{titre:"Niche GTA 6",chapitres:[
     {id:1,titre:"Niche GTA 6",duree:"-",videoId:"",description:"Contenu secret en cours de préparation..."},
@@ -292,7 +296,7 @@ export default function Module() {
         </div>
         <div className="flex flex-col md:flex-row gap-8">
           <div key={animKey} className="flex-1 chapitre-enter">
-            <div className="relative rounded-2xl video-box mb-6 overflow-hidden">
+            <div className="relative rounded-2xl video-box mb-6 overflow-hidden" style={{aspectRatio: ratios[chapitre.videoId] || "1.54"}}>
               
               {chapitre.videoId ? (
                 <iframe onLoad={ecouterVideo}
