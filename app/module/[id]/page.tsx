@@ -129,14 +129,16 @@ export default function Module() {
     let sx = 0, sy = 0, actif = false;
     const debut = (e: TouchEvent) => {
       const t = e.touches[0];
-      actif = t.clientX < 30;
+      const cible = e.target as HTMLElement | null;
+      actif = !(cible && cible.closest("textarea, input"));
       sx = t.clientX; sy = t.clientY;
     };
     const fin = (e: TouchEvent) => {
       if (!actif) return;
       actif = false;
       const t = e.changedTouches[0];
-      if (t.clientX - sx > 80 && Math.abs(t.clientY - sy) < 60) gesteRetour();
+      const dx = t.clientX - sx, dy = Math.abs(t.clientY - sy);
+      if (dx > 80 && dy < dx * 0.5) gesteRetour();
     };
     const touche = (e: KeyboardEvent) => {
       if (e.key !== "Escape" || document.fullscreenElement) return;
