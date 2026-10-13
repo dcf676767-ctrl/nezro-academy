@@ -126,12 +126,6 @@ function ecouterVideo(e: any) {
   etatVideo = 0;
   try { e.currentTarget.contentWindow.postMessage(JSON.stringify({ event: "listening", id: 1, channel: "widget" }), "*"); } catch {}
 }
-function basculerVideo() {
-  const f = document.querySelector('iframe[src*="youtube.com/embed"]') as HTMLIFrameElement | null;
-  if (!f || !f.contentWindow) return;
-  const func = etatVideo === 1 ? "pauseVideo" : "playVideo";
-  f.contentWindow.postMessage(JSON.stringify({ event: "command", func: func, args: "" }), "*");
-}
 
 export default function Module() {
   const params = useParams();
