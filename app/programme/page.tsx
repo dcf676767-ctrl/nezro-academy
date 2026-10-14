@@ -52,7 +52,7 @@ export default function Programme() {
       const completed = data.filter((p:any) => p.module_id === m.id).length;
       prog[m.id] = Math.min(100, Math.round((completed / m.chapitres) * 100));
     });
-    setProgression(prog);
+    setProgression(prev => JSON.stringify(prev) === JSON.stringify(prog) ? prev : prog);
   }, []);
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -64,7 +64,7 @@ export default function Programme() {
   }, []);
   useEffect(() => {
     if (!userId) return;
-    const interval = setInterval(() => loadProgression(userId), 3000);
+    const interval = setInterval(() => loadProgression(userId), 20000);
     return () => clearInterval(interval);
   }, [userId]);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
