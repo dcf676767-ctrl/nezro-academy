@@ -300,3 +300,13 @@ html, body {
 @media (max-width: 767px) {
   .video-box { aspect-ratio: 9 / 14; }
 }
+
+/* Reflet de la barre laterale : transform seulement (pas de redessin) */
+.animate-shine-x {
+  animation: shineX 3s linear infinite;
+  will-change: transform;
+}
+@keyframes shineX {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
