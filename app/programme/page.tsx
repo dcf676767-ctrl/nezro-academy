@@ -88,7 +88,7 @@ export default function Programme() {
       if (!cible && sauve) cible = "#" + sauve;
     } catch {}
     if (!cible) return;
-    const hash = cible;
+    const hash = "#" + (cible.split("#").filter(Boolean).pop() || "");
     const aller = () => {
       const el = document.querySelector(hash) as HTMLElement | null;
       if (!el) return false;
