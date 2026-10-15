@@ -27,7 +27,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   11:{titre:"Mind-set et organisation",chapitres:[
     {id:1,titre:"Organisation et planification",duree:"2min06",videoId:"jDOyduSjKCU",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- Faire une to-do liste tous les soirs\n\n- Quand tu fais ta vidéo, mets un timer de 15-20min (ça crée du sentiment d'urgence)\n\n- Essayer de faire les vidéos pendant le week-end pour les poster durant la semaine (beaucoup plus productif)\n\n- Programmer les vidéos (expliqué dans la suite du programme)"},
-    {id:2,titre:"Mind set",duree:"1min20",videoId:"GddLPbqCu4o",description:"JAMAIS ABANDONNER !"},
+    {id:2,titre:"Mind set",duree:"1min25",videoId:"N-nRiLaaU_k",description:"JAMAIS ABANDONNER !"},
   ]},
   12:{titre:"Comprendre les réseaux et comment être monétisé",chapitres:[
     {id:1,titre:"Les bases",duree:"3min05",videoId:"sWJpgbE0xz4",description:"<strong style=\"font-size:1.1rem\">À retenir :</strong>\n\nL'algorithme est un robot. Son but, c'est de faire rester les gens le plus longtemps possible sur l'application. Donc il ne pousse une vidéo que si elle est intéressante — et il juge ça avec 3 critères :\n\n• Watch Time (temps de visionnage total)\n• Stay to Watch (rétention, est-ce qu'on reste jusqu'à la fin)\n• Commentaires (engagement)\n\n→ Si ta vidéo n'est pas intéressante selon ces critères, l'algorithme n'a aucun intérêt à la faire pousser. Si elle l'est, même en partant de 200-300 vues, il peut te placer comme un compte \"élite\"."},
