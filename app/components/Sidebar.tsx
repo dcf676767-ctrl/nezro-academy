@@ -48,6 +48,7 @@ export default function Sidebar() {
   const [annoncesNonLues, setAnnoncesNonLues] = useState(0);
   const [chatNonLus, setChatNonLus] = useState(0);
   const [calendrierNonVu, setCalendrierNonVu] = useState(0);
+  const [communauteNonLu, setCommunauteNonLu] = useState(0);
 
   useLayoutEffect(() => {
     const p = sessionStorage.getItem("sidebar_profile");
@@ -58,6 +59,8 @@ export default function Sidebar() {
     if (bc) setChatNonLus(parseInt(bc));
     const bcal = sessionStorage.getItem("badge_calendrier");
     if (bcal) setCalendrierNonVu(parseInt(bcal));
+    const bcom = sessionStorage.getItem("badge_communaute");
+    if (bcom) setCommunauteNonLu(parseInt(bcom));
   }, []);
 
   useEffect(() => {
@@ -112,7 +115,23 @@ export default function Sidebar() {
       };
       chargerCalendrierNonVu();
       const calInterval = setInterval(chargerCalendrierNonVu, 10000);
-      return () => { clearInterval(hb); clearInterval(nlInterval); clearInterval(calInterval); };
+      const chargerCommunauteNonLu = () => {
+        const maintenant = new Date().toISOString();
+        supabase.from("communaute_vu").select("derniere_visite").eq("user_id", session.user.id).maybeSingle().then((resVu) => {
+          const surPage = window.location.pathname.startsWith("/communaute");
+          if (surPage || !resVu.data) {
+            supabase.from("communaute_vu").upsert({ user_id: session.user.id, derniere_visite: maintenant }, { onConflict: "user_id" }).then(() => {});
+            setCommunauteNonLu(0); sessionStorage.setItem("badge_communaute", "0");
+            return;
+          }
+          supabase.from("community_messages").select("id", { count: "exact", head: true }).neq("user_id", session.user.id).gt("created_at", resVu.data.derniere_visite).then((r) => {
+            const n3 = r.count || 0; setCommunauteNonLu(n3); sessionStorage.setItem("badge_communaute", String(n3));
+          });
+        });
+      };
+      chargerCommunauteNonLu();
+      const comInterval = setInterval(chargerCommunauteNonLu, 5000);
+      return () => { clearInterval(hb); clearInterval(nlInterval); clearInterval(calInterval); clearInterval(comInterval); };
     });
     const chargerStats = () => {
       supabase.from("profiles").select("avatar_url,role,statut,last_seen").then(({ data }) => {
@@ -173,7 +192,7 @@ export default function Sidebar() {
     { href: "/calendrier", label: "Calendrier", emoji: "📅", badge: calendrierNonVu },
     { href: "/assistant", label: "Assistant IA", emoji: "🤖" },
     { href: "/chat", label: "Chat", emoji: "💬", badge: chatNonLus },
-    { href: "/communaute", label: "Communauté", emoji: "🌐" },
+    { href: "/communaute", label: "Communauté", emoji: "🌐", badge: communauteNonLu },
   ];
 
   useEffect(() => {
