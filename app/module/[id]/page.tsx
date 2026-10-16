@@ -294,7 +294,7 @@ export default function Module() {
             <div className="relative rounded-2xl video-box mb-6 overflow-hidden" style={{aspectRatio: ratios[chapitre.videoId] || "1.54"}}>
               
               {chapitre.videoId ? (
-                <iframe onLoad={ecouterVideo}
+                <iframe onLoad={ecouterVideo} style={chapitre.videoId === "uIIuZ7fhwGY" ? {transform: "scale(1.155)"} : undefined}
                   src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&enablejsapi=1`}
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
