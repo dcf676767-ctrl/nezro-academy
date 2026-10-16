@@ -75,6 +75,17 @@ export default function Sidebar() {
   }, []);
 
   useEffect(() => {
+    // badge_communaute_ouverture : remise a zero immediate a l'ouverture de la page Communaute
+    if (!pathname.startsWith("/communaute")) return;
+    setCommunauteNonLu(0);
+    try { sessionStorage.setItem("badge_communaute", "0"); } catch {}
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) return;
+      supabase.from("communaute_vu").upsert({ user_id: session.user.id, derniere_visite: new Date().toISOString() }, { onConflict: "user_id" }).then(() => {});
+    });
+  }, [pathname]);
+
+  useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false);
     };
