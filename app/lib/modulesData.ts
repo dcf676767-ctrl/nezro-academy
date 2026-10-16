@@ -13,7 +13,7 @@ export const MODULES = [
   { id: 25, titre: "Analyser pourquoi une vidéo a percé", chapitres: 3 },
   { id: 19, titre: "Problèmes de compte et de monétisation", chapitres: 4 },
   { id: 20, titre: "Augmenter son RPM", chapitres: 2 },
-  { id: 21, titre: "Astuces", chapitres: 7 },
+  { id: 21, titre: "Astuces", chapitres: 8 },
   { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },
 
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
