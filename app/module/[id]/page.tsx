@@ -5,6 +5,7 @@ import { supabase } from "../../lib/supabase";
 
 // Ratio des videos (videoId -> largeur / hauteur). Par defaut 1.54 (enregistrement ecran)
 const ratios: {[id:string]:string} = {
+  "_8bzI2X9jNA": "1.778",
 };
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
