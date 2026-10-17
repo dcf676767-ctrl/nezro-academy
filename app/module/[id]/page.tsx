@@ -51,6 +51,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   14:{titre:"Trouver sa niche et être efficace",chapitres:[
     {id:1,titre:"Trouver TA niche",duree:"0min50",videoId:"7MAh1OjU2Ek",description:"Reste focus sur une seule niche par compte ! Ne pas faire plusieurs niches sur un seul compte."},
     {id:2,titre:"Que faire quand tu as trouvé ta niche ?",duree:"0min55",videoId:"Lc2QQj1fo8U",description:"Utilise un compte déjà chauffé!"},
+    {id:6,titre:"Comment s'inspirer des autres ?",duree:"2min20",videoId:"LVNXBrMO61E",description:"Pour t'inspirer d'autres créateurs, il faut que tu aies une vision d'un vrai créateur, et non d'un simple consommateur. Quand tu regardes des vidéos d'autres créateurs, analyse leur contenu et vérifie s'ils sont monétisés."},
     {id:7,titre:"Faire du contenu grâce aux autres",duree:"1min47",videoId:"EFag5_boGhs",description:"Tu n'es pas obligé de tout créer toi-même : réagis à du contenu existant, fais des compilations ou des commentaires sur des vidéos populaires de ta niche. C'est une méthode rapide pour produire régulièrement sans t'épuiser."},
     {id:8,titre:"Trouver des idées avec l'IA",duree:"1min30",videoId:"YzXxrjOo8dc",description:"Utilise l'IA (ChatGPT, Gemini...) pour générer rapidement des idées de sujets, de titres et d'angles dans ta niche. Ça te permet de ne jamais tomber en panne d'inspiration."},
   ]},
@@ -99,7 +100,6 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:9,titre:"Astuces pour économiser beaucoup de temps",duree:"0min56",videoId:"2CiLGQq0iAk",description:"<strong style='font-size:1.25rem'>À retenir :</strong>\n\nPour gagner énormément de temps, sépare la création et la publication de tes vidéos.\n\n• Fais tes vidéos pendant le week-end (au moins 4 à 5 vidéos)\n• Poste-les pendant la semaine, manuellement ou en les programmant\n\nRésultat : un gain de temps énorme !"},
     {id:7,titre:"Que faire si la vidéo a du potentiel mais qu'elle ne perce pas ?",duree:"1min55",videoId:"ls3FfpivImc",description:"À RETENIR : ne jamais supprimer une vidéo TikTok, cela casse l'algorithme ! Mets-la juste en privé."},
     {id:8,titre:"Reposter une ancienne vidéo de 3 mois",duree:"1min24",videoId:"T8sVboI1CiY",description:"Tu peux reposter les anciennes vidéos que tu as postées sur ton compte ou ta chaîne YouTube qui datent d'il y a trois mois, si tu as la flemme de faire de nouvelles vidéos !"},
-    {id:10,titre:"Comment s'inspirer des autres ?",duree:"2min20",videoId:"LVNXBrMO61E",description:"Pour t'inspirer d'autres créateurs, il faut que tu aies une vision d'un vrai créateur, et non d'un simple consommateur. Quand tu regardes des vidéos d'autres créateurs, analyse leur contenu et vérifie s'ils sont monétisés."},
   ]},
   22:{titre:"Retirer L'argent et compte Adsense",chapitres:[
     {id:1,titre:"Configurer son compte AdSense et déclaration",duree:"1min58",videoId:"MfcAMouV7lQ",description:"",liens:[{label:"Aide Google AdSense",url:"https://support.google.com/adsense/answer/1709858?hl=fr"}]},
