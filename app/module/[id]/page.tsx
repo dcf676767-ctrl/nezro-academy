@@ -274,7 +274,7 @@ export default function Module() {
     if (typeof window !== "undefined") window.location.replace("/programme");
     return <div className="min-h-screen bg-gray-950 flex items-center justify-center text-white">Redirection...</div>;
   }
-  const progression = Math.round((completed.length/moduleData.chapitres.length)*100);
+  const progression = Math.min(100, Math.round((completed.filter((cid:any) => moduleData.chapitres.some((c:any) => c.id === cid)).length/moduleData.chapitres.length)*100));
   const estDernier = chapitreActif === moduleData.chapitres.length-1;
 
   if (!authChecked) return <div className="min-h-screen bg-gray-950 flex items-center justify-center"><div className="text-white text-sm">Chargement...</div></div>;
