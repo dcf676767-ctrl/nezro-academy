@@ -169,9 +169,6 @@ export default function Programme() {
                       {mod.id === 18 && <img src="/module-outils.webp" alt="outils" className="mindset-img" />}
                       {mod.id === 13 && <img src="/module-anonyme.webp" alt="anonyme" className="anonyme-img" />}
                       {mod.id === 14 && <img src="/module-niche.webp" alt="niche" className="niche-img" />}
-                      {mod.id === 21 && <img src="/module-astuces.webp" alt="astuces" className="mindset-img" style={{translate:"-8px 0"}} />}
-                      {mod.id === 20 && <img src="/module-rpm.webp" alt="rpm" className="mindset-img" />}
-                      {mod.id === 22 && <img src="/module-adsense.webp" alt="adsense" className="mindset-img adsense-thumb" />}
                       {mod.id === 15 && <img src="/module-exemples-niches.webp" alt="exemples niches" className="exemples-niches-img" />}
                       {mod.id === 16 && <img src="/module-capcut-telephone.webp" alt="capcut telephone" className="capcut-telephone-img" />}
                       {mod.id === 17 && <img src="/module-commencer-poster.webp" alt="poster" className="mindset-img" style={{translate:"-14px 0"}} />}
