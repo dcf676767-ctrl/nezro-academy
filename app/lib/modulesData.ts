@@ -3,7 +3,7 @@ export const MODULES = [
   { id: 11, titre: "Mind-set et organisation", chapitres: 2 },
   { id: 12, titre: "Comprendre les réseaux et comment être monétisé", chapitres: 2 },
   { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", chapitres: 1 },
-  { id: 14, titre: "Trouver sa niche et être efficace", chapitres: 5 },
+  { id: 14, titre: "Trouver sa niche et être efficace", chapitres: 4 },
   { id: 15, titre: "30 exemples de niches à faire", chapitres: 2 },
   { id: 26, titre: "Présentation de CapCut téléphone et PC", chapitres: 2 },
   { id: 13, titre: "Contenu 100% anonyme", chapitres: 13 },
@@ -13,7 +13,7 @@ export const MODULES = [
   { id: 25, titre: "Analyser pourquoi une vidéo a percé", chapitres: 3 },
   { id: 19, titre: "Problèmes de compte et de monétisation", chapitres: 4 },
   { id: 20, titre: "Augmenter son RPM", chapitres: 2 },
-  { id: 21, titre: "Astuces", chapitres: 8 },
+  { id: 21, titre: "Astuces", chapitres: 9 },
   { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },
 
   { id: 1, titre: "Niche Roblox", chapitres: 7 },
