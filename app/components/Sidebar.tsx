@@ -248,6 +248,18 @@ export default function Sidebar() {
     }
   }, [active]);
 
+  useEffect(() => {
+    const placer = () => {
+      const a = linkRefs.current[active];
+      if (!a) return;
+      setIndicatorStyle({ top: a.offsetTop, height: a.offsetHeight, opacity: 1 });
+    };
+    const t1 = setTimeout(placer, 60);
+    const t2 = setTimeout(placer, 450);
+    window.addEventListener("resize", placer);
+    return () => { clearTimeout(t1); clearTimeout(t2); window.removeEventListener("resize", placer); };
+  }, [active, sidebarOpen]);
+
     const handleNav = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
     const btn = e.currentTarget; const rect = btn.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height) * 2;
@@ -282,7 +294,7 @@ export default function Sidebar() {
         <div className={`absolute left-3 right-3 md:left-4 md:right-4 bg-blue-600 rounded-xl pointer-events-none ${indicatorReady ? "transition-all duration-300 ease-out" : ""}`} style={{top: indicatorStyle.top, height: indicatorStyle.height, opacity: indicatorStyle.opacity, zIndex: 0}} />
         {links.map(l => (
           <button key={l.href} ref={(el) => { linkRefs.current[l.href] = el; }} onClick={(e) => handleNav(e, l.href)}
-            className={`flex items-center gap-3 px-3 py-2 md:py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative z-10 hover:scale-105 active:scale-95 ${active===l.href ? "text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
+            className={`flex items-center gap-3 px-3 py-1.5 md:py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative z-10 hover:scale-105 active:scale-95 ${active===l.href ? "text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
             {l.emoji} <span className={active===l.href ? "" : "bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shine"}>{l.label}</span>
             {(l as any).badge > 0 && (
               <span className="ml-auto w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">{(l as any).badge > 9 ? "9+" : (l as any).badge}</span>
@@ -291,10 +303,10 @@ export default function Sidebar() {
         ))}
       </nav>
       <div className="relative">
-        <div className="p-4 border-t border-gray-800 flex flex-col gap-3">
-          <div className="bg-gray-800 border border-gray-700 rounded-2xl p-4 shadow-[0_0_14px_2px_rgba(59,130,246,0.6)]">
+        <div className="p-2 md:p-4 border-t border-gray-800 flex flex-col gap-2 md:gap-3">
+          <div className="bg-gray-800 border border-gray-700 rounded-2xl p-3 md:p-4 shadow-[0_0_14px_2px_rgba(59,130,246,0.6)]">
             <p className="text-xs font-bold uppercase tracking-wider mb-3 bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">La communauté</p>
-            <div className="flex gap-1.5 mb-3">
+            <div className="hidden md:flex gap-1.5 mb-3">
               {stats.avatars.map((av,i) => (
                 <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 border-2 border-white/20 shadow-md flex items-center justify-center overflow-hidden">
                   {av ? <img src={av} className="w-8 h-8 object-cover rounded-full" alt="m" /> : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#e5e7eb" className="w-full h-full" style={{marginTop:"4px"}}><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>}
