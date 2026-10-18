@@ -73,8 +73,8 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen bg-gray-950">
       <main className="flex-1 md:ml-64 p-8 pt-4 md:pt-8 module-enter-page">
-        <h1 className="text-3xl font-bold text-white mb-2">📊 Dashboard</h1>
-        <p className="text-gray-400 mb-8">Bienvenue {nom} — suis ta progression dans le programme</p>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">📊 Dashboard</h1>
+        <p className="text-gray-400 mb-8 text-center">Bienvenue {nom} — suis ta progression dans le programme</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">

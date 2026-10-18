@@ -23,8 +23,8 @@ export default function Classement() {
   return (
     <div className="flex min-h-screen bg-gray-950 text-white">
       <main className="flex-1 md:ml-64 p-8 pt-4 md:pt-8 module-enter-page">
-        <h2 className="text-3xl font-bold text-white mb-1">🏆 Classement</h2>
-        <p className="text-gray-400 mb-8">Les membres les plus avancés</p>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">🏆 Classement</h1>
+        <p className="text-gray-400 mb-8 text-center">Les membres les plus avancés</p>
         <div className="flex flex-col gap-3 max-w-2xl">
           {classement.map((m,i) => (
             <div key={m.id} className={`flex items-center gap-4 bg-gray-900 border rounded-2xl p-4 transition-all ${i===0?"border-yellow-500":i===1?"border-gray-400":i===2?"border-orange-400":"border-gray-800"}`}>
