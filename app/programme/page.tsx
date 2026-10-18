@@ -163,11 +163,11 @@ export default function Programme() {
                       {(mod as any).locked && <div className="absolute inset-0 flex items-center justify-center"><span style={{fontSize:"7rem", fontWeight:"900", color:"rgba(255,255,255,0.9)", textShadow:"0 4px 30px rgba(0,0,0,0.9)", lineHeight:"1"}}>?</span></div>}
                     </div>
                   ) : (
-                    <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
-                      <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
+                    <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#0b1630 0%,#12285a 60%,#1a3a8a 100%)", backgroundImage:"linear-gradient(135deg,#0b1630 0%,#12285a 60%,#1a3a8a 100%), linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
+                      <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
                       {MOTS_MINIATURE[mod.id] && (
                         <div data-yma="yma-mini-test" style={{position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none"}}>
-                          <div style={{position:"absolute", inset:0, background:"radial-gradient(circle at 50% 50%, rgba(147,197,253,0.35), transparent 60%)"}} />
+                          <div style={{position:"absolute", inset:0, background:"radial-gradient(circle at 50% 50%, rgba(96,165,250,0.08), transparent 60%)"}} />
                           <div className={"yma-num" + (String(modIndex + 1).endsWith("1") ? " yma-num-un" : "")}>{String(modIndex + 1).padStart(2,"0")}</div>
                           <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
                             <span className={"yma-word" + (MOTS_MINIATURE[mod.id].length > 10 ? " yma-word-long" : "")}>{MOTS_MINIATURE[mod.id]}</span>
