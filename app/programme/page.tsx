@@ -147,14 +147,13 @@ export default function Programme() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {modules.map((mod, modIndex) => (
             <button key={mod.id} id={`module-${mod.id}`} onClick={(e) => { if ((mod as any).locked) return; handleClick(e, mod.id); }}
-              className="relative group text-left rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 active:scale-95"
+              className="relative group text-left rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 active:scale-95 card-frame"
               style={{
                 padding:"2px",
-                background:"linear-gradient(135deg,#60a5fa,#1d4ed8)",
                 boxShadow:"0 0 25px rgba(59,130,246,0.6), 0 0 60px rgba(59,130,246,0.2)",
                 borderRadius:"16px"
               }}>
-              <div className="card-inner relative bg-gray-900 rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
+              <div className="card-inner relative rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
                 <div className="relative h-72 md:h-60">
                   {(mod.id === 1 || mod.id === 8) ? (
                     <div className="w-full h-full relative overflow-hidden">
@@ -203,11 +202,11 @@ export default function Programme() {
                     </div>
                   )}
                 </div>
-                <div className="p-4">
+                <div className="p-4 glass-bottom">
                   <h3 className="font-bold text-white text-base mb-1">{mod.titre}</h3>
                   <p className="text-sm text-gray-400 mb-3">{mod.description}</p>
                   <p className="text-xs text-gray-500 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
-                  <div className="w-full bg-gray-800 rounded-full h-1.5">
+                  <div className="w-full bg-white/10 rounded-full h-1.5">
                     <div className="barre-progres h-1.5 rounded-full transition-all duration-500" style={{width:`${progression[mod.id]||0}%`,background:getColor(progression[mod.id]||0)}} />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">{progression[mod.id]||0}%</p>
