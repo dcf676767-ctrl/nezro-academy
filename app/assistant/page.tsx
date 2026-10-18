@@ -93,7 +93,7 @@ export default function Assistant() {
   };
 
   return (
-    <div ref={racineRef} className="bg-gray-950 text-white flex fixed inset-0" style={{overflow:"hidden"}}>
+    <div ref={racineRef} className="bg-transparent text-white flex fixed inset-0" style={{overflow:"hidden"}}>
       <main className="flex-1 md:ml-64 flex flex-col overflow-hidden h-full pt-14 md:pt-0 module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
         <div className="border-b border-gray-800 px-8 py-4 pl-16 md:pl-8 flex items-center gap-3">
           <span className="text-2xl">🤖</span>

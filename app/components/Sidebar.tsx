@@ -272,7 +272,7 @@ export default function Sidebar() {
             <div className="absolute -inset-2 bg-blue-500 blur-xl opacity-50 rounded-full" />
             <div className="relative w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-0">
               <span className="font-bold text-lg leading-none">N</span>
-              <span className="font-semibold text-[6px] leading-none tracking-wide">Nezro Academy</span>
+              
             </div>
           </div>
           <h1 className="text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>

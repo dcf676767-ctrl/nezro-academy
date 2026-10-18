@@ -80,7 +80,7 @@ export default function Communaute() {
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <div className="bg-gray-950 text-white flex fixed inset-0" style={{overflow:"hidden"}}>      <main className="flex-1 md:ml-64 flex flex-col overflow-hidden h-full module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
+    <div className="bg-transparent text-white flex fixed inset-0" style={{overflow:"hidden"}}>      <main className="flex-1 md:ml-64 flex flex-col overflow-hidden h-full module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
         <div className="border-b border-gray-800 px-4 py-4 pt-16 md:pt-4 flex items-center gap-3">
           <div className="text-2xl">👥</div>
           <div>

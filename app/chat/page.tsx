@@ -118,7 +118,7 @@ export default function Chat() {
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <div className="flex bg-gray-950 text-white" style={{height:"100dvh"}}>
+    <div className="flex bg-transparent text-white" style={{height:"100dvh"}}>
       <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden module-enter-page" style={{height:"100dvh"}} >
         {isAdmin && (
           <div className={`${vueMobile === "conversation" ? "hidden" : "flex"} md:flex w-full md:w-72 border-r border-gray-800 flex-col shrink-0 pt-14 md:pt-0`} style={{height: vueMobile === "liste" ? "100%" : "auto"}}>
