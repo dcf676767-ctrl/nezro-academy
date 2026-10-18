@@ -158,7 +158,7 @@ export default function Chat() {
                   <p className="text-xs text-gray-400">{selectedUser.id === ADMIN_ID ? "👑 Admin" : "Membre"}</p>
                 </div>
               </div>
-              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-3">
+              <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-4 flex flex-col gap-3">
                 {msgsLoaded && messages.length === 0 && (
                   <div className="text-center py-16 text-gray-500">
                     <p className="text-4xl mb-3">💬</p>
@@ -173,12 +173,12 @@ export default function Chat() {
                       <div className="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
                         {profiles[msg.sender_id]?.avatar_url ? <img src={profiles[msg.sender_id].avatar_url} className="w-full h-full object-cover" /> : profiles[msg.sender_id]?.nom?.[0]?.toUpperCase() || "?"}
                       </div>
-                      <div className={`max-w-sm flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}>
+                      <div className={`max-w-sm min-w-0 flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}>
                         <div className={`flex items-center gap-1 ${isMe ? "flex-row-reverse" : ""}`}>
                           {msg.image_url ? (
-                            <img src={msg.image_url} className="max-w-xs rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
+                            <img src={msg.image_url} className="max-w-xs max-w-full rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
                           ) : (
-                            <div className={`px-4 py-2 rounded-2xl text-sm ${isMe ? "bg-blue-600 rounded-br-sm" : "bg-gray-800 rounded-bl-sm"}`}>
+                            <div className={`px-4 py-2 rounded-2xl text-sm break-words min-w-0 ${isMe ? "bg-blue-600 rounded-br-sm" : "bg-gray-800 rounded-bl-sm"}`}>
                               {msg.content}
                             </div>
                           )}
