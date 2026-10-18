@@ -395,3 +395,24 @@ body::before {
 .card-inner { display: flex; flex-direction: column; }
 .card-inner > :first-child { flex-shrink: 0; }
 .card-inner > .glass-bottom { flex: 1 1 auto; }
+
+/* yma-glass-global : tous les carres et rectangles en verre sombre transparent */
+.bg-gray-900 {
+  background-color: rgba(12,20,44,0.42) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+}
+.bg-gray-900.border-gray-800 {
+  border-color: rgba(255,255,255,0.12) !important;
+}
+@media (max-width: 767px) {
+  .bg-gray-900 {
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(10px) saturate(140%);
+  }
+  /* sidebar mobile et bouton menu : presque opaques pour rester lisibles par-dessus le contenu */
+  .fixed.bg-gray-900 {
+    background-color: rgba(8,14,32,0.94) !important;
+  }
+}
