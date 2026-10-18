@@ -448,3 +448,16 @@ body::before {
   /* mots de plus de 10 lettres (Introduction, Monetisation) : plus petits sur telephone pour tenir dans la carte */
   .yma-word-long { font-size: 2.3rem; }
 }
+
+/* yma-word-caps : mots centraux des miniatures en majuscules, un peu plus petits */
+.yma-word {
+  text-transform: uppercase;
+  font-size: 2.6rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .yma-word { font-size: 2.2rem; }
+  .yma-word-long { font-size: 1.6rem; }
+}
