@@ -93,7 +93,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   21:{titre:"Astuces",chapitres:[
     {id:1,titre:"Créer des e-mails facilement en illimité",duree:"1min22",videoId:"jP6kluEbED8",description:"",liens:[{label:"Firefox Relay",url:"https://relay.firefox.com/accounts/profile/"}]},
-    {id:2,titre:"Outils pour analyser les concurrents",duree:"1min28",videoId:"Jcg80S8eSWY",description:"Voici quelques outils utiles pour analyser des vidéos d'autres personnes sur TikTok et YouTube.",liens:[{label:"vidIQ",url:"https://vidiq.com/fr/extension/"}]},
+    {id:2,titre:"Outils pour analyser les concurrents",duree:"1min28",videoId:"-2Q8RcAdqnA",description:"Voici quelques outils utiles pour analyser des vidéos d'autres personnes sur TikTok et YouTube.",liens:[{label:"vidIQ",url:"https://vidiq.com/fr/extension/"}]},
     {id:4,titre:"Améliorer l'accroche et le hook",duree:"2min02",videoId:"lvLJ5yNreeQ",description:"Le hook, c'est les 3 premières secondes de ta vidéo. Son rôle : capter l'attention du spectateur pour qu'il reste jusqu'à la fin.\n\n→ Un bon hook = plus de rétention = l'algorithme pousse ta vidéo. C'est l'élément le plus important de ta vidéo, soigne-le !"},
     {id:5,titre:"Heure / hashtags pour poster",duree:"2min40",videoId:"CjhM25rlYsw",description:"L'heure pour poster n'est pas très importante : le plus important, c'est que ton contenu soit bon. Les hashtags sont un peu importants car ils servent à cibler l'audience avec ta niche."},
     {id:10,titre:"Suivre les tendances et les concepts par rapport à TA niche",duree:"-",videoId:"",description:"Contenu à venir."},
