@@ -361,7 +361,7 @@ export default function Module() {
               <div className="flex flex-col gap-2">
                 {moduleData.chapitres.map((chap,i) => (
                   <div key={chap.id} onClick={() => { setChapitreActif(i); setAnimKey(k => k + 1); }}
-                    className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all ${i===chapitreActif?"bg-blue-600/20 border border-blue-500":"bg-gray-900 border border-gray-800 hover:border-gray-600"}`}>
+                    className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all ${i===chapitreActif?"glass-card glass-active":"glass-card glass-hover"}`}>
                     <button onClick={(e) => {e.stopPropagation();toggleCompleted(chap.id);}}
                       className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${completed.includes(chap.id)?"bg-green-500 border-green-500":"border-gray-600"}`}>
                       {completed.includes(chap.id) && <span className="text-xs text-white">✓</span>}
@@ -377,13 +377,13 @@ export default function Module() {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5 flex-1 flex flex-col">
+            <div className="glass-card rounded-2xl p-5 flex-1 flex flex-col">
               <h3 className="text-white font-bold mb-3">📝 Mes notes</h3>
               <textarea
                 placeholder="Écris tes notes ici..."
                 onChange={e => localStorage.setItem(`note-${moduleId}-${chapitre.id}`, e.target.value)}
                 defaultValue={typeof window !== "undefined" ? localStorage.getItem(`note-${moduleId}-${chapitre.id}`) || "" : ""}
-                className="w-full flex-1 min-h-[300px] bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 resize-none"
+                className="w-full flex-1 min-h-[300px] bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 resize-none"
               />
               <p className="text-xs text-gray-600 mt-1">Tes notes sont sauvegardées automatiquement sur cet appareil</p>
             </div>
