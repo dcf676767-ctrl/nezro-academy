@@ -102,12 +102,9 @@ export default function Assistant() {
   return (
     <div ref={racineRef} className="bg-transparent text-white flex fixed inset-0" style={{overflow:"hidden"}}>
       <main className="flex-1 md:ml-64 flex flex-col overflow-hidden h-full pt-2 md:pt-0 module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
-        <div className="border-b border-gray-800 px-8 py-4 pl-4 md:pl-8 flex items-center gap-3">
-          <span className="text-2xl">🤖</span>
-          <div>
-            <h1 className="font-bold text-lg">Assistant YouTube</h1>
-            <p className="text-xs text-gray-400">Ton coach IA pour tout ce qui est YouTube</p>
-          </div>
+        <div className="border-b border-gray-800 px-4 pt-2 pb-4 md:px-8 md:pt-8">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">🤖 Assistant YouTube</h1>
+          <p className="text-gray-400 text-center">Ton coach IA pour tout ce qui est YouTube</p>
         </div>
 
         <div ref={listeRef} className="flex-1 overflow-y-auto overscroll-contain px-4 md:px-8 py-6 flex flex-col gap-4">
