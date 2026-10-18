@@ -14,6 +14,8 @@ export default function Assistant() {
   const [loading, setLoading] = useState(false);
   const [pret, setPret] = useState(false);
   const [userId, setUserId] = useState("");
+  const [monAvatar, setMonAvatar] = useState("");
+  const [monNom, setMonNom] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const listeRef = useRef<HTMLDivElement>(null);
   const racineRef = useRef<HTMLDivElement>(null);
@@ -21,6 +23,11 @@ export default function Assistant() {
   useEffect(() => {
     const chargerPourUtilisateur = (id: string) => {
       setUserId(id);
+      if (id !== "anonyme") {
+        supabase.from("profiles").select("avatar_url,nom").eq("id", id).single().then(({ data }) => {
+          if (data) { setMonAvatar(data.avatar_url || ""); setMonNom(data.nom || ""); }
+        });
+      } else { setMonAvatar(""); setMonNom(""); }
       const saved = sessionStorage.getItem("assistant_messages_" + id);
       if (saved) {
         try { setMessages(JSON.parse(saved)); } catch { setMessages([MESSAGE_INITIAL]); }
@@ -106,8 +113,8 @@ export default function Assistant() {
         <div ref={listeRef} className="flex-1 overflow-y-auto overscroll-contain px-4 md:px-8 py-6 flex flex-col gap-4">
           {messages.map((msg, i) => (
             <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
-              <div className={`w-8 h-8 flex items-center justify-center text-sm font-bold shrink-0 ${msg.role === "assistant" ? "rounded-lg bg-gradient-to-br from-blue-400 to-blue-700 shadow-md shadow-blue-600/40" : "rounded-full bg-gray-700"}`}>
-                {msg.role === "assistant" ? "N" : "Toi"}
+              <div className={`w-8 h-8 flex items-center justify-center text-sm font-bold shrink-0 ${msg.role === "assistant" ? "rounded-lg bg-gradient-to-br from-blue-400 to-blue-700 shadow-md shadow-blue-600/40" : "rounded-full bg-gray-700 overflow-hidden"}`}>
+                {msg.role === "assistant" ? "N" : (monAvatar ? <img src={monAvatar} className="w-full h-full object-cover" alt="moi" /> : (monNom?.[0]?.toUpperCase() || "?"))}
               </div>
               <div className={`max-w-2xl px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${msg.role === "assistant" ? "bg-gray-800 text-white rounded-bl-sm" : "bg-blue-600 text-white rounded-br-sm"}`}>
                 {msg.content}
