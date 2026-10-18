@@ -166,9 +166,9 @@ export default function Programme() {
                       {mod.id === 11 && (
                         <div data-yma="yma-mini-test" style={{position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none"}}>
                           <div style={{position:"absolute", inset:0, background:"radial-gradient(circle at 50% 50%, rgba(147,197,253,0.35), transparent 60%)"}} />
-                          <div style={{position:"absolute", right:"-8px", bottom:"-34px", fontSize:"clamp(7rem, 12vw, 10rem)", fontWeight:900, lineHeight:1, color:"rgba(255,255,255,0.12)", userSelect:"none"}}>{String(modIndex + 1).padStart(2,"0")}</div>
+                          <div className="yma-num">{String(modIndex + 1).padStart(2,"0")}</div>
                           <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                            <span style={{fontSize:"clamp(2.2rem, 4vw, 3rem)", fontWeight:900, color:"#ffffff", letterSpacing:"-0.5px", textShadow:"0 4px 24px rgba(0,0,0,0.35)"}}>{mod.label}</span>
+                            <span className="yma-word">{mod.label}</span>
                           </div>
                         </div>
                       )}
