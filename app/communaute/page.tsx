@@ -81,12 +81,9 @@ export default function Communaute() {
 
   return (
     <div className="bg-transparent text-white flex fixed inset-0" style={{overflow:"hidden"}}>      <main className="flex-1 min-w-0 w-full md:ml-64 flex flex-col overflow-hidden h-full module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
-        <div className="border-b border-gray-800 px-4 py-4 pt-4 md:pt-4 flex items-center gap-3">
-          <div className="text-2xl">👥</div>
-          <div>
-            <p className="font-bold text-white">Chat Communauté</p>
-            <p className="text-xs text-gray-400">Tous les membres</p>
-          </div>
+        <div className="border-b border-gray-800 px-4 pt-4 pb-4 md:px-8 md:pt-8">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">👥 Chat Communauté</h1>
+          <p className="text-gray-400 text-center">Tous les membres</p>
         </div>
         <div className="flex-1 overflow-y-auto overflow-x-hidden px-3 md:px-4 py-4 flex flex-col gap-3 yma-chat-zone">
           {messages.map((msg) => {
