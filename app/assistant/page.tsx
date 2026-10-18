@@ -106,8 +106,8 @@ export default function Assistant() {
         <div ref={listeRef} className="flex-1 overflow-y-auto overscroll-contain px-4 md:px-8 py-6 flex flex-col gap-4">
           {messages.map((msg, i) => (
             <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${msg.role === "assistant" ? "bg-blue-600" : "bg-gray-700"}`}>
-                {msg.role === "assistant" ? "AI" : "Toi"}
+              <div className={`w-8 h-8 flex items-center justify-center text-sm font-bold shrink-0 ${msg.role === "assistant" ? "rounded-lg bg-gradient-to-br from-blue-400 to-blue-700 shadow-md shadow-blue-600/40" : "rounded-full bg-gray-700"}`}>
+                {msg.role === "assistant" ? "N" : "Toi"}
               </div>
               <div className={`max-w-2xl px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${msg.role === "assistant" ? "bg-gray-800 text-white rounded-bl-sm" : "bg-blue-600 text-white rounded-br-sm"}`}>
                 {msg.content}
@@ -116,7 +116,7 @@ export default function Assistant() {
           ))}
           {loading && (
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-sm font-bold">AI</div>
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-blue-700 shadow-md shadow-blue-600/40 flex items-center justify-center text-sm font-bold">N</div>
               <div className="bg-gray-800 px-4 py-3 rounded-2xl rounded-bl-sm">
                 <div className="flex gap-1">
                   <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay:"0ms"}}/>
