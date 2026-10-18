@@ -379,7 +379,7 @@ body::before {
 
 /* glass-bottom : zone de texte des cartes de modules en verre sombre */
 .glass-bottom {
-  background: linear-gradient(180deg, rgba(59,110,220,0.30), rgba(24,48,125,0.36));
+  background: linear-gradient(180deg, rgba(40,80,185,0.34), rgba(14,28,85,0.46));
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   backdrop-filter: blur(18px) saturate(160%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
@@ -390,3 +390,8 @@ body::before {
     backdrop-filter: blur(10px) saturate(140%);
   }
 }
+
+/* les cartes de modules remplissent toute la hauteur : plus de bande noire en bas */
+.card-inner { display: flex; flex-direction: column; }
+.card-inner > :first-child { flex-shrink: 0; }
+.card-inner > .glass-bottom { flex: 1 1 auto; }
