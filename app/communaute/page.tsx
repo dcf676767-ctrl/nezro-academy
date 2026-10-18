@@ -85,7 +85,21 @@ export default function Communaute() {
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">👥 Chat Communauté</h1>
           <p className="text-gray-400 text-center">Tous les membres</p>
         </div>
-        <div className="flex-1 overflow-y-auto overflow-x-hidden px-3 md:px-4 py-4 flex flex-col gap-3 yma-chat-zone">
+        <div className="hidden lg:flex fixed right-6 top-28 w-72 flex-col gap-3 bg-gray-900/70 border border-gray-800 rounded-2xl p-4" style={{zIndex:5}}>
+          <p className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">Membres actifs</p>
+          {Array.from(new Set([...messages].reverse().map((m: any) => m.user_id))).slice(0, 8).map((uid: any) => {
+            const p = profiles[uid];
+            return (
+              <div key={uid} className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
+                  {p?.avatar_url ? <img src={p.avatar_url} className="w-full h-full object-cover" /> : p?.nom?.[0]?.toUpperCase() || "?"}
+                </div>
+                <span className="text-sm text-gray-200 truncate">{p?.nom || "Membre"}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex-1 overflow-y-auto overflow-x-hidden px-3 md:px-4 py-4 flex flex-col gap-3 yma-chat-zone lg:pr-80">
           {messages.map((msg) => {
             const isMe = msg.user_id === moiId;
             const prof = profiles[msg.user_id];
@@ -105,7 +119,7 @@ export default function Communaute() {
                     <p className="text-gray-200 text-sm">{msg.content}</p>
                   )}
                   {moiId === ADMIN_ID && (
-                    <button onClick={() => supprimerMessage(msg.id)} className="text-xs text-red-500 hover:text-red-400 mt-1">🗑 Supprimer</button>
+                    <button onClick={() => supprimerMessage(msg.id)} className="text-xs text-red-500 hover:text-red-400 mt-1 self-start">🗑 Supprimer</button>
                   )}
                 </div>
               </div>
