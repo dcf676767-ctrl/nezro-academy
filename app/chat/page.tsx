@@ -118,7 +118,7 @@ export default function Chat() {
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <div className="flex bg-transparent text-white" style={{height:"100dvh"}}>
+    <div className="flex bg-transparent text-white overflow-hidden w-full" style={{height:"100dvh", touchAction:"pan-y", overscrollBehaviorX:"none"}}>
       <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden module-enter-page" style={{height:"100dvh"}} >
         {isAdmin && (
           <div className={`${vueMobile === "conversation" ? "hidden" : "flex"} md:flex w-full md:w-72 border-r border-gray-800 flex-col shrink-0 pt-14 md:pt-0`} style={{height: vueMobile === "liste" ? "100%" : "auto"}}>
@@ -158,7 +158,7 @@ export default function Chat() {
                   <p className="text-xs text-gray-400">{selectedUser.id === ADMIN_ID ? "👑 Admin" : "Membre"}</p>
                 </div>
               </div>
-              <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-4 flex flex-col gap-3">
+              <div className="flex-1 overflow-y-auto overflow-x-hidden px-3 md:px-6 py-4 flex flex-col gap-3">
                 {msgsLoaded && messages.length === 0 && (
                   <div className="text-center py-16 text-gray-500">
                     <p className="text-4xl mb-3">💬</p>
@@ -173,12 +173,12 @@ export default function Chat() {
                       <div className="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
                         {profiles[msg.sender_id]?.avatar_url ? <img src={profiles[msg.sender_id].avatar_url} className="w-full h-full object-cover" /> : profiles[msg.sender_id]?.nom?.[0]?.toUpperCase() || "?"}
                       </div>
-                      <div className={`max-w-sm min-w-0 flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}>
+                      <div className={`max-w-[78%] md:max-w-sm min-w-0 flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}>
                         <div className={`flex items-center gap-1 ${isMe ? "flex-row-reverse" : ""}`}>
                           {msg.image_url ? (
-                            <img src={msg.image_url} className="max-w-xs max-w-full rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
+                            <img src={msg.image_url} className="max-w-[200px] max-h-64 object-cover md:max-w-xs rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
                           ) : (
-                            <div className={`px-4 py-2 rounded-2xl text-sm break-words min-w-0 ${isMe ? "bg-blue-600 rounded-br-sm" : "bg-gray-800 rounded-bl-sm"}`}>
+                            <div className={`px-4 py-2 rounded-2xl text-[13px] md:text-sm [overflow-wrap:anywhere] min-w-0 ${isMe ? "bg-blue-600 rounded-br-sm" : "bg-gray-800 rounded-bl-sm"}`}>
                               {msg.content}
                             </div>
                           )}
