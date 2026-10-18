@@ -491,5 +491,5 @@ body::before {
 @media (max-width: 767px) {
   .yma-chat-zone { overflow-x: hidden; }
   .yma-chat-zone * { min-width: 0; overflow-wrap: anywhere; }
-  .yma-chat-zone img { max-width: min(200px, 100%); max-height: 16rem; object-fit: cover; }
+  .yma-chat-zone img { max-width: min(280px, 100%); max-height: 22rem; object-fit: cover; }
 }

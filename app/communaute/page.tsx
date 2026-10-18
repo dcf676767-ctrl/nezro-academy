@@ -81,7 +81,7 @@ export default function Communaute() {
 
   return (
     <div className="bg-transparent text-white flex fixed inset-0" style={{overflow:"hidden"}}>      <main className="flex-1 min-w-0 w-full md:ml-64 flex flex-col overflow-hidden h-full module-enter-page" style={{paddingBottom:"env(safe-area-inset-bottom)"}}>
-        <div className="border-b border-gray-800 px-4 py-4 pt-16 md:pt-4 flex items-center gap-3">
+        <div className="border-b border-gray-800 px-4 py-4 pt-4 md:pt-4 flex items-center gap-3">
           <div className="text-2xl">👥</div>
           <div>
             <p className="font-bold text-white">Chat Communauté</p>
@@ -103,7 +103,7 @@ export default function Communaute() {
                     <span className="text-xs text-gray-500">{formatHeure(msg.created_at)}</span>
                   </div>
                   {msg.image_url ? (
-                    <img src={msg.image_url} className="max-w-[200px] max-h-64 object-cover md:max-w-sm rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
+                    <img src={msg.image_url} className="max-w-[280px] max-h-[22rem] object-cover md:max-w-sm rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
                   ) : (
                     <p className="text-gray-200 text-sm">{msg.content}</p>
                   )}

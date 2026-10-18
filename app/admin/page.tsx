@@ -67,7 +67,7 @@ export default function Admin() {
 
   return (
     <div className="flex min-h-screen bg-gray-950">
-      <main className="flex-1 md:ml-64 p-8 pt-20 md:pt-8 module-enter-page">
+      <main className="flex-1 md:ml-64 p-8 pt-4 md:pt-8 module-enter-page">
         <h1 className="text-3xl font-bold text-white mb-2">👑 Panel Admin</h1>
         <p className="text-gray-400 mb-6">Nezro Academy — {membres.length} membres au total</p>
 
