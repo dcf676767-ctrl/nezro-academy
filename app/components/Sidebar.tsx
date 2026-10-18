@@ -265,24 +265,24 @@ export default function Sidebar() {
       </button>
       {sidebarOpen && <div onClick={() => setSidebarOpen(false)} className="md:hidden fixed inset-0 bg-black/50 z-[1000] touch-none" />}
       <aside className={`w-64 bg-gray-900 border-r border-gray-800 flex flex-col fixed top-0 bottom-0 left-0 z-[1001] overscroll-contain transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
-      <div className="relative m-3 mb-2 rounded-2xl p-[2px] overflow-hidden">
+      <div className="relative m-3 mt-14 mb-1 md:mt-3 md:mb-2 rounded-2xl p-[2px] overflow-hidden">
         <div className="absolute inset-0 animate-shine-x bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
-        <div className="relative bg-gray-900 rounded-2xl p-4 flex items-center gap-4 shadow-[0_0_20px_4px_rgba(59,130,246,0.3)]">
-          <div className="relative w-14 h-14 flex-shrink-0">
+        <div className="relative bg-gray-900 rounded-2xl p-2 md:p-4 flex items-center gap-3 md:gap-4 shadow-[0_0_20px_4px_rgba(59,130,246,0.3)]">
+          <div className="relative w-10 h-10 md:w-14 md:h-14 flex-shrink-0">
             <div className="absolute -inset-2 bg-blue-500 blur-xl opacity-50 rounded-full" />
-            <div className="relative w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-0">
+            <div className="relative w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-0">
               <span className="font-bold text-lg leading-none">N</span>
               
             </div>
           </div>
-          <h1 className="text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>
+          <h1 className="text-base md:text-lg font-bold text-white whitespace-nowrap">Nezro Academy</h1>
         </div>
       </div>
-      <nav ref={navRef} className="flex-1 p-4 flex flex-col gap-2 overflow-y-auto relative" style={{WebkitOverflowScrolling:"touch", overscrollBehavior:"contain"}}>
-        <div className={`absolute left-4 right-4 bg-blue-600 rounded-xl pointer-events-none ${indicatorReady ? "transition-all duration-300 ease-out" : ""}`} style={{top: indicatorStyle.top, height: indicatorStyle.height, opacity: indicatorStyle.opacity, zIndex: 0}} />
+      <nav ref={navRef} className="flex-1 p-3 md:p-4 flex flex-col gap-1 md:gap-2 overflow-y-auto relative" style={{WebkitOverflowScrolling:"touch", overscrollBehavior:"contain"}}>
+        <div className={`absolute left-3 right-3 md:left-4 md:right-4 bg-blue-600 rounded-xl pointer-events-none ${indicatorReady ? "transition-all duration-300 ease-out" : ""}`} style={{top: indicatorStyle.top, height: indicatorStyle.height, opacity: indicatorStyle.opacity, zIndex: 0}} />
         {links.map(l => (
           <button key={l.href} ref={(el) => { linkRefs.current[l.href] = el; }} onClick={(e) => handleNav(e, l.href)}
-            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative z-10 hover:scale-105 active:scale-95 ${active===l.href ? "text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
+            className={`flex items-center gap-3 px-3 py-2 md:py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden relative z-10 hover:scale-105 active:scale-95 ${active===l.href ? "text-white" : "text-gray-400 hover:bg-gray-800 hover:text-white"}`}>
             {l.emoji} <span className={active===l.href ? "" : "bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shine"}>{l.label}</span>
             {(l as any).badge > 0 && (
               <span className="ml-auto w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">{(l as any).badge > 9 ? "9+" : (l as any).badge}</span>
