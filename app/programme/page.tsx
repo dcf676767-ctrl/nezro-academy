@@ -163,9 +163,17 @@ export default function Programme() {
                   ) : (
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
-                      {mod.id === 11 && <img src="/module-mindset.webp" alt="mindset" className="mindset-img" />}
+                      {mod.id === 11 && (
+                        <div data-yma="yma-mini-test" style={{position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none"}}>
+                          <div style={{position:"absolute", inset:0, background:"radial-gradient(circle at 50% 50%, rgba(147,197,253,0.35), transparent 60%)"}} />
+                          <div style={{position:"absolute", right:"-8px", bottom:"-34px", fontSize:"clamp(7rem, 12vw, 10rem)", fontWeight:900, lineHeight:1, color:"rgba(255,255,255,0.12)", userSelect:"none"}}>{String(modIndex + 1).padStart(2,"0")}</div>
+                          <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
+                            <span style={{fontSize:"clamp(2.2rem, 4vw, 3rem)", fontWeight:900, color:"#ffffff", letterSpacing:"-0.5px", textShadow:"0 4px 24px rgba(0,0,0,0.35)"}}>{mod.label}</span>
+                          </div>
+                        </div>
+                      )}
                       {mod.id === 10 && <img src="/module-intro.webp" alt="intro" className="intro-img" />}
-                      <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:1}}>
+                      <div style={{position:"absolute", top:"14px", left:"18px", display: mod.id === 11 ? "none" : "flex", alignItems:"flex-end", gap:"10px", zIndex:1}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
                         <span className="glow-sub" style={{fontSize:"0.6rem", fontWeight:"800", color:"#93c5fd", letterSpacing:"5px", marginBottom:"5px"}}>MODULE</span>
                       </div>
@@ -202,10 +210,10 @@ export default function Programme() {
                     </div>
                   )}
                 </div>
-                <div className="p-4 glass-bottom">
-                  <h3 className="font-bold text-white text-base mb-1">{mod.titre}</h3>
-                  <p className="text-sm text-gray-400 mb-3">{mod.description}</p>
-                  <p className="text-xs text-gray-500 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
+                <div className="px-4 py-3 glass-bottom">
+                  <h3 className="font-bold text-white text-sm mb-1">{mod.titre}</h3>
+                  <p className="text-xs text-gray-400 mb-2.5 leading-snug">{mod.description}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
                   <div className="w-full bg-white/10 rounded-full h-1.5">
                     <div className="barre-progres h-1.5 rounded-full transition-all duration-500" style={{width:`${progression[mod.id]||0}%`,background:getColor(progression[mod.id]||0)}} />
                   </div>
