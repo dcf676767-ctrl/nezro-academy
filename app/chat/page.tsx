@@ -118,8 +118,8 @@ export default function Chat() {
   const formatHeure = (ts: string) => new Date(ts).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <div className="flex bg-transparent text-white overflow-hidden w-full" style={{height:"100dvh", touchAction:"pan-y", overscrollBehaviorX:"none"}}>
-      <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden module-enter-page" style={{height:"100dvh"}} >
+    <div className="flex bg-transparent text-white overflow-hidden fixed inset-0 w-full" style={{height:"100dvh", touchAction:"pan-y", overscrollBehaviorX:"none"}}>
+      <main className="flex-1 min-w-0 w-full md:ml-64 flex flex-col md:flex-row overflow-hidden module-enter-page" style={{height:"100dvh"}} >
         {isAdmin && (
           <div className={`${vueMobile === "conversation" ? "hidden" : "flex"} md:flex w-full md:w-72 border-r border-gray-800 flex-col shrink-0 pt-14 md:pt-0`} style={{height: vueMobile === "liste" ? "100%" : "auto"}}>
             <div className="p-4 border-b border-gray-800">
@@ -145,7 +145,7 @@ export default function Chat() {
             </div>
           </div>
         )}
-        <div className={`${vueMobile === "liste" ? "hidden" : "flex"} md:flex flex-1 flex-col overflow-hidden`} style={{height:"100%"}}>
+        <div className={`${vueMobile === "liste" ? "hidden" : "flex"} md:flex flex-1 min-w-0 w-full flex-col overflow-hidden`} style={{height:"100%"}}>
           {selectedUser ? (
             <>
               <div className="border-b border-gray-800 px-4 py-4 flex items-center gap-3 pl-14 md:pl-4">
@@ -169,7 +169,7 @@ export default function Chat() {
                 {messages.map((msg, i) => {
                   const isMe = msg.sender_id === moiId;
                   return (
-                    <div key={msg.id || i} className={`group flex items-end gap-2 ${isMe ? "flex-row-reverse" : ""}`}>
+                    <div key={msg.id || i} className={`group flex items-end gap-2 min-w-0 w-full ${isMe ? "flex-row-reverse" : ""}`}>
                       <div className="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
                         {profiles[msg.sender_id]?.avatar_url ? <img src={profiles[msg.sender_id].avatar_url} className="w-full h-full object-cover" /> : profiles[msg.sender_id]?.nom?.[0]?.toUpperCase() || "?"}
                       </div>
