@@ -420,7 +420,7 @@ body::before {
 /* yma-num / yma-word : numero en fond et mot central des nouvelles miniatures */
 .yma-num {
   position: absolute;
-  right: 12px;
+  right: -6px;
   bottom: -8px;
   font-size: 10rem;
   font-weight: 900;
@@ -429,7 +429,7 @@ body::before {
   user-select: none;
 }
 .yma-word {
-  font-size: 4.25rem;
+  font-size: 3.5rem;
   font-weight: 900;
   line-height: 1;
   color: #ffffff;
@@ -437,6 +437,6 @@ body::before {
   text-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }
 @media (max-width: 767px) {
-  .yma-num { font-size: 9rem; right: 10px; bottom: -4px; }
-  .yma-word { font-size: 3.75rem; }
+  .yma-num { font-size: 9rem; right: -5px; bottom: -4px; }
+  .yma-word { font-size: 3.1rem; }
 }
