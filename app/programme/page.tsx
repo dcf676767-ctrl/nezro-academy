@@ -165,14 +165,6 @@ export default function Programme() {
                     <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%), linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"cover, 28px 28px, 28px 28px"}}>
                       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)", backgroundSize:"28px 28px"}} />
                       {mod.id === 11 && <img src="/module-mindset.webp" alt="mindset" className="mindset-img" />}
-                      {mod.id === 12 && <img src="/module-reseaux.webp" alt="reseaux" className="reseaux-img" />}
-                      {mod.id === 18 && <img src="/module-outils.webp" alt="outils" className="mindset-img" />}
-                      {mod.id === 13 && <img src="/module-anonyme.webp" alt="anonyme" className="anonyme-img" />}
-                      {mod.id === 14 && <img src="/module-niche.webp" alt="niche" className="niche-img" />}
-                      {mod.id === 15 && <img src="/module-exemples-niches.webp" alt="exemples niches" className="exemples-niches-img" />}
-                      {mod.id === 16 && <img src="/module-capcut-telephone.webp" alt="capcut telephone" className="capcut-telephone-img" />}
-                      {mod.id === 17 && <img src="/module-commencer-poster.webp" alt="poster" className="mindset-img" style={{translate:"-14px 0"}} />}
-                      {mod.id === 24 && <img src="/module-chaine-youtube.webp" alt="chaine youtube" className="chaine-youtube-img" />}
                       {mod.id === 10 && <img src="/module-intro.webp" alt="intro" className="intro-img" />}
                       <div style={{position:"absolute", top:"14px", left:"18px", display:"flex", alignItems:"flex-end", gap:"10px", zIndex:1}}>
                         <span className="glow-num" style={{fontSize:"2.6rem", fontWeight:"900", color:"#ffffff", lineHeight:"1"}}>{String(modIndex + 1).padStart(2,"0")}</span>
