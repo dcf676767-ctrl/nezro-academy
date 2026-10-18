@@ -421,7 +421,7 @@ body::before {
 .yma-num {
   position: absolute;
   right: -6px;
-  bottom: -8px;
+  bottom: -0.18em;
   font-size: 10rem;
   font-weight: 900;
   line-height: 1;
@@ -437,6 +437,6 @@ body::before {
   text-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }
 @media (max-width: 767px) {
-  .yma-num { font-size: 9rem; right: -5px; bottom: -4px; }
+  .yma-num { font-size: 9rem; right: -5px; bottom: -0.18em; }
   .yma-word { font-size: 3.1rem; }
 }
