@@ -306,7 +306,7 @@ export default function Sidebar() {
         <div className="p-2 md:p-4 border-t border-gray-800 flex flex-col gap-2 md:gap-3">
           <div className="bg-gray-800 border border-gray-700 rounded-2xl p-3 md:p-4 shadow-[0_0_14px_2px_rgba(59,130,246,0.6)]">
             <p className="text-xs font-bold uppercase tracking-wider mb-3 bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">La communauté</p>
-            <div className="hidden md:flex gap-1.5 mb-3">
+            <div className="flex gap-1.5 mb-3">
               {stats.avatars.map((av,i) => (
                 <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 border-2 border-white/20 shadow-md flex items-center justify-center overflow-hidden">
                   {av ? <img src={av} className="w-8 h-8 object-cover rounded-full" alt="m" /> : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#e5e7eb" className="w-full h-full" style={{marginTop:"4px"}}><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>}
