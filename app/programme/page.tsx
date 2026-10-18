@@ -167,7 +167,7 @@ export default function Programme() {
                       {MOTS_MINIATURE[mod.id] && (
                         <div data-yma="yma-mini-test" style={{position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none"}}>
                           <div className={"yma-num" + (String(modIndex + 1).endsWith("1") ? " yma-num-un" : "")}>{String(modIndex + 1).padStart(2,"0")}</div>
-                          {mod.id === 26 && <img data-yma="yma-capcut-logo" src="/capcut-logo.png" alt="" style={{position:"absolute", top:"40%", left:"-8px", width:"170px", height:"auto", opacity:1, transform:"translateY(-50%) rotate(12deg)", zIndex:0, pointerEvents:"none"}} />}
+                          {mod.id === 26 && <img data-yma="yma-capcut-logo" src="/capcut-logo.png" alt="" style={{position:"absolute", top:"32%", left:"-8px", width:"170px", height:"auto", opacity:1, transform:"translateY(-50%) rotate(12deg)", zIndex:0, pointerEvents:"none"}} />}
                           <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
                             <span className={"yma-word" + (MOTS_MINIATURE[mod.id].length > 10 ? " yma-word-long" : "")}>{MOTS_MINIATURE[mod.id]}</span>
                           </div>
