@@ -459,5 +459,5 @@ body::before {
 }
 @media (max-width: 767px) {
   .yma-word { font-size: 2.2rem; }
-  .yma-word-long { font-size: 1.6rem; }
+  .yma-word-long { font-size: 1.95rem; }
 }
