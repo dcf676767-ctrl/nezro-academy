@@ -440,3 +440,11 @@ body::before {
   .yma-num { font-size: 9rem; right: -5px; bottom: -0.18em; }
   .yma-word { font-size: 3.1rem; }
 }
+
+/* yma-num-un : le chiffre 1 a du vide a droite, on le decale pour qu'il touche le bord comme les autres */
+.yma-num-un { right: calc(-6px - 0.13em); }
+@media (max-width: 767px) {
+  .yma-num-un { right: calc(-5px - 0.13em); }
+  /* mots de plus de 10 lettres (Introduction, Monetisation) : plus petits sur telephone pour tenir dans la carte */
+  .yma-word-long { font-size: 2.3rem; }
+}

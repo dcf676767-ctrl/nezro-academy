@@ -37,7 +37,7 @@ const glowStyle = `
 .glow-sub { animation: glowPulseSub 2.5s ease-in-out infinite; }
 `;
 
-const MOTS_MINIATURE: {[id:number]:string} = {10:"Introduction", 11:"Mindset", 12:"Bases", 18:"Outils", 14:"Niche", 15:"30 niches"};
+const MOTS_MINIATURE: {[id:number]:string} = {10:"Introduction", 11:"Mindset", 12:"Bases", 18:"Outils", 14:"Niche", 15:"30 niches", 26:"CapCut", 13:"Anonyme", 16:"Montage", 17:"Poster", 24:"Chaîne", 25:"Analyse", 19:"Monétisation", 20:"RPM", 21:"Astuces", 22:"AdSense"};
 
 export default function Programme() {
   const router = useRouter();
@@ -168,9 +168,9 @@ export default function Programme() {
                       {MOTS_MINIATURE[mod.id] && (
                         <div data-yma="yma-mini-test" style={{position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none"}}>
                           <div style={{position:"absolute", inset:0, background:"radial-gradient(circle at 50% 50%, rgba(147,197,253,0.35), transparent 60%)"}} />
-                          <div className="yma-num">{String(modIndex + 1).padStart(2,"0")}</div>
+                          <div className={"yma-num" + (String(modIndex + 1).endsWith("1") ? " yma-num-un" : "")}>{String(modIndex + 1).padStart(2,"0")}</div>
                           <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                            <span className="yma-word">{MOTS_MINIATURE[mod.id]}</span>
+                            <span className={"yma-word" + (MOTS_MINIATURE[mod.id].length > 10 ? " yma-word-long" : "")}>{MOTS_MINIATURE[mod.id]}</span>
                           </div>
                         </div>
                       )}
