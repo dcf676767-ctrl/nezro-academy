@@ -103,7 +103,7 @@ export default function Communaute() {
                     <span className="text-xs text-gray-500">{formatHeure(msg.created_at)}</span>
                   </div>
                   {msg.image_url ? (
-                    <img src={msg.image_url} className="max-w-[280px] max-h-[22rem] object-cover md:max-w-sm rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
+                    <img src={msg.image_url} className="max-w-[320px] max-h-[26rem] object-cover md:max-w-sm rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
                   ) : (
                     <p className="text-gray-200 text-sm">{msg.content}</p>
                   )}
