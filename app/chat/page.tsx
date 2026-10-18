@@ -122,9 +122,9 @@ export default function Chat() {
       <main className="flex-1 md:ml-64 flex flex-col md:flex-row overflow-hidden module-enter-page" style={{height:"100dvh"}} >
         {isAdmin && (
           <div className={`${vueMobile === "conversation" ? "hidden" : "flex"} md:flex w-full md:w-72 border-r border-gray-800 flex-col shrink-0 pt-3 md:pt-0`} style={{height: vueMobile === "liste" ? "100%" : "auto"}}>
-            <div className="p-4 pl-3 md:pl-4 border-b border-gray-800">
-              <h2 className="font-bold text-white">💬 Conversations</h2>
-              <p className="text-xs text-gray-400 mt-1">{membres.length} membres</p>
+            <div className="px-4 pt-1 pb-4 md:pt-8 border-b border-gray-800">
+              <h1 className="text-3xl md:text-2xl font-bold text-white mb-2 text-center">💬 Conversations</h1>
+              <p className="text-gray-400 text-center">{membres.length} membres</p>
             </div>
             <div className="flex-1 overflow-y-scroll pb-20" style={{WebkitOverflowScrolling:"touch"}}>
               {membres.map(m => (
