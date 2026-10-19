@@ -700,3 +700,7 @@ body::before {
 
 /* yma-outils-titre-v2 : titre OUTILS (module 04) plus a droite (24px -> 40px), PC et telephone */
 [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-18.png"]) .yma-word { margin-left: 40px !important; }
+
+/* yma-titres-03-04-gauche : titres BASES (03) et OUTILS (04) un tout petit peu plus a gauche (40px -> 34px), PC et telephone */
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-12.png"]) .yma-word,
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-18.png"]) .yma-word { margin-left: 34px !important; }
