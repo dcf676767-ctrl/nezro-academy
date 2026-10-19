@@ -639,3 +639,8 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { height: 70% !important; max-width: 47% !important; right: 28px !important; bottom: 0 !important; }
 }
+
+/* yma-mobile-v6 : badge Termine deplace sur la ligne chapitres (au-dessus de la barre), telephone seulement */
+@media (max-width: 767px) {
+  .card-inner > .glass-bottom > .yma-badge-fin { top: auto !important; bottom: 36px !important; right: 16px !important; }
+}
