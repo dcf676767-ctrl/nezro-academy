@@ -656,3 +656,6 @@ body::before {
 @media (max-width: 767px) {
   .card-inner > .glass-bottom > .yma-badge-fin { top: -199px !important; bottom: auto !important; left: 12px !important; right: auto !important; font-size: 0.65rem !important; padding: 2px 8px !important; }
 }
+
+/* yma-titre-fiscalite : titre FISCALITE un peu plus a droite, PC et telephone */
+[data-yma="yma-mini-test"]:has(img[src$="module-22.png"]) .yma-word { margin-left: 24px !important; }
