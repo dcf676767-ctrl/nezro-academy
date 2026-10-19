@@ -186,9 +186,6 @@ export default function Programme() {
 
                     </div>
                   )}
-                  {progression[mod.id] === 100 && (
-                    <div style={{position:"absolute", bottom:"12px", left:"12px", background:"#22c55e", color:"white", fontSize:"0.75rem", fontWeight:"700", padding:"4px 10px", borderRadius:"999px", zIndex:1, pointerEvents:"none"}}>✓ Terminé</div>
-                  )}
                   {!(mod.id === 1 || mod.id === 8) && (
                     <div style={{position:"absolute", top:"12px", right:"12px", width:"32px", height:"32px", borderRadius:"8px", background:"linear-gradient(135deg,#6366f1,#3b82f6)", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 0 12px rgba(99,102,241,0.6)", zIndex:3}}>
                       <span style={{color:"#fff", fontWeight:"900", fontSize:"1rem", lineHeight:1}}>N</span>
@@ -216,7 +213,7 @@ export default function Programme() {
                 <div className="px-4 py-3 glass-bottom">
                   <h3 className="font-bold text-white text-lg mb-1 leading-snug">{mod.titre}</h3>
                   <p className="text-xs text-gray-400 mb-2.5 leading-snug">{mod.description}</p>
-                  <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}{progression[mod.id] === 100 && <span className="yma-badge-fin">✓ Terminé</span>}</p>
                   <div className="w-full bg-white/10 rounded-full h-1.5">
                     <div className="barre-progres h-1.5 rounded-full transition-all duration-500" style={{width:`${progression[mod.id]||0}%`,background:getColor(progression[mod.id]||0)}} />
                   </div>

@@ -521,3 +521,7 @@ body::before {
 
 /* yma-miniature-v4 : numeros decales a droite, badge Termine remis a gauche */
 [data-yma="yma-mini-test"] .yma-num { left: 46px !important; }
+
+/* yma-badge-bas : badge Termine dans la partie basse, a droite de la ligne chapitres */
+.card-inner > .glass-bottom > p.uppercase { display: flex; align-items: center; justify-content: space-between; min-height: 22px; }
+.yma-badge-fin { background: #22c55e; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: normal; text-transform: none; padding: 3px 10px; border-radius: 999px; line-height: 1.2; }
