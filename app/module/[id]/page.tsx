@@ -63,7 +63,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"Présentation de CapCut sur téléphone",duree:"1min01",videoId:"cT2hVKWqFfM",description:"",liens:[{label:"Voir la vidéo complète sur le montage CapCut téléphone",url:"https://youtu.be/u8BuF1qpmnI?si=rc-zO_DSsv7YERML"}]},
     {id:2,titre:"Présentation de CapCut sur PC",duree:"3min01",videoId:"P28T3qtaY5s",description:"",liens:[{label:"Voir la vidéo complète sur le montage CapCut PC",url:"https://youtu.be/MwEMHRQoSV4?si=ao_Alb_DyperZcGg"}]},
   ]},
-  16:{titre:"Exemple de montage CapCut sur téléphone et PC",chapitres:[
+  16:{titre:"Montage CapCut sur téléphone et PC",chapitres:[
     {id:1,titre:"Exemple de montage sur téléphone",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:2,titre:"Exemple de montage sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Exemple et analyse de niches anonymes",duree:"-",videoId:"",description:""},
