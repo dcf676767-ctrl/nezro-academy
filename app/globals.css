@@ -712,3 +712,11 @@ body::before {
 [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-12.png"]) .yma-word,
 [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-18.png"]) .yma-word,
 .grid > *:nth-child(5) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 28px !important; }
+
+/* yma-outils-droite : image outils (module 04) un peu plus a droite, PC et telephone */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { right: 28px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { right: 14px !important; }
+}
