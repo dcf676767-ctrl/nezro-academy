@@ -211,9 +211,10 @@ export default function Programme() {
                   )}
                 </div>
                 <div className="px-4 py-3 glass-bottom">
+                  {progression[mod.id] === 100 && <span className="yma-badge-fin">✓ Terminé</span>}
                   <h3 className="font-bold text-white text-lg mb-1 leading-snug">{mod.titre}</h3>
                   <p className="text-xs text-gray-400 mb-2.5 leading-snug">{mod.description}</p>
-                  <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}{progression[mod.id] === 100 && <span className="yma-badge-fin">✓ Terminé</span>}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-2">{mod.chapitres} chapitre{mod.chapitres > 1 ? "s" : ""}</p>
                   <div className="w-full bg-white/10 rounded-full h-1.5">
                     <div className="barre-progres h-1.5 rounded-full transition-all duration-500" style={{width:`${progression[mod.id]||0}%`,background:getColor(progression[mod.id]||0)}} />
                   </div>

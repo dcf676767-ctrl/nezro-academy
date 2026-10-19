@@ -523,5 +523,5 @@ body::before {
 [data-yma="yma-mini-test"] .yma-num { left: 46px !important; }
 
 /* yma-badge-bas : badge Termine dans la partie basse, a droite de la ligne chapitres */
-.card-inner > .glass-bottom > p.uppercase { display: flex; align-items: center; justify-content: space-between; min-height: 22px; }
-.yma-badge-fin { background: #22c55e; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: normal; text-transform: none; padding: 3px 10px; border-radius: 999px; line-height: 1.2; }
+.card-inner > .glass-bottom { position: relative; }
+.yma-badge-fin { position: absolute; top: 12px; right: 16px; background: #22c55e; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; line-height: 1.2; }
