@@ -707,3 +707,8 @@ body::before {
 
 /* yma-titre-niche : titre NICHE (module 05) decale a 34px comme BASES (03) et OUTILS (04), PC et telephone */
 .grid > *:nth-child(5) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 34px !important; }
+
+/* yma-titres-03-04-05-gauche : titres BASES (03), OUTILS (04) et NICHE (05) un peu plus a gauche (34px -> 28px), PC et telephone */
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-12.png"]) .yma-word,
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-18.png"]) .yma-word,
+.grid > *:nth-child(5) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 28px !important; }
