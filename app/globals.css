@@ -610,3 +610,11 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-10.png"] { right: 6px !important; }
 }
+
+/* yma-titre-mindset : titre MINDSET un peu plus a droite sur PC, plus gros / plus bas / plus a droite sur telephone */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"]:has(img[src$="module-11.png"]) .yma-word { margin-left: 14px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"]:has(img[src$="module-11.png"]) .yma-word { font-size: 3.7rem !important; margin-left: 16px !important; margin-top: 14px !important; }
+}
