@@ -550,3 +550,6 @@ body::before {
 
 /* yma-miniature-v10 : logo decale un tout petit peu vers la droite */
 [data-yma="yma-mini-test"] .yma-mini-img { right: 30px !important; }
+
+/* yma-miniature-clair : fond bleu des miniatures plus clair */
+.card-inner > :first-child > div.absolute.inset-0.flex.flex-col { background: linear-gradient(135deg,#2a5fc9 0%,#3170e6 60%,#4a8cf7 100%) !important; background-image: linear-gradient(135deg,#2a5fc9 0%,#3170e6 60%,#4a8cf7 100%) !important; }
