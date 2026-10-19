@@ -541,3 +541,6 @@ body::before {
 
 /* yma-miniature-v7 : image collee tout en bas a droite, fondu seulement sur le bas de l'image */
 [data-yma="yma-mini-test"] .yma-mini-img { right: 14px !important; bottom: 0 !important; object-fit: contain !important; object-position: right bottom !important; -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%); mask-image: linear-gradient(to bottom, #000 60%, transparent 100%); }
+
+/* yma-miniature-v8 : logo plus petit, colle dans le coin bas droit */
+[data-yma="yma-mini-test"] .yma-mini-img { height: 56% !important; max-width: 34% !important; right: 10px !important; bottom: 0 !important; }
