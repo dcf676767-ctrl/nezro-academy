@@ -506,3 +506,15 @@ body::before {
 [data-yma="yma-mini-test"] .yma-num { position: absolute !important; left: 18px !important; right: auto !important; top: auto !important; bottom: 10px !important; transform: none !important; margin: 0 !important; font-size: 3.2rem !important; line-height: 1 !important; font-weight: 900 !important; color: rgba(255,255,255,0.92) !important; opacity: 1 !important; }
 [data-yma="yma-mini-test"] .yma-mini-img { position: absolute; right: 8px; bottom: 0; height: 80%; width: auto; max-width: 48%; object-fit: contain; z-index: 0; }
 [data-yma="yma-capcut-logo"] { left: auto !important; right: 12px !important; top: 52% !important; width: 125px !important; }
+
+/* yma-miniature-v3 : titre plus gros et plus bas, numero geant transparent a gauche */
+[data-yma="yma-mini-test"] > div:not(.yma-num) { padding: 54px 18px 20px !important; z-index: 1 !important; }
+[data-yma="yma-mini-test"] .yma-word { font-size: 3.6rem !important; line-height: 1 !important; max-width: 72% !important; }
+[data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 2.7rem !important; }
+[data-yma="yma-mini-test"] .yma-num { left: -4px !important; bottom: -26px !important; font-size: 9rem !important; line-height: 1 !important; font-weight: 900 !important; color: rgba(255,255,255,0.16) !important; z-index: 0 !important; letter-spacing: -0.02em !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] > div:not(.yma-num) { padding-top: 62px !important; }
+  [data-yma="yma-mini-test"] .yma-word { font-size: 3rem !important; }
+  [data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 2.3rem !important; }
+  [data-yma="yma-mini-test"] .yma-num { font-size: 8rem !important; }
+}
