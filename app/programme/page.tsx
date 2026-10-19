@@ -187,7 +187,7 @@ export default function Programme() {
                     </div>
                   )}
                   {progression[mod.id] === 100 && (
-                    <div style={{position:"absolute", bottom:"12px", right:"12px", background:"#22c55e", color:"white", fontSize:"0.75rem", fontWeight:"700", padding:"4px 10px", borderRadius:"999px", zIndex:1, pointerEvents:"none"}}>✓ Terminé</div>
+                    <div style={{position:"absolute", bottom:"12px", left:"12px", background:"#22c55e", color:"white", fontSize:"0.75rem", fontWeight:"700", padding:"4px 10px", borderRadius:"999px", zIndex:1, pointerEvents:"none"}}>✓ Terminé</div>
                   )}
                   {!(mod.id === 1 || mod.id === 8) && (
                     <div style={{position:"absolute", top:"12px", right:"12px", width:"32px", height:"32px", borderRadius:"8px", background:"linear-gradient(135deg,#6366f1,#3b82f6)", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 0 12px rgba(99,102,241,0.6)", zIndex:3}}>

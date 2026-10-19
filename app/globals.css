@@ -518,3 +518,6 @@ body::before {
   [data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 2.3rem !important; }
   [data-yma="yma-mini-test"] .yma-num { font-size: 8rem !important; }
 }
+
+/* yma-miniature-v4 : numeros decales a droite, badge Termine remis a gauche */
+[data-yma="yma-mini-test"] .yma-num { left: 46px !important; }
