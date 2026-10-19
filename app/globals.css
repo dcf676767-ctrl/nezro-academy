@@ -559,3 +559,6 @@ body::before {
 
 /* yma-miniature-clair-3 : fond des miniatures entre les deux derniers essais */
 .card-inner > :first-child > div.absolute.inset-0.flex.flex-col { background: linear-gradient(135deg,#2655b2 0%,#2c68d8 60%,#4182f4 100%) !important; background-image: linear-gradient(135deg,#2655b2 0%,#2c68d8 60%,#4182f4 100%) !important; }
+
+/* yma-miniature-clair-4 : juste un cran plus clair que clair-2 */
+.card-inner > :first-child > div.absolute.inset-0.flex.flex-col { background: linear-gradient(135deg,#234da1 0%,#2962ce 60%,#3b7bf2 100%) !important; background-image: linear-gradient(135deg,#234da1 0%,#2962ce 60%,#3b7bf2 100%) !important; }
