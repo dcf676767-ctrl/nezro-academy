@@ -596,3 +596,6 @@ body::before {
 @media (min-width: 768px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-10.png"] { height: 84% !important; max-width: 52% !important; right: 14px !important; bottom: 0 !important; }
 }
+
+/* yma-sans-degrade : fondu retire sur toutes les illustrations des miniatures */
+[data-yma="yma-mini-test"] .yma-mini-img { -webkit-mask-image: none !important; mask-image: none !important; }
