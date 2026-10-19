@@ -565,3 +565,6 @@ body::before {
 
 /* yma-miniature-clair-5 : fond des miniatures nettement plus sombre, proche de l'original */
 .card-inner > :first-child > div.absolute.inset-0.flex.flex-col { background: linear-gradient(135deg,#1e4283 0%,#2257ab 60%,#2e6ae8 100%) !important; background-image: linear-gradient(135deg,#1e4283 0%,#2257ab 60%,#2e6ae8 100%) !important; }
+
+/* yma-titre-outils : titre OUTILS (module 04) decale un peu vers la droite */
+[data-yma="yma-mini-test"]:has(img[src$="module-18.png"]) .yma-word { margin-left: 24px !important; }
