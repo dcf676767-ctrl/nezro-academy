@@ -677,3 +677,6 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-top: 20px !important; }
 }
+
+/* yma-titre-bases : titre BASES (module 03) un peu plus a droite, PC et telephone */
+.grid > *:nth-child(3) [data-yma="yma-mini-test"] .yma-word { margin-left: 24px !important; }
