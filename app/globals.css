@@ -537,5 +537,4 @@ body::before {
 }
 
 /* yma-miniature-v6 : image plus petite dans le coin bas droit + degrade en bas de la miniature */
-[data-yma="yma-mini-test"] .yma-mini-img { right: 16px !important; bottom: 16px !important; height: 62% !important; max-width: 38% !important; }
-[data-yma="yma-mini-test"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(to bottom, rgba(10,18,50,0), rgba(10,18,50,0.6)); pointer-events: none; z-index: 0; }
+[data-yma="yma-mini-test"] .yma-mini-img { right: 0 !important; bottom: 0 !important; height: 92% !important; max-width: 52% !important; -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
