@@ -156,20 +156,20 @@ export default function Programme() {
                 borderRadius:"16px"
               }}>
               <div className="card-inner relative rounded-2xl overflow-hidden w-full h-full transition-all duration-300">
-                <div className="relative h-56 md:h-52">
+                <div className="relative h-72 md:h-60">
                   {(mod.id === 1 || mod.id === 8) ? (
                     <div className="w-full h-full relative overflow-hidden">
                       <img src={mod.image} alt={mod.titre} className="absolute inset-0 w-full h-full object-cover" style={{objectPosition:"center center", filter: (mod as any).locked ? "grayscale(80%) brightness(0.4)" : "none"}} />
                       {(mod as any).locked && <div className="absolute inset-0 flex items-center justify-center"><span style={{fontSize:"7rem", fontWeight:"900", color:"rgba(255,255,255,0.9)", textShadow:"0 4px 30px rgba(0,0,0,0.9)", lineHeight:"1"}}>?</span></div>}
                     </div>
                   ) : (
-                    <div className="absolute inset-0 flex flex-col justify-between" style={{background:"radial-gradient(ellipse 120% 90% at 50% 0%, #3b82f6 0%, #1d4ed8 42%, #0a1f63 100%)", backgroundSize:"cover"}}>
+                    <div className="absolute inset-0 flex flex-col justify-between" style={{background:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)", backgroundImage:"linear-gradient(135deg,#1a3a6b 0%,#1e4fad 60%,#2563eb 100%)",backgroundSize:"cover"}}>
                       {MOTS_MINIATURE[mod.id] && (
                         <div data-yma="yma-mini-test" style={{position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none"}}>
                           <div className={"yma-num" + (String(modIndex + 1).endsWith("1") ? " yma-num-un" : "")}>{String(modIndex + 1).padStart(2,"0")}</div>
                           {mod.id === 26 && <img data-yma="yma-capcut-logo" src="/capcut-logo.png" alt="" style={{position:"absolute", top:"27%", left:"-8px", width:"155px", height:"auto", opacity:1, transform:"translateY(-50%) rotate(12deg)", zIndex:0, pointerEvents:"none"}} />}
                           <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                            <span className={"yma-word" + (MOTS_MINIATURE[mod.id].length > 10 ? " yma-word-long" : "")}>{MOTS_MINIATURE[mod.id].charAt(0) + MOTS_MINIATURE[mod.id].slice(1).toLowerCase()}</span>
+                            <span className={"yma-word" + (MOTS_MINIATURE[mod.id].length > 10 ? " yma-word-long" : "")}>{MOTS_MINIATURE[mod.id]}</span>
                           </div>
                         </div>
                       )}
