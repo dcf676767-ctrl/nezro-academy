@@ -6,8 +6,8 @@ const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.
 const modules = [
   { id: 10, titre: "Introduction", label: "Intro", description: "Bienvenue dans le programme.", image: "/introduction.jpg", chapitres: 1, customThumb: true },
   { id: 11, titre: "Mind-set et organisation", label: "Mindset", description: "Développe le mindset et l'organisation d'un créateur qui réussit.", image: "/module-mindset.webp", chapitres: 2, customThumb: true },
-  { id: 12, titre: "Comprendre les réseaux et comment être monétisé", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 2, customThumb: false },
-  { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", label: "Outils", description: "Les meilleurs outils pour être plus productif et rentable.", image: "", chapitres: 1, customThumb: false },
+  { id: 12, titre: "Réseaux et monétisation", label: "Réseaux", description: "Comprends les réseaux sociaux et les critères de monétisation.", image: "", chapitres: 2, customThumb: false },
+  { id: 18, titre: "Outils d'argent et de productivité", label: "Outils", description: "Les meilleurs outils pour être plus productif et rentable.", image: "", chapitres: 1, customThumb: false },
   { id: 14, titre: "Trouver sa niche et être efficace", label: "Niche", description: "Trouve ta niche et apprends à être efficace.", image: "", chapitres: 5, customThumb: false },
   { id: 15, titre: "30 exemples de niches à faire", label: "Exemples", description: "30 exemples concrets de niches à exploiter.", image: "", chapitres: 2, customThumb: false },
   { id: 26, titre: "Présentation de CapCut téléphone et PC", label: "CapCut", description: "Présentation de CapCut sur téléphone et sur PC.", image: "", chapitres: 2, customThumb: false },

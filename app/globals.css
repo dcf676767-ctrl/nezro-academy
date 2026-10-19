@@ -496,5 +496,5 @@ body::before {
 
 /* yma-barres-alignees : chapitres + barre + pourcentage colles en bas, memes positions dans toutes les cartes */
 .card-inner > .glass-bottom { display: flex; flex-direction: column; padding-bottom: 10px; }
-.card-inner > .glass-bottom > p.uppercase { margin-top: auto; padding-top: 8px; }
+.card-inner > .glass-bottom > p.uppercase { margin-top: 0; padding-top: 0; }
 .card-inner > .glass-bottom > p:last-child { margin-top: 4px; line-height: 1; }

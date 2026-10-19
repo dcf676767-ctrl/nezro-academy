@@ -1,8 +1,8 @@
 export const MODULES = [
   { id: 10, titre: "Introduction", chapitres: 1 },
   { id: 11, titre: "Mind-set et organisation", chapitres: 2 },
-  { id: 12, titre: "Comprendre les réseaux et comment être monétisé", chapitres: 2 },
-  { id: 18, titre: "Outils pour faire plus d'argent et être plus productif", chapitres: 1 },
+  { id: 12, titre: "Réseaux et monétisation", chapitres: 2 },
+  { id: 18, titre: "Outils d'argent et de productivité", chapitres: 1 },
   { id: 14, titre: "Trouver sa niche et être efficace", chapitres: 5 },
   { id: 15, titre: "30 exemples de niches à faire", chapitres: 2 },
   { id: 26, titre: "Présentation de CapCut téléphone et PC", chapitres: 2 },

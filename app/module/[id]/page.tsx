@@ -11,7 +11,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   8:{titre:"Niche GTA 6",chapitres:[
     {id:1,titre:"Niche GTA 6",duree:"-",videoId:"",description:"Contenu secret en cours de préparation..."},
   ]},
-  18:{titre:"Outils pour faire plus d'argent et être plus productif",chapitres:[
+  18:{titre:"Outils d'argent et de productivité",chapitres:[
     {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"3min36",videoId:"9YIjSqpT66U",description:"",liens:[
       {label:"SnapTik - Télécharger vidéos TikTok",url:"https://snaptik.app/en2"},
       {label:"SSS Instagram - Télécharger vidéos Instagram",url:"https://sssinstagram.com/fr"},
@@ -29,7 +29,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:1,titre:"Organisation et planification",duree:"2min06",videoId:"jDOyduSjKCU",description:"<strong style=\"font-size:1.1rem\">ORGANISATION:</strong>\n\n- Faire une to-do liste tous les soirs\n\n- Quand tu fais ta vidéo, mets un timer de 15-20min (ça crée du sentiment d'urgence)\n\n- Essayer de faire les vidéos pendant le week-end pour les poster durant la semaine (beaucoup plus productif)\n\n- Programmer les vidéos (expliqué dans la suite du programme)"},
     {id:2,titre:"Mind set",duree:"1min25",videoId:"N-nRiLaaU_k",description:"JAMAIS ABANDONNER !"},
   ]},
-  12:{titre:"Comprendre les réseaux et comment être monétisé",chapitres:[
+  12:{titre:"Réseaux et monétisation",chapitres:[
     {id:1,titre:"Les bases",duree:"3min05",videoId:"sWJpgbE0xz4",description:"<strong style=\"font-size:1.1rem\">À retenir :</strong>\n\nL'algorithme est un robot. Son but, c'est de faire rester les gens le plus longtemps possible sur l'application. Donc il ne pousse une vidéo que si elle est intéressante — et il juge ça avec 3 critères :\n\n• Watch Time (temps de visionnage total)\n• Stay to Watch (rétention, est-ce qu'on reste jusqu'à la fin)\n• Commentaires (engagement)\n\n→ Si ta vidéo n'est pas intéressante selon ces critères, l'algorithme n'a aucun intérêt à la faire pousser. Si elle l'est, même en partant de 200-300 vues, il peut te placer comme un compte \"élite\"."},
     {id:3,titre:"Critères de monétisation",duree:"2min40",videoId:"NlT-edRHGlI",description:"<strong style=\"font-size:1.1rem\">À retenir :</strong>\n\nCritères de monétisation par plateforme\n\n• YouTube (premier palier) : 500 abonnés + 3 millions de vues sur les 90 derniers jours\n• YouTube : 1 000 abonnés + 10 millions de vues sur les 90 derniers jours\n• TikTok : 10 000 abonnés + 100 000 vues sur les 30 derniers jours\n• Facebook : accès sur invitation uniquement."},
   ]},
