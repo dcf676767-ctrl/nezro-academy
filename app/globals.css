@@ -689,3 +689,11 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-12.png"] { height: 74% !important; max-width: 50% !important; right: 36px !important; bottom: 0 !important; }
 }
+
+/* yma-bases-v3 : cible (module 03) un peu plus a droite (+14px), PC et telephone */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-12.png"] { right: 30px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-12.png"] { right: 22px !important; }
+}
