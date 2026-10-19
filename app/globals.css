@@ -618,3 +618,8 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"]:has(img[src$="module-11.png"]) .yma-word { font-size: 3.7rem !important; margin-left: 16px !important; margin-top: 14px !important; }
 }
+
+/* yma-mobile-v5 : titre MINDSET un tout petit peu plus haut sur telephone */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"]:has(img[src$="module-11.png"]) .yma-word { margin-top: 6px !important; }
+}
