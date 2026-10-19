@@ -599,3 +599,9 @@ body::before {
 
 /* yma-sans-degrade : fondu retire sur toutes les illustrations des miniatures */
 [data-yma="yma-mini-test"] .yma-mini-img { -webkit-mask-image: none !important; mask-image: none !important; }
+
+/* yma-mobile-v3 : toque introduction plus grande sur telephone, titre INTRODUCTION plus gros et un peu plus bas */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-10.png"] { height: 80% !important; max-width: 58% !important; right: 14px !important; bottom: 0 !important; }
+  [data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { font-size: 3rem !important; max-width: 100% !important; margin-top: 14px !important; }
+}
