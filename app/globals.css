@@ -728,3 +728,11 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { right: 4px !important; }
 }
+
+/* yma-loupe-v2 : loupe (module 05) plus grande et plus a gauche, PC et telephone */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-14.png"] { height: 84% !important; max-width: 40% !important; right: 60px !important; bottom: 0 !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-14.png"] { height: 80% !important; max-width: 42% !important; right: 40px !important; bottom: 0 !important; }
+}
