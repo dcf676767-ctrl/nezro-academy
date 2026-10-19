@@ -535,3 +535,7 @@ body::before {
   [data-yma="yma-mini-test"] .yma-word { font-size: 3.8rem !important; }
   [data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 3rem !important; }
 }
+
+/* yma-miniature-v6 : image plus petite dans le coin bas droit + degrade en bas de la miniature */
+[data-yma="yma-mini-test"] .yma-mini-img { right: 16px !important; bottom: 16px !important; height: 62% !important; max-width: 38% !important; }
+[data-yma="yma-mini-test"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(to bottom, rgba(10,18,50,0), rgba(10,18,50,0.6)); pointer-events: none; z-index: 0; }
