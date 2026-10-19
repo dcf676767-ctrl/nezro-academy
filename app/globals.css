@@ -568,3 +568,11 @@ body::before {
 
 /* yma-titre-outils : titre OUTILS (module 04) decale un peu vers la droite */
 [data-yma="yma-mini-test"]:has(img[src$="module-18.png"]) .yma-word { margin-left: 24px !important; }
+
+/* yma-miniature-compacte : image de la carte un peu moins haute, titre plus pres du haut */
+.card-inner > :first-child { height: 220px !important; }
+[data-yma="yma-mini-test"] > div:not(.yma-num) { padding-top: 30px !important; }
+@media (max-width: 767px) {
+  .card-inner > :first-child { height: 262px !important; }
+  [data-yma="yma-mini-test"] > div:not(.yma-num) { padding-top: 34px !important; }
+}
