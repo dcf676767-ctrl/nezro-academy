@@ -525,3 +525,13 @@ body::before {
 /* yma-badge-bas : badge Termine dans la partie basse, a droite de la ligne chapitres */
 .card-inner > .glass-bottom { position: relative; }
 .yma-badge-fin { position: absolute; top: 12px; right: 16px; background: #22c55e; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; line-height: 1.2; }
+
+/* yma-miniature-v5 : titres plus gros, nouvelle police */
+[data-yma="yma-mini-test"] > div:not(.yma-num) { padding-top: 46px !important; }
+[data-yma="yma-mini-test"] .yma-word { font-size: 4.4rem !important; font-weight: 800 !important; letter-spacing: 0 !important; line-height: 0.98 !important; max-width: 90% !important; }
+[data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 3.6rem !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] > div:not(.yma-num) { padding-top: 50px !important; }
+  [data-yma="yma-mini-test"] .yma-word { font-size: 3.8rem !important; }
+  [data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 3rem !important; }
+}
