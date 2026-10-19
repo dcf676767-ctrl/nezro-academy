@@ -538,3 +538,6 @@ body::before {
 
 /* yma-miniature-v6 : image plus petite dans le coin bas droit + degrade en bas de la miniature */
 [data-yma="yma-mini-test"] .yma-mini-img { right: 0 !important; bottom: 0 !important; height: 92% !important; max-width: 52% !important; -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
+
+/* yma-miniature-v7 : image collee tout en bas a droite, fondu seulement sur le bas de l'image */
+[data-yma="yma-mini-test"] .yma-mini-img { right: 14px !important; bottom: 0 !important; object-fit: contain !important; object-position: right bottom !important; -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%); mask-image: linear-gradient(to bottom, #000 60%, transparent 100%); }
