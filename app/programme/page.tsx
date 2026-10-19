@@ -1,6 +1,6 @@
 "use client";
-import { Barlow_Condensed } from "next/font/google";
-const fontTitre = Barlow_Condensed({ subsets: ["latin"], weight: "800" });
+import { Luckiest_Guy } from "next/font/google";
+const fontTitre = Luckiest_Guy({ subsets: ["latin"], weight: "400" });
 import { useState, useEffect, useLayoutEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";

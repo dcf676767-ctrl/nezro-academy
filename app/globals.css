@@ -591,3 +591,11 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-22.png"] { height: 70% !important; max-width: 46% !important; right: 24px !important; bottom: 0 !important; }
 }
+
+/* yma-police-test-1 : police Luckiest Guy (une seule graisse), tailles reduites car police plus large, ombre portee */
+[data-yma="yma-mini-test"] .yma-word { font-weight: 400 !important; font-size: 3.1rem !important; line-height: 1.05 !important; letter-spacing: 0.02em !important; text-shadow: 0 4px 0 rgba(10,18,50,0.45) !important; }
+[data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 2.4rem !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-word { font-size: 2.5rem !important; }
+  [data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 1.9rem !important; }
+}
