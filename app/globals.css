@@ -544,3 +544,6 @@ body::before {
 
 /* yma-miniature-v8 : logo plus petit, colle dans le coin bas droit */
 [data-yma="yma-mini-test"] .yma-mini-img { height: 56% !important; max-width: 34% !important; right: 10px !important; bottom: 0 !important; }
+
+/* yma-miniature-v9 : logo un peu plus gros et un peu plus a gauche */
+[data-yma="yma-mini-test"] .yma-mini-img { height: 66% !important; max-width: 42% !important; right: 44px !important; bottom: 0 !important; }
