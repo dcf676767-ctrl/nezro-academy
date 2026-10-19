@@ -498,3 +498,11 @@ body::before {
 .card-inner > .glass-bottom { display: flex; flex-direction: column; padding-bottom: 10px; }
 .card-inner > .glass-bottom > p.uppercase { margin-top: 0; padding-top: 0; }
 .card-inner > .glass-bottom > p:last-child { margin-top: 4px; line-height: 1; }
+
+/* yma-miniature-v2 : titre a gauche, numero en bas a gauche, image a droite */
+[data-yma="yma-mini-test"] > div:not(.yma-num) { display: flex !important; align-items: flex-start !important; justify-content: flex-start !important; padding: 20px 18px !important; }
+[data-yma="yma-mini-test"] .yma-word { font-size: 2.6rem !important; line-height: 1.02 !important; letter-spacing: 0.01em !important; text-align: left !important; max-width: 62% !important; text-transform: uppercase !important; font-weight: 400 !important; }
+[data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 2rem !important; }
+[data-yma="yma-mini-test"] .yma-num { position: absolute !important; left: 18px !important; right: auto !important; top: auto !important; bottom: 10px !important; transform: none !important; margin: 0 !important; font-size: 3.2rem !important; line-height: 1 !important; font-weight: 900 !important; color: rgba(255,255,255,0.92) !important; opacity: 1 !important; }
+[data-yma="yma-mini-test"] .yma-mini-img { position: absolute; right: 8px; bottom: 0; height: 80%; width: auto; max-width: 48%; object-fit: contain; z-index: 0; }
+[data-yma="yma-capcut-logo"] { left: auto !important; right: 12px !important; top: 52% !important; width: 125px !important; }

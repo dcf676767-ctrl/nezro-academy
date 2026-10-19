@@ -1,4 +1,6 @@
 "use client";
+import { Anton } from "next/font/google";
+const fontTitre = Anton({ subsets: ["latin"], weight: "400" });
 import { useState, useEffect, useLayoutEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
@@ -168,8 +170,9 @@ export default function Programme() {
                         <div data-yma="yma-mini-test" style={{position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none"}}>
                           <div className={"yma-num" + (String(modIndex + 1).endsWith("1") ? " yma-num-un" : "")}>{String(modIndex + 1).padStart(2,"0")}</div>
                           {mod.id === 26 && <img data-yma="yma-capcut-logo" src="/capcut-logo.png" alt="" style={{position:"absolute", top:"27%", left:"-8px", width:"155px", height:"auto", opacity:1, transform:"translateY(-50%) rotate(12deg)", zIndex:0, pointerEvents:"none"}} />}
+                          <img className="yma-mini-img" src={"/miniatures/module-" + mod.id + ".png"} alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} />
                           <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                            <span className={"yma-word" + (MOTS_MINIATURE[mod.id].length > 10 ? " yma-word-long" : "")}>{MOTS_MINIATURE[mod.id]}</span>
+                            <span className={fontTitre.className + " yma-word" + (MOTS_MINIATURE[mod.id].length > 10 ? " yma-word-long" : "")}>{MOTS_MINIATURE[mod.id]}</span>
                           </div>
                         </div>
                       )}
@@ -184,7 +187,7 @@ export default function Programme() {
                     </div>
                   )}
                   {progression[mod.id] === 100 && (
-                    <div style={{position:"absolute", bottom:"12px", left:"12px", background:"#22c55e", color:"white", fontSize:"0.75rem", fontWeight:"700", padding:"4px 10px", borderRadius:"999px", zIndex:1, pointerEvents:"none"}}>✓ Terminé</div>
+                    <div style={{position:"absolute", bottom:"12px", right:"12px", background:"#22c55e", color:"white", fontSize:"0.75rem", fontWeight:"700", padding:"4px 10px", borderRadius:"999px", zIndex:1, pointerEvents:"none"}}>✓ Terminé</div>
                   )}
                   {!(mod.id === 1 || mod.id === 8) && (
                     <div style={{position:"absolute", top:"12px", right:"12px", width:"32px", height:"32px", borderRadius:"8px", background:"linear-gradient(135deg,#6366f1,#3b82f6)", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 0 12px rgba(99,102,241,0.6)", zIndex:3}}>
