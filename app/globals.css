@@ -697,3 +697,6 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-12.png"] { right: 22px !important; }
 }
+
+/* yma-outils-titre-v2 : titre OUTILS (module 04) plus a droite (24px -> 40px), PC et telephone */
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-18.png"]) .yma-word { margin-left: 40px !important; }
