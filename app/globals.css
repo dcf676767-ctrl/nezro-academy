@@ -671,3 +671,9 @@ body::before {
 
 /* yma-titre-intro-3 : titre INTRODUCTION encore un tout petit peu a gauche (18px -> 14px), PC et telephone */
 [data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-left: 14px !important; }
+
+/* yma-titre-intro-bas : titre INTRODUCTION un tout petit peu plus bas (+6px), PC et telephone */
+[data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-top: 6px !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-top: 20px !important; }
+}
