@@ -662,3 +662,6 @@ body::before {
 
 /* yma-titre-fiscalite-2 : titre FISCALITE un tout petit peu moins a droite (24px -> 16px), PC et telephone */
 [data-yma="yma-mini-test"]:has(img[src$="module-22.png"]) .yma-word { margin-left: 16px !important; }
+
+/* yma-titre-intro : titre INTRODUCTION un peu plus a droite, PC et telephone */
+[data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-left: 24px !important; }
