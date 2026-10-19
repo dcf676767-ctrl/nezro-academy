@@ -576,3 +576,13 @@ body::before {
   .card-inner > :first-child { height: 262px !important; }
   [data-yma="yma-mini-test"] > div:not(.yma-num) { padding-top: 34px !important; }
 }
+
+/* yma-mobile-v1 : miniatures plus compactes sur telephone, numero plus a gauche, image fiscalite plus grande et decalee a gauche */
+@media (max-width: 767px) {
+  .card-inner > div.relative:first-child { height: 205px !important; }
+  [data-yma="yma-mini-test"] > div:not(.yma-num) { padding-top: 26px !important; }
+  [data-yma="yma-mini-test"] .yma-word { font-size: 3.2rem !important; }
+  [data-yma="yma-mini-test"] .yma-word.yma-word-long { font-size: 2.5rem !important; }
+  [data-yma="yma-mini-test"] .yma-num { left: 22px !important; font-size: 6.5rem !important; bottom: -18px !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-22.png"] { height: 76% !important; max-width: 50% !important; right: 42px !important; bottom: 0 !important; }
+}
