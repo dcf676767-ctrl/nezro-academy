@@ -1051,3 +1051,9 @@ body::before {
 
 /* yma-fleche-miroir-v2 : fleche RPM (module 20) retournee en miroir horizontal, meme taille (1.15), meme rotation (-10deg) et meme place, PC et telephone */
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: scaleX(-1) rotate(-10deg) scale(1.15) !important; transform-origin: center bottom !important; }
+
+/* yma-poster-bas-2 : icone Poster (module 17) plus basse (+8px -> +24px), meme zoom 1.3, ancree en bas, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { transform: translateY(24px) scale(1.3) !important; transform-origin: center bottom !important; }
+
+/* yma-fleche-droite : fleche RPM (module 20) pivotee de 12deg vers la droite (sens horaire), miroir et zoom 1.15 gardes, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: rotate(12deg) scaleX(-1) rotate(-10deg) scale(1.15) !important; transform-origin: center bottom !important; }
