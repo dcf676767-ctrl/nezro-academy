@@ -930,3 +930,9 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { bottom: 16px !important; }
 }
+
+/* yma-capcut-logo-v18 : logo CapCut (module 07) moins pivote, redresse vers la gauche (20 -> 10deg), PC et telephone */
+[data-yma="yma-capcut-logo"] { transform: rotate(10deg) !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-capcut-logo"] { transform: rotate(10deg) !important; }
+}
