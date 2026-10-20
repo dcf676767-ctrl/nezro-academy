@@ -1048,3 +1048,6 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-19.png"] { transform: translate(-14px, 22px) scale(1.35) !important; transform-origin: center bottom !important; }
 }
+
+/* yma-fleche-miroir-v2 : fleche RPM (module 20) retournee en miroir horizontal, meme taille (1.15), meme rotation (-10deg) et meme place, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: scaleX(-1) rotate(-10deg) scale(1.15) !important; transform-origin: center bottom !important; }
