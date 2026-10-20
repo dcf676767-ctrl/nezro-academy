@@ -1040,3 +1040,11 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-19.png"] { transform: translate(-14px, 6px) scale(1.35) !important; transform-origin: center bottom !important; }
 }
+
+/* yma-billets-agrandi-3 : billets verts (module 19 monetisation) beaucoup plus bas (+8px -> +30px PC, +6px -> +22px telephone), meme zoom 1.35 et meme decalage a gauche */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-19.png"] { transform: translate(-20px, 30px) scale(1.35) !important; transform-origin: center bottom !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-19.png"] { transform: translate(-14px, 22px) scale(1.35) !important; transform-origin: center bottom !important; }
+}
