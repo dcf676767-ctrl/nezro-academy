@@ -850,3 +850,9 @@ body::before {
 /* yma-pourcentage-retour-2 : le pourcentage (dernier p de la zone sombre, text-gray-500) reste visible */
 .card-inner > .glass-bottom > p.text-xs.text-gray-500,
 .card-inner > .glass-bottom > p:last-child { display: block !important; }
+
+/* yma-espace-zone-sombre : un peu plus d'espace entre titre, chapitres, barre et pourcentage, PC et telephone */
+.card-inner > .glass-bottom { padding-top: 16px !important; padding-bottom: 12px !important; }
+.card-inner > .glass-bottom > h3 { margin-bottom: 14px !important; }
+.card-inner > .glass-bottom > p.uppercase { margin-bottom: 8px !important; }
+.card-inner > .glass-bottom > p:last-child { margin-top: 8px !important; }
