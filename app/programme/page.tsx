@@ -39,7 +39,7 @@ const glowStyle = `
 .glow-sub { animation: glowPulseSub 2.5s ease-in-out infinite; }
 `;
 
-const MOTS_MINIATURE: {[id:number]:string} = {10:"Introduction", 11:"Mindset", 12:"Bases", 18:"Outils", 14:"Niche", 15:"30 niches", 26:"CapCut", 13:"Anonyme", 16:"Montage", 17:"Poster", 24:"Chaîne", 25:"Analyse", 19:"Monétisation", 20:"RPM", 21:"Astuces", 22:"Fiscalité"};
+const MOTS_MINIATURE: {[id:number]:string} = {10:"Introduction", 11:"Mindset", 12:"Bases", 18:"Outils", 14:"Niche", 15:"30 niches", 26:"CapCut", 13:"Anonyme", 16:"Montage", 17:"Poster", 24:"Chaîne", 25:"Analyse", 19:"Monétisation", 20:"RPM", 21:"Secrets", 22:"Fiscalité"};
 
 export default function Programme() {
   const router = useRouter();
