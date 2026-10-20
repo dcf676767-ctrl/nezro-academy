@@ -870,3 +870,7 @@ body::before {
 
 /* yma-titre-rpm-2 : titre RPM (14) decale a 34px (etait 24px), PC et telephone */
 .grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 34px !important; }
+
+/* yma-titre-rpm-3 : titre RPM (14) decale a 44px (etait 34px) et courbe (module 20) penchee de 10deg sens anti-horaire, PC et telephone */
+.grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 44px !important; }
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: rotate(-10deg) !important; transform-origin: center bottom !important; }
