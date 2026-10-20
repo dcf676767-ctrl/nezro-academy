@@ -783,3 +783,6 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { width: 170px !important; right: 8px !important; }
 }
+
+/* yma-titre-capcut : titre CAPCUT (module 07) decale a 14px comme MONTAGE, PC et telephone */
+.grid > *:nth-child(7) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 14px !important; }
