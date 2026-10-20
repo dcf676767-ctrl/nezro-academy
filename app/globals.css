@@ -750,3 +750,6 @@ body::before {
 
 /* yma-titre-montage : titre MONTAGE (module 09) un peu plus a droite, PC et telephone */
 [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-16.png"]) .yma-word { margin-left: 24px !important; }
+
+/* yma-titre-montage-2 : titre MONTAGE (module 09) un peu moins a droite (24px -> 14px), PC et telephone */
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-16.png"]) .yma-word { margin-left: 14px !important; }
