@@ -798,3 +798,6 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { width: 158px !important; right: -4px !important; }
 }
+
+/* yma-titre-anonyme : titre ANONYME (module 08) decale a 14px comme CAPCUT et MONTAGE, PC et telephone */
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-13.png"]) .yma-word { margin-left: 14px !important; }
