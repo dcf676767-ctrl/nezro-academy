@@ -1026,3 +1026,6 @@ body::before {
 
 /* yma-poster-agrandi : illustration Poster (module 17) agrandie de 20%, ancree en bas, PC et telephone */
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { transform: scale(1.2) !important; transform-origin: center bottom !important; }
+
+/* yma-poster-bas-grossi : illustration Poster (module 17) un peu plus bas (+8px) et un peu plus grosse (1.2 -> 1.3), ancree en bas, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { transform: translateY(8px) scale(1.3) !important; transform-origin: center bottom !important; }
