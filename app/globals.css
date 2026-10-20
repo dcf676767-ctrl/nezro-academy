@@ -1065,3 +1065,8 @@ body::before {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { transform: translateY(12px) scaleX(-1) scale(0.8) !important; transform-origin: center bottom !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { transform: translateY(14px) scale(1.05) !important; transform-origin: center bottom !important; }
 }
+
+/* yma-mobile-v8 : TELEPHONE UNIQUEMENT (le PC ne change pas). Logo AdSense Fiscalite (module 22) plus petit (70% -> 56%) pour ne plus toucher le titre FISCALITE, un peu plus a droite */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-22.png"] { height: 56% !important; max-width: 40% !important; right: 20px !important; bottom: 0 !important; }
+}
