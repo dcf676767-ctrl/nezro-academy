@@ -900,3 +900,9 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { bottom: 6px !important; right: 20px !important; }
 }
+
+/* yma-capcut-logo-v13 : ancien logo CapCut (module 07) restaure avec ses anciennes valeurs (rotation -15deg, 200px, right -4px, bottom -4px), PC et telephone */
+[data-yma="yma-capcut-logo"] { transform: rotate(-15deg) !important; transform-origin: center bottom !important; width: 200px !important; right: -4px !important; bottom: -4px !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-capcut-logo"] { transform: rotate(-15deg) !important; transform-origin: center bottom !important; width: 158px !important; right: -4px !important; bottom: -4px !important; }
+}
