@@ -806,3 +806,11 @@ body::before {
 .grid > *:nth-child(10) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
 .grid > *:nth-child(11) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
 .grid > *:nth-child(12) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 14px !important; }
+
+/* yma-poster-gauche : fleche (module 10 poster) un peu plus a gauche, PC et telephone */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { right: 54px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { right: 40px !important; }
+}
