@@ -747,3 +747,6 @@ body::before {
 
 /* yma-titre-monetisation : titre MONETISATION (module 13) un peu plus a droite et plus bas, PC et telephone */
 [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-19.png"]) .yma-word { margin-left: 16px !important; margin-top: 10px !important; }
+
+/* yma-titre-montage : titre MONTAGE (module 09) un peu plus a droite, PC et telephone */
+[data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-16.png"]) .yma-word { margin-left: 24px !important; }
