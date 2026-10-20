@@ -837,3 +837,7 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-24.png"] { right: 20px !important; }
 }
+
+/* yma-titres-14-15 : titres RPM (14) et ASTUCES (15) decales a 14px comme CHAINE et ANALYSE, PC et telephone */
+.grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
+.grid > *:nth-child(15) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 14px !important; }
