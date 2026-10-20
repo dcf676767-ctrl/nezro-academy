@@ -981,3 +981,11 @@ body::before {
 
 /* yma-ampoule-rotation : ampoule (module 21 astuces) pivotee de 8deg sens horaire, PC et telephone */
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: rotate(8deg) !important; transform-origin: center bottom !important; }
+
+/* yma-ampoule-rotation-2 : ampoule (module 21 astuces) pivotee encore un tout petit peu (8 -> 12deg sens horaire) et un peu plus a gauche, PC et telephone */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: rotate(12deg) !important; right: 52px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: rotate(12deg) !important; right: 38px !important; }
+}
