@@ -876,3 +876,9 @@ body::before {
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: rotate(-10deg) !important; transform-origin: center bottom !important; }
 
 /* yma-ordre-capcut : CapCut (id 26) passe en position 6, 30 niches (id 15) en position 7, titre decale suit CapCut */
+
+/* yma-capcut-logo-v9 : logo CapCut (module 07) sans rotation CSS (image deja penchee) et un tout petit peu plus petit, PC et telephone */
+[data-yma="yma-capcut-logo"] { transform: none !important; width: 185px !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-capcut-logo"] { transform: none !important; width: 146px !important; }
+}
