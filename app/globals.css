@@ -954,3 +954,9 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { right: 40px !important; }
 }
+
+/* yma-capcut-logo-v22 : logo CapCut (module 06) un peu plus bas (bottom 16 -> 10px), PC et telephone */
+[data-yma="yma-capcut-logo"] { bottom: 10px !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-capcut-logo"] { bottom: 8px !important; }
+}
