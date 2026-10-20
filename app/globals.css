@@ -906,3 +906,9 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { transform: rotate(-15deg) !important; transform-origin: center bottom !important; width: 158px !important; right: -4px !important; bottom: -4px !important; }
 }
+
+/* yma-capcut-logo-v14 : logo CapCut (module 07) pivote dans le sens inverse (+15deg, sens horaire) et plus petit (200 -> 150px), PC et telephone */
+[data-yma="yma-capcut-logo"] { transform: rotate(15deg) !important; transform-origin: center bottom !important; width: 150px !important; }
+@media (max-width: 767px) {
+  [data-yma="yma-capcut-logo"] { transform: rotate(15deg) !important; transform-origin: center bottom !important; width: 118px !important; }
+}
