@@ -801,3 +801,8 @@ body::before {
 
 /* yma-titre-anonyme : titre ANONYME (module 08) decale a 14px comme CAPCUT et MONTAGE, PC et telephone */
 [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-13.png"]) .yma-word { margin-left: 14px !important; }
+
+/* yma-titres-10-11-12 : titres POSTER (10), CHAINE (11) et ANALYSE (12) decales a 14px comme ANONYME, PC et telephone */
+.grid > *:nth-child(10) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
+.grid > *:nth-child(11) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
+.grid > *:nth-child(12) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 14px !important; }
