@@ -1006,3 +1006,6 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-25.png"] { bottom: 10px !important; }
 }
+
+/* yma-titre-rpm-4 : titre RPM (14) decale a 54px (etait 44px), PC et telephone */
+.grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 54px !important; }
