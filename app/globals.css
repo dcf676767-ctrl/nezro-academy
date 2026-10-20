@@ -1057,3 +1057,11 @@ body::before {
 
 /* yma-fleche-droite : fleche RPM (module 20) pivotee de 12deg vers la droite (sens horaire), miroir et zoom 1.15 gardes, PC et telephone */
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: rotate(12deg) scaleX(-1) rotate(-10deg) scale(1.15) !important; transform-origin: center bottom !important; }
+
+/* yma-mobile-v7 : TELEPHONE UNIQUEMENT (le PC ne change pas). Titre RPM aligne a gauche, fleche RPM remontee et reduite (plus coupee), carnet 30 niches reduit et descendu (ne touche plus le titre), icone Poster un peu reduite */
+@media (max-width: 767px) {
+  .grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 0 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: translate(-14px, -14px) rotate(12deg) scaleX(-1) rotate(-10deg) scale(0.9) !important; transform-origin: center bottom !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { transform: translateY(12px) scaleX(-1) scale(0.8) !important; transform-origin: center bottom !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { transform: translateY(14px) scale(1.05) !important; transform-origin: center bottom !important; }
+}
