@@ -814,3 +814,7 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { right: 40px !important; }
 }
+
+/* yma-leve-poster-anonyme : fleche (module 10) et cagoule (module 08) 8px plus haut, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"],
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-13.png"] { bottom: 8px !important; }
