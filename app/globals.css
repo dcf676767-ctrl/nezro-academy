@@ -1009,3 +1009,6 @@ body::before {
 
 /* yma-titre-rpm-4 : titre RPM (14) decale a 54px (etait 44px), PC et telephone */
 .grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 54px !important; }
+
+/* yma-fleche-rpm-miroir : fleche RPM (module 20) retournee en miroir horizontal (pointe de l'autre cote), meme taille et meme place, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: scaleX(-1) rotate(-10deg) scale(1.15) !important; transform-origin: center bottom !important; }
