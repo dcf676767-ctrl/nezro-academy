@@ -998,3 +998,11 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: none !important; right: 28px !important; }
 }
+
+/* yma-analyse-haut : graphique en barres (module 25 analyse) un peu plus haut (bottom 14px PC, 10px telephone) */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-25.png"] { bottom: 14px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-25.png"] { bottom: 10px !important; }
+}
