@@ -989,3 +989,12 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: rotate(12deg) !important; right: 38px !important; }
 }
+
+/* yma-fleche-ampoule-droite : fleche RPM (module 20) 15% plus grande (rotation -10deg gardee), ampoule astuces (module 21) redressee sans rotation et remise a sa position d'avant, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: rotate(-10deg) scale(1.15) !important; transform-origin: center bottom !important; }
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: none !important; right: 40px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: none !important; right: 28px !important; }
+}
