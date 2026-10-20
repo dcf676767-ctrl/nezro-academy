@@ -785,7 +785,7 @@ body::before {
 }
 
 /* yma-titre-capcut : titre CAPCUT (module 07) decale a 14px comme MONTAGE, PC et telephone */
-.grid > *:nth-child(7) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 14px !important; }
+.grid > *:nth-child(6) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 14px !important; }
 
 /* yma-capcut-logo-v7 : logo CapCut (module 07) un tout petit peu plus bas et plus a droite, PC et telephone */
 [data-yma="yma-capcut-logo"] { bottom: -4px !important; right: 4px !important; }
@@ -874,3 +874,5 @@ body::before {
 /* yma-titre-rpm-3 : titre RPM (14) decale a 44px (etait 34px) et courbe (module 20) penchee de 10deg sens anti-horaire, PC et telephone */
 .grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 44px !important; }
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: rotate(-10deg) !important; transform-origin: center bottom !important; }
+
+/* yma-ordre-capcut : CapCut (id 26) passe en position 6, 30 niches (id 15) en position 7, titre decale suit CapCut */
