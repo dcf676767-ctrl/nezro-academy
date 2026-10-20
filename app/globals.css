@@ -978,3 +978,6 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { right: 30px !important; }
 }
+
+/* yma-ampoule-rotation : ampoule (module 21 astuces) pivotee de 8deg sens horaire, PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { transform: rotate(8deg) !important; transform-origin: center bottom !important; }
