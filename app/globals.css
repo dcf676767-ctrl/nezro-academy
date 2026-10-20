@@ -1019,3 +1019,7 @@ body::before {
 
 /* yma-carnet-miroir : carnet (module 15, 30 niches) retourne en miroir horizontal et agrandi (0.85 -> 1.0), PC et telephone */
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { transform: scaleX(-1) scale(1) !important; transform-origin: center bottom !important; }
+
+/* yma-carnet-haut-fleche-retour : carnet (module 15) un tout petit peu plus haut (-6px, miroir garde), fleche RPM (module 20) remise dans son sens d'avant (sans miroir), PC et telephone */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { transform: translateY(-6px) scaleX(-1) scale(1) !important; transform-origin: center bottom !important; }
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { transform: rotate(-10deg) scale(1.15) !important; transform-origin: center bottom !important; }
