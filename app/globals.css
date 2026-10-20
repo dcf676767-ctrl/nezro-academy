@@ -821,3 +821,11 @@ body::before {
 
 /* yma-cagoule-bas : cagoule (module 08) remise collee en bas comme avant, PC et telephone */
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-13.png"] { bottom: 0 !important; }
+
+/* yma-chaine-youtube : bouton YouTube (module 11) plus haut, un peu plus petit et un peu plus a droite, PC et telephone */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-24.png"] { height: 60% !important; max-width: 38% !important; right: 16px !important; bottom: 8px !important; }
+}
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-24.png"] { height: 60% !important; max-width: 38% !important; right: 10px !important; bottom: 8px !important; }
+}
