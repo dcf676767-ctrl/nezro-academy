@@ -1144,3 +1144,14 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-26.png"] { display: none !important; }
 }
+
+/* yma-mobile-v17 : TELEPHONE UNIQUEMENT (le PC ne change pas). 30 niches carnet plus haut et un peu plus petit ; Anonyme +5px droite ; Montage -5px haut ; Chaine logo +10px haut ; Monetisation billets +8px bas ; RPM fleche plus grande ; Astuces ampoule +12px droite */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { translate: 10px -20px !important; scale: 1.06 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-13.png"] { translate: 17px 0 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-16.png"] { translate: 12px -5px !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-24.png"] { translate: -12px -10px !important; scale: 1.05 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-19.png"] { translate: 10px 12px !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { scale: 1.3 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { translate: 22px 0 !important; }
+}
