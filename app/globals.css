@@ -1085,3 +1085,14 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-top: 6px !important; }
 }
+
+/* yma-mobile-v11 : TELEPHONE UNIQUEMENT (le PC ne change pas). Titre INTRODUCTION monte (6px -> -4px), titres BASES / OUTILS / NICHE / CAPCUT a la taille de MINDSET (3.7rem), cible Bases un peu a droite (+14px), marteau Outils un peu a gauche (-16px) */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-top: -4px !important; }
+  .grid > *:nth-child(3) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
+  .grid > *:nth-child(4) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
+  .grid > *:nth-child(5) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word,
+  .grid > *:nth-child(6) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { font-size: 3.7rem !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-12.png"] { translate: 14px 0 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { translate: -16px 0 !important; }
+}
