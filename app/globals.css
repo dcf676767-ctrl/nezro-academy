@@ -1075,3 +1075,8 @@ body::before {
 @media (min-width: 768px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-19.png"] { transform: translate(-20px, 36px) scale(1.35) !important; transform-origin: center bottom !important; }
 }
+
+/* yma-mobile-v9 : TELEPHONE UNIQUEMENT (le PC ne change pas). Cerveau Mindset (module 11) un peu plus a droite (+14px), la toque Introduction n'est pas touchee */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-11.png"] { translate: 14px 0 !important; }
+}
