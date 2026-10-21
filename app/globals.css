@@ -1096,3 +1096,10 @@ body::before {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-12.png"] { translate: 14px 0 !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { translate: -16px 0 !important; }
 }
+
+/* yma-mobile-v12 : TELEPHONE UNIQUEMENT (le PC ne change pas). Tous les titres au meme niveau que MINDSET (meme hauteur de ligne 3.7rem et meme marge du haut, tailles inchangees), INTRODUCTION descendu de 3px (-4 -> -1), marteau Outils un peu plus a droite (-16px -> -6px) */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:not(:has(img[src$="module-10.png"])) .yma-word { line-height: 3.7rem !important; margin-top: 6px !important; }
+  [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-top: -1px !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { translate: -6px 0 !important; }
+}
