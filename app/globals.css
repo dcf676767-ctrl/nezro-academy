@@ -1103,3 +1103,16 @@ body::before {
   [data-yma="yma-mini-test"][data-yma="yma-mini-test"]:has(img[src$="module-10.png"]) .yma-word { margin-top: -1px !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-18.png"] { translate: -6px 0 !important; }
 }
+
+/* yma-mobile-v13 : TELEPHONE UNIQUEMENT (le PC ne change pas). TOUS les titres (INTRODUCTION compris) dans une boite de meme hauteur que MINDSET (3.7rem), texte centre dedans, meme marge du haut : meme niveau pour tous, tailles et decalages horizontaux inchanges */
+@media (max-width: 767px) {
+  .grid > *:nth-child(n) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word {
+    display: flex !important;
+    align-items: center !important;
+    height: 3.7rem !important;
+    min-height: 3.7rem !important;
+    line-height: 1 !important;
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+  }
+}
