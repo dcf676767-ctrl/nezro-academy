@@ -1070,3 +1070,8 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-22.png"] { height: 56% !important; max-width: 40% !important; right: 20px !important; bottom: 0 !important; }
 }
+
+/* yma-billets-bas-2 : billets verts (module 19 monetisation) un peu plus bas sur PC seulement (+30px -> +36px), meme zoom 1.35 et meme decalage a gauche, telephone inchange */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-19.png"] { transform: translate(-20px, 36px) scale(1.35) !important; transform-origin: center bottom !important; }
+}
