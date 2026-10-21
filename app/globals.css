@@ -1116,3 +1116,10 @@ body::before {
     margin-bottom: 0 !important;
   }
 }
+
+/* yma-mobile-v14 : TELEPHONE UNIQUEMENT (le PC ne change pas). TOUS les titres au meme endroit a gauche que MINDSET (marge gauche 16px). Hauteur et tailles inchangees */
+@media (max-width: 767px) {
+  .grid > *:nth-child(n) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word {
+    margin-left: 16px !important;
+  }
+}
