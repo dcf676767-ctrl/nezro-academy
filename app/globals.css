@@ -1139,3 +1139,8 @@ body::before {
   .grid > *:nth-child(13) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { font-size: 3rem !important; }
   .grid > *:nth-child(14) [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-left: 30px !important; }
 }
+
+/* yma-mobile-v16 : TELEPHONE UNIQUEMENT (le PC ne change pas). Cache l'image cassee (icone ?) de la carte CapCut : module-26.png n'existe pas, le vrai logo CapCut est un autre element et reste affiche */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-26.png"] { display: none !important; }
+}
