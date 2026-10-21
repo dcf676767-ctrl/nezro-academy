@@ -1080,3 +1080,8 @@ body::before {
 @media (max-width: 767px) {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-11.png"] { translate: 14px 0 !important; }
 }
+
+/* yma-mobile-v10 : TELEPHONE UNIQUEMENT (le PC ne change pas). Tous les titres de modules a la meme hauteur que INTRODUCTION : meme marge du haut (6px), INTRODUCTION remonte de 14px a 6px. Tailles et decalages horizontaux inchanges */
+@media (max-width: 767px) {
+  [data-yma="yma-mini-test"][data-yma="yma-mini-test"] .yma-word { margin-top: 6px !important; }
+}
