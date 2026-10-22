@@ -1155,3 +1155,6 @@ body::before {
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-20.png"] { scale: 1.3 !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-21.png"] { translate: 22px 0 !important; }
 }
+
+/* yma-capcut-image-morte : cache l'image cassee (icone ?) de la carte CapCut (module-26.png n'existe pas), PC et telephone. Le vrai logo CapCut reste affiche */
+[data-yma="yma-mini-test"] .yma-mini-img[src$="module-26.png"] { display: none !important; }
