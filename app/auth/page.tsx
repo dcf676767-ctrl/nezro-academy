@@ -70,8 +70,7 @@ export default function Auth() {
             <div className="relative mb-4">
               <div className="absolute -inset-8 bg-blue-500 blur-3xl opacity-50 rounded-full" />
               <div className="relative w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-0">
-                <span className="font-bold text-3xl leading-none">N</span>
-                <span className="font-semibold text-[7px] leading-none tracking-wide">Nezro Academy</span>
+                <span className="font-bold text-5xl leading-none">N</span>
               </div>
             </div>
             <h1 className="text-xl font-bold text-white mt-2">Complète ton profil</h1>
@@ -139,8 +138,7 @@ export default function Auth() {
             <div className="absolute -inset-8 bg-blue-500 blur-3xl opacity-50 rounded-full" />
             <div className="absolute -inset-4 bg-blue-400 blur-2xl opacity-30 rounded-full" />
             <div className="relative w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl flex flex-col items-center justify-center text-white shadow-lg shadow-blue-600/50 gap-1">
-              <span className="font-bold text-4xl leading-none">N</span>
-              <span className="font-semibold text-[9px] leading-none tracking-wide">Nezro Academy</span>
+              <span className="font-bold text-6xl leading-none">N</span>
             </div>
           </div>
           <h1 className="text-3xl font-bold text-white mt-2">Nezro Academy</h1>
