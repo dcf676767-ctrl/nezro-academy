@@ -65,7 +65,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   ]},
   16:{titre:"Montage CapCut sur téléphone et PC",chapitres:[
     {id:1,titre:"Exemple de montage sur téléphone",duree:"8min33",videoId:"68lnqQcazYs",description:"",liens:[{label:"SnapTik - Télécharger vidéos TikTok",url:"https://snaptik.app/en3"},{label:"YTDown - Télécharger vidéos YouTube",url:"https://app.ytdown.to/en38/"}]},
-    {id:2,titre:"Exemple de montage sur PC",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:2,titre:"Exemple de montage sur PC",duree:"8min28",videoId:"VR5ItVpoNbo",description:"Dans cette vidéo, je te montre un exemple concret de montage sur PC avec CapCut, étape par étape. Regarde-la en suivant sur ton ordinateur, et refais les mêmes gestes sur ta propre vidéo."},
     {id:3,titre:"Analyse de niches anonymes",duree:"5min52",videoId:"OjdFG22ivLQ",description:""},
   ]},
   17:{titre:"Commencer à poster",chapitres:[
