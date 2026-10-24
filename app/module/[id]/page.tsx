@@ -69,7 +69,7 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
     {id:3,titre:"Analyse de niches anonymes",duree:"5min52",videoId:"OjdFG22ivLQ",description:""},
   ]},
   17:{titre:"Commencer à poster",chapitres:[
-    {id:1,titre:"Créer et chauffer son compte",duree:"-",videoId:"",description:"Contenu à venir."},
+    {id:1,titre:"Créer et chauffer son compte",duree:"2min57",videoId:"0lKsPkwA2GM",description:"Dans cette vidéo, tu vois comment créer ton compte et le préparer avant de publier tes premières vidéos. Regarde-la jusqu'à la fin et applique chaque étape sur ton propre compte."},
     {id:2,titre:"Importation, Publication et problème de droit d'auteur sur YouTube",duree:"-",videoId:"",description:"Contenu à venir."},
     {id:3,titre:"Outils importation automatique",duree:"0min33",videoId:"g7A0YA1jqgg",description:"",liens:[
       {label:"Repurpose.io",url:"https://repurpose.io/?fpr=545571"},
