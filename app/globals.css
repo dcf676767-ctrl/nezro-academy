@@ -1158,3 +1158,8 @@ body::before {
 
 /* yma-capcut-image-morte : cache l'image cassee (icone ?) de la carte CapCut (module-26.png n'existe pas), PC et telephone. Le vrai logo CapCut reste affiche */
 [data-yma="yma-mini-test"] .yma-mini-img[src$="module-26.png"] { display: none !important; }
+
+/* yma-carnet-pc : decale le carnet de la carte 30 niches vers la droite, PC seulement (768px et plus) */
+@media (min-width: 768px) {
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { translate: 16px 0 !important; }
+}
