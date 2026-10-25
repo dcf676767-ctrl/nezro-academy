@@ -1127,7 +1127,7 @@ body::before {
 /* yma-mobile-v15 : TELEPHONE UNIQUEMENT (le PC ne change pas). CapCut logo +10px droite ; 30 niches carnet monte/droite/+12% ; Anonyme +12px droite ; Montage +12px droite ; Poster +12px droite +5% ; Chaine -12px gauche +5% ; Analyse +12px droite +5% ; Monetisation titre 3rem (comme Introduction) et billets plus bas/droite ; RPM titre +14px droite et fleche +15% ; Astuces ampoule +10px droite */
 @media (max-width: 767px) {
   [data-yma="yma-capcut-logo"] { right: 20px !important; }
-  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { translate: 10px -10px !important; scale: 1.12 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { translate: 22px -10px !important; scale: 1.12 !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-13.png"] { translate: 12px 0 !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-16.png"] { translate: 12px 0 !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-17.png"] { translate: 12px 0 !important; scale: 1.05 !important; }
@@ -1147,7 +1147,7 @@ body::before {
 
 /* yma-mobile-v17 : TELEPHONE UNIQUEMENT (le PC ne change pas). 30 niches carnet plus haut et un peu plus petit ; Anonyme +5px droite ; Montage -5px haut ; Chaine logo +10px haut ; Monetisation billets +8px bas ; RPM fleche plus grande ; Astuces ampoule +12px droite */
 @media (max-width: 767px) {
-  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { translate: 10px -20px !important; scale: 1.06 !important; }
+  [data-yma="yma-mini-test"] .yma-mini-img[src$="module-15.png"] { translate: 22px -20px !important; scale: 1.06 !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-13.png"] { translate: 17px 0 !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-16.png"] { translate: 12px -5px !important; }
   [data-yma="yma-mini-test"] .yma-mini-img[src$="module-24.png"] { translate: -12px -10px !important; scale: 1.05 !important; }
