@@ -192,7 +192,7 @@ export default function Programme() {
                     </div>
                   )}
                   
-                  {mod.id === 10 && (
+                  {mod.id === 10 && Object.keys(progression).length > 0 && progression[10] !== 100 && (
                     <div style={{position:"absolute", inset:0, overflow:"hidden", zIndex:1, pointerEvents:"none"}}>
                       {[...Array(28)].map((_,i) => {
                         const colors = ["#f472b6","#facc15","#34d399","#60a5fa","#f87171","#a78bfa","#fb923c","#ffffff"];
