@@ -28,8 +28,8 @@ export const metadata: Metadata = {
    },
   applicationName: "Nezro Academy",
   title: "Nezro Academy | Crée et monétise ta chaîne YouTube anonyme",
-  description: "Nezro Academy est la plateforme de formation YMA (YouTube Money Academy) : apprends à créer du contenu anonyme, monter tes vidéos et développer ta chaîne YouTube.",
-  openGraph: { siteName: "Nezro Academy", title: "Nezro Academy | Crée et monétise ta chaîne YouTube anonyme", description: "La plateforme de formation YMA : contenu anonyme, montage, niches et monétisation YouTube.", locale: "fr_FR", type: "website" },
+  description: "Nezro Academy est la plateforme YMA (YouTube Money Academy) : apprends à créer du contenu anonyme, monter tes vidéos et développer ta chaîne YouTube.",
+  openGraph: { siteName: "Nezro Academy", title: "Nezro Academy | Crée et monétise ta chaîne YouTube anonyme", description: "La plateforme YMA : contenu anonyme, montage, niches et monétisation YouTube.", locale: "fr_FR", type: "website" },
 };
 
 export default function RootLayout({
