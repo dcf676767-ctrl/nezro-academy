@@ -16,7 +16,7 @@ function useAuth() {
 }
 import { useState } from "react";
 
-const categories = ["Tout", "IA & Outils", "Montage", "Croissance", "Monétisation", "Inspiration", "Design", "Audio", "Analytics", "Formation"];
+const categories = ["Tout", "IA & Outils", "Montage", "Croissance", "Monétisation", "Inspiration", "Design", "Audio", "Analytics", "Programme"];
 
 const ressources = [
   // IA & Outils
@@ -61,13 +61,13 @@ const ressources = [
   { titre: "Semrush", desc: "SEO complet pour dominer les recherches.", lien: "https://semrush.com", emoji: "🎯", cat: "Croissance", badge: "Payant" },
 
   // Monétisation
-  { titre: "Gumroad", desc: "Vends tes formations, presets et ebooks facilement.", lien: "https://gumroad.com", emoji: "💰", cat: "Monétisation", badge: "Gratuit" },
+  { titre: "Gumroad", desc: "Vends tes programmes, presets et ebooks facilement.", lien: "https://gumroad.com", emoji: "💰", cat: "Monétisation", badge: "Gratuit" },
   { titre: "Beacons.ai", desc: "Crée ta page de liens et vends tes produits.", lien: "https://beacons.ai", emoji: "🔗", cat: "Monétisation", badge: "Freemium" },
   { titre: "Patreon", desc: "Crée un abonnement pour tes fans les plus fidèles.", lien: "https://patreon.com", emoji: "❤️", cat: "Monétisation", badge: "Gratuit" },
   { titre: "Ko-fi", desc: "Reçois des dons et vends des produits numériques.", lien: "https://ko-fi.com", emoji: "☕", cat: "Monétisation", badge: "Gratuit" },
-  { titre: "Teachable", desc: "Crée et vends ta propre formation en ligne.", lien: "https://teachable.com", emoji: "🎓", cat: "Monétisation", badge: "Freemium" },
-  { titre: "Podia", desc: "Plateforme tout-en-un pour vendre des formations.", lien: "https://podia.com", emoji: "🏪", cat: "Monétisation", badge: "Payant" },
-  { titre: "Skool", desc: "Crée ta communauté payante avec formation intégrée.", lien: "https://skool.com", emoji: "🏫", cat: "Monétisation", badge: "Payant" },
+  { titre: "Teachable", desc: "Crée et vends ta propre programme en ligne.", lien: "https://teachable.com", emoji: "🎓", cat: "Monétisation", badge: "Freemium" },
+  { titre: "Podia", desc: "Plateforme tout-en-un pour vendre des programmes.", lien: "https://podia.com", emoji: "🏪", cat: "Monétisation", badge: "Payant" },
+  { titre: "Skool", desc: "Crée ta communauté payante avec programme intégrée.", lien: "https://skool.com", emoji: "🏫", cat: "Monétisation", badge: "Payant" },
   { titre: "Stan Store", desc: "Vends tes produits directement depuis tes réseaux.", lien: "https://stanstore.com", emoji: "⭐", cat: "Monétisation", badge: "Payant" },
   { titre: "Stripe", desc: "Accepte les paiements en ligne facilement.", lien: "https://stripe.com", emoji: "💳", cat: "Monétisation", badge: "Gratuit" },
   { titre: "YouTube BrandConnect", desc: "Connecte-toi avec des marques pour des sponsors.", lien: "https://youtube.com/brandconnect", emoji: "🤝", cat: "Monétisation", badge: "Gratuit" },
@@ -117,12 +117,12 @@ const ressources = [
   { titre: "Checkmark (Newsletter)", desc: "Newsletter hebdo sur la croissance YouTube.", lien: "https://newsletter.vidiq.com", emoji: "✉️", cat: "Inspiration", badge: "Gratuit" },
   { titre: "Creator Economy Report", desc: "Les dernières tendances de la creator economy.", lien: "https://creatoreconomy.so", emoji: "🌍", cat: "Inspiration", badge: "Gratuit" },
 
-  // Formation
-  { titre: "YouTube Creator Academy", desc: "Formation officielle YouTube pour créateurs.", lien: "https://creatoracademy.youtube.com", emoji: "🎓", cat: "Formation", badge: "Gratuit" },
-  { titre: "Skillshare", desc: "Des milliers de cours sur la vidéo et le montage.", lien: "https://skillshare.com", emoji: "📖", cat: "Formation", badge: "Payant" },
-  { titre: "Udemy - YouTube Marketing", desc: "Cours complets sur la croissance YouTube.", lien: "https://udemy.com/courses/search/?q=youtube", emoji: "🎯", cat: "Formation", badge: "Payant" },
-  { titre: "Coursera", desc: "Cours certifiés sur le marketing digital.", lien: "https://coursera.org", emoji: "🏫", cat: "Formation", badge: "Freemium" },
-  { titre: "HubSpot Academy", desc: "Certifications gratuites en marketing.", lien: "https://academy.hubspot.com", emoji: "🏆", cat: "Formation", badge: "Gratuit" },
+  // Programme
+  { titre: "YouTube Creator Academy", desc: "Programme officielle YouTube pour créateurs.", lien: "https://creatoracademy.youtube.com", emoji: "🎓", cat: "Programme", badge: "Gratuit" },
+  { titre: "Skillshare", desc: "Des milliers de cours sur la vidéo et le montage.", lien: "https://skillshare.com", emoji: "📖", cat: "Programme", badge: "Payant" },
+  { titre: "Udemy - YouTube Marketing", desc: "Cours complets sur la croissance YouTube.", lien: "https://udemy.com/courses/search/?q=youtube", emoji: "🎯", cat: "Programme", badge: "Payant" },
+  { titre: "Coursera", desc: "Cours certifiés sur le marketing digital.", lien: "https://coursera.org", emoji: "🏫", cat: "Programme", badge: "Freemium" },
+  { titre: "HubSpot Academy", desc: "Certifications gratuites en marketing.", lien: "https://academy.hubspot.com", emoji: "🏆", cat: "Programme", badge: "Gratuit" },
 ];
 
 const badgeColor: any = {

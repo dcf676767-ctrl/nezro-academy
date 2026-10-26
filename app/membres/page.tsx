@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 
-const badges = ["🚀 En formation", "⚡ Actif", "🎯 Motivé", "🔥 En progression", "💪 Déterminé", "⭐ Engagé"];
+const badges = ["🚀 En programme", "⚡ Actif", "🎯 Motivé", "🔥 En progression", "💪 Déterminé", "⭐ Engagé"];
 
 export default function Membres() {
   const [membres, setMembres] = useState<any[]>([]);

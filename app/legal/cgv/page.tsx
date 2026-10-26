@@ -17,7 +17,7 @@ export default function CGV() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">Article 2 — Présentation du Programme YMA</h2>
-            <p className="text-gray-400 leading-relaxed">Le Programme YMA — YouTube Money Academy est une formation en ligne destinée à accompagner les membres dans la création, le développement et l'amélioration d'une chaîne YouTube. La formation comprend notamment des modules vidéo expliquant différentes méthodes, techniques et stratégies liées à la création de contenu sur YouTube. Le Programme YMA a pour objectif de transmettre des connaissances et méthodes permettant aux membres de développer leurs propres projets sur YouTube. Les contenus proposés sont exclusivement pédagogiques.</p>
+            <p className="text-gray-400 leading-relaxed">Le Programme YMA — YouTube Money Academy est une programme en ligne destinée à accompagner les membres dans la création, le développement et l'amélioration d'une chaîne YouTube. La programme comprend notamment des modules vidéo expliquant différentes méthodes, techniques et stratégies liées à la création de contenu sur YouTube. Le Programme YMA a pour objectif de transmettre des connaissances et méthodes permettant aux membres de développer leurs propres projets sur YouTube. Les contenus proposés sont exclusivement pédagogiques.</p>
           </section>
 
           <section>
@@ -87,7 +87,7 @@ export default function CGV() {
               <li>transmettre ses identifiants</li>
               <li>revendre l'accès au programme</li>
               <li>copier ou redistribuer les contenus</li>
-              <li>commercialiser les méthodes sous forme de formation concurrente</li>
+              <li>commercialiser les méthodes sous forme de programme concurrente</li>
             </ul>
           </section>
 
@@ -131,7 +131,7 @@ export default function CGV() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">Article 15 — Absence de garantie de revenus</h2>
-            <p className="text-gray-400 mb-2">Le Programme YMA est une formation pédagogique. Aucun revenu, gain financier ou résultat économique n'est garanti. Les résultats dépendent notamment :</p>
+            <p className="text-gray-400 mb-2">Le Programme YMA est une programme pédagogique. Aucun revenu, gain financier ou résultat économique n'est garanti. Les résultats dépendent notamment :</p>
             <ul className="text-gray-400 list-disc pl-6 flex flex-col gap-1">
               <li>du travail fourni par le membre</li>
               <li>de sa régularité</li>

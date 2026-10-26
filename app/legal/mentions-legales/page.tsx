@@ -39,7 +39,7 @@ export default function MentionsLegales() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">3. Nature du site</h2>
-            <p className="text-gray-400 leading-relaxed">Nezro Academy est une plateforme privée de formation en ligne. L'accès est réservé aux personnes ayant acquis le Programme YMA via la plateforme Beacons. Aucun paiement n'est effectué directement sur ce site. Toutes les transactions sont réalisées via Beacons.</p>
+            <p className="text-gray-400 leading-relaxed">Nezro Academy est une plateforme privée de programme en ligne. L'accès est réservé aux personnes ayant acquis le Programme YMA via la plateforme Beacons. Aucun paiement n'est effectué directement sur ce site. Toutes les transactions sont réalisées via Beacons.</p>
           </section>
 
           <section>
@@ -61,7 +61,7 @@ export default function MentionsLegales() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-3">6. Données personnelles</h2>
-            <p className="text-gray-400 leading-relaxed">Les informations relatives à la collecte, au traitement et à la protection des données personnelles des membres sont disponibles dans la <a href="/legal/confidentialite" className="text-blue-400 hover:underline">Politique de confidentialité</a> de Nezro Academy.</p>
+            <p className="text-gray-400 leading-relaxed">Les inprogrammes relatives à la collecte, au traitement et à la protection des données personnelles des membres sont disponibles dans la <a href="/legal/confidentialite" className="text-blue-400 hover:underline">Politique de confidentialité</a> de Nezro Academy.</p>
           </section>
 
           <section>
@@ -71,7 +71,7 @@ export default function MentionsLegales() {
               <li>Les performances dépendent entièrement de l'investissement personnel de chaque membre.</li>
               <li>Les réponses générées par l'assistant IA peuvent contenir des erreurs ou être incomplètes. Elles ne constituent pas un conseil professionnel.</li>
               <li>Nezro Academy n'est pas responsable du contenu des sites externes vers lesquels des liens peuvent rediriger.</li>
-              <li>Les membres restent seuls responsables de l'utilisation qu'ils font des informations et ressources proposées sur la plateforme.</li>
+              <li>Les membres restent seuls responsables de l'utilisation qu'ils font des inprogrammes et ressources proposées sur la plateforme.</li>
             </ul>
           </section>
 
