@@ -9,7 +9,9 @@ const ratios: {[id:string]:string} = {
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
   8:{titre:"Niche GTA 6",chapitres:[
-    {id:1,titre:"Niche GTA 6",duree:"-",videoId:"",description:"Contenu secret en cours de préparation..."},
+    {id:1,titre:"Introduction Niche GTA 6",duree:"-",videoId:"",description:"Bienvenue dans le module Niche GTA 6 ! Découvre comment exploiter cette niche explosive."},
+    {id:2,titre:"Exemple de vidéos GTA 6",duree:"-",videoId:"",description:"Des exemples concrets de vidéos GTA 6 qui cartonnent sur TikTok et YouTube."},
+    {id:3,titre:"Présentation du montage d'une vidéo GTA 6",duree:"-",videoId:"",description:"Comment monter une vidéo GTA 6 de qualité, étape par étape."},
   ]},
   18:{titre:"Outils d'argent et de productivité",chapitres:[
     {id:1,titre:"Outils pour faire plus d'argent et être plus productif",duree:"3min35",videoId:"9YIjSqpT66U",description:"",liens:[
