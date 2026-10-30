@@ -9,7 +9,7 @@ const ratios: {[id:string]:string} = {
 
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
   8:{titre:"Niche GTA 6",chapitres:[
-    {id:1,titre:"Introduction Niche GTA 6",duree:"-",videoId:"",description:"Bienvenue dans le module Niche GTA 6 ! Découvre comment exploiter cette niche explosive."},
+    {id:1,titre:"Introduction Niche GTA 6",duree:"4min04",videoId:"MfUkqeRMH_4",description:"GTA 6 est une opportunité à saisir DÈS MAINTENANT ! Le jeu le plus attendu de tous les temps arrive, alors prends les devants sur les autres en postant déjà du contenu sur les réseaux pour gagner un maximum de cash !"},
     {id:2,titre:"Exemple de vidéos GTA 6",duree:"-",videoId:"",description:"Des exemples concrets de vidéos GTA 6 qui cartonnent sur TikTok et YouTube."},
     {id:3,titre:"Présentation du montage d'une vidéo GTA 6",duree:"-",videoId:"",description:"Comment monter une vidéo GTA 6 de qualité, étape par étape."},
   ]},
