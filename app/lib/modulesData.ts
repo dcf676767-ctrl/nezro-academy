@@ -16,7 +16,7 @@ export const MODULES = [
   { id: 21, titre: "Astuces", chapitres: 9 },
   { id: 22, titre: "Déclaration et compte AdSense", chapitres: 2 },
 
-  { id: 1, titre: "Niche Roblox", chapitres: 7 },
+  { id: 8, titre: "Niche GTA 6", chapitres: 3 }, { id: 1, titre: "Niche Roblox", chapitres: 7 },
 ];
 
 export const TOTAL_CHAPITRES = MODULES.reduce((sum, m) => sum + m.chapitres, 0);
