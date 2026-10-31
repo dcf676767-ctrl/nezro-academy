@@ -10,7 +10,7 @@ const ratios: {[id:string]:string} = {
 const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string;duree:string;videoId:string;description:string;lien?:string;lienlabel?:string;liens?:{label:string;url:string}[]}[]}} = {
   8:{titre:"Niche GTA 6",chapitres:[
     {id:1,titre:"Introduction Niche GTA 6",duree:"4min04",videoId:"MfUkqeRMH_4",description:"GTA 6 est une opportunité à saisir DÈS MAINTENANT ! Le jeu le plus attendu de tous les temps arrive, alors prends les devants sur les autres en postant déjà du contenu sur les réseaux pour gagner un maximum de cash !"},
-    {id:2,titre:"Exemple de vidéos GTA 6",duree:"-",videoId:"",description:"Des exemples concrets de vidéos GTA 6 qui cartonnent sur TikTok et YouTube."},
+    {id:2,titre:"3 exemples de vidéos GTA 6",duree:"-",videoId:"",description:"Regarde ces 3 exemples de vidéos GTA 6 qui cartonnent sur TikTok et YouTube. Prends exemple sur la chaîne ci-dessous pour trouver des idées de vidéos et comprendre comment fonctionnent les vidéos GTA 6.<br/><br/><a href=https://youtube.com/@adrgta target=_blank rel=noopener style=display:inline-block;padding-top:12px;padding-bottom:12px;padding-left:22px;padding-right:22px;background:#dc2626;color:white;border-radius:10px;font-weight:700;text-decoration:none>▶ Voir la chaîne YouTube @adrgta</a>"},
     {id:3,titre:"Présentation du montage d'une vidéo GTA 6",duree:"-",videoId:"",description:"Comment monter une vidéo GTA 6 de qualité, étape par étape."},
   ]},
   18:{titre:"Outils d'argent et de productivité",chapitres:[
