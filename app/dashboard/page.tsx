@@ -88,11 +88,7 @@ export default function Dashboard() {
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
             <p className="text-sm text-gray-400 mb-2">✅ Chapitres terminés</p>
             <p className="text-4xl font-bold text-green-400 mb-3">{chapitresFaits}/{TOTAL_CHAPITRES}</p>
-            <div className="flex gap-1">
-              {Array.from({length: TOTAL_CHAPITRES}).map((_, i) => (
-                <div key={i} className="flex-1 h-2 rounded-full" style={{ background: i < chapitresFaits ? "#22c55e" : "#374151" }} />
-              ))}
-            </div>
+            <div className="h-2 rounded-full bg-gray-700"><div className="h-2 rounded-full transition-all" style={{width:`${Math.round((chapitresFaits/TOTAL_CHAPITRES)*100)}%`, background:"#22c55e"}} /></div>
             <p className="text-xs text-gray-500 mt-2">Vue d'ensemble du programme</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
