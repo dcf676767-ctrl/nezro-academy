@@ -296,7 +296,7 @@ export default function Module() {
         </div>
         <div className="flex flex-col md:flex-row gap-8">
           <div key={animKey} className="flex-1 chapitre-enter">
-            <div className="relative rounded-2xl video-box mb-6 overflow-hidden" style={{aspectRatio: ratios[chapitre.videoId] || "1.54"}}>
+            <div className="relative rounded-2xl video-box mb-6 overflow-hidden" style={{aspectRatio: ratios[chapitre.videoId] || "1.78"}}>
               
               {chapitre.videoId ? (
                 <iframe onLoad={ecouterVideo}
