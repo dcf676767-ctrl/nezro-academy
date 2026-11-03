@@ -301,7 +301,7 @@ export default function Module() {
               {chapitre.videoId ? (
                 <iframe onLoad={ecouterVideo}
                   src={`https://www.youtube.com/embed/${chapitre.videoId}?rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&enablejsapi=1`}
-                  className="w-full h-full" style={Number(moduleId) === 1 && chapitre.id !== 1 ? {transform:"scale(1.04)", transformOrigin:"bottom center"} : undefined}
+                  className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   allowFullScreen
                 />
