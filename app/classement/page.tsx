@@ -13,8 +13,8 @@ export default function Classement() {
       const scores = profiles.map(p => ({
         ...p,
         completed: prog.filter((x:any) => x.user_id === p.id).length,
-        pct: Math.round((prog.filter((x:any) => x.user_id === p.id).length / TOTAL_CHAPITRES) * 100)
-      })).sort((a,b) => b.pct - a.pct).slice(0, 30);
+        pct: Math.min(100, Math.round((prog.filter((x:any) => x.user_id === p.id).length / TOTAL_CHAPITRES) * 100))
+      })).sort((a,b) => b.completed - a.completed).slice(0, 30);
       setClassement(scores);
     };
     load();
