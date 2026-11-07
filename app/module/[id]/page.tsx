@@ -119,9 +119,9 @@ const modulesData: {[key:number]:{titre:string;chapitres:{id:number;titre:string
   1:{titre:"Niche Roblox",chapitres:[
     {id:1,titre:"Introduction Niche Roblox",duree:"0min59",videoId:"_YYnR4Xd1tc",description:"Programme Exclusive : La Niche YouTube qui m'a Rapporté +5000€ et 10 Millions de Vues\n\n📚 Ce que contient ce programme :\n\n✅ La Niche Révélée : Ma niche secrète qui génère des millions de vues\n✅ Montage Viral : Les techniques exactes de montage pour maximiser la rétention (durée optimale, rythme, hooks)\n✅ Intelligence Artificielle : Comment j'utilise l'IA pour produire du contenu de qualité en un temps record\n✅ YouTube Studio Décrypté : Tous les réglages et astuces pour monétiser et optimiser vos vidéos comme un pro\n✅ Importation 4K + TikTok : La méthode pour exporter en 4K sur YouTube ET recycler sur TikTok pour multiplier votre trafic\n✅ Astuces Avancées : Mes secrets sur la monétisation, l'algorithme YouTube, et les pièges à éviter absolument"},
     {id:2,titre:"Clips Roblox",duree:"2min43",videoId:"AfBGwpyU34o",description:"Comment trouver les meilleurs clips Roblox.",lien:"https://www.roblox.com/share?code=2e18c279d8ce9e4dadb9cace848fbff3&type=ExperienceDetails&stamp=1783802571761",lienlabel:"🎮 LIEN DU JEU"},
-    {id:3,titre:"Montage Roblox",duree:"9min28",videoId:"NgB9adi-TvE",description:"Les bases du montage vidéo."},
-    {id:4,titre:"IA Roblox",duree:"7min18",videoId:"a0Zb9OroXAo",description:"",liens:[{label:"Ouvrir Adobe Firefly",url:"https://firefly.adobe.com/?promoid=QBWYP7ZW&mv=other&ff_channel=adobe_com&ff_campaign=ffly_pep&ff_source=firefly_seo&media=featured"}]},
-    {id:5,titre:"Importation Roblox sur TikTok et YouTube",duree:"4min47",videoId:"TevV2AHKUoY",description:"Comment publier sur YouTube."},
+    {id:3,titre:"Exemple de montage vidéo Roblox",duree:"9min28",videoId:"NgB9adi-TvE",description:"Les bases du montage vidéo."},
+    {id:4,titre:"Généré animal IA",duree:"7min18",videoId:"a0Zb9OroXAo",description:"",liens:[{label:"Ouvrir Adobe Firefly",url:"https://firefly.adobe.com/?promoid=QBWYP7ZW&mv=other&ff_channel=adobe_com&ff_campaign=ffly_pep&ff_source=firefly_seo&media=featured"}]},
+    {id:5,titre:"Importation sur TikTok et YouTube",duree:"4min47",videoId:"TevV2AHKUoY",description:"Comment publier sur YouTube."},
     {id:6,titre:"Analyse Rétention YouTube",duree:"1min01",videoId:"xR-6iIjF-vg",description:"Mes astuces miniatures."},
     {id:7,titre:"Analyse Rétention TikTok",duree:"0min32",videoId:"aw_XMVGTBmw",description:"Comment rester consistant."},
   ]},
