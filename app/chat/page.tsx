@@ -173,7 +173,7 @@ export default function Chat() {
                       <div className="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
                         {profiles[msg.sender_id]?.avatar_url ? <img src={profiles[msg.sender_id].avatar_url} className="w-full h-full object-cover" /> : profiles[msg.sender_id]?.nom?.[0]?.toUpperCase() || "?"}
                       </div>
-                      <div className={`max-w-[78%] md:max-w-sm min-w-0 flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}>
+                      <div className={`relative max-w-[78%] md:max-w-sm min-w-0 flex flex-col gap-1 ${isMe ? "items-end" : "items-start"}`}>
                         <div className={`flex items-center gap-1 ${isMe ? "flex-row-reverse" : ""}`}>
                           {msg.image_url ? (
                             <img src={msg.image_url} className="max-w-[200px] max-h-64 object-cover md:max-w-xs rounded-2xl border border-gray-700 cursor-pointer" onClick={() => window.open(msg.image_url)} />
@@ -198,7 +198,7 @@ export default function Chat() {
                               </button>
                             );
                           })}
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity flex gap-1">
+                          <div className={`absolute -top-7 ${isMe ? "right-0" : "left-0"} z-10 hidden group-hover:flex gap-1`}>
                             {["❤️","🔥","👍","🎉"].filter(emoji => !reactions.some(r => r.message_id === msg.id && r.emoji === emoji)).map(emoji => (
                               <button key={emoji} onClick={() => toggleReaction(msg.id, emoji)} className="text-xs px-1.5 py-0.5 rounded-full border bg-gray-800 border-gray-700 hover:bg-gray-700">{emoji}</button>
                             ))}
